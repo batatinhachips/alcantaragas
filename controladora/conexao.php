@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "hostdeprojetos_alcantaragas";
+$username = "ifhostgru_alcantaragas";
 $password= "webwebifsp";
-$dbname = "hostdeprojetos_alcantaragas";
+$dbname = "ifhostgru_alcantaragas";
 
 //criação da conexão
 $conn = new mysqli ($servername, $username, $password, $dbname);
