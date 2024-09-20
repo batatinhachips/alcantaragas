@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar se um arquivo de imagem foi enviado
     if ($_FILES["imagem"]["error"] == 0) {
         // Diretório onde você deseja armazenar as imagens (ajuste conforme necessário)
-        $diretorio_destino = "../recursos/imagens/";
+        $diretorio_destino = "public_html/alcagas/recursos/imagens/";
 
         // Nome do arquivo da imagem
         $nome_arquivo = basename($_FILES["imagem"]["name"]);

@@ -27,7 +27,7 @@
     <main>
     <div class="cadastro-sucesso">
       <div class="login-title text-center">
-        <a href="/">
+        <a href="index.php">
           <img src="../recursos/imagens/logo_nav.png" alt="Logo" class="logo">
         </a>
         <h1>Cadastro realizado com sucesso!</h1>

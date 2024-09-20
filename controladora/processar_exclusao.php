@@ -1,7 +1,7 @@
 <?php
-include '../controladora/conexao.php';
-include '../modelo/produtos.php';
-include '../repositorio/produtos_repositorio.php';
+include '..\controladora\conexao.php';
+include '..\modelo\produtos.php';
+include '..\repositorio\produtos_repositorio.php';
 
 $produtosRepositorio = new produtoRepositorio($conn);
 

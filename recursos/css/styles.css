@@ -15,13 +15,9 @@ body {
   box-sizing: border-box;
 }
 
-#demo{
-  padding-top: 6.625rem;
-}
-
 /* Carousel */
 .carousel-image {
-  aspect-ratio: 16/9;
+  height: 80vh;
   object-fit: cover;
   filter: brightness(50%);
 }
@@ -125,6 +121,8 @@ body {
 
 .card.custom-card img {
   width: 100%;
+  height: 300px; /* Define uma altura fixa para a imagem */
+  object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
 }
 
 .custom-card-body {

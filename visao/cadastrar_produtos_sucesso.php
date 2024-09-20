@@ -44,7 +44,7 @@ $produtos = $produtosRepositorio->buscarTodos();
     </button>
 
     <div class="login-title text-center">
-      <a href="/">
+      <a href="index.php">
         <img src="../recursos/imagens/logo_nav.png" alt="Logo" class="logo">
       </a>
       <h1>PRODUTO CADASTRADO COM SUCESSO!</h1>
