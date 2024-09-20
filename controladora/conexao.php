@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "ifhostgru_alcantaragas";
-$password= "webwebifsp";
+$password= "alcantaragas";
 $dbname = "ifhostgru_alcantaragas";
 
 //criação da conexão
