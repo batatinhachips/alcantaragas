@@ -29,7 +29,7 @@
   </a>
   <main>
     <div class="login-title cadastro-page text-center">
-      <a href="index.php">
+      <a href="/">
         <img src="../recursos/imagens/logo_nav.png" alt="Logo" class="logo">
       </a>
       <h1>CADASTRO</h1>

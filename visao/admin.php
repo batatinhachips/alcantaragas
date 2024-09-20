@@ -42,7 +42,7 @@ $produtos = $produtosRepositorio->buscarTodos();
   <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
     <div class="container-fluid">
       <!-- NAVBAR -->
-      <a class="navbar-brand" href="../index.php">
+      <a class="navbar-brand" href="/">
         <img src="../recursos/imagens/logo_nav.png" alt="Logo da Empresa" style="height: 40px;">
       </a>
       <!-- BOTAO PARA EXIBIR O MENU EM TELAS MENORES -->

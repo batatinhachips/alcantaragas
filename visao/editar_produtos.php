@@ -37,7 +37,7 @@ $produtos = $produtosRepositorio->buscarTodos();
 
 <body>
 <div class="login-title text-center">
-      <a href="index.php">
+      <a href="/">
         <img src="../recursos/imagens/logo_nav.png" alt="Logo" class="logo">
       </a>
       <h1>EDITAR PRODUTO</h1>

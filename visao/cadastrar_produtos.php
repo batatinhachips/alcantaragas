@@ -55,7 +55,7 @@
   <body class="login_bg">
   <main>
     <div class="login-title text-center">
-      <a href="index.php">
+      <a href="/">
         <img src="../recursos/imagens/logo_nav.png" alt="Logo" class="logo">
       </a>
       <h1>CADASTRAR PRODUTO</h1>

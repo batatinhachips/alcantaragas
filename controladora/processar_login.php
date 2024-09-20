@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["usuario"] = $usuario["email"];
         $_SESSION["nome_usuario"] = $usuario["nome"];
         $_SESSION["papel"] = $usuario["papel"];
-        header("Location: ../visao/index.php");
+        header("Location: /");
         exit;
     } else {
         header("Location: ../visao/formLogin.php?erro=1");
