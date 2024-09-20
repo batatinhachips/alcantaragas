@@ -1,0 +1,202 @@
+/* CSS Geral */
+html, body {
+  height: 100%;
+  margin: 0; 
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-image: url('../imagens/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.login-title {
+  margin-top: 10vh;
+  margin-bottom: 1vh;
+  text-align: center;
+}
+
+.login-title .logo {
+  width: 70vw;
+  margin-bottom: 4vh;
+}
+
+.login-title h1 {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.btn-custom-primary {
+  background-color: #28a745;
+  color: #ffffff;
+  border-radius: 20px;
+  width: 180px;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container-form {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+
+.btn-custom-primary:hover {
+  background-color: #fff;
+  color: #28a745;
+}
+
+.section-title {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.section-title h2 {
+  font-weight: 700;
+}
+
+.custom-container {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5vh;
+  box-sizing: border-box;
+}
+
+body::after {
+  content: "";
+  display: block;
+  height: 1px;
+}
+
+.custom-input {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.custom-input::placeholder {
+  font-size: 0.875rem; /* Tamanho menor do texto */
+  color: #aaa; /* Cor mais clara */
+}
+
+.botao-cadastrar {
+  background-color: #1D826E;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.75rem;
+  width: 100%;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.botao-cadastrar:hover {
+  background-color: #d0a700;
+  color: black;
+  font-weight: 500;
+}
+
+/* Adaptações para Navbar */
+.navbar-custom {
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-brand img {
+  height: 40px;
+}
+
+/* Ajustes gerais */
+.titulo-campo {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333333;
+}
+
+input[type="file"] {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+input[type="submit"] {
+  background-color: #1D826E;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.75rem;
+  width: 100%;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #d0a700;
+  color: black;
+  font-weight: 500;
+}
+
+/* Estiliza o formulário para ter uma largura maior e centralizar */
+.formulario-edicao {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+/* Estiliza os campos do formulário */
+.formulario-edicao .custom-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Estilo para o botão de salvar edições */
+.botao-salvar-edicoes {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  margin-top: 1rem;
+}
+
+.botao-salvar-edicoes:hover {
+  background-color: #034a17;
+  color: #ffffff;
+}
+
