@@ -27,7 +27,7 @@ session_start();
 
 <?php
 include 'controladora/conexao.php';
-include 'modelo/produtos.php';
+// include 'modelo/produtos.php';
 include 'repositorio/produtos_repositorio.php';
 include "controladora/autenticacao.php";
 
