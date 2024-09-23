@@ -1,5 +1,5 @@
 <?php
-class produto {
+class Produto {
     /* private $conn; //Sua conexão com o banco de dados */
     private ?int $id;
     private string $nome;
