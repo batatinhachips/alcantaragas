@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<?php
-session_start();
-?>
-
 <head>
   <title>Alcântara Gás</title>
 
