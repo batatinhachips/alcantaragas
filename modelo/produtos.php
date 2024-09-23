@@ -28,12 +28,11 @@ class produto {
 
 
     public function __construct(
-        ?int $id,
-
-        string $nome,
-        string $descricao,
-        string $imagem = "logo.png",
-        string $preco)
+       $id,
+        $nome,
+        $descricao,
+        $imagem = "logo.png",
+        $preco)
 
     {
         $this->id = $id;
