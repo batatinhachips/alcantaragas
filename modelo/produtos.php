@@ -120,7 +120,7 @@ class produto {
     {
         return $this->imagem;
     }
-    public function getImagemDiretorio(): string
+    public function getImagemDiretorio()
     {
         return "../recursos/img/".$this->imagem;
     }
