@@ -1,6 +1,7 @@
 <?php
 class Usuario {
     private $conn;
+    private $id;
     private $nome;
     private $email;
     private $senha;
@@ -14,8 +15,12 @@ class Usuario {
     private $bairro;
     private $cidade;
     
-    function __construct($conn) {
-        $this->conn = $conn;
+    function __construct($id, $nome, $email, $senha, $papel) {
+        $this->id = $id;
+        $this->nome = $nome;
+        $this->email = $email;
+        $this->senha = $senha;
+        $this->papel = $papel;
     }
 
     // Getters e Setters

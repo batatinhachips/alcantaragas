@@ -28,7 +28,7 @@ class produto {
 
 
     public function __construct(
-       $id,
+        $id,
         $nome,
         $descricao,
         $imagem = "logo.png",

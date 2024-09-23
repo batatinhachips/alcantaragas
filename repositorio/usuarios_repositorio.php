@@ -12,10 +12,10 @@ class usuarioRepositorio{
         $sql = "INSERT INTO usuario (nome, email, senha, papel) VALUES (?, ?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("ssss",
-            $usuario->getNome(),
-            $usuario->getEmail(),
-            $usuario->getSenha(),
-            $usuario->getPapel(),
+            $usuario->get_nome(),
+            $usuario->get_email(),
+            $usuario->get_senha(),
+            $usuario->get_papel(),
     );
        // Executa a consulta preparada e verifica o sucesso
        $success = $stmt->execute();
