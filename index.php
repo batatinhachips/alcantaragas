@@ -22,10 +22,10 @@
 </head>
 
 <?php
-include 'controladora/conexao.php';
-include 'modelo/produtos.php';
-include 'repositorio/produtos_repositorio.php';
-include "controladora/autenticacao.php";
+include_once './controladora/conexao.php';
+include_once './modelo/produtos.php';
+include_once './repositorio/produtos_repositorio.php';
+include_once "./controladora/autenticacao.php";
 
 
 $produtosRepositorio = new produtoRepositorio($conn);
