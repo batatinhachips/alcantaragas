@@ -1,11 +1,11 @@
 <?php
 class produto {
     /* private $conn; //Sua conexão com o banco de dados */
-    private ?int $id;
-    private string $nome;
-    private string $descricao;
-    private string $preco;
-    private string $imagem;
+    private  $id;
+    private  $nome;
+    private  $descricao;
+    private  $preco;
+    private  $imagem;
 
     /* public funciton __construct($conn) {
         $this->conn = $conn;
