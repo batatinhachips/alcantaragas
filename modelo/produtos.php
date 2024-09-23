@@ -1,7 +1,7 @@
 <?php
 class produto {
     /* private $conn; //Sua conexão com o banco de dados */
-    private int $id;
+    private ?int $id;
     private string $nome;
     private string $descricao;
     private string $preco;
