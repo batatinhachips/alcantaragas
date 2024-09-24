@@ -2,11 +2,6 @@
 include "../controladora/autenticacao.php";
 include "../controladora/conexao.php";
 
-    if (isset($_SESSION["erro"])) {
-    echo "<p style='color: red;'>" . $_SESSION["erro"] . "</p>";
-    unset($_SESSION["erro"]); // Limpa a mensagem após exibi-la
-}
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
