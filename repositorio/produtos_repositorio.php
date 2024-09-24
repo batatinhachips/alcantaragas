@@ -42,7 +42,7 @@ class produtoRepositorio{
                     $row['nome'],
                     $row['descricao'],
                     $row['imagem'],
-                    $row['preco'],
+                    $row['preco']
 
                 );
                 $produtos[] = $produto;
