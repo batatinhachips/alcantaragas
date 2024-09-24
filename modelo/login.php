@@ -15,9 +15,13 @@ class Usuario {
     private $bairro;
     private $cidade;
     
-    function __construct($conn) {
-        $this->conn = $conn;
-    }
+    function __construct(
+    $id,
+    $nome,
+    $email,
+    $senha,
+    $papel
+    ) 
 
 
     // Getters e Setters
