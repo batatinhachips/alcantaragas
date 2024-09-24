@@ -20,12 +20,6 @@
 
   <title>LOGIN</title>
 </head>
-  <?php
-    if (isset($_SESSION["erro"])) {
-    echo "<p style='color: red;'>" . $_SESSION["erro"] . "</p>";
-    unset($_SESSION["erro"]); // Limpa a mensagem após exibi-la
-}
-      ?>
 <body class="login_bg">
   <!-- Botão do WhatsApp -->
   <a id="robbu-whatsapp-button" target="_white" href="https://api.whatsapp.com/send?phone=5511958780556&text=Ol%C3%A1,%20eu%20gostaria%20de%20fazer%20um%20pedido!%0AProduto(s):%0AQuantidade:%0AMeu%20endere%C3%A7o:%0AMeu%20nome:%0ARetirar%20ou%20entrega:">
