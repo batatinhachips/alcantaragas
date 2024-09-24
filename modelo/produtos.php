@@ -7,34 +7,6 @@ class produto {
     private  $preco;
     private  $imagem;
 
-    /* public funciton __construct($conn) {
-        $this->conn = $conn;
-    } 
-
-    public function listarProdutos(){
-        $sql = "SELECT * FROM cafe";
-        $result = $this->conn->query($sql);
-    
-    $produtos = array();
-
-    if ($result->num_rows > 0){
-        while ($row = $result->fetch_assoc()){
-            $produtos[]= $row;
-        }
-    }
-    return $produtos;
-}
-*/
-
-
-    public function __construct(
-        $id,
-        $nome,
-        $descricao,
-        $preco,
-        $imagem = "logo.png"
-
-    )
 
     {
         $this->id = $id;
@@ -139,6 +111,15 @@ class produto {
 
         return $this;
     }
+
+        public function __construct(
+        $id,
+        $nome,
+        $descricao,
+        $preco,
+        $imagem = "logo.png"
+
+    )
 }
 
 ?>
