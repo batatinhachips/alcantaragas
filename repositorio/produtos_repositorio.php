@@ -10,15 +10,18 @@ class produtoRepositorio{
 
     public function cadastrar(produto $produto){
 
-        echo $produto->getNome();
-        
+        $nome = $produto->getNome();
+        $descricao = $produto->getDescricao();
+        $imagem = $produto->getImagem();
+        $preco = $produto->getPreco();
+
         $sql = "INSERT INTO produtos (nome, descricao, imagem, preco) VALUES (?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("ssss",
-            $produto->getNome(),
-            $produto->getDescricao(),
-            $produto->getImagem(),
-            $produto->getPreco()
+            $nome,
+            $descricao,
+            $imagem,
+            $preco
     );
        // Executa a consulta preparada e verifica o sucesso
        $success = $stmt->execute();
