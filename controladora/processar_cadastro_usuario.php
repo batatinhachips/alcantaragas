@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../visao/cadastrarcliente_sucesso.php");
         exit();
     } else {
-        echo "Erro ao cadastrar. Tente novamente.";
+        echo "Erro ao cadastrar. Tente novamente." . $_SESSION["erro]";
     }
 }
 ?>
