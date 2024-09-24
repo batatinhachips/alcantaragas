@@ -28,7 +28,7 @@ class usuarioRepositorio{
 
     }
 
-    public function buscarTodos()
+    /* public function buscarTodos()
     {
         $sql = "SELECT * FROM usuario ORDER BY papel asc";
         $result = $this->conn->query($sql);
@@ -106,5 +106,5 @@ class usuarioRepositorio{
         $stmt->close();
 
         return $success;
-    }
+    } */
 }
