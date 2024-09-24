@@ -27,11 +27,6 @@ include_once './modelo/produtos.php';
 include_once './repositorio/produtos_repositorio.php';
 include_once "./controladora/autenticacao.php";
 
-
-session_start();
-session_unset(); // Limpa todas as variáveis de sessão
-session_destroy(); // Destrói a sessão
-
 $produtosRepositorio = new produtoRepositorio($conn);
 $produtos = $produtosRepositorio->buscarTodos();
 ?>
