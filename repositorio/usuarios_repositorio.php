@@ -15,7 +15,7 @@ class usuarioRepositorio{
             $usuario->get_nome(),
             $usuario->get_email(),
             $usuario->get_senha(),
-            $usuario->get_papel()
+            $usuario->get_papel(),
         );
        // Executa a consulta preparada e verifica o sucesso
        $success = $stmt->execute();
