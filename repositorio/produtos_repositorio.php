@@ -9,6 +9,9 @@ class produtoRepositorio{
     }
 
     public function cadastrar(produto $produto){
+
+        echo $produto->getNome();
+        
         $sql = "INSERT INTO produtos (nome, descricao, imagem, preco) VALUES (?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("ssss",
