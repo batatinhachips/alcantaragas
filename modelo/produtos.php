@@ -31,8 +31,10 @@ class produto {
         $id,
         $nome,
         $descricao,
-        $imagem = "logo.png",
-        $preco)
+        $preco,
+        $imagem = "logo.png"
+
+    )
 
     {
         $this->id = $id;
