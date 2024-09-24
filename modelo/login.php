@@ -112,8 +112,20 @@ class Usuario {
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param('ssssiiississ', $nome, $email, $senha, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade);
+        
         // Execute a query e retorne verdadeiro se bem-sucedido
         return $stmt->execute();
-    }
+    } 
+    // Método para cadastrar adm
+    public function cadastrarAdm($nome, $email, $senha, $papel) {
+        // Prepare a query para evitar SQL Injection
+        $sql = "INSERT INTO usuario (nome, email, senha, papel) 
+                VALUES (?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param('ssss', $nome, $email, $senha, $papel,);
+        
+        // Execute a query e retorne verdadeiro se bem-sucedido
+        return $stmt->execute();
+    } 
 }
 ?>
