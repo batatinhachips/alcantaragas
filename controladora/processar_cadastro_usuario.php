@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
          // Cadastrar o usuário
-        if ($usuario->cadastrar($nome, $email, $senha_hash, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade)) {
+        if ($usuario->cadastrarAdm($nome, $email, $senha, $papel)) {
             // Redirecionar para a página de sucesso após o cadastro
             header("Location: ../visao/cadastrarcliente_sucesso.php");
             exit();
