@@ -8,6 +8,14 @@ class produto {
     private  $imagem;
 
 
+        public function __construct(
+        $id,
+        $nome,
+        $descricao,
+        $preco,
+        $imagem = "logo.png"
+
+    )
     {
         $this->id = $id;
         $this->nome = $nome;
@@ -112,14 +120,6 @@ class produto {
         return $this;
     }
 
-        public function __construct(
-        $id,
-        $nome,
-        $descricao,
-        $preco,
-        $imagem = "logo.png"
-
-    )
 }
 
 ?>
