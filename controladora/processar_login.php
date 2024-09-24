@@ -21,4 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 }
+
+    if (isset($_SESSION["erro"])) {
+    echo "<p style='color: red;'>" . $_SESSION["erro"] . "</p>";
+    unset($_SESSION["erro"]); // Limpa a mensagem após exibi-la
+}
 ?>
