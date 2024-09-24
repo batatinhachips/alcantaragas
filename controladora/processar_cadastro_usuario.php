@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $numero = $_POST["numero"];
     $bairro = $_POST["bairro"];
     $cidade = $_POST["cidade"];
-    $admin = $_POST["papel"];
+    $admin = $_POST["$papel"];
 
 
     // Validação básica
