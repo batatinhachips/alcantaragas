@@ -15,7 +15,7 @@ class produtoRepositorio{
             $produto->getNome(),
             $produto->getDescricao(),
             $produto->getImagem(),
-            $produto->getPreco(),
+            $produto->getPreco()
     );
        // Executa a consulta preparada e verifica o sucesso
        $success = $stmt->execute();
