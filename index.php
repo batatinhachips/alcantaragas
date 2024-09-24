@@ -28,8 +28,6 @@ include_once './modelo/produtos.php';
 include_once './repositorio/produtos_repositorio.php';
 include_once "./controladora/autenticacao.php";
 
-print_r($_SESSION);
-
 $produtosRepositorio = new produtoRepositorio($conn);
 $produtos = $produtosRepositorio->buscarTodos();
 ?>
