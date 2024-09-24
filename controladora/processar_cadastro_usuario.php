@@ -47,8 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Redirecionar para a página de sucesso após o cadastro
         header("Location: ../visao/cadastrarcliente_sucesso.php");
         exit();
-    } else {
-        echo "Erro ao cadastrar. Tente novamente." . $_SESSION["erro]";
+    } /* else { */
+        /* echo "Erro ao cadastrar. Tente novamente." . $_SESSION["erro]"; */
+        if (isset($_SESSION["erro"])) {
+    echo "<p style='color: red;'>" . $_SESSION["erro"] . "</p>";
     }
 }
 ?>
