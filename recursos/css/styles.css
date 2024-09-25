@@ -462,13 +462,13 @@ h2, .section-contact h3 {
   display: block;
 }
 #robbu-whatsapp-button {
+  border-radius: 50%; /* Torna o botão circular */
   position: fixed; /* Mantém o botão fixo na tela */
   bottom: 2rem; /* Distância do fundo da tela */
   right: 2rem; /* Distância da direita da tela */
   z-index: 1000; /* Garante que o botão esteja sempre visível */
   width: 60px; /* Largura do botão */
   height: 60px; /* Altura do botão */
-  border-radius: 50%; /* Torna o botão circular */
   background-color: #25D366; /* Cor do fundo do botão */
   display: flex; /* Usado para centralizar o ícone */
   justify-content: center; /* Centraliza horizontalmente */
@@ -486,7 +486,7 @@ h2, .section-contact h3 {
   right: 0;
   background-color: #fff; /* Fundo branco */
   color: #333; /* Cor do texto */
-  padding: 0.5rem; /* Espaçamento interno */
+  padding: 3.0rem; /* Espaçamento interno */
   border-radius: 0.5rem; /* Bordas arredondadas */
   display: none; /* Escondido por padrão */
   font-size: 0.9rem; /* Tamanho do texto */
@@ -507,4 +507,8 @@ h2, .section-contact h3 {
   .rwb-tooltip {
     font-size: 0.8rem; /* Tamanho do texto para dispositivos menores */
   }
+}
+
+.whatsapp {
+  border-radius: 25px; /* Ajuste o valor conforme desejado */
 }
