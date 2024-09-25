@@ -1,63 +1,115 @@
-<?php
-require_once '../modelo/login.php';
-require_once 'conexao.php'; // Certifique-se de que o caminho está correto
+<!doctype html>
+<html lang="pt-br">
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obter dados do formulário
-    $nome = trim($_POST["nome"]);
-    $email = trim($_POST["email"]);
-    $senha = $_POST["senha"];
-    $confirmarsenha = $_POST["confirmarsenha"];
-    $papel = $_POST["papel"];
-    $cpf = isset($_POST["cpf"]) ? trim($_POST["cpf"]) : null;
-    $telefone = isset($_POST["telefone"]) ? trim($_POST["telefone"]) : null;
-    $cep = isset($_POST["cep"]) ? trim($_POST["cep"]) : null;
-    $logradouro = isset($_POST["logradouro"]) ? trim($_POST["logradouro"]) : null;
-    $complemento = isset($_POST["complemento"]) ? trim($_POST["complemento"]) : null;
-    $numero = isset($_POST["numero"]) ? trim($_POST["numero"]) : null;
-    $bairro = isset($_POST["bairro"]) ? trim($_POST["bairro"]) : null;
-    $cidade = isset($_POST["cidade"]) ? trim($_POST["cidade"]) : null;
-
-    // Validação básica
-    $erros = [];
-    if (empty($nome) || empty($email) || empty($senha) || empty($confirmarsenha) || empty($papel)) {
-        $erros[] = "Todos os campos são obrigatórios.";
+  <!-- LINKS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../recursos/css/login.css">
+  <link href="../recursos/imagens/icon.png" rel="icon">
+  <title>CADASTRAR NOVO ADMIN</title>
+  
+  <style>
+    .invalid-feedback {
+      display: none;
     }
-
-    if ($senha !== $confirmarsenha) {
-        $erros[] = "As senhas não coincidem.";
+    .is-invalid ~ .invalid-feedback {
+      display: block;
     }
+  </style>
+</head>
 
-    $papel_valido = ['admin', 'usuario'];
-    if (!in_array($papel, $papel_valido)) {
-        $erros[] = "Papel inválido.";
-    }
+<body class="login_bg">
+  <main>
+    <div class="login-title text-center">
+      <a href="/">
+        <img src="../recursos/imagens/logo_nav.png" alt="Logo" class="logo">
+      </a>
+      <h1>CADASTRO DE ADMINISTRADOR</h1>
+    </div>
+    <div class="container container-form-login mt-5" id="login-form">
+      <form id="admin-form" method="post" action="../controladora/processar_cadastro_usuario.php">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" class="form-control" id="nome" placeholder="Digite o nome do admin" name="nome" required>
+          <div class="invalid-feedback">O nome deve conter apenas letras.</div>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" class="form-control" id="email" placeholder="Digite o e-mail do admin" name="email" required>
+          <div class="invalid-feedback">E-mail inválido.</div>
+        </div>
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input type="password" class="form-control" id="senha" placeholder="Digite a senha do admin" name="senha" required>
+          <div class="invalid-feedback">A senha deve ter no mínimo 6 caracteres, incluindo letras e números.</div>
+        </div>
+        <div class="form-group">
+          <label for="confirmarsenha">Confirmar Senha</label>
+          <input type="password" class="form-control" id="confirmarsenha" placeholder="Confirme a senha do admin" name="confirmarsenha" required>
+          <div class="invalid-feedback">As senhas não coincidem.</div>
+        </div>
+        <!-- Campo oculto para definir o papel como 'admin' -->
+        <input type="hidden" name="papel" value="admin">
+        <button type="submit" class="btn btn-custom-primary btn-block">Cadastrar</button>
+      </form>
+    </div>
+  </main>
 
-    if (!empty($erros)) {
-        header("Location: ../visao/cadastro.php?erro=" . urlencode(implode(", ", $erros)));
-        exit();
-    }
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById('admin-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      var nome = document.getElementById('nome');
+      var email = document.getElementById('email');
+      var senha = document.getElementById('senha');
+      var confirmarSenha = document.getElementById('confirmarsenha');
+      var valid = true;
 
-    // Instanciar a classe Usuario com a conexão
-    $usuario = new Usuario($conn);
+      // Clear previous validation
+      document.querySelectorAll('.form-control').forEach(function(input) {
+        input.classList.remove('is-invalid');
+      });
+      document.querySelectorAll('.invalid-feedback').forEach(function(feedback) {
+        feedback.style.display = 'none';
+      });
 
-    // Cadastrar usuário ou administrador
-    $resultado = $usuario->cadastrar($nome, $email, $senha, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade);
+      // Validate Nome
+      var nomeValue = nome.value.trim();
+      if (nomeValue && !/^[a-zA-Z\s]+$/.test(nomeValue)) {
+        nome.classList.add('is-invalid');
+        nome.nextElementSibling.style.display = 'block';
+        valid = false;
+      }
 
-    if ($resultado === true) {
-        // Redirecionar para a página de sucesso com base no papel
-        if ($papel === "admin") {
-            header("Location: ../visao/cadastraradmin_sucesso.php");
-        } else {
-            header("Location: ../visao/cadastrarcliente_sucesso.php");
-        }
-        exit();
-    } else {
-        echo "Erro ao cadastrar usuário: " . $resultado;
-    }
-}
-?>
+      // Validate Senha
+      var senhaValue = senha.value.trim();
+      if (senhaValue && (senhaValue.length < 6 || !/[a-zA-Z]/.test(senhaValue) || !/\d/.test(senhaValue))) {
+        senha.classList.add('is-invalid');
+        senha.nextElementSibling.style.display = 'block';
+        valid = false;
+      }
+
+      // Validate Confirmar Senha
+      if (senhaValue && confirmarSenha.value.trim() !== senhaValue) {
+        confirmarSenha.classList.add('is-invalid');
+        confirmarSenha.nextElementSibling.style.display = 'block';
+        valid = false;
+      }
+
+      if (valid) {
+        this.submit();
+      }
+    });
+  </script>
+</body>
+</html>
