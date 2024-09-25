@@ -14,9 +14,7 @@ body {
 }
 
 .carousel {
-  max-width: 75rem; /* Largura máxima em rem */
-  margin: 0 auto; /* Centraliza o carrossel */
-  height: 37.5rem; /* Ajuste conforme necessário */
+  margin-top: 0; /* Certifique-se de que o carrossel não tenha margem superior */
 }
 
 * {
@@ -346,9 +344,8 @@ h2, .section-contact h3 {
 
 /* Rodapé */
 #footer {
-  max-width: 75rem; /* Largura máxima em rem */
-  margin: 0 auto; /* Centraliza o footer */
-  padding: 3rem 1rem; /* Ajuste o preenchimento conforme necessário */
+  background: #e1bd00;
+  padding: 3rem 0; /* Ajuste em rem */
   color: #fff;
   font-size: 1.4rem; /* Ajuste em rem */
   text-align: center;
@@ -443,7 +440,6 @@ h2, .section-contact h3 {
   padding: 2rem; /* Ajuste em rem */
   border-radius: 0.5rem; /* Ajuste em rem */
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
-  max-width: 18.75rem; /* Limita a largura do menu em rem */
 }
 
 .menu .user-name {
