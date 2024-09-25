@@ -80,12 +80,16 @@ body.login_bg {
 /* Estilo para o logo no título do login */
 .login-title .logo {
     width: 100%;
-    max-width: 25rem; /* Ajuste a largura máxima da logo para telas grandes */
+    max-width: 35rem; /* Aumentei a largura máxima da logo */
+    height: auto; /* Mantém a proporção */
     margin-bottom: 4rem;
 }
 
 /* Estilo para o logo na página de cadastro */
 .cadastro-page .logo {
+    width: 100%;
+    max-width: 35rem; /* Aumentei a largura máxima da logo */
+    height: auto; /* Mantém a proporção */
     margin-bottom: 1rem; 
 }
 
@@ -178,29 +182,20 @@ form.mt-3 {
 }
 
 /* Media Queries para responsividade */
-@media (max-width: 48rem) { /* Aproximadamente 768px */
-    .container-form, .container-form-login {
-        max-width: 95%; /* Aumentei a largura para ocupar mais espaço em telas pequenas */
-        padding: 1.5rem;
-    }
-
+@media (max-width: 48rem) {
     .login-title .logo, .cadastro-page .logo {
         width: 90%;
+        max-width: 90%; /* Aumenta a largura em telas pequenas */
     }
 }
 
-@media (max-width: 30rem) { /* Aproximadamente 480px */
+@media (max-width: 30rem) {
     .login-title h1, .cadastro-page h1 {
         font-size: 1.5rem;
     }
     
     .login-title .logo, .cadastro-page .logo {
         width: 100%;
-        max-width: 20rem; /* Ajustei a largura máxima da logo em telas muito pequenas */
-    }
-
-    .container-form, .container-form-login {
-        max-width: 100%; /* Removei as margens laterais no celular para aproveitar o espaço */
-        padding: 1rem;
+        max-width: 25rem; /* Ajustei a largura máxima da logo em telas muito pequenas */
     }
 }
