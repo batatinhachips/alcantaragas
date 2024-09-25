@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha_hash = password_hash($senha, PASSWORD_BCRYPT);
 
     // Criar uma instância da classe Usuario
-    $usuario = new Usuario($conn);
+    
         //cadastrar admin
         if ($usuario->cadastrar($nome, $email, $senha_hash, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade)) {
             // Redirecionar para a página de sucesso após o cadastro
