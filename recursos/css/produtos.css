@@ -26,9 +26,18 @@ body {
 }
 
 .login-title .logo {
-  width: 90vw;
-  max-width: 18.75rem; /* 300px */
+  width: 70vw; /* Aumentado para ser mais visível */
+  max-width: 20rem; /* Ajuste se necessário */
   margin-bottom: 1rem; /* Espaço entre logo e título */
+}
+
+.btn-voltar {
+  margin-top: 1rem; /* Aumentar margem superior */
+}
+
+/* Estilo para o botão "Voltar" */
+.btn-dark {
+  margin: 1rem; /* Margem para garantir que o botão tenha espaço */
 }
 
 .login-title h1 {
@@ -125,7 +134,7 @@ body::after {
 /* Adaptações para Navbar */
 .navbar-custom {
   background-color: transparent;
-  padding: 0.3125rem 0.625rem; /* 0.5rem 1rem */
+  padding: 0.625rem; /* Aumentado para melhorar a visualização no mobile */
 }
 
 .navbar-nav {
