@@ -461,3 +461,49 @@ h2, .section-contact h3 {
 .menu.show {
   display: block;
 }
+#robbu-whatsapp-button {
+  position: fixed; /* Mantém o botão fixo na tela */
+  bottom: 2rem; /* Distância do fundo da tela */
+  right: 2rem; /* Distância da direita da tela */
+  z-index: 1000; /* Garante que o botão esteja sempre visível */
+  width: 60px; /* Largura do botão */
+  height: 60px; /* Altura do botão */
+  border-radius: 50%; /* Torna o botão circular */
+  background-color: #25D366; /* Cor do fundo do botão */
+  display: flex; /* Usado para centralizar o ícone */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  transition: transform 0.3s; /* Efeito ao passar o mouse */
+}
+
+#robbu-whatsapp-button:hover {
+  transform: scale(1.1); /* Aumenta o botão ao passar o mouse */
+}
+
+.rwb-tooltip {
+  position: absolute; /* Para posicionar corretamente */
+  bottom: 70px; /* Acima do botão */
+  right: 0;
+  background-color: #fff; /* Fundo branco */
+  color: #333; /* Cor do texto */
+  padding: 0.5rem; /* Espaçamento interno */
+  border-radius: 0.5rem; /* Bordas arredondadas */
+  display: none; /* Escondido por padrão */
+  font-size: 0.9rem; /* Tamanho do texto */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+#robbu-whatsapp-button:hover .rwb-tooltip {
+  display: block; /* Mostra tooltip ao passar o mouse */
+}
+
+@media (max-width: 576px) {
+  #robbu-whatsapp-button {
+    width: 50px; /* Largura para dispositivos menores */
+    height: 50px; /* Altura para dispositivos menores */
+  }
+
+  .rwb-tooltip {
+    font-size: 0.8rem; /* Tamanho do texto para dispositivos menores */
+  }
+}
