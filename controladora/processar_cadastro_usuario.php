@@ -1,6 +1,7 @@
 <?php
 require_once '../modelo/login.php';
 require_once '../controladora/conexao.php';
+require_once './conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST["nome"];
