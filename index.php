@@ -47,7 +47,7 @@ $produtos = $produtosRepositorio->buscarTodos();
       </a>
 
       <!-- Links de navegação e botões -->
-      <div class="collapse navbar" id="navbarNav">
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto d-flex align-items-center">
           <li class="nav-item">
             <a class="nav-link active" href="#">Home</a>
