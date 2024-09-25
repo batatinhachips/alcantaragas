@@ -51,7 +51,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  border-radius: 0.9rem; /* Ajuste em rem */
+  border-radius: 2.0rem; /* Ajuste em rem */
   width: 11rem; /* Ajuste em rem */
   height: 5rem; /* Ajuste em rem */
   font-size: 1rem; /* Ajuste em rem */
@@ -502,7 +502,6 @@ h2, .section-contact h3 {
   #robbu-whatsapp-button {
     width: 50px; /* Largura para dispositivos menores */
     height: 50px; /* Altura para dispositivos menores */
-    border-radius: 50%;
   }
 
   .rwb-tooltip {
@@ -511,5 +510,5 @@ h2, .section-contact h3 {
 }
 
 .whatsapp {
-  border-radius: 25px; /* Ajuste o valor conforme desejado */
+  border-radius: 2.0rem; /* Ajuste o valor conforme desejado */
 }
