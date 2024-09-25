@@ -34,25 +34,25 @@
       <h1>CADASTRO DE ADMINISTRADOR</h1>
     </div>
     <div class="container container-form-login mt-5" id="login-form">
-      <form id="admin-form" method="post" action="../controladora/processar_cadastro_usuario.php">
+      <form id="user-form" method="post" action="../controladora/processar_cadastro_usuario.php">
         <div class="form-group">
           <label for="nome">Nome</label>
-          <input type="text" class="form-control" id="nome" placeholder="digite o nome do admin" name="nome" required>
+          <input type="text" class="form-control" id="nome" placeholder="Digite o nome do admin" name="nome" required>
           <div class="invalid-feedback">O nome deve conter apenas letras.</div>
         </div>
         <div class="form-group">
           <label for="email">E-mail</label>
-          <input type="email" class="form-control" id="email" placeholder="digite o e-mail do admin" name="email" required>
+          <input type="email" class="form-control" id="email" placeholder="Digite o e-mail do admin" name="email" required>
           <div class="invalid-feedback">E-mail inválido.</div>
         </div>
         <div class="form-group">
           <label for="senha">Senha</label>
-          <input type="password" class="form-control" id="senha" placeholder="digite a senha do admin" name="senha" required>
+          <input type="password" class="form-control" id="senha" placeholder="Digite a senha do admin" name="senha" required>
           <div class="invalid-feedback">A senha deve ter no mínimo 6 caracteres, incluindo letras e números.</div>
         </div>
         <div class="form-group">
           <label for="confirmarsenha">Confirmar Senha</label>
-          <input type="password" class="form-control" id="confirmarsenha" placeholder="confirme a senha do admin" name="confirmarsenha" required>
+          <input type="password" class="form-control" id="confirmarsenha" placeholder="Confirme a senha do admin" name="confirmarsenha" required>
           <div class="invalid-feedback">As senhas não coincidem.</div>
         </div>
         <!-- Campo oculto para definir o papel como 'admin' -->
@@ -66,7 +66,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
-    document.getElementById('admin-form').addEventListener('submit', function(event) {
+    document.getElementById('user-form').addEventListener('submit', function(event) {
       event.preventDefault();
       
       var nome = document.getElementById('nome');
