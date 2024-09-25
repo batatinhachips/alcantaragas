@@ -21,54 +21,36 @@
 
 <body>
 <main>
+<div class="login-title text-center">
+  <a href="/">
+    <img src="../recursos/imagens/logo_nav.png" alt="Logo" class="logo">
+  </a>
+  <h1>CADASTRAR PRODUTO</h1>
+</div>
+
 <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
-    <div class="container-fluid">
-      
-      <!-- BOTAO PARA EXIBIR O MENU EM TELAS MENORES -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      </div>
+<nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <!-- Ícone do Menu Hambúrguer -->
-      <div class="menu-icon" onclick="toggleMenu()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <!-- Menu Dropdown -->
-            <nav id="menu" class="menu" >
+    <!-- Menu Dropdown -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto d-flex align-items-center">
         <?php 
-            if (isset($_SESSION["nome_usuario"])) { 
-                echo "<div class='user-name'>" . $_SESSION["nome_usuario"] . "</div>";
-            }
+          if (isset($_SESSION["nome_usuario"])) { 
+            echo "<div class='user-name'>" . $_SESSION["nome_usuario"] . "</div>";
+          }
         ?>
-        <div class="dropdown-content">
-          <a class="btn btn-dark" href="admin.php" style="margin: 0.8rem;">Voltar</a>
-      </div>
+        <li class="nav-item">
+          <a class="btn btn-dark ms-auto" href="admin.php" style="margin-left: auto;">Voltar</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-      </nav>
-    </div>
-  </nav>
-  
-  <body class="login_bg">
-  <main>
-    <div class="login-title text-center">
-      <a href="/">
-        <img src="../recursos/imagens/logo_nav.png" alt="Logo" class="logo">
-      </a>
-      <h1>CADASTRAR PRODUTO</h1>
-    </div>
-
-      <!-- LINKS DE NAVEGACAO E BOTOES -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto d-flex align-items-center">
-        </ul>
-      </div>
-    </div>
-  </nav>
-<!-- FIM DA NAVBAR -->
 
 <section id="services" class="services">
   <div class="container" data-aos="fade-up">
