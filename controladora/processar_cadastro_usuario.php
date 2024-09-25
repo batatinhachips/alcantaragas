@@ -1,9 +1,9 @@
 <?php
 require_once '../modelo/login.php';
-require_once '../conexao.php'; // Corrigido o caminho
+require_once '../conexao.php'; // Certifique-se de que o caminho está correto
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obter dados do formulário e sanitizá-los
+    // Obter dados do formulário
     $nome = trim($_POST["nome"]);
     $email = trim($_POST["email"]);
     $senha = $_POST["senha"];
@@ -20,7 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validação básica
     $erros = [];
-
     if (empty($nome) || empty($email) || empty($senha) || empty($confirmarsenha) || empty($papel)) {
         $erros[] = "Todos os campos são obrigatórios.";
     }
@@ -29,31 +28,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $erros[] = "As senhas não coincidem.";
     }
 
-    // Verificar se o papel é válido
     $papel_valido = ['admin', 'usuario'];
     if (!in_array($papel, $papel_valido)) {
         $erros[] = "Papel inválido.";
     }
 
     if (!empty($erros)) {
-        // Redirecionar com erro
         header("Location: ../visao/cadastro.php?erro=" . urlencode(implode(", ", $erros)));
         exit();
     }
 
     // Criptografar a senha
     $senha_hash = password_hash($senha, PASSWORD_BCRYPT);
-
-    // Criar uma instância da classe Usuario
     $usuario = new Usuario(); // Certifique-se de que a classe Usuario está definida corretamente
 
-    // Cadastrar usuário
-    if ($usuario->cadastrar($nome, $email, $senha_hash, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade)) {
-        // Redirecionar para a página de sucesso após o cadastro
-        header("Location: ../visao/cadastrarcliente_sucesso.php");
-        exit();
+    // Cadastrar usuário ou administrador
+    if ($papel === "admin") {
+        // Cadastrar administrador
+        if ($usuario->cadastrarAdm($nome, $email, $senha_hash, $papel)) {
+            header("Location: ../visao/cadastrarcliente_sucesso.php");
+            exit();
+        } else {
+            echo "Erro ao cadastrar administrador. Tente novamente.";
+        }
     } else {
-        echo "Erro ao cadastrar. Tente novamente.";
+        // Cadastrar usuário normal
+        if ($usuario->cadastrar($nome, $email, $senha_hash, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade)) {
+            header("Location: ../visao/cadastrarcliente_sucesso.php");
+            exit();
+        } else {
+            echo "Erro ao cadastrar usuário. Tente novamente.";
+        }
     }
 }
 ?>
