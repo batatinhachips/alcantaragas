@@ -9,7 +9,7 @@ class Usuario {
     // Método para cadastrar um usuário
     public function cadastrar($nome, $email, $senha, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade) {
         try {
-            $sql = "INSERT INTO usuarios (nome, email, senha, papel, cpf, telefone, cep, logradouro, complemento, numero, bairro, cidade) 
+            $sql = "INSERT INTO usuario (nome, email, senha, papel, cpf, telefone, cep, logradouro, complemento, numero, bairro, cidade) 
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $this->conn->prepare($sql);
 
