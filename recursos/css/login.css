@@ -201,11 +201,10 @@ form.mt-3 {
     
     .login-title .logo, .cadastro-page .logo {
         width: 100%;
-        max-width: 15rem; /* Ajustei a largura máxima da logo em telas muito pequenas */
     }
 
     .container-form, .container-form-login {
-        max-width: 100%; /* Removei as margens laterais no celular para aproveitar o espaço */
+        max-width: 80%; /* Removei as margens laterais no celular para aproveitar o espaço */
         padding: 1rem;
     }
 }
