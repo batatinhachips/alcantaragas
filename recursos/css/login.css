@@ -2,12 +2,14 @@
 html, body {
     height: 100%;
     margin: 0; 
+    padding: 0;
+    font-size: 16px; /* Define a base para rem */
 }
 
 /* Estilo para a página de cadastro */
 body.cadCliente {
     margin: 0;
-    margin-top: 3vh;
+    margin-top: 3rem;
     background-image: url('../imagens/bg.jpg');
     background-size: cover;
     background-position: center;
@@ -38,11 +40,11 @@ body.login_bg {
 .cadastro-sucesso .btn-custom-primary {
     background-color: #28a745;
     color: #ffffff;
-    border-radius: 20px;
-    width: 180px;
+    border-radius: 1.25rem;
+    width: 11.25rem;
     display: inline-block;
     margin: 0 auto;
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -53,12 +55,10 @@ body.login_bg {
     padding: 0;
 }
 
-
 .cadastro-sucesso .btn-custom-primary:hover {
     background-color: #fff;
     color: #28a745;
 }
-
 
 /* Estilo para campos obrigatórios no formulário de cadastro */
 .required:after {
@@ -79,13 +79,13 @@ body.login_bg {
 
 /* Estilo para o logo no título do login */
 .login-title .logo {
-    width: 70vw;
+    width: 70%;
     margin-bottom: 4rem;
 }
 
 /* Estilo para o logo na página de cadastro */
 .cadastro-page .logo {
-    margin-bottom: 1vh; 
+    margin-bottom: 1rem; 
 }
 
 /* Ajusta o topo do título na página de cadastro */
@@ -101,27 +101,27 @@ body.login_bg {
 
 /* Estilo para o formulário de login */
 .container-form-login {
-    max-width: 20vw;
+    max-width: 20rem;
     margin: 0 auto;
     padding: 2rem;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
 }
 
 /* Estilo para o formulário de cadastro */
 .container-form {
-    max-width: 40vw;
+    max-width: 40rem;
     margin: 0 auto;
     padding: 2rem;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
 }
 
 /* Estilo para os campos e botões do formulário */
 .form-control, .btn-block {
-    border-radius: 5px;
+    border-radius: 0.3125rem;
 }
 
 /* Estilo para botões de largura total */
@@ -174,4 +174,22 @@ form.mt-3 {
 .form-control::placeholder {
     font-size: 0.875rem; 
     color: #aaa; 
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+    .container-form, .container-form-login {
+        max-width: 90%;
+        padding: 1.5rem;
+    }
+
+    .login-title .logo, .cadastro-page .logo {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-title h1, .cadastro-page h1 {
+        font-size: 1.5rem;
+    }
 }
