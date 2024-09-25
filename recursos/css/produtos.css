@@ -3,6 +3,7 @@ html, body {
   height: 100%;
   margin: 0; 
   font-family: 'Poppins', sans-serif;
+  font-size: 16px; /* Base 1rem = 16px */
 }
 
 body {
@@ -15,18 +16,18 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .login-title {
-  margin-top: 10vh;
-  margin-bottom: 1vh;
+  margin-top: 6.25rem; /* 10vh = 10% da altura da viewport */
+  margin-bottom: 0.625rem; /* 1vh */
   text-align: center;
 }
 
 .login-title .logo {
-  width: 70vw;
-  margin-bottom: 4vh;
+  width: 90vw;
+  max-width: 18.75rem; /* 300px */
 }
 
 .login-title h1 {
@@ -37,11 +38,11 @@ body {
 .btn-custom-primary {
   background-color: #28a745;
   color: #ffffff;
-  border-radius: 20px;
-  width: 180px;
+  border-radius: 1.25rem; /* 20px */
+  width: 11.25rem; /* 180px */
   display: inline-block;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem; /* 10px 20px */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -51,7 +52,6 @@ body {
   box-shadow: none;
   padding: 0;
 }
-
 
 .btn-custom-primary:hover {
   background-color: #fff;
@@ -69,33 +69,33 @@ body {
 }
 
 .custom-container {
-  max-width: 500px;
+  max-width: 31.25rem; /* 500px */
   width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1.25rem; /* 2rem */
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem; /* 8px */
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1); /* 10px */
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 5vh;
+  margin-bottom: 3.125rem; /* 5vh */
   box-sizing: border-box;
 }
 
 body::after {
   content: "";
   display: block;
-  height: 1px;
+  height: 0.0625rem; /* 1px */
 }
 
 .custom-input {
   display: block;
   width: 100%;
-  margin-bottom: 1rem;
-  padding: 0.75rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  margin-bottom: 0.625rem; /* 1rem */
+  padding: 0.75rem; /* 12px */
+  border-radius: 0.3125rem; /* 5px */
+  border: 0.0625rem solid #ccc; /* 1px */
   box-sizing: border-box;
 }
 
@@ -108,8 +108,8 @@ body::after {
   background-color: #1D826E;
   color: #fff;
   border: none;
-  border-radius: 5px;
-  padding: 0.75rem;
+  border-radius: 0.3125rem; /* 5px */
+  padding: 0.75rem; /* 12px */
   width: 100%;
   font-weight: 500;
   cursor: pointer;
@@ -124,17 +124,17 @@ body::after {
 /* Adaptações para Navbar */
 .navbar-custom {
   background-color: transparent;
-  padding: 0.5rem 1rem;
+  padding: 0.3125rem 0.625rem; /* 0.5rem 1rem */
 }
 
 .navbar-brand img {
-  height: 40px;
+  height: 2.5rem; /* 40px */
 }
 
 /* Ajustes gerais */
 .titulo-campo {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3125rem; /* 0.5rem */
   font-weight: bold;
   color: #333333;
 }
@@ -142,15 +142,15 @@ body::after {
 input[type="file"] {
   display: block;
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 0.625rem; /* 1rem */
 }
 
 input[type="submit"] {
   background-color: #1D826E;
   color: #fff;
   border: none;
-  border-radius: 5px;
-  padding: 0.75rem;
+  border-radius: 0.3125rem; /* 5px */
+  padding: 0.75rem; /* 12px */
   width: 100%;
   font-weight: 500;
   cursor: pointer;
@@ -164,21 +164,21 @@ input[type="submit"]:hover {
 
 /* Estiliza o formulário para ter uma largura maior e centralizar */
 .formulario-edicao {
-  max-width: 600px;
+  max-width: 37.5rem; /* 600px */
   margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  padding: 1.25rem; /* 20px */
+  border: 0.0625rem solid #ddd; /* 1px */
+  border-radius: 0.5rem; /* 8px */
   background-color: #f9f9f9;
 }
 
 /* Estiliza os campos do formulário */
 .formulario-edicao .custom-input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+  padding: 0.625rem; /* 10px */
+  margin-bottom: 0.9375rem; /* 15px */
+  border-radius: 0.25rem; /* 4px */
+  border: 0.0625rem solid #ccc; /* 1px */
 }
 
 /* Estilo para o botão de salvar edições */
@@ -189,14 +189,13 @@ input[type="submit"]:hover {
   width: 100%;
   text-align: center;
   font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+  padding: 0.5rem 1rem; /* 8px 16px */
+  border-radius: 0.125rem; /* 2px */
   box-sizing: border-box;
-  margin-top: 1rem;
+  margin-top: 0.625rem; /* 1rem */
 }
 
 .botao-salvar-edicoes:hover {
   background-color: #034a17;
   color: #ffffff;
 }
-
