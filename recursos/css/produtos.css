@@ -20,14 +20,15 @@ body {
 }
 
 .login-title {
-  margin-top: 6.25rem; /* 10vh = 10% da altura da viewport */
-  margin-bottom: 0.625rem; /* 1vh */
+  margin-top: 6.25rem; /* Espaço superior */
+  margin-bottom: 1rem; /* Espaço inferior aumentado para mais espaço */
   text-align: center;
 }
 
 .login-title .logo {
   width: 90vw;
   max-width: 18.75rem; /* 300px */
+  margin-bottom: 1rem; /* Espaço entre logo e título */
 }
 
 .login-title h1 {
@@ -125,6 +126,10 @@ body::after {
 .navbar-custom {
   background-color: transparent;
   padding: 0.3125rem 0.625rem; /* 0.5rem 1rem */
+}
+
+.navbar-nav {
+  margin-left: auto; /* Garante que o conteúdo da navbar seja alinhado à direita */
 }
 
 .navbar-brand img {
