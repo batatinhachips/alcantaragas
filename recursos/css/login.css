@@ -201,7 +201,7 @@ form.mt-3 {
     
     .login-title .logo, .cadastro-page .logo {
         width: 100%;
-        max-width: 40rem; /* Ajustei a largura máxima da logo em telas muito pequenas */
+        max-width: 15rem; /* Ajustei a largura máxima da logo em telas muito pequenas */
     }
 
     .container-form, .container-form-login {
