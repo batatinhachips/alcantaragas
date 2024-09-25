@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Cadastrar usuário normal
     $resultado = $usuario->cadastrar($nome, $email, $senha, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade);
     if ($resultado === true) {
-        header("Location: ../visao/cadastrarcliente_sucesso.php");
+        header("Location: ../visao/cadastraradmin_sucesso.php");
         exit();
     } else {
         echo "Erro ao cadastrar usuário: " . $resultado;
