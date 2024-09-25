@@ -21,11 +21,13 @@ body {
 
 .login-title {
   margin-top: 6.25rem; /* Espaço superior */
-  margin-bottom: 1rem; /* Espaço inferior aumentado para mais espaço */
+  margin-bottom: 1rem; /* Espaço inferior */
   text-align: center;
 }
 
 .login-title .logo {
+  width: 70vw; /* Aumentado para ser mais visível */
+  max-width: 20rem; /* Ajuste se necessário */
   margin-bottom: 1rem; /* Espaço entre logo e título */
 }
 
@@ -210,4 +212,42 @@ input[type="submit"]:hover {
 .botao-salvar-edicoes:hover {
   background-color: #034a17;
   color: #ffffff;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .login-title {
+    margin-top: 4rem; /* Reduzido para telas menores */
+  }
+
+  .login-title .logo {
+    width: 80vw; /* Aumentado para ser mais visível */
+    max-width: 18rem; /* Ajustado */
+  }
+
+  .btn-dark {
+    width: 100%; /* Botão "Voltar" ocupa toda a largura */
+  }
+
+  .custom-container {
+    padding: 1rem; /* Menos padding em telas menores */
+  }
+
+  .btn-custom-primary {
+    width: 100%; /* Botões ocupam toda a largura em dispositivos móveis */
+  }
+}
+
+@media (max-width: 576px) {
+  .login-title {
+    margin-top: 3rem; /* Reduzido ainda mais */
+  }
+
+  .login-title h1 {
+    font-size: 1.5rem; /* Ajustado para melhor visualização */
+  }
+
+  .custom-input {
+    font-size: 0.875rem; /* Tamanho da fonte menor */
+  }
 }
