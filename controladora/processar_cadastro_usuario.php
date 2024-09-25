@@ -1,6 +1,6 @@
 <?php
 require_once '../modelo/login.php';
-require_once '../conexao.php'; // Certifique-se de que o caminho está correto
+require_once 'conexao.php'; // Certifique-se de que o caminho está correto
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter dados do formulário
