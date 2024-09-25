@@ -422,6 +422,7 @@ h2, .section-contact h3 {
 }
 
 .menu {
+  z-index: 1000; /* Valor alto para ficar acima de outros elementos */
   display: none;
   position: absolute;
   top: 6rem; /* Ajuste em rem */
