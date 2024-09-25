@@ -222,7 +222,7 @@ input[type="submit"]:hover {
 
   .login-title .logo {
     width: 80vw; /* Aumentado para ser mais visível */
-    max-width: 18rem; /* Ajustado */
+    max-width: 30rem; /* Ajustado */
   }
 
   .btn-dark {
