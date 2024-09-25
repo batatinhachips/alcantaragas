@@ -46,10 +46,6 @@ $produtos = $produtosRepositorio->buscarTodos();
         <img src="recursos/imagens/logo_nav.png" alt="Logo da Empresa" style="height: 40px;">
       </a>
 
-      <!-- BOTAO PARA EXIBIR O MENU EM TELAS MENORES -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <!-- Links de navegação e botões -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto d-flex align-items-center">
