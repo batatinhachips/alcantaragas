@@ -1,56 +1,59 @@
 <?php
 require_once '../modelo/login.php';
-require_once '/conexao.php';
+require_once '../conexao.php'; // Corrigido o caminho
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $_POST["nome"];
-    $email = $_POST["email"];
+    // Obter dados do formulário e sanitizá-los
+    $nome = trim($_POST["nome"]);
+    $email = trim($_POST["email"]);
     $senha = $_POST["senha"];
     $confirmarsenha = $_POST["confirmarsenha"];
     $papel = $_POST["papel"];
-    $cpf = $_POST["cpf"];
-    $telefone = $_POST["telefone"];
-    $cep = $_POST["cep"];
-    $logradouro = $_POST["logradouro"];
-    $complemento = $_POST["complemento"];
-    $numero = $_POST["numero"];
-    $bairro = $_POST["bairro"];
-    $cidade = $_POST["cidade"];
-
+    $cpf = trim($_POST["cpf"]);
+    $telefone = trim($_POST["telefone"]);
+    $cep = trim($_POST["cep"]);
+    $logradouro = trim($_POST["logradouro"]);
+    $complemento = trim($_POST["complemento"]);
+    $numero = trim($_POST["numero"]);
+    $bairro = trim($_POST["bairro"]);
+    $cidade = trim($_POST["cidade"]);
 
     // Validação básica
+    $erros = [];
+
     if (empty($nome) || empty($email) || empty($senha) || empty($confirmarsenha) || empty($papel)) {
-        echo "Todos os campos são obrigatórios.";
-        exit;
+        $erros[] = "Todos os campos são obrigatórios.";
     }
 
     if ($senha !== $confirmarsenha) {
-        header("Location: ../visao/cadastro.php?erro=2");
-        exit();
+        $erros[] = "As senhas não coincidem.";
     }
 
     // Verificar se o papel é válido
     $papel_valido = ['admin', 'usuario'];
     if (!in_array($papel, $papel_valido)) {
-        echo "Papel inválido.";
-        exit;
+        $erros[] = "Papel inválido.";
+    }
+
+    if (!empty($erros)) {
+        // Redirecionar com erro
+        header("Location: ../visao/cadastro.php?erro=" . urlencode(implode(", ", $erros)));
+        exit();
     }
 
     // Criptografar a senha
     $senha_hash = password_hash($senha, PASSWORD_BCRYPT);
 
     // Criar uma instância da classe Usuario
-    
-        //cadastrar admin
-        if ($usuario->cadastrar($nome, $email, $senha_hash, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade)) {
-            // Redirecionar para a página de sucesso após o cadastro
-            header("Location: ../visao/cadastrarcliente_sucesso.php");
-            exit();
-        } else {
-            echo "Erro ao cadastrar. Tente novamente.";
-        }
-    
-    }
+    $usuario = new Usuario(); // Certifique-se de que a classe Usuario está definida corretamente
 
+    // Cadastrar usuário
+    if ($usuario->cadastrar($nome, $email, $senha_hash, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade)) {
+        // Redirecionar para a página de sucesso após o cadastro
+        header("Location: ../visao/cadastrarcliente_sucesso.php");
+        exit();
+    } else {
+        echo "Erro ao cadastrar. Tente novamente.";
+    }
 }
 ?>
