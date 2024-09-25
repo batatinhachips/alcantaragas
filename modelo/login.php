@@ -39,11 +39,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha_hash = password_hash($senha, PASSWORD_BCRYPT);
 
     // Criar uma instância da classe Usuario
-   /*  $usuario = new Usuario($conn); */
+    $cliente = new usuario($conn);
+    $admin = new usuario($conn);
 
     if($papel !== "admin") {
         //cadastrar admin
-        if ($usuario->cadastrar($nome, $email, $senha_hash, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade)) {
+        if ($cliente->cadastrar($nome, $email, $senha_hash, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade)) {
             // Redirecionar para a página de sucesso após o cadastro
             header("Location: ../visao/cadastrarcliente_sucesso.php");
             exit();
@@ -52,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
          // Cadastrar o usuário
-        if ($usuario->cadastrarAdm($nome, $email, $senha, $papel)) {
+        if ($admin->cadastrarAdm($nome, $email, $senha, $papel)) {
             // Redirecionar para a página de sucesso após o cadastro
             header("Location: ../visao/cadastrarcliente_sucesso.php");
             exit();
