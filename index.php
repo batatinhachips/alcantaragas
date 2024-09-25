@@ -41,33 +41,32 @@ $produtos = $produtosRepositorio->buscarTodos();
 
   <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
     <div class="container-fluid">
-      <!-- NAVBAR -->
-      <a class="navbar-brand" href="/">
-        <img src="recursos/imagens/logo_nav.png" alt="Logo da Empresa" style="height: 40px;">
-      </a>
+        <a class="navbar-brand" href="/">
+            <img src="recursos/imagens/logo_nav.png" alt="Logo da Empresa" style="height: 40px;">
+        </a>
 
-      <!-- Links de navegação e botões -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto d-flex align-items-center">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#services">Produtos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#empresa">Empresa</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#footer">Localização</a>
-          </li>
-        </ul>
-      </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto d-flex align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#services">Produtos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#empresa">Empresa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#footer">Localização</a>
+                </li>
+            </ul>
+        </div>
 
-      <!-- Ícone do Menu Hambúrguer -->
-      <div class="menu-icon" onclick="toggleMenu()">
-        <i class="bi bi-list"></i>
-      </div>
+        <!-- Ícone do Menu Hambúrguer -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="bi bi-list"></i>
+        </div>
+
 
       <!-- Menu Dropdown -->
       <nav id="menu" class="menu">
