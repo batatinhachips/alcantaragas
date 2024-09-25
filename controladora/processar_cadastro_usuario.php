@@ -13,14 +13,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = $_POST["senha"];
     $confirmarsenha = $_POST["confirmarsenha"];
     $papel = $_POST["papel"];
-    $cpf = trim($_POST["cpf"]);
-    $telefone = trim($_POST["telefone"]);
-    $cep = trim($_POST["cep"]);
-    $logradouro = trim($_POST["logradouro"]);
-    $complemento = trim($_POST["complemento"]);
-    $numero = trim($_POST["numero"]);
-    $bairro = trim($_POST["bairro"]);
-    $cidade = trim($_POST["cidade"]);
+    $cpf = isset($_POST["cpf"]) ? trim($_POST["cpf"]) : null;
+    $telefone = isset($_POST["telefone"]) ? trim($_POST["telefone"]) : null;
+    $cep = isset($_POST["cep"]) ? trim($_POST["cep"]) : null;
+    $logradouro = isset($_POST["logradouro"]) ? trim($_POST["logradouro"]) : null;
+    $complemento = isset($_POST["complemento"]) ? trim($_POST["complemento"]) : null;
+    $numero = isset($_POST["numero"]) ? trim($_POST["numero"]) : null;
+    $bairro = isset($_POST["bairro"]) ? trim($_POST["bairro"]) : null;
+    $cidade = isset($_POST["cidade"]) ? trim($_POST["cidade"]) : null;
 
     // Validação básica
     $erros = [];
