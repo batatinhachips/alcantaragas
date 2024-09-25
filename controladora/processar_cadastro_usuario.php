@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $numero = $_POST["numero"];
     $bairro = $_POST["bairro"];
     $cidade = $_POST["cidade"];
-    $admin = $_POST["papel"];
 
 
     // Validação básica
@@ -44,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Criar uma instância da classe Usuario
     $usuario = new Usuario($conn);
 
-    if($admin !== "admin") {
+    if($papel !== "admin") {
         //cadastrar admin
         if ($usuario->cadastrar($nome, $email, $senha_hash, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade)) {
             // Redirecionar para a página de sucesso após o cadastro
