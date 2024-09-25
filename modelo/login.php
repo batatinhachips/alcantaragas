@@ -1,45 +1,109 @@
 <?php
-require_once '../modelo/login.php';
-require_once '../controladora/conexao.php';
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $_POST["nome"];
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
-    $confirmarsenha = $_POST["confirmarsenha"];
-    $papel = $_POST["papel"];
-    $cpf = $_POST["cpf"];
-    $telefone = $_POST["telefone"];
-    $cep = $_POST["cep"];
-    $logradouro = $_POST["logradouro"];
-    $complemento = $_POST["complemento"];
-    $numero = $_POST["numero"];
-    $bairro = $_POST["bairro"];
-    $cidade = $_POST["cidade"];
-   
-    // Validação básica
-    if (empty($nome) || empty($email) || empty($senha) || empty($confirmarsenha) || empty($papel)) {
-        echo "Todos os campos são obrigatórios.";
-        exit;
+class Usuario {
+    private $conn;
+    private $nome;
+    private $email;
+    private $senha;
+    private $papel;
+    private $cpf;
+    private $telefone;
+    private $cep;
+    private $logradouro;
+    private $complemento;
+    private $numero;
+    private $bairro;
+    private $cidade;
+    
+    function __construct($conn) {
+        $this->conn = $conn;
     }
 
-    if ($senha !== $confirmarsenha) {
-        header("Location: ../visao/cadastro.php?erro=2");
-        exit();
+    // Getters e Setters
+    function get_nome() {
+        return $this->nome;
+    }
+    function set_nome($nome) {
+        $this->nome = $nome;
     }
 
-    // Verificar se o papel é válido
-    $papel_valido = ['admin', 'usuario'];
-    if (!in_array($papel, $papel_valido)) {
-        echo "Papel inválido.";
-        exit;
+    function get_email() {
+        return $this->email;
+    }
+    function set_email($email) {
+        $this->email = $email;
     }
 
-    // Criptografar a senha
-    $senha_hash = password_hash($senha, PASSWORD_BCRYPT);
+    function get_senha() {
+        return $this->senha;
+    }
+    function set_senha($senha) {
+        $this->senha = $senha;
+    }
 
-    // Criar uma instância da classe Usuario
-    $usuario = new Usuario($conn);
+    function get_papel() {
+        return $this->papel;
+    }
+    function set_papel($papel) {
+        $this->papel = $papel;
+    }
+
+    function get_cpf() {
+        return $this->cpf;
+    }
+    function set_cpf($cpf) {
+        $this->cpf = $cpf;
+    }
+
+    function get_telefone() {
+        return $this->telefone;
+    }
+    function set_telefone($telefone) {
+        $this->telefone = $telefone;
+    }
+
+    function get_cep() {
+        return $this->cep;
+    }
+    function set_cep($cep) {
+        $this->cep = $cep;
+    }
+
+    function get_logradouro() {
+        return $this->logradouro;
+    }
+    function set_logradouro($logradouro) {
+        $this->logradouro = $logradouro;
+    }
+
+    function get_complemento() {
+        return $this->complemento;
+    }
+    function set_complemento($complemento) {
+        $this->complemento = $complemento;
+    }
+
+    function get_numero() {
+        return $this->numero;
+    }
+    function set_numero($numero) {
+        $this->numero = $numero;
+    }
+
+    function get_bairro() {
+        return $this->bairro;
+    }
+    function set_bairro($bairro) {
+        $this->bairro = $bairro;
+    }
+
+    function get_cidade() {
+        return $this->cidade;
+    }
+    function set_cidade($cidade) {
+        $this->cidade = $cidade;
+    }
+}
+?>
 
 
     if($papel !== "admin") {
