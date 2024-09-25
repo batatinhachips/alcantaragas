@@ -10,61 +10,71 @@ class Usuario {
     public function cadastrar($nome, $email, $senha, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade) {
         try {
             $sql = "INSERT INTO usuarios (nome, email, senha, papel, cpf, telefone, cep, logradouro, complemento, numero, bairro, cidade) 
-                    VALUES (:nome, :email, :senha, :papel, :cpf, :telefone, :cep, :logradouro, :complemento, :numero, :bairro, :cidade)";
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $this->conn->prepare($sql);
 
             if (!$stmt) {
-                throw new Exception("Erro na preparação da consulta: " . implode(", ", $this->conn->errorInfo()));
+                throw new Exception("Erro na preparação da consulta: " . $this->conn->error);
             }
 
             // Hash da senha
             $senhaHash = password_hash($senha, PASSWORD_BCRYPT);
 
-            // Bind dos parâmetros
-            $stmt->bindParam(':nome', $nome);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':senha', $senhaHash);
-            $stmt->bindParam(':papel', $papel);
-            $stmt->bindParam(':cpf', $cpf);
-            $stmt->bindParam(':telefone', $telefone);
-            $stmt->bindParam(':cep', $cep);
-            $stmt->bindParam(':logradouro', $logradouro);
-            $stmt->bindParam(':complemento', $complemento);
-            $stmt->bindParam(':numero', $numero);
-            $stmt->bindParam(':bairro', $bairro);
-            $stmt->bindParam(':cidade', $cidade);
+            // Bind dos parâmetros (MySQLi usa bind_param com tipos de dados)
+            $stmt->bind_param(
+                'sssiiississs',
+                $nome,
+                $email,
+                $senhaHash,
+                $papel,
+                $cpf,
+                $telefone,
+                $cep,
+                $logradouro,
+                $complemento,
+                $numero,
+                $bairro,
+                $cidade
+            );
 
-            return $stmt->execute();
+            if (!$stmt->execute()) {
+                throw new Exception("Erro ao executar consulta: " . $stmt->error);
+            }
+
+            return true;
         } catch (Exception $e) {
-        // Retornar a mensagem de erro para exibição
-        return "Erro ao executar cadastro: " . $e->getMessage();
-    }
+            // Registrar o erro e retornar a mensagem
+            error_log($e->getMessage());
+            return "Erro ao cadastrar usuário: " . $e->getMessage();
+        }
     }
 
     // Método para cadastrar um administrador
     public function cadastrarAdm($nome, $email, $senha, $papel) {
         try {
-            $sql = "INSERT INTO administradores (nome, email, senha, papel) VALUES (:nome, :email, :senha, :papel)";
+            $sql = "INSERT INTO administradores (nome, email, senha, papel) VALUES (?, ?, ?, ?)";
             $stmt = $this->conn->prepare($sql);
 
             if (!$stmt) {
-                throw new Exception("Erro na preparação da consulta: " . implode(", ", $this->conn->errorInfo()));
+                throw new Exception("Erro na preparação da consulta: " . $this->conn->error);
             }
 
             // Hash da senha
             $senhaHash = password_hash($senha, PASSWORD_BCRYPT);
 
             // Bind dos parâmetros
-            $stmt->bindParam(':nome', $nome);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':senha', $senhaHash);
-            $stmt->bindParam(':papel', $papel);
+            $stmt->bind_param('ssss', $nome, $email, $senhaHash, $papel);
 
-            return $stmt->execute();
+            if (!$stmt->execute()) {
+                throw new Exception("Erro ao executar consulta: " . $stmt->error);
+            }
+
+            return true;
         } catch (Exception $e) {
-        // Retornar a mensagem de erro para exibição
-        return "Erro ao executar cadastro: " . $e->getMessage();
-    }
+            // Registrar o erro e retornar a mensagem
+            error_log($e->getMessage());
+            return "Erro ao cadastrar administrador: " . $e->getMessage();
+        }
     }
 }
 ?>
