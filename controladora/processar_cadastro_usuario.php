@@ -46,24 +46,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = new Usuario($conn);
 
     // Cadastrar usuário ou administrador
-    if ($papel === "admin") {
-    // Cadastrar administrador
-    $resultado = $usuario->cadastrarAdm($nome, $email, $senha, $papel);
-    if ($resultado === true) {
-        header("Location: ../visao/cadastrarcliente_sucesso.php");
-        exit();
-    } else {
-        echo "Erro ao cadastrar administrador: " . $resultado;
-    }
-} else {
-    // Cadastrar usuário normal
     $resultado = $usuario->cadastrar($nome, $email, $senha, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade);
+
     if ($resultado === true) {
-        header("Location: ../visao/cadastraradmin_sucesso.php");
+        // Redirecionar para a página de sucesso com base no papel
+        if ($papel === "admin") {
+            header("Location: ../visao/cadastraradmin_sucesso.php");
+        } else {
+            header("Location: ../visao/cadastrarcliente_sucesso.php");
+        }
         exit();
     } else {
         echo "Erro ao cadastrar usuário: " . $resultado;
     }
-}
 }
 ?>
