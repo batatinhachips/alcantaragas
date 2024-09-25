@@ -26,9 +26,10 @@ body {
 }
 
 .login-title .logo {
-  width: 70vw; /* Aumentado para ser mais visível */
-  max-width: 20rem; /* Ajuste se necessário */
-  margin-bottom: 1rem; /* Espaço entre logo e título */
+  width: 100%;
+  max-width: 40rem; /* Mantido como no primeiro código */
+  height: auto; /* Mantém a proporção */
+  margin-bottom: 4rem;
 }
 
 .btn-voltar {
@@ -221,8 +222,8 @@ input[type="submit"]:hover {
   }
 
   .login-title .logo {
-    width: 80vw; /* Aumentado para ser mais visível */
-    max-width: 30rem; /* Ajustado */
+    width: 100%;
+    max-width: 40rem; /* Mantido o mesmo tamanho da primeira parte */
   }
 
   .btn-dark {
