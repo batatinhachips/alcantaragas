@@ -501,6 +501,7 @@ h2, .section-contact h3 {
   #robbu-whatsapp-button {
     width: 50px; /* Largura para dispositivos menores */
     height: 50px; /* Altura para dispositivos menores */
+    border-radius: 50%;
   }
 
   .rwb-tooltip {
