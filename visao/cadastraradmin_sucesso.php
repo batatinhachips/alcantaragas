@@ -16,7 +16,13 @@
 </head>
 
 <body>
+// Exemplo de como obter o papel
+  <?php
+$papel = $_POST['papel'] ?? '';
 
+// Adicione essa linha para depuração
+error_log("Papel recebido: " . $papel);
+?>
   <body class="login_bg">
     <main>
       <div class="login-title text-center">
