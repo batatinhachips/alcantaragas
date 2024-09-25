@@ -9,6 +9,14 @@ body {
   padding: 0;
 }
 
+.navbar {
+  margin-bottom: 0; /* Certifique-se de que a navbar não tenha margem inferior */
+}
+
+.carousel {
+  margin-top: 0; /* Certifique-se de que o carrossel não tenha margem superior */
+}
+
 * {
   margin: 0;
   padding: 0;
