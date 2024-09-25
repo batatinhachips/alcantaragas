@@ -6,11 +6,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Exemplo de como obter o papel
-$papel = $_POST['papel'] ?? '';
 
-// Adicione essa linha para depuração
-error_log("Papel recebido: " . $papel);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter dados do formulário
