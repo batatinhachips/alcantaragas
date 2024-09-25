@@ -26,8 +26,6 @@ body {
 }
 
 .login-title .logo {
-  width: 70vw; /* Aumentado para ser mais visível */
-  max-width: 20rem; /* Ajuste se necessário */
   margin-bottom: 1rem; /* Espaço entre logo e título */
 }
 
