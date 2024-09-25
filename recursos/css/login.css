@@ -14,13 +14,26 @@ body.cadCliente {
     background-size: cover;
     background-position: center;
     color: white;
+    display: flex; /* Alterado para flex */
     flex-direction: column;
     align-items: center;
     font-family: 'Poppins', sans-serif;
-    justify-content: center;
-    min-height: 100vh; 
-    overflow: hidden; /* Remove a rolagem */
+    justify-content: flex-start; /* Alterado para flex-start */
+    min-height: 100vh;
+    overflow-y: auto; /* Permite rolagem vertical */
 }
+
+.container-form {
+    max-width: 40rem; /* Aproximadamente 640px */
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Permite rolagem vertical se necessário */
+    max-height: 80vh; /* Limita a altura do formulário */
+}
+
 
 /* Estilo para a página de login */
 body.login_bg {
@@ -182,6 +195,21 @@ form.mt-3 {
     color: #aaa; 
 }
 
+#robbu-whatsapp-button{
+    display:flex;
+    position:fixed;
+    background:#25d366;
+    bottom:25px;
+    border-radius:50%;
+    width:64px;
+    height:64px;
+    box-shadow:2px 2px 12px rgba(22,124,60,.2);
+    transition:.4s;
+    align-items:center;
+    justify-content:center;
+    z-index: 999;
+}
+
 /* Media Queries para responsividade */
 @media (max-width: 48rem) { /* Aproximadamente 768px */
     .container-form, .container-form-login {
@@ -208,3 +236,4 @@ form.mt-3 {
         padding: 1rem;
     }
 }
+
