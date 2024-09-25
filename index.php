@@ -33,39 +33,36 @@ $produtos = $produtosRepositorio->buscarTodos();
 ?>
 
 <body>
-  <!-- Botão do WhatsApp -->
-  <a id="robbu-whatsapp-button" target="_white" href="https://api.whatsapp.com/send?phone=5511958780556&text=Ol%C3%A1,%20eu%20gostaria%20de%20fazer%20um%20pedido!%0AProduto(s):%0AQuantidade:%0AMeu%20endere%C3%A7o:%0AMeu%20nome:%0ARetirar%20ou%20entrega:">
-      <div class="rwb-tooltip"style="background-color: #fff;" >Faça o seu pedido agora!</div>
-      <img src="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-icon.svg">
-  </a>
-
   <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-            <img src="recursos/imagens/logo_nav.png" alt="Logo da Empresa" style="height: 40px;">
-        </a>
+      <div class="container-fluid">
+          <a class="navbar-brand" href="/">
+              <img src="recursos/imagens/logo_nav.png" alt="Logo da Empresa" style="height: 40px;">
+          </a>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto d-flex align-items-center">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#services">Produtos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#empresa">Empresa</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#footer">Localização</a>
-                </li>
-            </ul>
-        </div>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                      <a class="nav-link active" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" href="#services">Produtos</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" href="#empresa">Empresa</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" href="#footer">Localização</a>
+                  </li>
+              </ul>
+          </div>
 
-        <!-- Ícone do Menu Hambúrguer -->
-        <div class="menu-icon" onclick="toggleMenu()">
-            <i class="bi bi-list"></i>
-        </div>
+          <!-- Ícone do Menu Hambúrguer -->
+          <div class="menu-icon" onclick="toggleMenu()">
+              <i class="bi bi-list"></i>
+          </div>
+      </div>
+  </nav>
+
 
 
       <!-- Menu Dropdown -->
