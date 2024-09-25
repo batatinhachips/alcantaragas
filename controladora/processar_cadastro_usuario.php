@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = $_POST["senha"];
     $confirmarsenha = $_POST["confirmarsenha"];
     $papel = $_POST["papel"];
+    var_dump($_POST['papel']);
     $cpf = trim($_POST["cpf"]);
     $telefone = trim($_POST["telefone"]);
     $cep = trim($_POST["cep"]);
