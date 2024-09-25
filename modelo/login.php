@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha_hash = password_hash($senha, PASSWORD_BCRYPT);
 
     // Criar uma instância da classe Usuario
-    $usuario = new usuarioRepositorio($conn);
+    $usuario = new Usuario($conn);
 
 
     if($papel !== "admin") {
