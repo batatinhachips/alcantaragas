@@ -34,7 +34,7 @@
       <h1>CADASTRO DE ADMINISTRADOR</h1>
     </div>
     <div class="container container-form-login mt-5" id="login-form">
-      <form id="user-form" method="post" action="../controladora/processar_cadastro_usuario.php">
+      <form id="admin-form" method="post" action="../controladora/processar_cadastro_usuario.php">
         <div class="form-group">
           <label for="nome">Nome</label>
           <input type="text" class="form-control" id="nome" placeholder="Digite o nome do admin" name="nome" required>
@@ -66,7 +66,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
-    document.getElementById('user-form').addEventListener('submit', function(event) {
+    document.getElementById('admin-form').addEventListener('submit', function(event) {
       event.preventDefault();
       
       var nome = document.getElementById('nome');
