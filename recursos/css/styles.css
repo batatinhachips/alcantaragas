@@ -15,8 +15,8 @@ body {
   box-sizing: border-box;
 }
 
-#demo{
-  padding-top: 6.625rem;
+#demo {
+  padding-top: 6.625rem; /* Mantenha em rem */
 }
 
 /* Carousel */
@@ -31,7 +31,7 @@ body {
   position: relative;
   font-size: 2rem;
   text-align: center;
-  margin: 7vh 10vw 7vh;
+  margin: 7rem 10vw; /* Ajuste de rem */
   display: inline-block; /* Ajusta a linha ao comprimento do texto */
   font-weight: 500;
 }
@@ -40,22 +40,21 @@ body {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -5px; /* Ajuste a distância entre o texto e a linha */
+  bottom: -0.5rem; /* Ajuste a distância entre o texto e a linha */
   width: 100%;
-  height: 3px;
-  background-color: #145c50; /* Cor da linha */
-
+  height: 0.2rem; /* Cor da linha */
+  background-color: #145c50; 
 }
 
-.whatsapp{
+.whatsapp {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  border-radius: 3vw;
-  width: 11vw;
-  height: 5vh;
-  font-size: 16px;
+  border-radius: 0.3rem; /* Ajuste em rem */
+  width: 11rem; /* Ajuste em rem */
+  height: 5rem; /* Ajuste em rem */
+  font-size: 1rem; /* Ajuste em rem */
 }
 
 .whatsapp-link {
@@ -63,9 +62,8 @@ body {
   color: inherit; /* Herda a cor do botão, que deve ser branca ou outra cor desejada */
 }
 
-
 .icon-spacing {
-  margin-right: 0.4vw; /* Ajuste o valor conforme necessário */
+  margin-right: 0.4rem; /* Ajuste em rem */
 }
 
 /* Container de produtos */
@@ -81,39 +79,38 @@ body {
   justify-content: center;
 }
 
-
 /* Espaçamento adicional entre as seções */
 .produtos-container {
-  margin-bottom: 2vh;
+  margin-bottom: 2rem; /* Ajuste em rem */
 }
 
 .catalogo {
-  margin-bottom: 40vh;
+  margin-bottom: 40rem; /* Ajuste em rem */
 }
 
 /* Contêiner principal do catálogo */
 .container {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 2rem; /* Ajuste em rem */
 }
 
 .row {
   display: flex;
   flex-wrap: wrap; /* Permite que os itens se movam para a linha seguinte se necessário */
-  gap: 20px; /* Espaçamento entre os cards */
+  gap: 2rem; /* Espaçamento entre os cards em rem */
 }
 
 /* Defina o tamanho fixo para as colunas */
 .col {
-  flex: 0 1 240px; /* Largura fixa das colunas */
+  flex: 0 1 15rem; /* Largura fixa das colunas em rem */
   box-sizing: border-box;
 }
 
 /* Card */
 .card.custom-card {
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 0.8rem; /* Ajuste em rem */
   overflow: hidden;
   background-color: #fff;
   text-align: center;
@@ -128,17 +125,17 @@ body {
 }
 
 .custom-card-body {
-  padding: 15px;
+  padding: 1.5rem; /* Ajuste em rem */
   flex: 1; /* Faz com que o corpo do card expanda para preencher o espaço disponível */
 }
 
 .custom-card-title {
-  font-size: 18px;
-  margin: 10px 0;
+  font-size: 1.8rem; /* Ajuste em rem */
+  margin: 1rem 0; /* Ajuste em rem */
 }
 
 .custom-card-text {
-  font-size: 14px;
+  font-size: 1.4rem; /* Ajuste em rem */
   color: #666;
 }
 
@@ -146,38 +143,38 @@ body {
   background-color: #007bff;
   border: none;
   color: #fff;
-  padding: 10px 20px;
+  padding: 1rem 2rem; /* Ajuste em rem */
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 0.4rem; /* Ajuste em rem */
   display: inline-block;
   margin-top: auto; /* Move o botão para o final do card */
 }
 
 #entrega {
   text-align: center;
-  font-size: 12px;
+  font-size: 1.2rem; /* Ajuste em rem */
   color: #666;
-  margin-top: 20px;
+  margin-top: 2rem; /* Ajuste em rem */
 }
 
 /* Media Queries para Responsividade */
 
 /* Para telas menores que 1200px (como tablets em modo paisagem) */
-@media (max-width: 1200px) {
+@media (max-width: 75rem) {
   .col {
-    flex: 0 1 200px; /* Ajusta a largura das colunas */
+    flex: 0 1 12rem; /* Ajusta a largura das colunas em rem */
   }
 }
 
 /* Para telas menores que 992px (como tablets em modo retrato) */
-@media (max-width: 992px) {
+@media (max-width: 62rem) {
   .col {
-    flex: 0 1 150px; /* Ajusta a largura das colunas */
+    flex: 0 1 10rem; /* Ajusta a largura das colunas em rem */
   }
 }
 
 /* Para telas menores que 768px (como smartphones em modo paisagem) */
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .col {
     flex: 0 1 100%; /* 1 coluna por linha */
   }
@@ -187,35 +184,35 @@ body {
 
 /* Layout do contêiner de informações da empresa */
 .company-container {
-  margin-bottom: 40px; /* Espaço entre a seção e o mapa */
+  margin-bottom: 4rem; /* Espaço entre a seção e o mapa em rem */
   max-width: 100vw;
 }
 
 /* Estilo para o wrapper que contém as duas caixas */
 .company-info-wrapper {
   display: flex;
-  gap: 20px; /* Espaçamento entre as caixas */
+  gap: 2rem; /* Espaçamento entre as caixas em rem */
 }
 
 /* Estilo para a caixa de informações da empresa */
 .company-info-box {
   border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 30px 40px;
+  border-radius: 1rem; /* Ajuste em rem */
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+  padding: 3rem 4rem; /* Ajuste em rem */
 }
 
-.company-info-box h2{
-  margin-bottom: 10px;
+.company-info-box h2 {
+  margin-bottom: 1rem; /* Ajuste em rem */
 }
 
 /* Estilo para a caixa de contatos */
 .contatos-box {
   border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem; /* Ajuste em rem */
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
   text-align: right;
-  padding: 40px; /* Aumenta o padding para adicionar um pouco mais de espaço */
+  padding: 4rem; /* Ajuste em rem */
   flex: 1; /* Faz com que a caixa de contatos ocupe o espaço disponível */
   display: flex;
   flex-direction: column; /* Organiza os itens em uma coluna */
@@ -229,12 +226,12 @@ body {
 }
 
 /* Estilo para o link quando o mouse passa sobre ele */
-.contatos-box .contato a:hover h6{
+.contatos-box .contato a:hover h6 {
   color: #ced500; /* Muda a cor do link para verde quando o mouse passa sobre ele */
 }
 
 /* Ajusta o layout das colunas em telas menores */
-@media (max-width: 992px) {
+@media (max-width: 62rem) {
   .company-info-wrapper {
     flex-direction: column;
   }
@@ -244,7 +241,7 @@ body {
 .company-info {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 2rem; /* Espaçamento em rem */
   align-items: flex-start;
 }
 
@@ -258,7 +255,7 @@ body {
 
 .company-info .contatos {
   flex: 1;
-  margin-top: 20px; /* Espaço acima dos contatos */
+  margin-top: 2rem; /* Espaço acima dos contatos em rem */
 }
 
 /* Imagem da fachada */
@@ -270,7 +267,7 @@ body {
 
 /* Estilo para a imagem da fachada para garantir que ela se ajuste ao layout */
 .faixada {
-  margin-bottom: 20px; /* Espaçamento inferior para separar a imagem do texto */
+  margin-bottom: 2rem; /* Espaçamento inferior para separar a imagem do texto em rem */
 }
 
 /* Ajustes adicionais para o título */
@@ -278,14 +275,13 @@ h2, .section-contact h3 {
   margin: 0; /* Remove a margem padrão para melhor controle do espaçamento */
 }
 
-
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .company-info {
     flex-direction: column;
   }
 
   .company-info .faixada {
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
   }
 }
 
@@ -319,45 +315,43 @@ h2, .section-contact h3 {
   display: block; /* Remove espaços extras ao redor do iframe */
 }
 
-.contatos{
+.contatos {
   text-align: right;
 }
 
 .contatos h3 {
-  border-bottom: 2px solid #008000; /* Linha fina verde */
-  padding-bottom: 5px; /* Espaço entre o texto e a linha */
-  margin-bottom: 10px; /* Espaço entre a linha e o conteúdo abaixo */
+  border-bottom: 0.2rem solid #008000; /* Linha fina verde em rem */
+  padding-bottom: 0.5rem; /* Espaço entre o texto e a linha em rem */
+  margin-bottom: 1rem; /* Espaço entre a linha e o conteúdo abaixo em rem */
   display: inline-block; /* Ajusta a linha ao comprimento do texto */
 }
 
-
 .contatos p {
-    margin: 0; /* Remove a margem padrão */
-}
-  
-.contatos p + p {
-  margin-top: 5px; /* Ajuste o valor conforme necessário */
+  margin: 0; /* Remove a margem padrão */
 }
 
+.contatos p + p {
+  margin-top: 0.5rem; /* Ajuste o valor conforme necessário em rem */
+}
 
 /* Rodapé */
 #footer {
   background: #e1bd00;
-  padding: 30px 0;
+  padding: 3rem 0; /* Ajuste em rem */
   color: #fff;
-  font-size: 14px;
+  font-size: 1.4rem; /* Ajuste em rem */
   text-align: center;
 }
 
 #footer .footer-top {
   background: #145c50;
-  border-bottom: 1px solid #222;
-  padding: 30px 0;
+  border-bottom: 0.1rem solid #222; /* Ajuste em rem */
+  padding: 3rem 0; /* Ajuste em rem */
 }
 
 #footer .footer-info,
 #footer .footer-contact {
-  margin-bottom: 20px; /* Ajusta o espaçamento inferior das colunas */
+  margin-bottom: 2rem; /* Ajusta o espaçamento inferior das colunas em rem */
 }
 
 #footer .footer-info h3 {
@@ -366,9 +360,8 @@ h2, .section-contact h3 {
 }
 
 #footer .footer-contact h4 {
-  margin-bottom: 10px; /* Adiciona espaçamento entre o título e o texto */
+  margin-bottom: 1rem; /* Adiciona espaçamento entre o título e o texto em rem */
 }
-
 
 .footer-contact {
   display: flex;
@@ -379,13 +372,13 @@ h2, .section-contact h3 {
 
 .social-links {
   display: flex;
-  gap: 15px;
+  gap: 1.5rem; /* Espaçamento em rem */
   justify-content: center; /* Centraliza os ícones horizontalmente */
-  margin-top: 10px; /* Adiciona um espaço entre o título e os ícones */
+  margin-top: 1rem; /* Adiciona um espaço entre o título e os ícones em rem */
 }
 
 .social-icon {
-  font-size: 24px;
+  font-size: 2.4rem; /* Ajuste em rem */
   color: #e1bd00;
   display: inline-block;
   transition: color 0.3s;
@@ -395,14 +388,13 @@ h2, .section-contact h3 {
   color: #fff;
 }
 
-
 .copyright {
   text-align: center;
-  padding: 10px;
+  padding: 1rem; /* Ajuste em rem */
 }
 
 /* Adiciona um espaço uniforme entre as colunas do rodapé */
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   #footer .footer-top .col-lg-3 {
     margin-bottom: 0; /* Remove a margem inferior para telas grandes */
   }
@@ -411,39 +403,38 @@ h2, .section-contact h3 {
 .menu-container {
   display: flex;
   justify-content: flex-end;
-  padding: 10px;
+  padding: 1rem; /* Ajuste em rem */
 }
 
 .menu-icon i {
-  font-size: 24px; /* Ajuste o tamanho do ícone conforme necessário */
+  font-size: 2.4rem; /* Ajuste o tamanho do ícone conforme necessário em rem */
   color: white;    /* Ajuste a cor do ícone conforme necessário */
-  margin-left: 1vw;
-  margin-right: 1vw;
+  margin-left: 1rem; /* Ajuste em rem */
+  margin-right: 1rem; /* Ajuste em rem */
 }
 
-
 .bar {
-  width: 30px;
-  height: 3px;
+  width: 3rem; /* Ajuste em rem */
+  height: 0.3rem; /* Ajuste em rem */
   background-color: #333;
-  margin: 5px 0;
+  margin: 0.5rem 0; /* Ajuste em rem */
   transition: 0.3s;
 }
 
 .menu {
   display: none;
   position: absolute;
-  top: 60px;
+  top: 6rem; /* Ajuste em rem */
   right: 0;
   background-color: #333;
   color: white;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 2rem; /* Ajuste em rem */
+  border-radius: 0.5rem; /* Ajuste em rem */
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 .menu .user-name {
-  margin-bottom: 10px;
+  margin-bottom: 1rem; /* Ajuste em rem */
   font-weight: bold;
 }
 
@@ -457,9 +448,9 @@ h2, .section-contact h3 {
   display: block;
   color: white;
   text-decoration: none;
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 4px;
+  padding: 1rem; /* Ajuste em rem */
+  margin: 0.5rem 0; /* Ajuste em rem */
+  border-radius: 0.4rem; /* Ajuste em rem */
   transition: background-color 0.3s;
 }
 
