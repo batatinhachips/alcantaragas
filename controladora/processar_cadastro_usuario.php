@@ -2,6 +2,10 @@
 require_once '../modelo/login.php';
 require_once 'conexao.php'; // Certifique-se de que o caminho está correto
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter dados do formulário
     $nome = trim($_POST["nome"]);
@@ -39,24 +43,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Instanciar a classe Usuario com a conexão
-    $usuario = new Usuario($conn); // Passar a conexão aqui
+    $usuario = new Usuario($conn);
 
     // Cadastrar usuário ou administrador
     if ($papel === "admin") {
-        // Cadastrar administrador
         if ($usuario->cadastrarAdm($nome, $email, $senha, $papel)) {
             header("Location: ../visao/cadastrarcliente_sucesso.php");
             exit();
         } else {
-            echo "Erro ao cadastrar administrador. Tente novamente.";
+            echo "Erro ao cadastrar administrador. Verifique os logs para mais detalhes.";
         }
     } else {
-        // Cadastrar usuário normal
         if ($usuario->cadastrar($nome, $email, $senha, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade)) {
             header("Location: ../visao/cadastrarcliente_sucesso.php");
             exit();
         } else {
-            echo "Erro ao cadastrar usuário. Tente novamente.";
+            echo "Erro ao cadastrar usuário. Verifique os logs para mais detalhes.";
         }
     }
 }
