@@ -34,46 +34,49 @@ $produtos = $produtosRepositorio->buscarTodos();
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-custom navbar-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-custom navbar-dark fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">
-        <img src="../recursos/imagens/logo_nav.png" alt="Logo da Empresa" style="height: 40px;">
-      </a>
-
-      <!-- Links de navegação -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto d-flex align-items-center">
-          <li class="nav-item">
-            <a class="btn btn-light ms-2" href="../visao/cadastrar_admin.php">Novo Admin</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-light ms-2" href="../visao/cadastrar_produtos.php">Novo Produto</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-light ms-2" href="admin_tabela.php">Tabela Admins</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <?php
-              if (isset($_SESSION["nome_usuario"])) {
-                echo $_SESSION["nome_usuario"];
-              } else {
-                echo "Login";
-              }
-              ?>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <?php if (isset($_SESSION["nome_usuario"])) { ?>
-                <li><a class="dropdown-item" href="../controladora/logout.php">Sair</a></li>
-              <?php } else { ?>
-                <li><a class="dropdown-item" href="formLogin.php">Login</a></li>
-              <?php } ?>
+        <a class="navbar-brand" href="/">
+            <img src="../recursos/imagens/logo_nav.png" alt="Logo da Empresa" style="height: 40px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto d-flex align-items-center">
+                <li class="nav-item">
+                    <a class="btn btn-light ms-2" href="../visao/cadastrar_admin.php">Novo Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-light ms-2" href="../visao/cadastrar_produtos.php">Novo Produto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-light ms-2" href="admin_tabela.php">Tabela Admins</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <?php
+                        if (isset($_SESSION["nome_usuario"])) {
+                            echo $_SESSION["nome_usuario"];
+                        } else {
+                            echo "Login";
+                        }
+                        ?>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <?php if (isset($_SESSION["nome_usuario"])) { ?>
+                            <li><a class="dropdown-item" href="../controladora/logout.php">Sair</a></li>
+                        <?php } else { ?>
+                            <li><a class="dropdown-item" href="formLogin.php">Login</a></li>
+                        <?php } ?>
+                    </ul>
+                </li>
             </ul>
-          </li>
-        </ul>
-      </div>
+        </div>
     </div>
-  </nav>
+</nav>
+
 
   <!-- SESSAO DO CATALOGO -->
   <section id="services" class="services">
