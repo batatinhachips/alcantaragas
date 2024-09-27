@@ -21,10 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
 
     } elseif (isset($_POST['tipo']) && $_POST['tipo'] === 'usuario') {
         // Excluir usuário
-        $usuariosRepositorio->excluirUsuarioPorId($idParaExcluir);
+        $usuariosRepositorio->excluirUsuariosPorId($idParaExcluir);
 
         // Verifique se o usuário é um administrador antes de redirecionar
-        $usuarioExcluido = $usuariosRepositorio->buscarUsuarioPorId($idParaExcluir);
+        $usuarioExcluido = $usuariosRepositorio->buscarUsuariosPorId($idParaExcluir);
         if ($usuarioExcluido && $usuarioExcluido['tipo'] === 'admin') {
             // Redireciona para a página tabela_admin se for um administrador
             header('Location: ../visao/tabela_admin.php');
