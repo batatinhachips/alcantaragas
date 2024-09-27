@@ -46,7 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resultado = $usuario->cadastrar($nome, $email, $senha, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade);
     
     if ($resultado === true) {
-        // Redirecionar para a página de sucesso com base no papel
             header("Location: ../visao/cadastaradmin_sucesso.php");
 
     } else {
