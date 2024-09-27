@@ -69,7 +69,6 @@ body {
   aspect-ratio: 16/9;
   object-fit: cover;
   filter: brightness(50%);
-  height: 96rem;
 }
 
 .carousel {
