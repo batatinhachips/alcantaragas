@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Mover o arquivo para o diretório de destino
         if (move_uploaded_file($_FILES["imagem"]["tmp_name"], $caminho_completo)) {
-            $produto = new produto(0, $nome, $descricao, $nome_arquivo, $preco);
+            $produto = new produto(0, $nome, $descricao, $preco,  $nome_arquivo);
 
             $produtoRepositorio = new produtoRepositorio($conn);
             $produtoRepositorio->cadastrar($produto);
