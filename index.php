@@ -45,46 +45,45 @@ $produtos = $produtosRepositorio->buscarTodos();
       <a class="navbar-brand" href="/">
         <img src="recursos/imagens/logo_nav.png" alt="Logo da Empresa" style="height: 40px;">
       </a>
-      <!-- <div class="d-flex align-items-center">
-        <div class="menu-icon" onclick="toggleMenu()">
-          <i class="bi bi-list"></i>
-        </div> -->
-        <nav id="menu" class="menu">
-          <?php
-          if (isset($_SESSION["nome_usuario"])) {
-            echo "<div class='user-name'>" . $_SESSION["nome_usuario"] . "</div>";
-          }
-          ?>
-          <div class="dropdown-content">
-            <?php if (isset($_SESSION["papel"]) && $_SESSION["papel"] == "admin") { ?>
-              <a class="dropdown-item" href="visao/admin.php">Admin</a>
-            <?php } ?>
-            <?php if (isset($_SESSION["nome_usuario"])) { ?>
-              <a class="dropdown-item" href="controladora/logout.php">Sair</a>
-            <?php } else { ?>
-              <a class="dropdown-item" href="visao/formLogin.php">Login</a>
-              <a class="dropdown-item" href="visao/cadastrar_cliente.php">Cadastre-se</a>
-            <?php } ?>
-          </div>
-        </nav>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <i class="bi bi-list"></i>
       </div>
-      <!-- Links de navegação e botões -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto d-flex align-items-center">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#services">Produtos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#empresa">Empresa</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#footer">Localização</a>
-          </li>
-        </ul>
-      </div>
+      <nav id="menu" class="menu">
+        <?php
+        if (isset($_SESSION["nome_usuario"])) {
+          echo "<div class='user-name'>" . $_SESSION["nome_usuario"] . "</div>";
+        }
+        ?>
+        <div class="dropdown-content">
+          <?php if (isset($_SESSION["papel"]) && $_SESSION["papel"] == "admin") { ?>
+            <a class="dropdown-item" href="visao/admin.php">Admin</a>
+          <?php } ?>
+          <?php if (isset($_SESSION["nome_usuario"])) { ?>
+            <a class="dropdown-item" href="controladora/logout.php">Sair</a>
+          <?php } else { ?>
+            <a class="dropdown-item" href="visao/formLogin.php">Login</a>
+            <a class="dropdown-item" href="visao/cadastrar_cliente.php">Cadastre-se</a>
+          <?php } ?>
+        </div>
+      </nav>
+    </div>
+    <!-- Links de navegação e botões -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto d-flex align-items-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#services">Produtos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#empresa">Empresa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#footer">Localização</a>
+        </li>
+      </ul>
+    </div>
     </div>
   </nav>
 
