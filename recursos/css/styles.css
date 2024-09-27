@@ -61,6 +61,19 @@ body {
   filter: brightness(50%);
 }
 
+@media (min-width: 992px) {
+  .carousel {
+    height: 70vh;
+  }
+  .carousel-inner {
+    height: 100%;
+  }
+  .carousel-item img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 .carousel-item img {
   width: 100%;
   height: auto;
