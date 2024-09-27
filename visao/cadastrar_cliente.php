@@ -92,7 +92,6 @@
             </div>
           </div>
         </div>
-        <input type="hidden" name="papel" value="usuario">
         <button type="submit" class="btn btn-custom-primary btn-block">Cadastrar</button>
         <a href="formLogin.php" class="btn btn-custom-primary btn-block">Login</a>
       </form>
