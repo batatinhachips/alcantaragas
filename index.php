@@ -149,6 +149,7 @@ $produtos = $produtosRepositorio->buscarTodos();
         <?php endforeach; ?>
       </div>
       <div id="entrega">*valores dos produtos a retirar*</div>
+      <br>
       <!-- BOTÃO WHATSAPP CENTRO -->
        <div>
       <a href="https://api.whatsapp.com/send/?phone=5511958780556&text=Olá%2C+eu+gostaria+de+fazer+um+pedido%21%0AProduto%28s%29%3A%0AQuantidade%3A%0AMeu+endereço%3A%0AMeu+nome%3A%0ARetirar+ou+entrega%3A&type=phone_number&app_absent=0" class="whatsapp-link" target="_blank">
