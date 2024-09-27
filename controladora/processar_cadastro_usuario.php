@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST["email"]);
     $senha = $_POST["senha"];
     $confirmarsenha = $_POST["confirmarsenha"];
-    $papel = $_POST["papel"];
+    $papel = trim($_POST["papel"]);
     $cpf = isset($_POST["cpf"]) ? trim($_POST["cpf"]) : null;
     $telefone = isset($_POST["telefone"]) ? trim($_POST["telefone"]) : null;
     $cep = isset($_POST["cep"]) ? trim($_POST["cep"]) : null;
@@ -34,10 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $erros[] = "As senhas não coincidem.";
     }
 
-    $papel_valido = ['admin', 'usuario'];
-    if (!in_array($papel, $papel_valido)) {
-        $erros[] = "Papel inválido.";
-    }
 
     if (!empty($erros)) {
         header("Location: ../visao/cadastro.php?erro=" . urlencode(implode(", ", $erros)));
@@ -48,18 +44,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = new Usuario($conn);
 
     // Cadastrar usuário ou administrador
-    $resultado = $usuario->cadastrar($nome, $email, $senha, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade);
-    
-    if ($resultado === true) {
-        // Redirecionar para a página de sucesso com base no papel
-        if ($papel === "admin") {
-            header("Location: ../visao/cadastraradmin_sucesso.php");
-        } else {
-            header("Location: ../visao/cadastrarcliente_sucesso.php");
-        }
+      if ($usuario->cadastrar($nome, $email, $senha_hash, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade)) {
+        // Redirecionar para a página de sucesso após o cadastro
+        header("Location: ../visao/cadastrarcliente_sucesso.php");
         exit();
     } else {
-        echo "Erro ao cadastrar usuário: " . $resultado;
+        echo "Erro ao cadastrar. Tente novamente.";
     }
 }
 ?>
