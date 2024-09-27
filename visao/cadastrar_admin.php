@@ -56,6 +56,10 @@
           <div class="invalid-feedback">As senhas não coincidem.</div>
         </div>
         <!-- Campo oculto para definir o papel como 'admin' -->
+        <div class="form-group">
+          <input type="hidden" name="papel" value="admin">
+          <div class="invalid-feedback">As senhas não coincidem.</div>
+        </div>
         <button type="submit" class="btn btn-custom-primary btn-block">Cadastrar</button>
       </form>
     </div>
