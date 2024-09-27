@@ -62,7 +62,6 @@ body {
 
 #demo {
   padding-top: 6.625rem;
-  /* Mantenha em rem */
 }
 
 /* Carousel */
@@ -70,17 +69,16 @@ body {
   aspect-ratio: 16/9;
   object-fit: cover;
   filter: brightness(50%);
+  height: 96rem;
 }
 
 .carousel {
   margin-top: -6.625rem;
-  /* Ajuste o valor para compensar a altura do cabeçalho */
 }
 
 @media (max-width: 992px) {
   .carousel {
     margin-top: 0;
-    /* Ajuste o valor para compensar a altura do cabeçalho em dispositivos menores */
   }
 }
 
