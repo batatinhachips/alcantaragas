@@ -15,6 +15,10 @@ body {
   position: relative;
 }
 
+.navbar-nav {
+  margin-right: 4rem; /* Ajuste o valor conforme desejado */
+}
+
 /* Adicione essa classe para o container do navbar */
 .container-fluid {
   display: flex;
@@ -77,6 +81,18 @@ body {
   .carousel {
     margin-top: 0;
     /* Ajuste o valor para compensar a altura do cabeçalho em dispositivos menores */
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-brand {
+    margin-left: 2rem; /* Ajuste o valor conforme desejado */
+  }
+}
+
+@media (max-width: 992px) {
+  #demo {
+    padding-top: 0; /* Remove o padding superior */
   }
 }
 
@@ -559,6 +575,7 @@ h2,
   font-size: 2.4rem;
   color: white;
   cursor: pointer;
+  z-index: 1;
 }
 
 .menu-icon i {
