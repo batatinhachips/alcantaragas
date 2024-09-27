@@ -71,10 +71,6 @@ body {
   .carousel {
     height: 70vh; /* Definindo altura de 70vh para desktop */
   }
-
-  .carousel-item img {
-    height: 100%; /* Fazendo a imagem ocupar toda a altura do carrossel */
-  }
 }
 
 .carousel {
