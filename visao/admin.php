@@ -124,6 +124,7 @@ $produtos = $produtosRepositorio->buscarTodos();
                   <td>
                     <form action="../controladora/processar_exclusao.php" method="POST" style="margin-top: 10px;">
                       <input type="hidden" name="id" value="<?= $produto->getId(); ?>">
+                      <input type="hidden" name="tipo" value="produto">
                       <input type="submit" class="botao-excluir" value="Excluir" style="background-color: red; color: white; border: none; border-radius: 15px; padding: 6px 8px; font-weight: 500; font-family: Poppins, sans-serif; transition: background-color 0.3s;">
                     </form>
                 </div>
