@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST["email"]);
     $senha = $_POST["senha"];
     $confirmarsenha = $_POST["confirmarsenha"];
-    $papel = $_POST["admin"];
+    $papel = $_POST["papel"];
     $cpf = isset($_POST["cpf"]) ? trim($_POST["cpf"]) : null;
     $telefone = isset($_POST["telefone"]) ? trim($_POST["telefone"]) : null;
     $cep = isset($_POST["cep"]) ? trim($_POST["cep"]) : null;
@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $numero = isset($_POST["numero"]) ? trim($_POST["numero"]) : null;
     $bairro = isset($_POST["bairro"]) ? trim($_POST["bairro"]) : null;
     $cidade = isset($_POST["cidade"]) ? trim($_POST["cidade"]) : null;
+    $papel = 'admin';
 
     // Validação básica
     $erros = [];
