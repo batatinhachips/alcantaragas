@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <title>Alcântara Gás</title>
 
@@ -35,17 +36,17 @@ $produtos = $produtosRepositorio->buscarTodos();
 <body>
   <!-- Botão do WhatsApp -->
   <a id="robbu-whatsapp-button" target="_white" href="https://api.whatsapp.com/send?phone=5511958780556&text=Ol%C3%A1,%20eu%20gostaria%20de%20fazer%20um%20pedido!%0AProduto(s):%0AQuantidade:%0AMeu%20endere%C3%A7o:%0AMeu%20nome:%0ARetirar%20ou%20entrega:">
-      <div class="rwb-tooltip"style="background-color: #fff;" >Faça o seu pedido agora!</div>
-      <img src="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-icon.svg">
+    <div class="rwb-tooltip" style="background-color: #fff;">Faça o seu pedido agora!</div>
+    <img src="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-icon.svg">
   </a>
 
   <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-            <img src="recursos/imagens/logo_nav.png" alt="Logo da Empresa" style="height: 40px;">
-        </a>
+      <a class="navbar-brand" href="/">
+        <img src="recursos/imagens/logo_nav.png" alt="Logo da Empresa" style="height: 40px;">
+      </a>
 
-        <!-- Links de navegação e botões -->
+      <!-- Links de navegação e botões -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto d-flex align-items-center">
           <li class="nav-item">
@@ -63,10 +64,10 @@ $produtos = $produtosRepositorio->buscarTodos();
         </ul>
       </div>
 
-        <!-- Ícone do Menu Hambúrguer -->
-        <div class="menu-icon" onclick="toggleMenu()">
-            <i class="bi bi-list"></i>
-        </div>
+      <!-- Ícone do Menu Hambúrguer -->
+      <div class="menu-icon" onclick="toggleMenu()">
+        <i class="bi bi-list"></i>
+      </div>
 
 
       <!-- Menu Dropdown -->
@@ -103,6 +104,12 @@ $produtos = $produtosRepositorio->buscarTodos();
   <!-- Carrossel -->
   <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
+    <!-- Indicadores -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    </div>
+
     <!-- Slideshow/carrossel -->
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -111,16 +118,7 @@ $produtos = $produtosRepositorio->buscarTodos();
       <div class="carousel-item">
         <img src="recursos/imagens/faixada.jpg" alt="Faixada" class="d-block w-100 carousel-image">
       </div>
-
     </div>
-
-    <!-- Controles/Icones esquerdo e direito -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
   </div>
 
   <!-- SESSAO DO CATALOGO -->
@@ -145,12 +143,12 @@ $produtos = $produtosRepositorio->buscarTodos();
       <div id="entrega">*valores dos produtos a retirar*</div>
       <br>
       <!-- BOTÃO WHATSAPP CENTRO -->
-       <div>
-      <a href="https://api.whatsapp.com/send/?phone=5511958780556&text=Olá%2C+eu+gostaria+de+fazer+um+pedido%21%0AProduto%28s%29%3A%0AQuantidade%3A%0AMeu+endereço%3A%0AMeu+nome%3A%0ARetirar+ou+entrega%3A&type=phone_number&app_absent=0" class="whatsapp-link" target="_blank">
-        <button class="btn btn-success text-white whatsapp">
-          <i class="fab fa-whatsapp icon-spacing"></i> Faça um pedido!
-        </button>
-        </div>
+      <div>
+        <a href="https://api.whatsapp.com/send/?phone=5511958780556&text=Olá%2C+eu+gostaria+de+fazer+um+pedido%21%0AProduto%28s%29%3A%0AQuantidade%3A%0AMeu+endereço%3A%0AMeu+nome%3A%0ARetirar+ou+entrega%3A&type=phone_number&app_absent=0" class="whatsapp-link" target="_blank">
+          <button class="btn btn-success text-white whatsapp">
+            <i class="fab fa-whatsapp icon-spacing"></i> Faça um pedido!
+          </button>
+      </div>
       </a>
     </div>
 
