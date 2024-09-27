@@ -53,6 +53,7 @@ $produtos = $produtosRepositorio->buscarTodos();
       <!-- Botões de Logar e Cadastrar -->
       <div class="botao-admin">
         <a class="btn btn-light ms-2" href="../visao/cadastrar_admin.php">Novo Admin</a>
+        <a class="btn btn-light ms-2" href="../visao/admin_tabela.php">Tabela Admins</a>
         <a class="btn btn-light ms-2" href="../visao/cadastrar_produtos.php">Novo Produto</a>
       </div>
     </div>
