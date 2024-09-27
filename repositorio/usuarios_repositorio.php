@@ -26,7 +26,7 @@ class usuarioRepositorio{
 
         $sql = "INSERT INTO usuario (nome, email, senha, papel, data_cadastro, cpf, telefone, cep, logradouro, complemento, numero, bairro, cidade) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("sssssssssssss",
+        $stmt->bind_param("ssssiiiississ",
             $nome,
             $email,
             $senha,
