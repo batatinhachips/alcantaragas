@@ -1,7 +1,6 @@
 <?php
 require_once '../modelo/login.php';
 require_once 'conexao.php'; // Certifique-se de que o caminho está correto
-include '../visao/cadastrar_admin.php'
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -27,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validação básica
     $erros = [];
-    if (empty($nome) || empty($email) || empty($senha) || empty($confirmarsenha)) {
+    if (empty($nome) || empty($email) || empty($senha) || empty($confirmarsenha) || empty($papel)) {
         $erros[] = "Todos os campos são obrigatórios.";
     }
 
@@ -35,8 +34,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $erros[] = "As senhas não coincidem.";
     }
 
+    $papel_valido = ['admin', 'usuario'];
+    if (!in_array($papel, $papel_valido)) {
+        $erros[] = "Papel inválido.";
+    }
+
     if (!empty($erros)) {
-        header("Location: cadastrar_admin.php?erro=" . urlencode(implode(", ", $erros)));
+        header("Location: ../visao/cadastro.php?erro=" . urlencode(implode(", ", $erros)));
         exit();
     }
 
