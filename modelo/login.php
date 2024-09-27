@@ -33,7 +33,7 @@ class Usuario {
             // Bind dos parâmetros (MySQLi usa bind_param com tipos de dados)
             // Note que o 's' é usado para string e o 'i' para integer (se aplicável)
             $stmt->bind_param(
-                'sssiiississs',
+                'ssssiiississ',
                 $nome,
                 $email,
                 $senhaHash,
