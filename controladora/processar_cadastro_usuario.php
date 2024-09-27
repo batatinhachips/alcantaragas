@@ -10,11 +10,14 @@ error_reporting(E_ALL);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter dados do formulário
+    var_dump($_POST);
     $nome = trim($_POST["nome"]);
     $email = trim($_POST["email"]);
     $senha = $_POST["senha"];
     $confirmarsenha = $_POST["confirmarsenha"];
     $papel = $_POST["papel"];
+    var_dump($papel);
+    echo "Papel: $papel"
     $cpf = isset($_POST["cpf"]) ? trim($_POST["cpf"]) : null;
     $telefone = isset($_POST["telefone"]) ? trim($_POST["telefone"]) : null;
     $cep = isset($_POST["cep"]) ? trim($_POST["cep"]) : null;
@@ -49,7 +52,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Cadastrar usuário ou administrador
     $resultado = $usuario->cadastrar($nome, $email, $senha, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade);
-
+    var_dump($resultado);
+    
     if ($resultado === true) {
         // Redirecionar para a página de sucesso com base no papel
         if ($papel === "admin") {
