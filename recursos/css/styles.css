@@ -34,6 +34,16 @@ body {
   filter: brightness(50%);
 }
 
+.carousel {
+  margin-top: -6.625rem; /* Ajuste o valor para compensar a altura do cabeçalho */
+}
+
+@media (max-width: 992px) {
+  .carousel {
+    margin-top: -5rem; /* Ajuste o valor para compensar a altura do cabeçalho em dispositivos menores */
+  }
+}
+
 /* Títulos personalizados */
 .custom-title {
   position: relative;
