@@ -92,6 +92,8 @@
             </div>
           </div>
         </div>
+        <!-- Campo oculto para definir o papel como 'usuario' -->
+        <input type="hidden" name="papel" value="usuario">
         <button type="submit" class="btn btn-custom-primary btn-block">Cadastrar</button>
         <a href="formLogin.php" class="btn btn-custom-primary btn-block">Login</a>
       </form>
