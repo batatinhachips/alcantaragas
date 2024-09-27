@@ -483,20 +483,16 @@ h2,
 /* Rodapé */
 #footer {
   background: #e1bd00;
-  padding: 3rem 0;
-  /* Ajuste em rem */
+  padding: 1rem 0; /* Reduz a padding para 1rem */
   color: #fff;
   font-size: 1.0rem;
-  /* Ajuste em rem */
   text-align: center;
 }
 
 #footer .footer-top {
   background: #145c50;
   border-bottom: 0.1rem solid #222;
-  /* Ajuste em rem */
-  padding: 3rem 0;
-  /* Ajuste em rem */
+  padding: 1rem 0;
 }
 
 #footer .footer-info,
@@ -549,15 +545,13 @@ h2,
 
 .copyright {
   text-align: center;
-  padding: 1rem;
-  /* Ajuste em rem */
+  padding: 0.5rem;
 }
 
 /* Adiciona um espaço uniforme entre as colunas do rodapé */
 @media (min-width: 48rem) {
   #footer .footer-top .col-lg-3 {
     margin-bottom: 0;
-    /* Remove a margem inferior para telas grandes */
   }
 }
 
