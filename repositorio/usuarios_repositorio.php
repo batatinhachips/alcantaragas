@@ -8,15 +8,20 @@ class usuarioRepositorio{
         $this->conn = $conn;
     }
 
-    public function cadastrar(usuario $usuario){
-        $sql = "INSERT INTO usuario (nome, email, senha, papel) VALUES (?, ?, ?, ?)";
+    public function cadastrar(Usuariosss $usuario){
+
+        $nome = $usuario->getNome();
+        $email = $usuario->getEmail();
+        $senha = $usuario->getSenha();
+        /* $papel = $usuario->getPapel(); */
+
+        $sql = "INSERT INTO usuario (nome, email, senha) VALUES (?,?,?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("ssss",
-            $usuario->get_nome(),
-            $usuario->get_email(),
-            $usuario->get_senha(),
-            $usuario->get_papel()
-        );
+            $nome,
+            $email,
+            $senha
+    );
        // Executa a consulta preparada e verifica o sucesso
        $success = $stmt->execute();
 
@@ -28,21 +33,20 @@ class usuarioRepositorio{
 
     }
 
-    /* public function buscarTodos()
+    public function buscarTodosUsuarios()
     {
-        $sql = "SELECT * FROM usuario ORDER BY papel asc";
+        $sql = "SELECT * FROM usuario ORDER BY nome asc";
         $result = $this->conn->query($sql);
 
         $usuarios = array();
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $usuario = new usuario(
+                $usuario = new Usuariosss(
                     $row['id_usuario'],
                     $row['nome'],
                     $row['email'],
                     $row['senha'],
-                    $row['papel']
 
                 );
                 $usuarios[] = $usuario;
@@ -52,15 +56,15 @@ class usuarioRepositorio{
         return $usuarios;
     }
 
-    public function listarUsarioPorId($id)
+    public function listarUsuarioPorId($id_usuario)
     {
-        $sql = "SELECT * FROM usuario WHERE id = '?'";
+        $sql = "SELECT * FROM usuario WHERE id_usuario = '?'";
 
         // Prepara a declaração SQL
         $stmt = $this->conn->prepare($sql);
 
         // Vincula o parâmetro
-        $stmt->bind_param('i', $id);
+        $stmt->bind_param('i', $id_usuario);
 
         // Executa a consulta preparada
         $stmt->execute();
@@ -73,12 +77,11 @@ class usuarioRepositorio{
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
 
-            $usuario = new usuario(
+            $usuario = new Usuario(
                 $row['id_usuario'],
                 $row['nome'],
                 $row['email'],
                 $row['senha'],
-                $row['papel']
             );
         }
 
@@ -88,16 +91,16 @@ class usuarioRepositorio{
         return $usuarios;
     }
 
-    public function excluirUsuarioPorId($id)
+    public function excluirUsuariosPorId($id_usuario)
     {
         $sql = "DELETE FROM usuario WHERE  
-             id = ?";
+             id_usuario = ?";
 
         // Prepara a declaração SQL
         $stmt = $this->conn->prepare($sql);
 
         // Vincula o parâmetro
-        $stmt->bind_param('i', $id);
+        $stmt->bind_param('i', $id_usuario);
 
         // Executa a consulta preparada
         $success = $stmt->execute();
@@ -106,5 +109,5 @@ class usuarioRepositorio{
         $stmt->close();
 
         return $success;
-    } */
+    }
 }
