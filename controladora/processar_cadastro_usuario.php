@@ -46,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Cadastrar usuário ou administrador
       if ($usuario->cadastrar($nome, $email, $senha, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade)) {
         // Redirecionar para a página de sucesso após o cadastro
+        $papel = 'admin';
         header("Location: ../visao/cadastrarcliente_sucesso.php");
         exit();
     } else {
