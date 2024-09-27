@@ -46,10 +46,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Cadastrar usuário ou administrador
        if ($usuario->cadastrar($nome, $email, $senha_hash, $papel, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade)) {
         // Redirecionar para a página de sucesso após o cadastro
-        header("Location: ../visao/cadastrarcliente_sucesso.php");
+       if ($papel === "admin") {
+            header("Location: ../visao/cadastraradmin_sucesso.php");
+        } else {
+            header("Location: ../visao/cadastrarcliente_sucesso.php");
+        }
         exit();
     } else {
-        echo "Erro ao cadastrar. Tente novamente.";
+        echo "Erro ao cadastrar usuário: " . $resultado;
     }
 }
 ?>
