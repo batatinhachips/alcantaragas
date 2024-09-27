@@ -75,7 +75,7 @@ body {
 /* Diminui a altura do carrossel em telas maiores */
 @media (min-width: 768px) {
   .carousel-item {
-      height: 400px; /* Define uma altura menor para o carrossel em telas maiores */
+      height: 90vh; /* Define uma altura menor para o carrossel em telas maiores */
   }
 }
 
