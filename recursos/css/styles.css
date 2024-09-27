@@ -3,14 +3,6 @@
   background-color: #145c50;
 }
 
-.custom-navbar-nav {
-  justify-content: center;
-}
-
-.custom-navbar-nav li {
-  margin: 0 10px;
-}
-
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
