@@ -40,7 +40,15 @@ body {
 
 @media (max-width: 992px) {
   .carousel {
-    margin-top: -5rem; /* Ajuste o valor para compensar a altura do cabeçalho em dispositivos menores */
+    margin-top: 0; /* Ajuste o valor para compensar a altura do cabeçalho em dispositivos menores */
+  }
+}
+
+@media (max-width: 576px) {
+  .menu-icon {
+    position: absolute;
+    top: 1rem; /* Ajuste a posição vertical do ícone */
+    right: 1rem; /* Ajuste a posição horizontal do ícone */
   }
 }
 
