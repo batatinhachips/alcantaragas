@@ -58,7 +58,7 @@
         <!-- Campo oculto para definir o papel como 'admin' -->
         <input type="hidden" name="papel" value="admin">
 
-        <php?
+        <?php
           $papel = $_POST['papel'];
         echo "Papel: $papel";
         ?>
