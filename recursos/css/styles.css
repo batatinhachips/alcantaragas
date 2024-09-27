@@ -66,11 +66,11 @@ body {
     height: 70vh;
   }
   .carousel-inner {
-    height: 100%;
+    height: calc(100% - 40px);
   }
   .carousel-item img {
-    height: 100%;
-    object-fit: scale-down;
+    max-height: 100%;
+    object-fit: contain;
     width: 100%;
   }
 }
