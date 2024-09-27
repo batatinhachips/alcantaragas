@@ -61,20 +61,6 @@ body {
   filter: brightness(50%);
 }
 
-@media (min-width: 992px) {
-  .carousel {
-    height: 70vh;
-  }
-  .carousel-inner {
-    height: calc(100% - 40px);
-  }
-  .carousel-item img {
-    max-height: 100%;
-    object-fit: contain;
-    width: 100%;
-  }
-}
-
 .carousel-item img {
   width: 100%;
   height: auto;
