@@ -10,6 +10,7 @@ error_reporting(E_ALL);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter dados do formulário
+    $papel = 'usuario';
     $nome = trim($_POST["nome"]);
     $email = trim($_POST["email"]);
     $senha = $_POST["senha"];
@@ -23,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $numero = isset($_POST["numero"]) ? trim($_POST["numero"]) : null;
     $bairro = isset($_POST["bairro"]) ? trim($_POST["bairro"]) : null;
     $cidade = isset($_POST["cidade"]) ? trim($_POST["cidade"]) : null;
-    $papel = 'usuario';
 
     // Validação básica
     $erros = [];
