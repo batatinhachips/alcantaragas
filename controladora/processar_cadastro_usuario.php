@@ -1,6 +1,7 @@
 <?php
 require_once '../modelo/login.php';
 require_once 'conexao.php'; // Certifique-se de que o caminho está correto
+include '../visao/cadastrar_admin.php'
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
