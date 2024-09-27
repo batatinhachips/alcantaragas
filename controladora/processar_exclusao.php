@@ -4,8 +4,7 @@ include '../modelo/produtos.php';
 include '../repositorio/produtos_repositorio.php';
 include '../repositorio/usuarios_repositorio.php';
 
-$produtosRepositorio = new produtoRepositorio($conn);
-$usuariosRepositorio = new usuarioRepositorio($conn);
+$produtosRepositorio = new produtoRepositorio($conn)
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $idParaExcluir = $_POST['id'];
@@ -18,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
 
 
 
-
+$usuariosRepositorio = new usuarioRepositorio($conn);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_usuario'])) {
     $idParaExcluir = $_POST['id_usuario'];
 
