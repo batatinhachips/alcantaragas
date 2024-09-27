@@ -508,32 +508,24 @@ h2,
 
 #footer .footer-contact h4 {
   margin-bottom: 1rem;
-  /* Adiciona espaçamento entre o título e o texto em rem */
 }
 
 .footer-contact {
   display: flex;
   flex-direction: column;
-  /* Para alinhar o título e os ícones verticalmente */
   align-items: center;
-  /* Alinha horizontalmente no centro */
   text-align: center;
-  /* Centraliza o texto do título */
 }
 
 .social-links {
   display: flex;
   gap: 1.5rem;
-  /* Espaçamento em rem */
   justify-content: center;
-  /* Centraliza os ícones horizontalmente */
   margin-top: 1rem;
-  /* Adiciona um espaço entre o título e os ícones em rem */
 }
 
 .social-icon {
   font-size: 2.4rem;
-  /* Ajuste em rem */
   color: #e1bd00;
   display: inline-block;
   transition: color 0.3s;
