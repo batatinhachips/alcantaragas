@@ -51,20 +51,20 @@
           <div class="custom-container">
             <div class="form-group">
               <form action="../controladora/processar_produtos.php" method="POST" enctype="multipart/form-data">
-                <label for="nome" class="titulo-campo">Nome:</label>
-                <input type="text" id="nome" name="nome" placeholder="digite o nome do produto" class="custom-input" required>
+    <label for="nome" class="titulo-campo">Nome:</label>
+    <input type="text" id="nome" name="nome" placeholder="digite o nome do produto" class="custom-input" required>
 
-                <label for="descricao" class="titulo-campo">Descrição:</label>
-                <input type="text" id="descricao" name="descricao" placeholder="digite uma descrição para o produto" class="custom-input" required>
+    <label for="descricao" class="titulo-campo">Descrição:</label>
+    <input type="text" id="descricao" name="descricao" placeholder="digite uma descrição para o produto" class="custom-input" required>
 
-                <label for="preco" class="titulo-campo">Preço:</label>
-                <input type="text" id="preco" name="preco" placeholder="ex: 99.99" class="custom-input" required>
+    <label for="preco" class="titulo-campo">Preço:</label>
+    <input type="text" id="preco" name="preco" placeholder="ex: 99.99" class="custom-input" required>
 
-                <label for="imagem" class="titulo-campo">Envie uma imagem do produto:</label>
-                <input type="file" name="imagem" accept="image/*" id="imagem" class="custom-input" required>
+    <label for="imagem" class="titulo-campo">Envie uma imagem do produto:</label>
+    <input type="file" name="imagem" accept="image/*" id="imagem" class="custom-input" required>
 
-                <input type="submit" name="cadastro" class="botao-cadastrar" value="CADASTRAR">
-              </form>
+    <input type="submit" name="cadastro" class="botao-cadastrar" value="CADASTRAR">
+</form>
             </div>
           </div>
         </div>
