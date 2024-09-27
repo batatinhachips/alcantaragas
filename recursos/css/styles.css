@@ -63,8 +63,18 @@ body {
 
 .carousel-item img {
   width: 100%;
-  height: 70vh;
+  height: auto;
   object-fit: cover;
+}
+
+@media (min-width: 1024px) { /* Você pode ajustar o valor conforme necessário */
+  .carousel {
+    height: 70vh; /* Definindo altura de 70vh para desktop */
+  }
+
+  .carousel-item img {
+    height: 100%; /* Fazendo a imagem ocupar toda a altura do carrossel */
+  }
 }
 
 .carousel {
