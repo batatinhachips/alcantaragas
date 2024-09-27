@@ -13,14 +13,33 @@ class usuarioRepositorio{
         $nome = $usuario->getNome();
         $email = $usuario->getEmail();
         $senha = $usuario->getSenha();
-        /* $papel = $usuario->getPapel(); */
+        $papel = $usuario->getPapel();
+        $data_cadastro = $usuario->getDataCadastro();
+        $cpf = $usuario->getCpf();
+        $telefone = $usuario->getTelefone();
+        $cep = $usuario->getCep();
+        $logradouro = $usuario->getLogradouro();
+        $complemento = $usuario->getComplemento();
+        $numero = $usuario->getNumero();
+        $bairro = $usuario->getBairro();
+        $cidade = $usuario->getCidade();
 
-        $sql = "INSERT INTO usuario (nome, email, senha) VALUES (?,?,?)";
+        $sql = "INSERT INTO usuario (nome, email, senha, papel, data_cadastro, cpf, telefone, cep, logradouro, complemento, numero, bairro, cidade) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("ssss",
+        $stmt->bind_param("sssssssssssss",
             $nome,
             $email,
-            $senha
+            $senha,
+            $papel,
+            $data_cadastro,
+            $cpf,
+            $telefone,
+            $cep,
+            $logradouro,
+            $complemento,
+            $numero,
+            $bairro,
+            $cidade
     );
        // Executa a consulta preparada e verifica o sucesso
        $success = $stmt->execute();
@@ -46,8 +65,17 @@ class usuarioRepositorio{
                     $row['id_usuario'],
                     $row['nome'],
                     $row['email'],
-                    $row['senha']
-
+                    $row['senha'],
+                    $row['papel'],
+                    $row['data_cadastro'],
+                    $row['cpf'],
+                    $row['telefone'],
+                    $row['cep'],
+                    $row['logradouro'],
+                    $row['complemento'],
+                    $row['numero'],
+                    $row['bairro'],
+                    $row['cidade']
                 );
                 $usuarios[] = $usuario;
             }
@@ -81,7 +109,17 @@ class usuarioRepositorio{
                 $row['id_usuario'],
                 $row['nome'],
                 $row['email'],
-                $row['senha']
+                $row['senha'],
+                $row['papel'],
+                $row['data_cadastro'],
+                $row['cpf'],
+                $row['telefone'],
+                $row['cep'],
+                $row['logradouro'],
+                $row['complemento'],
+                $row['numero'],
+                $row['bairro'],
+                $row['cidade']
             );
         }
 
