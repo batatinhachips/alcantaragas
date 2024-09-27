@@ -2,7 +2,7 @@
 include '../controladora/conexao.php';
 include '../modelo/produtos.php';
 include '../repositorio/produtos_repositorio.php';
-include '../modelo/usuarios.php'; // Inclua o modelo de usuários
+include '../modelo/usuario.php'; // Inclua o modelo de usuários
 include '../repositorio/usuarios_repositorio.php'; // Inclua o repositório de usuários
 
 $produtosRepositorio = new produtoRepositorio($conn);
