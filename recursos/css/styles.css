@@ -4,17 +4,50 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif; /* Aplicar a fonte Poppins ao corpo */
+  font-family: 'Poppins', sans-serif;
+  /* Aplicar a fonte Poppins ao corpo */
   margin: 0;
   padding: 0;
 }
 
 .navbar {
-  margin-bottom: 0; /* Certifique-se de que a navbar não tenha margem inferior */
+  margin-bottom: 0;
+  position: relative;
+}
+
+/* Adicione essa classe para o container do navbar */
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Adicione essa classe para o menu */
+#menu {
+  display: none;
+  position: absolute;
+  top: 6rem;
+  right: 0;
+  background-color: #333;
+  color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+/* Adicione essa classe para o menu quando ele estiver aberto */
+#menu.show {
+  display: block;
+}
+
+/* Adicione essa classe para o ícone de hamburguer quando o menu estiver aberto */
+.menu-icon.show {
+  display: none;
 }
 
 .carousel {
-  margin-top: 0; /* Certifique-se de que o carrossel não tenha margem superior */
+  margin-top: 0;
+  /* Certifique-se de que o carrossel não tenha margem superior */
 }
 
 * {
@@ -24,7 +57,8 @@ body {
 }
 
 #demo {
-  padding-top: 6.625rem; /* Mantenha em rem */
+  padding-top: 6.625rem;
+  /* Mantenha em rem */
 }
 
 /* Carousel */
@@ -35,20 +69,24 @@ body {
 }
 
 .carousel {
-  margin-top: -6.625rem; /* Ajuste o valor para compensar a altura do cabeçalho */
+  margin-top: -6.625rem;
+  /* Ajuste o valor para compensar a altura do cabeçalho */
 }
 
 @media (max-width: 992px) {
   .carousel {
-    margin-top: 0; /* Ajuste o valor para compensar a altura do cabeçalho em dispositivos menores */
+    margin-top: 0;
+    /* Ajuste o valor para compensar a altura do cabeçalho em dispositivos menores */
   }
 }
 
 @media (max-width: 576px) {
   .menu-icon {
     position: absolute;
-    top: 1rem; /* Ajuste a posição vertical do ícone */
-    right: 1rem; /* Ajuste a posição horizontal do ícone */
+    top: 1rem;
+    /* Ajuste a posição vertical do ícone */
+    right: 1rem;
+    /* Ajuste a posição horizontal do ícone */
   }
 }
 
@@ -57,8 +95,10 @@ body {
   position: relative;
   font-size: 2rem;
   text-align: center;
-  margin: 7rem 10vw; /* Ajuste de rem */
-  display: inline-block; /* Ajusta a linha ao comprimento do texto */
+  margin: 7rem 10vw;
+  /* Ajuste de rem */
+  display: inline-block;
+  /* Ajusta a linha ao comprimento do texto */
   font-weight: 500;
 }
 
@@ -66,10 +106,12 @@ body {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -0.5rem; /* Ajuste a distância entre o texto e a linha */
+  bottom: -0.5rem;
+  /* Ajuste a distância entre o texto e a linha */
   width: 100%;
-  height: 0.2rem; /* Cor da linha */
-  background-color: #145c50; 
+  height: 0.2rem;
+  /* Cor da linha */
+  background-color: #145c50;
 }
 
 .whatsapp {
@@ -77,71 +119,89 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  border-radius: 2.0rem; /* Ajuste em rem */
-  width: 11rem; /* Ajuste em rem */
-  height: 5rem; /* Ajuste em rem */
-  font-size: 1rem; /* Ajuste em rem */
+  border-radius: 2.0rem;
+  /* Ajuste em rem */
+  width: 11rem;
+  /* Ajuste em rem */
+  height: 5rem;
+  /* Ajuste em rem */
+  font-size: 1rem;
+  /* Ajuste em rem */
 }
 
 .whatsapp-link {
-  text-decoration: none; /* Remove o sublinhado */
-  color: inherit; /* Herda a cor do botão, que deve ser branca ou outra cor desejada */
+  text-decoration: none;
+  /* Remove o sublinhado */
+  color: inherit;
+  /* Herda a cor do botão, que deve ser branca ou outra cor desejada */
 }
 
 .icon-spacing {
-  margin-right: 0.4rem; /* Ajuste em rem */
+  margin-right: 0.4rem;
+  /* Ajuste em rem */
 }
 
 /* Container de produtos */
 .produtos-container {
-  max-width: 100vw; /* Ajuste conforme necessário */
+  max-width: 100vw;
+  /* Ajuste conforme necessário */
   justify-content: center;
   display: flex;
 }
 
 .produtos-row {
   display: flex;
-  flex-wrap: wrap; /* Garante que os cards quebrem para a linha seguinte se necessário */
+  flex-wrap: wrap;
+  /* Garante que os cards quebrem para a linha seguinte se necessário */
   justify-content: center;
 }
 
 /* Espaçamento adicional entre as seções */
 .produtos-container {
-  margin-bottom: 2rem; /* Ajuste em rem */
+  margin-bottom: 2rem;
+  /* Ajuste em rem */
 }
 
 .catalogo {
-  margin-bottom: 40rem; /* Ajuste em rem */
+  margin-bottom: 40rem;
+  /* Ajuste em rem */
 }
 
 /* Contêiner principal do catálogo */
 .container {
   display: flex;
   flex-direction: column;
-  padding: 2rem; /* Ajuste em rem */
+  padding: 2rem;
+  /* Ajuste em rem */
 }
 
 .row {
   display: flex;
-  flex-wrap: wrap; /* Permite que os itens se movam para a linha seguinte se necessário */
-  gap: 2rem; /* Espaçamento entre os cards em rem */
+  flex-wrap: wrap;
+  /* Permite que os itens se movam para a linha seguinte se necessário */
+  gap: 2rem;
+  /* Espaçamento entre os cards em rem */
 }
 
 /* Defina o tamanho fixo para as colunas */
 .col {
-  flex: 0 1 15rem; /* Largura fixa das colunas em rem */
+  flex: 0 1 15rem;
+  /* Largura fixa das colunas em rem */
   box-sizing: border-box;
 }
 
 /* Card */
 .card.custom-card {
   border: 1px solid #ddd;
-  border-radius: 0.8rem; /* Ajuste em rem */
+  border-radius: 0.8rem;
+  /* Ajuste em rem */
   overflow: hidden;
   background-color: #fff;
   text-align: center;
-  width: 100%; /* Garante que o card ocupe toda a largura da coluna */
-  height: 100%; /* Define uma altura fixa para todos os cards */
+  width: 100%;
+  /* Garante que o card ocupe toda a largura da coluna */
+  height: 100%;
+  /* Define uma altura fixa para todos os cards */
   display: flex;
   flex-direction: column;
 }
@@ -151,17 +211,22 @@ body {
 }
 
 .custom-card-body {
-  padding: 1.5rem; /* Ajuste em rem */
-  flex: 1; /* Faz com que o corpo do card expanda para preencher o espaço disponível */
+  padding: 1.5rem;
+  /* Ajuste em rem */
+  flex: 1;
+  /* Faz com que o corpo do card expanda para preencher o espaço disponível */
 }
 
 .custom-card-title {
-  font-size: 1.8rem; /* Ajuste em rem */
-  margin: 1rem 0; /* Ajuste em rem */
+  font-size: 1.8rem;
+  /* Ajuste em rem */
+  margin: 1rem 0;
+  /* Ajuste em rem */
 }
 
 .custom-card-text {
-  font-size: 1.4rem; /* Ajuste em rem */
+  font-size: 1.4rem;
+  /* Ajuste em rem */
   color: #666;
 }
 
@@ -169,18 +234,23 @@ body {
   background-color: #007bff;
   border: none;
   color: #fff;
-  padding: 1rem 2rem; /* Ajuste em rem */
+  padding: 1rem 2rem;
+  /* Ajuste em rem */
   text-decoration: none;
-  border-radius: 0.4rem; /* Ajuste em rem */
+  border-radius: 0.4rem;
+  /* Ajuste em rem */
   display: inline-block;
-  margin-top: auto; /* Move o botão para o final do card */
+  margin-top: auto;
+  /* Move o botão para o final do card */
 }
 
 #entrega {
   text-align: center;
-  font-size: 1.2rem; /* Ajuste em rem */
+  font-size: 1.2rem;
+  /* Ajuste em rem */
   color: #666;
-  margin-top: 2rem; /* Ajuste em rem */
+  margin-top: 2rem;
+  /* Ajuste em rem */
 }
 
 /* Media Queries para Responsividade */
@@ -188,21 +258,24 @@ body {
 /* Para telas menores que 1200px (como tablets em modo paisagem) */
 @media (max-width: 75rem) {
   .col {
-    flex: 0 1 12rem; /* Ajusta a largura das colunas em rem */
+    flex: 0 1 12rem;
+    /* Ajusta a largura das colunas em rem */
   }
 }
 
 /* Para telas menores que 992px (como tablets em modo retrato) */
 @media (max-width: 62rem) {
   .col {
-    flex: 0 1 10rem; /* Ajusta a largura das colunas em rem */
+    flex: 0 1 10rem;
+    /* Ajusta a largura das colunas em rem */
   }
 }
 
 /* Para telas menores que 768px (como smartphones em modo paisagem) */
 @media (max-width: 48rem) {
   .col {
-    flex: 0 1 100%; /* 1 coluna por linha */
+    flex: 0 1 100%;
+    /* 1 coluna por linha */
   }
 }
 
@@ -210,50 +283,64 @@ body {
 
 /* Layout do contêiner de informações da empresa */
 .company-container {
-  margin-bottom: 4rem; /* Espaço entre a seção e o mapa em rem */
+  margin-bottom: 4rem;
+  /* Espaço entre a seção e o mapa em rem */
   max-width: 100vw;
 }
 
 /* Estilo para o wrapper que contém as duas caixas */
 .company-info-wrapper {
   display: flex;
-  gap: 2rem; /* Espaçamento entre as caixas em rem */
+  gap: 2rem;
+  /* Espaçamento entre as caixas em rem */
 }
 
 /* Estilo para a caixa de informações da empresa */
 .company-info-box {
   border: 1px solid #ddd;
-  border-radius: 1rem; /* Ajuste em rem */
+  border-radius: 1rem;
+  /* Ajuste em rem */
   box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
-  padding: 3rem 4rem; /* Ajuste em rem */
+  padding: 3rem 4rem;
+  /* Ajuste em rem */
 }
 
 .company-info-box h2 {
-  margin-bottom: 1rem; /* Ajuste em rem */
+  margin-bottom: 1rem;
+  /* Ajuste em rem */
 }
 
 /* Estilo para a caixa de contatos */
 .contatos-box {
   border: 1px solid #ddd;
-  border-radius: 1rem; /* Ajuste em rem */
+  border-radius: 1rem;
+  /* Ajuste em rem */
   box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
   text-align: right;
-  padding: 4rem; /* Ajuste em rem */
-  flex: 1; /* Faz com que a caixa de contatos ocupe o espaço disponível */
+  padding: 4rem;
+  /* Ajuste em rem */
+  flex: 1;
+  /* Faz com que a caixa de contatos ocupe o espaço disponível */
   display: flex;
-  flex-direction: column; /* Organiza os itens em uma coluna */
-  justify-content: center; /* Alinha verticalmente no centro */
+  flex-direction: column;
+  /* Organiza os itens em uma coluna */
+  justify-content: center;
+  /* Alinha verticalmente no centro */
 }
 
 .contatos-box .contato a {
-  color: inherit; /* Herda a cor do elemento pai, removendo a cor azul padrão */
-  text-decoration: none; /* Remove o sublinhado do link */
-  transition: color 0.3s; /* Adiciona uma transição suave para a cor ao passar o mouse */
+  color: inherit;
+  /* Herda a cor do elemento pai, removendo a cor azul padrão */
+  text-decoration: none;
+  /* Remove o sublinhado do link */
+  transition: color 0.3s;
+  /* Adiciona uma transição suave para a cor ao passar o mouse */
 }
 
 /* Estilo para o link quando o mouse passa sobre ele */
 .contatos-box .contato a:hover h6 {
-  color: #ced500; /* Muda a cor do link para verde quando o mouse passa sobre ele */
+  color: #ced500;
+  /* Muda a cor do link para verde quando o mouse passa sobre ele */
 }
 
 /* Ajusta o layout das colunas em telas menores */
@@ -267,7 +354,8 @@ body {
 .company-info {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem; /* Espaçamento em rem */
+  gap: 2rem;
+  /* Espaçamento em rem */
   align-items: flex-start;
 }
 
@@ -281,24 +369,29 @@ body {
 
 .company-info .contatos {
   flex: 1;
-  margin-top: 2rem; /* Espaço acima dos contatos em rem */
+  margin-top: 2rem;
+  /* Espaço acima dos contatos em rem */
 }
 
 /* Imagem da fachada */
 .img-faixada {
   width: 100%;
   height: auto;
-  max-width: 100%; /* Ajuste para se adaptar ao tamanho da coluna */
+  max-width: 100%;
+  /* Ajuste para se adaptar ao tamanho da coluna */
 }
 
 /* Estilo para a imagem da fachada para garantir que ela se ajuste ao layout */
 .faixada {
-  margin-bottom: 2rem; /* Espaçamento inferior para separar a imagem do texto em rem */
+  margin-bottom: 2rem;
+  /* Espaçamento inferior para separar a imagem do texto em rem */
 }
 
 /* Ajustes adicionais para o título */
-h2, .section-contact h3 {
-  margin: 0; /* Remove a margem padrão para melhor controle do espaçamento */
+h2,
+.section-contact h3 {
+  margin: 0;
+  /* Remove a margem padrão para melhor controle do espaçamento */
 }
 
 @media (max-width: 48rem) {
@@ -323,13 +416,17 @@ h2, .section-contact h3 {
 
 /* Mapa */
 .mapa-container {
-  margin: 0; /* Remove margens extras ao redor do contêiner do mapa */
-  padding: 0; /* Remove preenchimento extra ao redor do contêiner do mapa */
+  margin: 0;
+  /* Remove margens extras ao redor do contêiner do mapa */
+  padding: 0;
+  /* Remove preenchimento extra ao redor do contêiner do mapa */
 }
 
 .mapa {
-  width: 100%; /* Ajusta a largura para 100% do contêiner pai */
-  height: 30vh; /* Altura do mapa */
+  width: 100%;
+  /* Ajusta a largura para 100% do contêiner pai */
+  height: 30vh;
+  /* Altura do mapa */
   overflow: hidden;
 }
 
@@ -338,7 +435,8 @@ h2, .section-contact h3 {
   width: 100%;
   height: 100%;
   border: 0;
-  display: block; /* Remove espaços extras ao redor do iframe */
+  display: block;
+  /* Remove espaços extras ao redor do iframe */
 }
 
 .contatos {
@@ -346,38 +444,49 @@ h2, .section-contact h3 {
 }
 
 .contatos h3 {
-  border-bottom: 0.2rem solid #008000; /* Linha fina verde em rem */
-  padding-bottom: 0.5rem; /* Espaço entre o texto e a linha em rem */
-  margin-bottom: 1rem; /* Espaço entre a linha e o conteúdo abaixo em rem */
-  display: inline-block; /* Ajusta a linha ao comprimento do texto */
+  border-bottom: 0.2rem solid #008000;
+  /* Linha fina verde em rem */
+  padding-bottom: 0.5rem;
+  /* Espaço entre o texto e a linha em rem */
+  margin-bottom: 1rem;
+  /* Espaço entre a linha e o conteúdo abaixo em rem */
+  display: inline-block;
+  /* Ajusta a linha ao comprimento do texto */
 }
 
 .contatos p {
-  margin: 0; /* Remove a margem padrão */
+  margin: 0;
+  /* Remove a margem padrão */
 }
 
-.contatos p + p {
-  margin-top: 0.5rem; /* Ajuste o valor conforme necessário em rem */
+.contatos p+p {
+  margin-top: 0.5rem;
+  /* Ajuste o valor conforme necessário em rem */
 }
 
 /* Rodapé */
 #footer {
   background: #e1bd00;
-  padding: 3rem 0; /* Ajuste em rem */
+  padding: 3rem 0;
+  /* Ajuste em rem */
   color: #fff;
-  font-size: 1.0rem; /* Ajuste em rem */
+  font-size: 1.0rem;
+  /* Ajuste em rem */
   text-align: center;
 }
 
 #footer .footer-top {
   background: #145c50;
-  border-bottom: 0.1rem solid #222; /* Ajuste em rem */
-  padding: 3rem 0; /* Ajuste em rem */
+  border-bottom: 0.1rem solid #222;
+  /* Ajuste em rem */
+  padding: 3rem 0;
+  /* Ajuste em rem */
 }
 
 #footer .footer-info,
 #footer .footer-contact {
-  margin-bottom: 2rem; /* Ajusta o espaçamento inferior das colunas em rem */
+  margin-bottom: 2rem;
+  /* Ajusta o espaçamento inferior das colunas em rem */
 }
 
 #footer .footer-info h3 {
@@ -386,25 +495,33 @@ h2, .section-contact h3 {
 }
 
 #footer .footer-contact h4 {
-  margin-bottom: 1rem; /* Adiciona espaçamento entre o título e o texto em rem */
+  margin-bottom: 1rem;
+  /* Adiciona espaçamento entre o título e o texto em rem */
 }
 
 .footer-contact {
   display: flex;
-  flex-direction: column; /* Para alinhar o título e os ícones verticalmente */
-  align-items: center; /* Alinha horizontalmente no centro */
-  text-align: center; /* Centraliza o texto do título */
+  flex-direction: column;
+  /* Para alinhar o título e os ícones verticalmente */
+  align-items: center;
+  /* Alinha horizontalmente no centro */
+  text-align: center;
+  /* Centraliza o texto do título */
 }
 
 .social-links {
   display: flex;
-  gap: 1.5rem; /* Espaçamento em rem */
-  justify-content: center; /* Centraliza os ícones horizontalmente */
-  margin-top: 1rem; /* Adiciona um espaço entre o título e os ícones em rem */
+  gap: 1.5rem;
+  /* Espaçamento em rem */
+  justify-content: center;
+  /* Centraliza os ícones horizontalmente */
+  margin-top: 1rem;
+  /* Adiciona um espaço entre o título e os ícones em rem */
 }
 
 .social-icon {
-  font-size: 2.4rem; /* Ajuste em rem */
+  font-size: 2.4rem;
+  /* Ajuste em rem */
   color: #e1bd00;
   display: inline-block;
   transition: color 0.3s;
@@ -416,52 +533,76 @@ h2, .section-contact h3 {
 
 .copyright {
   text-align: center;
-  padding: 1rem; /* Ajuste em rem */
+  padding: 1rem;
+  /* Ajuste em rem */
 }
 
 /* Adiciona um espaço uniforme entre as colunas do rodapé */
 @media (min-width: 48rem) {
   #footer .footer-top .col-lg-3 {
-    margin-bottom: 0; /* Remove a margem inferior para telas grandes */
+    margin-bottom: 0;
+    /* Remove a margem inferior para telas grandes */
   }
 }
 
 .menu-container {
   display: flex;
   justify-content: flex-end;
-  padding: 1rem; /* Ajuste em rem */
+  padding: 1rem;
+  /* Ajuste em rem */
+}
+
+.menu-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2.4rem;
+  color: white;
+  cursor: pointer;
 }
 
 .menu-icon i {
-  font-size: 2.4rem; /* Ajuste o tamanho do ícone conforme necessário em rem */
-  color: white;    /* Ajuste a cor do ícone conforme necessário */
-  margin-left: 1rem; /* Ajuste em rem */
-  margin-right: 1rem; /* Ajuste em rem */
+  font-size: 2.4rem;
+  /* Ajuste o tamanho do ícone conforme necessário em rem */
+  color: white;
+  /* Ajuste a cor do ícone conforme necessário */
+  margin-left: 1rem;
+  /* Ajuste em rem */
+  margin-right: 1rem;
+  /* Ajuste em rem */
 }
 
 .bar {
-  width: 3rem; /* Ajuste em rem */
-  height: 0.3rem; /* Ajuste em rem */
+  width: 3rem;
+  /* Ajuste em rem */
+  height: 0.3rem;
+  /* Ajuste em rem */
   background-color: #333;
-  margin: 0.5rem 0; /* Ajuste em rem */
+  margin: 0.5rem 0;
+  /* Ajuste em rem */
   transition: 0.3s;
 }
 
 .menu {
-  z-index: 1000; /* Valor alto para ficar acima de outros elementos */
+  z-index: 1000;
+  /* Valor alto para ficar acima de outros elementos */
   display: none;
   position: absolute;
-  top: 6rem; /* Ajuste em rem */
+  top: 6rem;
+  /* Ajuste em rem */
   right: 0;
   background-color: #333;
   color: white;
-  padding: 2rem; /* Ajuste em rem */
-  border-radius: 0.5rem; /* Ajuste em rem */
+  padding: 2rem;
+  /* Ajuste em rem */
+  border-radius: 0.5rem;
+  /* Ajuste em rem */
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 .menu .user-name {
-  margin-bottom: 1rem; /* Ajuste em rem */
+  margin-bottom: 1rem;
+  /* Ajuste em rem */
   font-weight: bold;
 }
 
@@ -475,9 +616,12 @@ h2, .section-contact h3 {
   display: block;
   color: white;
   text-decoration: none;
-  padding: 1rem; /* Ajuste em rem */
-  margin: 0.5rem 0; /* Ajuste em rem */
-  border-radius: 0.4rem; /* Ajuste em rem */
+  padding: 1rem;
+  /* Ajuste em rem */
+  margin: 0.5rem 0;
+  /* Ajuste em rem */
+  border-radius: 0.4rem;
+  /* Ajuste em rem */
   transition: background-color 0.3s;
 }
 
@@ -488,53 +632,81 @@ h2, .section-contact h3 {
 .menu.show {
   display: block;
 }
+
 #robbu-whatsapp-button {
-  border-radius: 50%; /* Torna o botão circular */
-  position: fixed; /* Mantém o botão fixo na tela */
-  bottom: 2rem; /* Distância do fundo da tela */
-  right: 2rem; /* Distância da direita da tela */
-  z-index: 1000; /* Garante que o botão esteja sempre visível */
-  width: 60px; /* Largura do botão */
-  height: 60px; /* Altura do botão */
-  background-color: #25D366; /* Cor do fundo do botão */
-  display: flex; /* Usado para centralizar o ícone */
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-  transition: transform 0.3s; /* Efeito ao passar o mouse */
+  border-radius: 50%;
+  /* Torna o botão circular */
+  position: fixed;
+  /* Mantém o botão fixo na tela */
+  bottom: 2rem;
+  /* Distância do fundo da tela */
+  right: 2rem;
+  /* Distância da direita da tela */
+  z-index: 1000;
+  /* Garante que o botão esteja sempre visível */
+  width: 60px;
+  /* Largura do botão */
+  height: 60px;
+  /* Altura do botão */
+  background-color: #25D366;
+  /* Cor do fundo do botão */
+  display: flex;
+  /* Usado para centralizar o ícone */
+  justify-content: center;
+  /* Centraliza horizontalmente */
+  align-items: center;
+  /* Centraliza verticalmente */
+  transition: transform 0.3s;
+  /* Efeito ao passar o mouse */
 }
 
 #robbu-whatsapp-button:hover {
-  transform: scale(1.1); /* Aumenta o botão ao passar o mouse */
+  transform: scale(1.1);
+  /* Aumenta o botão ao passar o mouse */
 }
 
 .rwb-tooltip {
-  position: absolute; /* Para posicionar corretamente */
-  bottom: 70px; /* Acima do botão */
+  position: absolute;
+  /* Para posicionar corretamente */
+  bottom: 70px;
+  /* Acima do botão */
   right: 0;
-  background-color: #fff; /* Fundo branco */
-  color: #333; /* Cor do texto */
-  padding: 3.0rem; /* Espaçamento interno */
-  border-radius: 10.0rem; /* Bordas arredondadas */
-  display: none; /* Escondido por padrão */
-  font-size: 0.9rem; /* Tamanho do texto */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
+  background-color: #fff;
+  /* Fundo branco */
+  color: #333;
+  /* Cor do texto */
+  padding: 3.0rem;
+  /* Espaçamento interno */
+  border-radius: 10.0rem;
+  /* Bordas arredondadas */
+  display: none;
+  /* Escondido por padrão */
+  font-size: 0.9rem;
+  /* Tamanho do texto */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  /* Sombra */
 }
 
 #robbu-whatsapp-button:hover .rwb-tooltip {
-  display: block; /* Mostra tooltip ao passar o mouse */
+  display: block;
+  /* Mostra tooltip ao passar o mouse */
 }
 
 @media (max-width: 576px) {
   #robbu-whatsapp-button {
-    width: 50px; /* Largura para dispositivos menores */
-    height: 50px; /* Altura para dispositivos menores */
+    width: 50px;
+    /* Largura para dispositivos menores */
+    height: 50px;
+    /* Altura para dispositivos menores */
   }
 
   .rwb-tooltip {
-    font-size: 0.8rem; /* Tamanho do texto para dispositivos menores */
+    font-size: 0.8rem;
+    /* Tamanho do texto para dispositivos menores */
   }
 }
 
 .whatsapp {
-  border-radius: 2.0rem; /* Ajuste o valor conforme desejado */
+  border-radius: 2.0rem;
+  /* Ajuste o valor conforme desejado */
 }
