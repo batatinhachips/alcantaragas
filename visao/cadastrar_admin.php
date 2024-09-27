@@ -56,7 +56,11 @@
           <div class="invalid-feedback">As senhas não coincidem.</div>
         </div>
         <!-- Campo oculto para definir o papel como 'admin' -->
-        <input type="hidden" name="papel" value="admin">
+        <?php
+          if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $papel = 'admin';
+          }
+          ?>
         <button type="submit" class="btn btn-custom-primary btn-block">Cadastrar</button>
       </form>
     </div>
