@@ -56,17 +56,17 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
       <div class="row">
       <div class="container container-form-login mt-5" id="login-form">
           <div class="icon-box">
-            <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
-              $id_usuario = $_POST["id"];
-              $sql = "SELECT * FROM usuario WHERE id = $id_usuario";
-              $result = $conn->query($sql);
+          <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $id_usuario = $_POST["id"];
+            $sql = "SELECT * FROM usuario WHERE id_usuario = $id_usuario";
+            $result = $conn->query($sql);
 
-              if ($result->num_rows > 0) {
-                $usuario = $result->fetch_assoc();
-            ?>
+            if ($result->num_rows > 0) {
+            $usuario = $result->fetch_assoc();
+          ?>
 
                   <!-- Formulário de edição -->
-                  <form action="../controladora/processar_editar_admin.php" method="POST" enctype="multipart/form-data" class="formulario-edicao">
+                  <form action="../controladora/processar_editar_usuario.php" method="POST" enctype="multipart/form-data" class="formulario-edicao">
                     <input type="hidden" name="id" value="<?= $usuario["id"] ?>">
 
                     <label for="nome" class="titulo-campo">Nome:</label>
