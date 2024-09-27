@@ -46,7 +46,7 @@ class usuarioRepositorio{
                     $row['id_usuario'],
                     $row['nome'],
                     $row['email'],
-                    $row['senha'],
+                    $row['senha']
 
                 );
                 $usuarios[] = $usuario;
@@ -81,7 +81,7 @@ class usuarioRepositorio{
                 $row['id_usuario'],
                 $row['nome'],
                 $row['email'],
-                $row['senha'],
+                $row['senha']
             );
         }
 
