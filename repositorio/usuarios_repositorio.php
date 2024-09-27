@@ -14,7 +14,6 @@ class usuarioRepositorio{
         $email = $usuario->getEmail();
         $senha = $usuario->getSenha();
         $papel = $usuario->getPapel();
-        $data_cadastro = $usuario->getDataCadastro();
         $cpf = $usuario->getCpf();
         $telefone = $usuario->getTelefone();
         $cep = $usuario->getCep();
@@ -24,14 +23,13 @@ class usuarioRepositorio{
         $bairro = $usuario->getBairro();
         $cidade = $usuario->getCidade();
 
-        $sql = "INSERT INTO usuario (nome, email, senha, papel, data_cadastro, cpf, telefone, cep, logradouro, complemento, numero, bairro, cidade) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO usuario (nome, email, senha, papel, cpf, telefone, cep, logradouro, complemento, numero, bairro, cidade) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("ssssiiiississ",
+        $stmt->bind_param("ssssiiississ",
             $nome,
             $email,
             $senha,
             $papel,
-            $data_cadastro,
             $cpf,
             $telefone,
             $cep,
@@ -67,7 +65,6 @@ class usuarioRepositorio{
                     $row['email'],
                     $row['senha'],
                     $row['papel'],
-                    $row['data_cadastro'],
                     $row['cpf'],
                     $row['telefone'],
                     $row['cep'],
@@ -111,7 +108,6 @@ class usuarioRepositorio{
                 $row['email'],
                 $row['senha'],
                 $row['papel'],
-                $row['data_cadastro'],
                 $row['cpf'],
                 $row['telefone'],
                 $row['cep'],
