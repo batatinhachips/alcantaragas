@@ -56,7 +56,9 @@
           <div class="invalid-feedback">As senhas não coincidem.</div>
         </div>
         <!-- Campo oculto para definir o papel como 'admin' -->
-          <input type="hidden" name="papel" value="admin">
+          <label for="papel">Papel</label>
+          <input type="text" class="form-control" id="papel" placeholder="Digite o papel" name="papel" required>
+          <div class="invalid-feedback">O papel deve conter apenas letras.</div>
         <button type="submit" class="btn btn-custom-primary btn-block">Cadastrar</button>
       </form>
     </div>
