@@ -34,7 +34,7 @@
       <h1>CADASTRO DE ADMINISTRADOR</h1>
     </div>
     <div class="container container-form-login mt-5" id="login-form">
-      <form id="admin-form" method="post" action="../controladora/processar_cadastro_admin.php">
+      <form id="admin-form" method="post" action="../controladora/processar_cadastro_usuario.php">
         <div class="form-group">
           <label for="nome">Nome</label>
           <input type="text" class="form-control" id="nome" placeholder="Digite o nome do admin" name="nome" required>
