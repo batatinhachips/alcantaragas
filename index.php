@@ -45,7 +45,29 @@ $produtos = $produtosRepositorio->buscarTodos();
       <a class="navbar-brand" href="/">
         <img src="recursos/imagens/logo_nav.png" alt="Logo da Empresa" style="height: 40px;">
       </a>
-
+      <div class="d-flex align-items-center">
+        <div class="menu-icon" onclick="toggleMenu()">
+          <i class="bi bi-list"></i>
+        </div>
+        <nav id="menu" class="menu">
+          <?php
+          if (isset($_SESSION["nome_usuario"])) {
+            echo "<div class='user-name'>" . $_SESSION["nome_usuario"] . "</div>";
+          }
+          ?>
+          <div class="dropdown-content">
+            <?php if (isset($_SESSION["papel"]) && $_SESSION["papel"] == "admin") { ?>
+              <a class="dropdown-item" href="visao/admin.php">Admin</a>
+            <?php } ?>
+            <?php if (isset($_SESSION["nome_usuario"])) { ?>
+              <a class="dropdown-item" href="controladora/logout.php">Sair</a>
+            <?php } else { ?>
+              <a class="dropdown-item" href="visao/formLogin.php">Login</a>
+              <a class="dropdown-item" href="visao/cadastrar_cliente.php">Cadastre-se</a>
+            <?php } ?>
+          </div>
+        </nav>
+      </div>
       <!-- Links de navegação e botões -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto d-flex align-items-center">
@@ -63,35 +85,8 @@ $produtos = $produtosRepositorio->buscarTodos();
           </li>
         </ul>
       </div>
-
-      <!-- Ícone do Menu Hambúrguer -->
-      <div class="menu-icon" onclick="toggleMenu()">
-        <i class="bi bi-list"></i>
-      </div>
-
-
-      <!-- Menu Dropdown -->
-      <nav id="menu" class="menu">
-        <?php
-        if (isset($_SESSION["nome_usuario"])) {
-          echo "<div class='user-name'>" . $_SESSION["nome_usuario"] . "</div>";
-        }
-        ?>
-        <div class="dropdown-content">
-          <?php if (isset($_SESSION["papel"]) && $_SESSION["papel"] == "admin") { ?>
-            <a class="dropdown-item" href="visao/admin.php">Admin</a>
-          <?php } ?>
-          <?php if (isset($_SESSION["nome_usuario"])) { ?>
-            <a class="dropdown-item" href="controladora/logout.php">Sair</a>
-          <?php } else { ?>
-            <a class="dropdown-item" href="visao/formLogin.php">Login</a>
-            <a class="dropdown-item" href="visao/cadastrar_cliente.php">Cadastre-se</a>
-          <?php } ?>
-        </div>
-      </nav>
     </div>
   </nav>
-
 
   <!-- LINKS DE NAVEGACAO E BOTOES -->
   <div class="collapse navbar-collapse" id="navbarNav">
