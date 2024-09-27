@@ -32,28 +32,24 @@ include '../repositorio/produtos_repositorio.php';
 include "../controladora/autenticacao.php";
 
 $produtosRepositorio = new produtoRepositorio($conn);
-$produtos = $produtosRepositorio->buscarTodos();
+$produtos = $produtosRepositorio->buscarTodos(); 
 
 
 ?>
 
 <body>
-
-  <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
+<nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
     <div class="container-fluid">
-      <!-- NAVBAR -->
       <a class="navbar-brand" href="/">
-        <img src="../recursos/imagens/logo_nav.png" alt="Logo da Empresa" style="height: 40px;">
+        <img src="recursos/imagens/logo.png" alt="Logo da Empresa" style="height: 40px;">
       </a>
-      <!-- BOTAO PARA EXIBIR O MENU EM TELAS MENORES -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <i class="bi bi-list"></i>
+      </div>
       <!-- Links de navegação e botões -->
       <!-- Botões de Logar e Cadastrar -->
       <div class="botao-admin">
         <a class="btn btn-light ms-2" href="../visao/cadastrar_admin.php">Novo Admin</a>
-        <a class="btn btn-light ms-2" href="../visao/admin_tabela.php">Tabela Admins</a>
         <a class="btn btn-light ms-2" href="../visao/cadastrar_produtos.php">Novo Produto</a>
       </div>
     </div>
@@ -124,7 +120,6 @@ $produtos = $produtosRepositorio->buscarTodos();
                   <td>
                     <form action="../controladora/processar_exclusao.php" method="POST" style="margin-top: 10px;">
                       <input type="hidden" name="id" value="<?= $produto->getId(); ?>">
-                      <input type="hidden" name="tipo" value="produto">
                       <input type="submit" class="botao-excluir" value="Excluir" style="background-color: red; color: white; border: none; border-radius: 15px; padding: 6px 8px; font-weight: 500; font-family: Poppins, sans-serif; transition: background-color 0.3s;">
                     </form>
                 </div>
