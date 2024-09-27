@@ -57,11 +57,6 @@
         </div>
         <!-- Campo oculto para definir o papel como 'admin' -->
         <input type="hidden" name="papel" value="admin">
-
-        <?php
-          $papel = $_POST['papel'];
-        echo "Papel: $papel";
-        ?>
         <button type="submit" class="btn btn-custom-primary btn-block">Cadastrar</button>
       </form>
     </div>
