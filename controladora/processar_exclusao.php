@@ -12,16 +12,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     // Excluir do banco de dados
     $produtosRepositorio->excluirProdutosPorId($idParaExcluir);
 
-    // Adicione aqui qualquer lógica adicional necessária para a exclusão no site, se aplicável
+   header('Location: ../visao/admin.php');
 }
 
-// Redirecione para a página principal ou para onde desejar após a exclusão
-header('Location: ../visao/admin.php');
+
 
 $usuariosRepositorio = new usuarioRepositorio($conn);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-    $idParaExcluir = $_POST['id'];
+    $idParaExcluir = $_POST['id_usuario'];
 
     // Excluir do banco de dados
     $usuariosRepositorio->excluirUsuariosPorId($idParaExcluir);
