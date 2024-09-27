@@ -43,7 +43,7 @@ $produtos = $produtosRepositorio->buscarTodos();
   <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
-        <img src="recursos/imagens/logo_nav.png" alt="Logo da Empresa" style="height: 40px;">
+        <img src="recursos/imagens/logo.png" alt="Logo da Empresa" style="height: 40px;">
       </a>
       <div class="menu-icon" onclick="toggleMenu()">
         <i class="bi bi-list"></i>
