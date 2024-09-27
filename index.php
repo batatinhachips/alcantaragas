@@ -45,10 +45,10 @@ $produtos = $produtosRepositorio->buscarTodos();
       <a class="navbar-brand" href="/">
         <img src="recursos/imagens/logo_nav.png" alt="Logo da Empresa" style="height: 40px;">
       </a>
-      <div class="d-flex align-items-center">
+      <!-- <div class="d-flex align-items-center">
         <div class="menu-icon" onclick="toggleMenu()">
           <i class="bi bi-list"></i>
-        </div>
+        </div> -->
         <nav id="menu" class="menu">
           <?php
           if (isset($_SESSION["nome_usuario"])) {
