@@ -24,15 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
         $usuariosRepositorio->excluirUsuariosPorId($idParaExcluir);
 
         // Verifique se o usuário é um administrador antes de redirecionar
-        $usuarioExcluido = $usuariosRepositorio->buscarUsuariosPorId($idParaExcluir);
-        if ($usuarioExcluido && $usuarioExcluido['tipo'] === 'admin') {
-            // Redireciona para a página tabela_admin se for um administrador
-            header('Location: ../visao/tabela_admin.php');
-            exit();
-        }
 
         // Redirecionar para outra página caso seja um usuário comum (se necessário)
-        header('Location: ../visao/admin.php');
+        header('Location: ../visao/admin_tabela.php');
         exit();
     }
 }
