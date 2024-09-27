@@ -6,7 +6,6 @@ class Usuariosss {
     private $email;
     private $senha;
     private $papel;
-    private $data_cadastro;
     private $cpf;
     private $telefone;
     private $cep;
@@ -22,7 +21,6 @@ class Usuariosss {
         $email,
         $senha,
         $papel,
-        $data_cadastro,
         $cpf,
         $telefone,
         $cep,
@@ -37,7 +35,6 @@ class Usuariosss {
         $this->email = $email;
         $this->senha = $senha;
         $this->papel = $papel;
-        $this->data_cadastro = $data_cadastro;
         $this->cpf = $cpf;
         $this->telefone = $telefone;
         $this->cep = $cep;
@@ -133,23 +130,6 @@ class Usuariosss {
     public function setPapel($papel)
     {
         $this->papel = $papel;
-
-        return $this;
-    }
-
-    public function getDataCadastro()
-    {
-        return $this->data_cadastro;
-    }
-
-    /**
-     * Set the value of data_cadastro
-     *
-     * @return  self
-     */ 
-    public function setDataCadastro($data_cadastro)
-    {
-        $this->data_cadastro = $data_cadastro;
 
         return $this;
     }
