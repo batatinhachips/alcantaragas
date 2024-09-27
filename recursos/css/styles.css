@@ -67,12 +67,6 @@ body {
   object-fit: cover;
 }
 
-@media (min-width: 1024px) { /* Você pode ajustar o valor conforme necessário */
-  .carousel {
-    height: 70vh; /* Definindo altura de 70vh para desktop */
-  }
-}
-
 .carousel {
   margin-top: -6.625rem;
 }
