@@ -122,6 +122,7 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
                     </form>
                     <form action="../controladora/processar_exclusao.php" method="POST" style="display:inline;">
                       <input type="hidden" name="id" value="<?= $produto->getId(); ?>">
+                      <input type="hidden" name="tipo" value="usuario">
                       <input type="submit" class="btn btn-danger" value="Excluir">
                     </form>
                   </td>
