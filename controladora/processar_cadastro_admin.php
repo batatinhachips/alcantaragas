@@ -1,13 +1,11 @@
 <?php
-ob_start()
+ob_start();
 require_once '../modelo/login.php';
 require_once 'conexao.php'; // Certifique-se de que o caminho está correto
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter dados do formulário
@@ -28,14 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validação básica
     $erros = [];
-    if (empty($nome) || empty($email) || empty($senha) || empty($confirmarsenha) || empty($papel)) {
+    if (empty($nome) || empty($email) || empty($senha) || empty($confirmarsenha)) {
         $erros[] = "Todos os campos são obrigatórios.";
     }
 
     if ($senha !== $confirmarsenha) {
         $erros[] = "As senhas não coincidem.";
     }
-
 
     if (!empty($erros)) {
         header("Location: ../visao/cadastro.php?erro=" . urlencode(implode(", ", $erros)));
