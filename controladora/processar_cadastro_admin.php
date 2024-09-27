@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST["email"]);
     $senha = $_POST["senha"];
     $confirmarsenha = $_POST["confirmarsenha"];
-    $papel = $_POST["usuario"];
+    $papel = $_POST["admin"];
     $cpf = isset($_POST["cpf"]) ? trim($_POST["cpf"]) : null;
     $telefone = isset($_POST["telefone"]) ? trim($_POST["telefone"]) : null;
     $cep = isset($_POST["cep"]) ? trim($_POST["cep"]) : null;
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($resultado === true) {
         // Redirecionar para a página de sucesso com base no papel
-            header("Location: ../visao/cadastarcliente_sucesso.php");
+            header("Location: ../visao/cadastaradmin_sucesso.php");
 
     } else {
         echo "Erro ao cadastrar usuário: " . $resultado;
