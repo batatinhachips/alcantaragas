@@ -107,10 +107,10 @@ $produtos = $produtosRepositorio->buscarTodos();
     <!-- Slideshow/carrossel -->
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="recursos/imagens/banner.jpg" alt="Banner" class="d-block w-100 carousel-image">
+        <img src="recursos/imagens/banner.jpg" alt="Banner" class="d-block w-90 carousel-image">
       </div>
       <div class="carousel-item">
-        <img src="recursos/imagens/faixada.jpg" alt="Faixada" class="d-block w-100 carousel-image">
+        <img src="recursos/imagens/faixada.jpg" alt="Faixada" class="d-block w-90 carousel-image">
       </div>
     </div>
   </div>
