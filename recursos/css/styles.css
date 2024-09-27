@@ -75,7 +75,7 @@ body {
 /* Diminui a altura do carrossel em telas maiores */
 @media (min-width: 768px) {
   .carousel-item {
-      height: 90vh; /* Define uma altura menor para o carrossel em telas maiores */
+      height:80vh; /* Define uma altura menor para o carrossel em telas maiores */
   }
 }
 
@@ -83,6 +83,18 @@ body {
 @media (max-width: 767px) {
   .carousel-item {
       height: auto; /* Mantém o comportamento responsivo padrão */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .carousel-item {
+    height: 60vh; /* Define uma altura adequada para tablets */
+  }
+
+  .carousel-item img {
+    object-fit: contain; /* Garante que a imagem seja totalmente visível sem cortar */
+    width: 100%; /* Faz com que a imagem ocupe toda a largura do carrossel */
+    height: auto; /* Mantém a proporção da imagem */
   }
 }
 
