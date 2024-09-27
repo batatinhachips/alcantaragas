@@ -86,17 +86,18 @@ body {
   }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+/* @media (min-width: 768px) and (max-width: 991px) {
   .carousel-item {
+    height: 60vh;
     height: auto;
-  }
+  } */
 
   .carousel-item img {
     object-fit: contain; /* Garante que a imagem seja totalmente visível sem cortar */
     width: 100%; /* Faz com que a imagem ocupe toda a largura do carrossel */
     height: auto; /* Mantém a proporção da imagem */
   }
-}
+
 
 .carousel {
   margin-top: -6.625rem;
