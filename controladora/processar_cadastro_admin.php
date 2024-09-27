@@ -1,4 +1,5 @@
 <?php
+ob_start()
 require_once '../modelo/login.php';
 require_once 'conexao.php'; // Certifique-se de que o caminho está correto
 
