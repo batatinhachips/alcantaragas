@@ -16,7 +16,7 @@ body {
 }
 
 .navbar-nav {
-  margin-right: 4rem; /* Ajuste o valor conforme desejado */
+  margin-right: 7rem; /* Ajuste o valor conforme desejado */
 }
 
 /* Adicione essa classe para o container do navbar */
@@ -570,7 +570,8 @@ h2,
 
 .menu-icon {
   position: absolute;
-  top: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
   right: 1rem;
   font-size: 2.4rem;
   color: white;
