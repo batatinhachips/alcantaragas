@@ -121,6 +121,7 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
                     <form action="../controladora/processar_exclusao.php" method="POST" style="display:inline;">
                       <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
                       <input type="hidden" name="tipo" value="usuario">
+                      <input type="hidden" name="pagina_origem" value="admin_tabela"> <!-- Identificação da página -->
                       <input type="submit" class="btn btn-danger" value="Excluir">
                     </form>
                   </td>
