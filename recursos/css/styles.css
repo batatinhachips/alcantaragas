@@ -18,6 +18,13 @@ body {
   margin-right: 7rem;
 }
 
+@media (max-width: 576px) {
+  .navbar-nav {
+      flex-direction: column; /* Alinha os botões em coluna */
+      align-items: center;    /* Centraliza os botões */
+  }
+}
+
 .container-fluid {
   display: flex;
   justify-content: space-between;
