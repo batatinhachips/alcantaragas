@@ -5,7 +5,7 @@ include '../modelo/usuario.php';
 include '../repositorio/usuarios_repositorio.php';
 
 $usuariosRepositorio = new usuarioRepositorio($conn);
-$usuarios = $usuariosRepositorio->buscarTodosUsuarios();
+$usuarios = $usuariosRepositorio->buscarTodosAdmins();
 
 // Verificar se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
