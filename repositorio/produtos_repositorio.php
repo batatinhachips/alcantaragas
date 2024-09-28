@@ -15,7 +15,7 @@ class produtoRepositorio{
         $preco = $produto->getPreco();
         $imagem = $produto->getImagem();
 
-        $sql = "INSERT INTO produtos (nome, descricao, imagem, preco) VALUES (?,?,?,?)";
+        $sql = "INSERT INTO produtos (nome, descricao, preco, imagem) VALUES (?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("ssds",
             $nome,
