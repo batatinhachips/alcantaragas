@@ -97,7 +97,7 @@ $produtos = $produtosRepositorio->buscarTodos();
                 <h5 class="custom-card-title"><?= $produto->getNome() ?></h5>
                 <p class="custom-card-text"><?= $produto->getDescricao() ?></p>
                 <h4>R$<?= $produto->getPreco() ?></h4>
-
+                <?var_dump($produtos)?>;
                 <form action="../visao/editar_produtos.php" method="POST" style="margin-bottom: 10px;">
                   <input type="hidden" name="id" value="<?= $produto->getId(); ?>">
                   <input type="submit" class="botao-editar" value="Editar" style="background-color: green; color: white; border: none; border-radius: 15px; padding: 6px 11px; font-weight: 500; font-family: Poppins, sans-serif;">
