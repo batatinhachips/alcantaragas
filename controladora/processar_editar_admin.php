@@ -16,6 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $senha = $_POST["senha"];
 
+     // Gerar o hash da senha
+    $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
+
     // Atualizar as informações do produto no banco de dados
     $stmt = $conn->prepare("UPDATE usuario SET nome=?, email=?, senha=? WHERE id_usuario=?");
     $stmt->bind_param("sssi", $nome, $email, $senha, $id_usuario);
