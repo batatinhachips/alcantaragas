@@ -107,10 +107,7 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
 
                       <label for="cidade" class="required titulo-campo">Cidade</label>
                       <input type="text" class="form-control" id="cidade"  name="cidade" required><br>
-                <!-- Campo oculto para definir o papel como 'usuario' -->
-                <input type="hidden" name="papel" value="usuario">
-                <button type="submit" class="btn btn-custom-primary btn-block">Cadastrar</button>
-                <a href="formLogin.php" class="btn btn-custom-primary btn-block">Login</a>
+              <button type="submit" class="btn btn-primary btn-lg btn-block botao-salvar-edicoes">Salvar edições</button>
               </form><br><br>
             </div>
         
