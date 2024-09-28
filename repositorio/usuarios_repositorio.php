@@ -81,6 +81,37 @@ class usuarioRepositorio{
         return $usuarios;
     }
 
+    public function buscarTodosUsuarios()
+    {
+        $sql = "SELECT * FROM usuario WHERE papel = 'usuario'";
+        $result = $this->conn->query($sql);
+
+        $usuarios = array();
+
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $usuario = new Usuariosss(
+                    $row['id_usuario'],
+                    $row['nome'],
+                    $row['email'],
+                    $row['senha'],
+                    $row['papel'],
+                    $row['cpf'],
+                    $row['telefone'],
+                    $row['cep'],
+                    $row['logradouro'],
+                    $row['complemento'],
+                    $row['numero'],
+                    $row['bairro'],
+                    $row['cidade']
+                );
+                $usuarios[] = $usuario;
+            }
+        }
+
+        return $usuarios;
+    }
+
     public function listarUsuarioPorId($id_usuario)
     {
         $sql = "SELECT * FROM usuario WHERE id_usuario = '?'";
@@ -101,7 +132,6 @@ class usuarioRepositorio{
 
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-
             $usuario = new Usuario(
                 $row['id_usuario'],
                 $row['nome'],
