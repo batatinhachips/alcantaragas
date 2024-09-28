@@ -96,74 +96,54 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
         <br>
         <br>
       </div>
- <div class="row">
-  <?php foreach ($usuarios as $usuario) : ?>
-    <div class="col">
-      <div class="card custom-card">
-        <div class="custom-card-body">
-          <h5 class="custom-card-title"><?= htmlspecialchars($usuario->getNome()) ?></h5>
-          <p class="custom-card-text">Email: <?= htmlspecialchars($usuario->getEmail()) ?></p>
-          <p>CPF: <?= htmlspecialchars($usuario->getCpf()) ?></p>
-          <p>Telefone: <?= htmlspecialchars($usuario->getTelefone()) ?></p>
-          <p>CEP: <?= htmlspecialchars($usuario->getCep()) ?></p>
-          <p>Logradouro: <?= htmlspecialchars($usuario->getLogradouro()) ?></p>
-          <p>Complemento: <?= htmlspecialchars($usuario->getComplemento()) ?></p>
-          <p>Número: <?= htmlspecialchars($usuario->getNumero()) ?></p>
-          <p>Bairro: <?= htmlspecialchars($usuario->getBairro()) ?></p>
-          <p>Cidade: <?= htmlspecialchars($usuario->getCidade()) ?></p>
 
-          <form action="../visao/editar_admin.php" method="POST" style="margin-bottom: 10px;">
-            <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
-            <input type="submit" class="botao-editar" value="Editar" style="background-color: green; color: white; border: none; border-radius: 15px; padding: 6px 11px; font-weight: 500; font-family: Poppins, sans-serif;">
-          </form>
-
-          <form action="../controladora/processar_exclusao.php" method="POST" style="margin-top: 10px;">
-            <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
-            <input type="submit" class="botao-excluir" value="Excluir" style="background-color: red; color: white; border: none; border-radius: 15px; padding: 6px 8px; font-weight: 500; font-family: Poppins, sans-serif; transition: background-color 0.3s;">
-          </form>
-        </div>
-      </div>
-    </div>
-  <?php endforeach; ?>
-</div>
-      
-
-
-
-<!--       <div class="row">
-        <?php foreach ($usuarios as $usuario) : ?>
-          <tr>
-            <div class="col">
-              <div class="card custom-card">
-                <div class="custom-card-body">
-                  <h5 class="custom-card-title"><?= $usuario->getNome() ?></a></h5>
-                  <p class="custom-card-text"><?= $usuario->getEmail() ?></p>
-                  <h4><?= $usuario->getSenha() ?></h4>
-
-                  <form action="../visao/editar_admin.php" method="POST" style="margin-bottom: 10px;">
-                    <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
-                    <input type="submit" class="botao-editar" value="Editar" style="background-color: green; color: white; border: none; border-radius: 15px; padding: 6px 11px; font-weight: 500; font-family: Poppins, sans-serif;">
-                  </form>
+      <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Cep</th>
+                <th scope="col">Logradouro</th>
+                <th scope="col">Complemento</th>
+                <th scope="col">Numero</th>
+                <th scope="col">Bairro</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($usuarios as $usuario) : ?>
+                <tr>
+                  <th scope="row"><?= $usuario->getIdUsuario() ?></th>
+                  <td><?= $usuario->getNome() ?></td>
+                  <td><?= $usuario->getEmail() ?></td>
+                  <td><?= $usuario->getCpf() ?></td>
+                  <td><?= $usuario->getTelefone() ?></td>
+                  <td><?= $usuario->getCep() ?></td>
+                  <td><?= $usuario->getLogradouro() ?></td>
+                  <td><?= $usuario->getComplemento() ?></td>
+                  <td><?= $usuario->getNumero() ?></td>
+                  <td><?= $usuario->getBairro() ?></td>
+                  <td><?= $usuario->getCidade() ?></td>
                   <td>
-                    <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['acao']) && $_POST['acao'] === 'excluir') {
-                      $idParaExcluir = $_POST['id'];
-
-                      $usuariosRepositorio->excluirUsuariosPorId($idParaExcluir);
-                    } ?>
-                  </td>
-                  <td>
-                    <form action="../controladora/processar_exclusao.php" method="POST" style="margin-top: 10px;">
+                    <form action="../visao/editar_usuario.php" method="POST" style="display:inline;">
                       <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
-                      <input type="submit" class="botao-excluir" value="Excluir" style="background-color: red; color: white; border: none; border-radius: 15px; padding: 6px 8px; font-weight: 500; font-family: Poppins, sans-serif; transition: background-color 0.3s;">
+                      <input type="submit" class="btn btn-success" value="Editar">
                     </form>
-                </div>
-              </div>
-              </td>
-            </div>
-          </tr>
-        <?php endforeach; ?>
-      </div> -->
-    </div>
+                    <form action="../controladora/processar_exclusao.php" method="POST" style="display:inline;">
+                      <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
+                      <input type="hidden" name="tipo" value="usuario">
+                      <input type="submit" class="btn btn-danger" value="Excluir">
+                    </form>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
+            </tbody>
+      </table>
+</div>
   </section>
 
 </body>
