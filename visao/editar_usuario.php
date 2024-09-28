@@ -98,6 +98,56 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
                   <br>
                 </div>
             <?php
+              
+              <script type="text/javascript">
+      $(function() {
+        // Desativa a exibição de tooltip por hover
+        $('[data-bs-toggle="tooltip"]').tooltip('dispose');
+      });
+
+      // Função para mostrar o tooltip
+      function mostrarTooltip(element, message) {
+        element.attr('data-bs-title', message);
+        element.tooltip('show');
+      }
+
+      // Função para limpar os tooltips
+      function limparTooltips() {
+        $('[data-bs-toggle="tooltip"]').tooltip('dispose');
+      }
+
+      // Validação de CEP
+      function limpa_formulário_cep() {
+        $("#logradouro").val("");
+        $("#bairro").val("");
+        $("#cidade").val("");
+        $("#uf").val("");
+      };
+
+      $("#cep").blur(function() {
+        var cep = $(this).val().replace(/\D/g, '');
+        if (cep != "") {
+          var validacep = /^[0-9]{8}$/;
+          if (validacep.test(cep)) {
+            $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
+              if (!("erro" in dados)) {
+                $("#logradouro").val(dados.logradouro);
+                $("#bairro").val(dados.bairro);
+                $("#cidade").val(dados.localidade);
+                $("#uf").val(dados.uf);
+              } else {
+                limpa_formulário_cep();
+                mostrarTooltip($('#cep'), 'CEP não encontrado.');
+              }
+            });
+          } else {
+            limpa_formulário_cep();
+            mostrarTooltip($('#cep'), 'Formato de CEP inválido.');
+          }
+        } else {
+          limpa_formulário_cep();
+        }
+      });
               } else {
                 echo "Usuario não encontrado";
               }
