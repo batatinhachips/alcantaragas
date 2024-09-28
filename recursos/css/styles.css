@@ -18,27 +18,6 @@ body {
   margin-right: 7rem;
 }
 
-@media (max-width: 576px) {
-  .navbar-nav {
-      flex-wrap: wrap; /* Permite que os botões quebrem para a próxima linha */
-      justify-content: center;
-      order: 2; /* Coloca os botões abaixo da logo e do ícone */
-  }
-
-  .navbar-brand {
-      order: 1; /* Coloca a logo no topo */
-  }
-  
-  .menu-icon {
-      order: 1; /* Coloca o ícone do menu ao lado da logo */
-  }
-
-  .navbar-nav .nav-item {
-      margin-bottom: 1rem;
-      flex: 0 1 30%; /* Faz com que dois botões caibam em uma linha */
-  }
-}
-
 .container-fluid {
   display: flex;
   justify-content: space-between;
