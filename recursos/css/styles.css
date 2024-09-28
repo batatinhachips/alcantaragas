@@ -162,14 +162,13 @@ body {
 
 /* Estilo do título do card */
 .custom-card-title {
-  font-size: 1.2em; /* Tamanho da fonte do título */
-  margin: 0; /* Remove margem padrão */
+  font-size: 1.8rem;
+  margin: 1rem 0;
 }
 
-/* Estilo do texto do card */
 .custom-card-text {
-  font-size: 0.9em; /* Tamanho da fonte do texto */
-  color: #666; /* Cor do texto */
+  font-size: 1.4rem;
+  color: #666;
 }
 
 /* Estilo para o preço */
