@@ -8,39 +8,9 @@ $usuariosRepositorio = new usuarioRepositorio($conn);
 $usuarios = $usuariosRepositorio->buscarTodosAdmins();
 
 // Verificar se o formulário foi enviado
-/* if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obter os dados do formulário
-    $id_usuario = $_POST["id_usuario"];
-    $nome = $_POST["nome"];
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
-    
-    // $papel = $_POST["papel"];
-
-
-
-
-    // Atualizar as informações do produto no banco de dados
-    $sql = "UPDATE usuario SET 
-                nome='$nome',
-                email='$email',
-                senha= '$senha'
-
-                -- papel='$papel'
-
-
-            WHERE id=$id_usuario";
-
-    if ($conn->query($sql) === TRUE) {
-        header("Location: ../visao/admin.php");
-    } else {
-        echo "Erro ao editar admin: " . $conn->error;
-    }
- */
-// Verificar se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter os dados do formulário
-    $id_usuario = $_POST["id_usuario"]; // Mudei aqui para corresponder ao nome do índice
+    $id_usuario = $_POST["id_usuario"]; // Corrigido para o nome correto
     $nome = $_POST["nome"];
     $email = $_POST["email"];
     $senha = $_POST["senha"];
@@ -51,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         header("Location: ../visao/admin.php");
+        exit; // Adiciona um exit após o redirecionamento
     } else {
         echo "Erro ao editar admin: " . $stmt->error; // Use o método de erro do statement
     }
