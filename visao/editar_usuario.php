@@ -67,7 +67,7 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
 
                   <!-- Formulário de edição -->
                   <form action="../controladora/processar_editar_usuario.php" method="POST" enctype="multipart/form-data" class="formulario-edicao">
-                    <input type="hidden" name="id" value="<?= $usuario["id_usuario"] ?>">
+                    <input type="hidden" name="id_usuario" value="<?= $usuario["id_usuario"] ?>">
 
                     <label for="nome" class="titulo-campo">Nome:</label>
                     <input type="text" name="nome" value="<?= $usuario["nome"] ?>" class="custom-input"><br>
