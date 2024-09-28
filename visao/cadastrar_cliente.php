@@ -24,7 +24,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto d-flex align-items-center">
         <li class="nav-item">
-          <a class="btn btn-dark" href="admin.php" style="margin-left: auto;">Voltar</a>
+          <a class="btn btn-dark" href=".index.php" style="margin-left: auto;">Voltar</a>
         </li>
       </ul>
     </div>
