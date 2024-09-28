@@ -83,13 +83,7 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
   </nav>
   </div>
 
-  <!-- LINKS DE NAVEGACAO E BOTOES -->
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ms-auto d-flex align-items-center">
-    </ul>
-  </div>
-  </div>
-  </nav>
+
 
   <!-- SESSAO DO CATALOGO -->
   <section id="services" class="services">
