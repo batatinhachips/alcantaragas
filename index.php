@@ -119,7 +119,7 @@ $produtos = $produtosRepositorio->buscarTodos();
   <div class="custom-title">Os nossos produtos</div>
   <section id="services" class="services">
     <div class="container" data-aos="fade-up">
-      <div class="row">
+      <div class="rowCard">
         <?php foreach ($produtos as $produto) : ?>
           <div class="col">
             <div class="card custom-card">
