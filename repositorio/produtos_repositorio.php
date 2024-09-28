@@ -12,16 +12,17 @@ class produtoRepositorio{
 
         $nome = $produto->getNome();
         $descricao = $produto->getDescricao();
-        $imagem = $produto->getImagem();
         $preco = $produto->getPreco();
+        $imagem = $produto->getImagem();
 
         $sql = "INSERT INTO produtos (nome, descricao, imagem, preco) VALUES (?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("sssd",
             $nome,
             $descricao,
-            $imagem,
-            $preco
+            $preco,
+            $imagem
+            
     );
        // Executa a consulta preparada e verifica o sucesso
        $success = $stmt->execute();
@@ -47,8 +48,8 @@ class produtoRepositorio{
                     $row['id'],
                     $row['nome'],
                     $row['descricao'],
-                    $row['imagem'],
-                    $row['preco']
+                    $row['preco'],
+                    $row['imagem']
 
                 );
                 $produtos[] = $produto;
@@ -83,8 +84,9 @@ class produtoRepositorio{
                 $row['id'],
                 $row['nome'],
                 $row['descricao'],
-                $row['imagem'],
-                $row['preco']
+                $row['preco'], 
+                $row['imagem']
+                
             );
         }
 
