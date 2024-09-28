@@ -55,6 +55,9 @@ $produtos = $produtosRepositorio->buscarTodos();
                 <li class="nav-item">
                     <a class="btn btn-light ms-2" href="admin_tabela.php">Tabela Admins</a>
                 </li>
+                <li class="nav-item">
+                    <a class="btn btn-light ms-2" href="cliente_tabela.php">Tabela Clientes</a>
+                </li>
             </ul>
         </div>
 
