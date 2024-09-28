@@ -19,7 +19,7 @@ body {
 }
 
 @media (max-width: 992px) {
-  .nav_item{
+  .nav-item{
     display: flex; /* Exibe os botões lado a lado */
     gap: 10px; /* Espaçamento entre os botões */
     margin-right: auto; /* Alinha à esquerda */
