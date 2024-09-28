@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssi", $nome, $email, $senha, $id_usuario);
 
     if ($stmt->execute()) {
-        header("Location: ../visao/admin.php");
+        header("Location: ../visao/admin_tabela.php");
         exit; // Adiciona um exit após o redirecionamento
     } else {
         echo "Erro ao editar admin: " . $stmt->error; // Use o método de erro do statement
