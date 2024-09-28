@@ -4,8 +4,9 @@ class Produto {
     private  $id;
     private  $nome;
     private  $descricao;
-    private  $preco;
     private  $imagem;
+    private  $preco;
+    
 
 
         public function __construct(
