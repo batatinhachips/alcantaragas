@@ -22,17 +22,8 @@ session_start();
   <script src="../recursos/js/popper.min.js"></script>
   <script src="../recursos/js/script.js"></script>
 
-
   <!-- FIM DOS LINKS -->
 </head>
-<?php
-include '../controladora/conexao.php';
-include '../modelo/usuario.php';
-include '../repositorio/usuarios_repositorio.php';
-
-$usuariosRepositorio = new usuarioRepositorio($conn);
-$usuarios = $usuariosRepositorio->buscarTodosAdmins();
-?>
 
 <body>
 <div class="login-title text-center">
@@ -42,60 +33,59 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
       <h1>EDITAR ADMIN</h1>
     </div>
 
-    <!-- LINKS DE NAVEGACAO E BOTOES -->
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ms-auto d-flex align-items-center">
-    </ul>
-  </div>
-  </div>
-  </nav>
-  <!-- FIM DA NAVBAR -->
+<?php
+include '../controladora/conexao.php';
+include '../modelo/usuario.php';
+include '../repositorio/usuarios_repositorio.php';
 
-  <section id="services" class="services">
-    <div class="container" data-aos="fade-up">
-      <div class="row">
-      <div class="container container-form-login mt-5" id="login-form">
-          <div class="icon-box">
-          <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $id_usuario = $_POST["id"];
-            $sql = "SELECT * FROM usuario WHERE id_usuario = $id_usuario";
-            $result = $conn->query($sql);
+$usuariosRepositorio = new usuarioRepositorio($conn);
 
-            if ($result->num_rows > 0) {
+// Verificar se o formulário foi enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id_usuario = $_POST["id_usuario"];
+
+    // Verifica se o ID do usuário é fornecido
+    if (!empty($id_usuario)) {
+        $sql = "SELECT * FROM usuario WHERE id_usuario = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id_usuario);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
             $usuario = $result->fetch_assoc();
-          ?>
+            ?>
 
-                  <!-- Formulário de edição -->
-                  <form action="../controladora/processar_editar_admin.php" method="POST" enctype="multipart/form-data" class="formulario-edicao">
-                    <input type="hidden" name="id" value="<?= $usuario["id"] ?>">
+            <!-- Formulário de edição -->
+            <form action="../controladora/processar_editar_admin.php" method="POST" enctype="multipart/form-data" class="formulario-edicao">
+                <input type="hidden" name="id_usuario" value="<?= $usuario["id_usuario"] ?>">
 
-                    <label for="nome" class="titulo-campo">Nome:</label>
-                    <input type="text" name="nome" value="<?= $usuario["nome"] ?>" class="custom-input"><br>
+                <label for="nome" class="titulo-campo">Nome:</label>
+                <input type="text" name="nome" value="<?= $usuario["nome"] ?>" class="custom-input" required><br>
 
-                    <label for="email" class="titulo-campo">Email:</label>
-                    <input type="text" name="descricao" value="<?= $usuario["email"] ?>" class="custom-input"><br>
+                <label for="email" class="titulo-campo">Email:</label>
+                <input type="email" name="email" value="<?= $usuario["email"] ?>" class="custom-input" required><br>
 
-                    <label for="senha" class="titulo-campo">Senha:</label>
-                    <input type="text" name="descricao" value="<?= $usuario["senha"] ?>" class="custom-input"><br>
+                <label for="senha" class="titulo-campo">Senha:</label>
+                <input type="password" name="senha" class="custom-input" placeholder="Nova Senha" required><br>
 
-                    <button type="submit" class="btn btn-primary btn-lg btn-block botao-salvar-edicoes">Salvar edições</button>
-                  </form>
-                  <br>
-                  <br>
-                  <br>
-                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block botao-salvar-edicoes">Salvar edições</button>
+            </form>
+
             <?php
-              } else {
-                echo "Admin não encontrado";
-              }
-            }
-            $conn->close(); ?>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        } else {
+            echo "Admin não encontrado";
+        }
+
+        // Fecha a declaração
+        $stmt->close();
+    } else {
+        echo "ID do usuário não foi fornecido.";
+    }
+}
+
+$conn->close();
+?>
 
 </body>
-
 </html>
