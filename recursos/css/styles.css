@@ -169,6 +169,7 @@ body {
 .custom-card-text {
   font-size: 1.4rem;
   color: #666;
+  text-align: justify;
 }
 
 /* Responsividade */
