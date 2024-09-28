@@ -171,12 +171,6 @@ body {
   color: #666;
 }
 
-/* Estilo para o preço */
-h4 {
-  color: #2c3e50; /* Cor do preço */
-  margin: 10px 0 0; /* Margem superior e inferior */
-}
-
 /* Responsividade */
 @media (max-width: 1200px) {
   .col {
