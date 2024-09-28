@@ -3,7 +3,7 @@
 include '../controladora/conexao.php';
 include '../modelo/usuario.php';
 include '../repositorio/usuarios_repositorio.php';
-require_once '../modelo/login.php';
+
 
 $usuariosRepositorio = new usuarioRepositorio($conn);
 $usuarios = $usuariosRepositorio->buscarTodosAdmins();
