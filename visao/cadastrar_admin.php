@@ -15,14 +15,18 @@
   <link href="../recursos/imagens/icon.png" rel="icon">
   <title>CADASTRAR NOVO ADMIN</title>
   
-  <style>
-    .invalid-feedback {
-      display: none;
-    }
-    .is-invalid ~ .invalid-feedback {
-      display: block;
-    }
-  </style>
+  <!-- NAVBAR -->
+<nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto d-flex align-items-center">
+        <li class="nav-item">
+          <a class="btn btn-dark" href="admin.php" style="margin-left: auto;">Voltar</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 </head>
 
 <body class="login_bg">
