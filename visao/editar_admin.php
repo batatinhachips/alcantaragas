@@ -66,7 +66,7 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
           ?>
 
                   <!-- Formulário de edição -->
-                  <form action="../controladora/processar_editar_usuario.php" method="POST" enctype="multipart/form-data" class="formulario-edicao">
+                  <form action="../controladora/processar_editar_admin.php" method="POST" enctype="multipart/form-data" class="formulario-edicao">
                     <input type="hidden" name="id" value="<?= $usuario["id"] ?>">
 
                     <label for="nome" class="titulo-campo">Nome:</label>
