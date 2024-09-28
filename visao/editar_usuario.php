@@ -76,19 +76,19 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
                     <input type="text" name="email" value="<?= $usuario["email"] ?>" class="custom-input"><br>
 
                     <label for="senha" class="titulo-campo">Nova Senha:</label>
-                <input type="password" class="form-control" id="senha" placeholder="Digite uma nova senha" name="senha" required>
+                <input type="password" class="form-control custom-input" id="senha" placeholder="Digite uma nova senha" name="senha" required>
           <div class="invalid-feedback">A senha deve ter no mínimo 6 caracteres, incluindo letras e números.</div><br></div>
 
-                    <label for="senha" class="titulo-campo">CPF:</label>
+                    <label for="cpf" class="titulo-campo">CPF:</label>
                     <input type="text" name="cpf" value="<?= $usuario["cpf"] ?>" class="custom-input"><br>
 
-                    <label for="senha" class="titulo-campo">Telefone:</label>
+                    <label for="telefone" class="titulo-campo">Telefone:</label>
                     <input type="text" name="telefone" value="<?= $usuario["telefone"] ?>" class="custom-input"><br>
 
-                    <label for="senha" class="titulo-campo">Cep:</label>
+                    <label for="cep" class="titulo-campo">Cep:</label>
                     <input type="text" name="cep" value="<?= $usuario["cep"] ?>" class="custom-input"><br>
 
-                    <label for="senha" class="titulo-campo">Numero:</label>
+                    <label for="numero" class="titulo-campo">Numero:</label>
                     <input type="text" name="numero" value="<?= $usuario["numero"] ?>" class="custom-input"><br>
 
                     <button type="submit" class="btn btn-primary btn-lg btn-block botao-salvar-edicoes">Salvar edições</button>
