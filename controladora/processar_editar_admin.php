@@ -3,7 +3,6 @@
 include '../controladora/conexao.php';
 include '../modelo/usuario.php';
 include '../repositorio/usuarios_repositorio.php';
-include '../modelo/login.php';
 
 
 $usuariosRepositorio = new usuarioRepositorio($conn);
