@@ -73,8 +73,8 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
                 <label for="email" class="titulo-campo">Email:</label>
                 <input type="text" name="email" value="<?= $usuario["email"] ?>" class="custom-input"><br> <!-- Corrigido -->
 
-                <label for="senha" class="titulo-campo">Senha:</label>
-                <input type="password" class="form-control" id="senha" placeholder="Digite a senha do admin" name="senha" required>
+                <label for="senha" class="titulo-campo">Nova Senha:</label>
+                <input type="password" class="form-control" id="senha" placeholder="Digite uma nova senha" name="senha" required>
           <div class="invalid-feedback">A senha deve ter no mínimo 6 caracteres, incluindo letras e números.</div><br></div><!-- Corrigido -->
 
                 <button type="submit" class="btn btn-primary btn-lg btn-block botao-salvar-edicoes">Salvar edições</button>
