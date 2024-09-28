@@ -91,21 +91,21 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
                     <input type="text" name="telefone" value="<?= $usuario["telefone"] ?>" class="custom-input"><br>
                     
                       <label for="cep" class="required titulo-campo">CEP</label>
-                      <input type="text" class="form-control" id="cep"  name="cep" required>
+                      <input type="text" class="form-control" id="cep"  name="cep" required><br>
 
                       <label for="logradouro" class="required titulo-campo">Rua</label>
 
                       <label for="complemento titulo-campo">Complemento</label>
-                      <input type="text" class="form-control" id="complemento"  name="complemento">
+                      <input type="text" class="form-control" id="complemento"  name="complemento"><br>
      
                       <label for="numero" class="required titulo-campo">Número</label>
-                      <input type="text" class="form-control" id="numero"  name="numero" required>
+                      <input type="text" class="form-control" id="numero"  name="numero" required><br>
 
                       <label for="bairro" class="required titulo-campo">Bairro</label>
-                      <input type="text" class="form-control" id="bairro"  name="bairro" required>
+                      <input type="text" class="form-control" id="bairro"  name="bairro" required><br>
 
                       <label for="cidade" class="required titulo-campo">Cidade</label>
-                      <input type="text" class="form-control" id="cidade"  name="cidade" required>
+                      <input type="text" class="form-control" id="cidade"  name="cidade" required><br>
                 </div>
                 <!-- Campo oculto para definir o papel como 'usuario' -->
                 <input type="hidden" name="papel" value="usuario">
