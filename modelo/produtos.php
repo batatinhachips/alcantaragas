@@ -4,8 +4,8 @@ class Produto {
     private  $id;
     private  $nome;
     private  $descricao;
-    private  $imagem;
     private  $preco;
+    private  $imagem;
     
 
 
