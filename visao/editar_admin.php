@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_usuario = filter_input(INPUT_POST, 'id_usuario', FILTER_VALIDATE_INT);
 
     if ($id_usuario) {
-        $sql = "SELECT * FROM usuario WHERE id_usuario = ?";
+        $sql = "SELECT * FROM usuario WHERE id_usuario = id";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $id_usuario);
         $stmt->execute();
