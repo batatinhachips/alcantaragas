@@ -79,9 +79,7 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
         <?php } ?>
       </div>
     </nav>
-    </div>
-  </nav>
-  </div>
+
 
 
 
