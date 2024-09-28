@@ -35,7 +35,7 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
 <body>
 <div class="login-title text-center">
     <a href="/">
-      <img src="../recursos/imagens/logo.png" alt="Logo" class="logo">
+      <img src="../recursos/imagens/logo_nav.png" alt="Logo" class="logo">
     </a>
     <h1>EDITAR ADMIN</h1>
 </div>
