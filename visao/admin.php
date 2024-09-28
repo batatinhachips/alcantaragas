@@ -29,39 +29,56 @@ include '../repositorio/produtos_repositorio.php';
 include "../controladora/autenticacao.php";
 
 $produtosRepositorio = new produtoRepositorio($conn);
-$produtos = $produtosRepositorio->buscarTodos(); 
+$produtos = $produtosRepositorio->buscarTodos();
 ?>
 
 <body>
 
-<nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
+  <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-            <img src="../recursos/imagens/logo.png" alt="Logo da Empresa" style="height: 40px;">
-        </a>
+      <a class="navbar-brand" href="/">
+        <img src="../recursos/imagens/logo.png" alt="Logo da Empresa" style="height: 40px;">
+      </a>
 
-        <div class="menu-icon" onclick="toggleMenu()">
-            <i class="bi bi-list"></i>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <i class="bi bi-list"></i>
+      </div>
+      <nav id="menu" class="menu">
+        <?php
+        if (isset($_SESSION["nome_usuario"])) {
+          echo "<div class='user-name'>" . $_SESSION["nome_usuario"] . "</div>";
+        }
+        ?>
+        <div class="dropdown-content">
+          <?php if (isset($_SESSION["papel"]) && $_SESSION["papel"] == "admin") { ?>
+            <a class="dropdown-item" href="visao/admin.php">Admin</a>
+          <?php } ?>
+          <?php if (isset($_SESSION["nome_usuario"])) { ?>
+            <a class="dropdown-item" href="controladora/logout.php">Sair</a>
+          <?php } else { ?>
+            <a class="dropdown-item" href="visao/formLogin.php">Login</a>
+            <a class="dropdown-item" href="visao/cadastrar_cliente.php">Cadastre-se</a>
+          <?php } ?>
         </div>
-        
-        <div id="navbarNav" class="navbar-nav">
-            <ul class="navbar-nav ms-auto d-flex align-items-center justify-content-center">
-                <li class="nav-item">
-                    <a class="btn btn-light ms-2" href="../visao/cadastrar_admin.php">Novo Admin</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-light ms-2" href="../visao/cadastrar_produtos.php">Novo Produto</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-light ms-2" href="admin_tabela.php">Tabela Admins</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-light ms-2" href="usuario_tabela.php">Tabela Clientes</a>
-                </li>
-            </ul>
-        </div>
+      </nav>
+      <div id="navbarNav" class="navbar-nav">
+        <ul class="navbar-nav ms-auto d-flex align-items-center justify-content-center">
+          <li class="nav-item">
+            <a class="btn btn-light ms-2" href="../visao/cadastrar_admin.php">Novo Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-light ms-2" href="../visao/cadastrar_produtos.php">Novo Produto</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-light ms-2" href="admin_tabela.php">Tabela Admins</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-light ms-2" href="usuario_tabela.php">Tabela Clientes</a>
+          </li>
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>
 
 
 
