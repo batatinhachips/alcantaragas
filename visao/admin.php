@@ -44,7 +44,7 @@ $produtos = $produtosRepositorio->buscarTodos();
             <i class="bi bi-list"></i>
         </div>
         
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div id="navbarNav" class="navbar-nav">
             <ul class="navbar-nav ms-auto d-flex align-items-center justify-content-center">
                 <li class="nav-item">
                     <a class="btn btn-light ms-2" href="../visao/cadastrar_admin.php">Novo Admin</a>
@@ -60,6 +60,9 @@ $produtos = $produtosRepositorio->buscarTodos();
                 </li>
             </ul>
         </div>
+    </div>
+</nav>
+
 
         <nav id="menu" class="menu">
             <?php
