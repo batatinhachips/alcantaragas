@@ -85,28 +85,28 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
           <div class="invalid-feedback">A senha deve ter no mínimo 6 caracteres, incluindo letras e números.</div><br>
 
                     <label for="cpf" class="titulo-campo">CPF:</label>
-                    <input type="text" name="cpf" value="<?= $usuario["cpf"] ?>" class="custom-input"><br>
+                    <input type="text" placeholder="Digite o CPF" name="cpf" value="<?= $usuario["cpf"] ?>" class="custom-input"><br>
 
                     <label for="telefone" class="titulo-campo">Telefone:</label>
-                    <input type="text" name="telefone" value="<?= $usuario["telefone"] ?>" class="custom-input"><br>
+                    <input type="text" placeholder="Digite o telefone" name="telefone" value="<?= $usuario["telefone"] ?>" class="custom-input"><br>
                     
                       <label for="cep" class="required titulo-campo">CEP</label>
-                      <input type="text" class="form-control" id="cep"  name="cep" required><br>
+                      <input type="text" class="form-control" id="cep"  placeholder="Digite uma nova senha" name="cep" required><br>
 
                       <label for="logradouro" class="required titulo-campo">Rua</label>
-                      <input type="text" class="form-control" id="logradouro"  name="logradouro" required><br>
+                      <input type="text" class="form-control" id="logradouro" placeholder="Digite a rua" name="logradouro" required><br>
 
                       <label for="complemento" class="titulo-campo">Complemento</label>
-                      <input type="text" class="form-control" id="complemento"  name="complemento"><br>
+                      <input type="text" class="form-control" id="complemento"  placeholder="Digite o complemento" name="complemento"><br>
      
                       <label for="numero" class="required titulo-campo">Número</label>
-                      <input type="text" class="form-control" id="numero"  name="numero" required><br>
+                      <input type="text" class="form-control" id="numero" placeholder="Digite o número" name="numero" required><br>
 
                       <label for="bairro" class="required titulo-campo">Bairro</label>
-                      <input type="text" class="form-control" id="bairro"  name="bairro" required><br>
+                      <input type="text" class="form-control" id="bairro" placeholder="Digite o bairro" name="bairro" required><br>
 
                       <label for="cidade" class="required titulo-campo">Cidade</label>
-                      <input type="text" class="form-control" id="cidade"  name="cidade" required><br>
+                      <input type="text" class="form-control" id="cidade" placeholder="Digite a cidade" name="cidade" required><br>
               <button type="submit" class="btn btn-primary btn-lg btn-block botao-salvar-edicoes">Salvar edições</button>
               </form><br><br>
             </div>
