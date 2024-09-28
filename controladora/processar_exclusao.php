@@ -25,23 +25,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
         $usuariosRepositorio->excluirUsuariosPorId($idParaExcluir);
 
         // Verifique se o usuário é um administrador antes de redirecionar
-        if (isset($_POST['papel'])) {
-            if ($_POST['papel'] === 'admin') {
-                // Redirecionar para a página de administradores
-                header('Location: ../visao/admin_tabela.php');
-            } elseif ($_POST['papel'] === 'usuario') {
-                // Redirecionar para a página de usuários comuns
-                header('Location: ../visao/usuario_tabela.php');
-            }
-        } else {
-            // Se o 'papel' não foi enviado, exiba uma mensagem de erro ou redirecione para uma página padrão
-            echo "Erro: O campo 'papel' não foi enviado.";
-        }
-    } else {
-        echo "Erro: ID para exclusão não foi fornecido.";
-    }
+       elseif (isset($_POST['tipo']) && $_POST['tipo'] === 'usuario') {
+        // Excluir usuário
+        $usuariosRepositorio->excluirUsuariosPorId($idParaExcluir);
 
-    exit();
+        // Verifique se o usuário é um administrador antes de redirecionar
+        if($_POST['papel'] === 'admin'){
+        // Redirecionar para outra página caso seja um usuário comum (se necessário)
+        header('Location: ../visao/admin_tabela.php');
+        }elseif($_POST['papel'] === 'usuario'){
+        header('Location: ../visao/usuario_tabela.php');
+        }
+        exit();
     }
 }
 ?>
