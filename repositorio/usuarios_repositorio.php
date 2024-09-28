@@ -50,7 +50,7 @@ class usuarioRepositorio{
 
     }
 
-    public function buscarTodosUsuarios()
+    public function buscarTodosAdmins()
     {
         $sql = "SELECT * FROM usuario WHERE papel = 'admin'";
         $result = $this->conn->query($sql);
