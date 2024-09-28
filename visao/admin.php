@@ -94,9 +94,9 @@ $produtos = $produtosRepositorio->buscarTodos();
             <div class="card custom-card">
               
               <div class="custom-card-body">
-                <h5 class="custom-card-title"><?= $nome() ?></h5>
-                <p class="custom-card-text"><?= $descricao() ?></p>
-                <h4>R$<?= $preco() ?></h4>
+                <h5 class="custom-card-title"><?= $nome->getNome() ?></h5>
+                <p class="custom-card-text"><?= $descricao->getDescricao() ?></p>
+                <h4>R$<?= $preco->getPreco() ?></h4>
 
                 <form action="../visao/editar_produtos.php" method="POST" style="margin-bottom: 10px;">
                   <input type="hidden" name="id" value="<?= $produto->getId(); ?>">
