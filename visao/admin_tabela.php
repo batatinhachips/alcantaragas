@@ -104,7 +104,6 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
                 <th scope="col">#</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Email</th>
-                <th scope="col">Senha</th>
                 <th scope="col">Ações</th>
               </tr>
             </thead>
@@ -114,7 +113,6 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
                   <th scope="row"><?= $usuario->getIdUsuario() ?></th>
                   <td><?= $usuario->getNome() ?></td>
                   <td><?= $usuario->getEmail() ?></td>
-                  <td><?= $usuario->getSenha() ?></td>
                   <td>
                     <form action="../visao/editar_admin.php" method="POST" style="display:inline;">
                       <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
