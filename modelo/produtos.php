@@ -21,8 +21,9 @@ class Produto {
         $this->id = $id;
         $this->nome = $nome;
         $this->descricao = $descricao;
-        $this->imagem = $imagem;
         $this->preco = $preco;
+        $this->imagem = $imagem;
+        
     }    
 
 
