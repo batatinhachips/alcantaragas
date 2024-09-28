@@ -174,19 +174,19 @@ body {
 /* Responsividade */
 @media (max-width: 1200px) {
   .col {
-    flex: 1 1 calc(25% - 20px); /* 4 cards por linha em telas médias */
+    flex: 1 1 100%; /* 4 cards por linha em telas médias */
   }
 }
 
 @media (max-width: 992px) {
   .col {
-    flex: 1 1 calc(33.33% - 20px); /* 3 cards por linha em telas menores */
+    flex: 1 1 100%; /* 3 cards por linha em telas menores */
   }
 }
 
 @media (max-width: 768px) {
   .col {
-    flex: 1 1 calc(50% - 20px); /* 2 cards por linha em telas pequenas */
+    flex: 1 1 100%; /* 2 cards por linha em telas pequenas */
   }
 }
 
