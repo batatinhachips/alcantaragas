@@ -54,3 +54,7 @@ if (window.location.pathname.includes("admin.php")) {
     }
   }
 }
+function toggleMenu() {
+    var navbar = document.getElementById("navbarNav");
+    navbar.classList.toggle("show");
+  }
