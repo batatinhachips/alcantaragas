@@ -1,25 +1,24 @@
 $(document).ready(function() {
-  // Centralizar o título
+  // Código existente para todas as páginas
   $('.login-title').css('display', 'flex').css('flex-direction', 'column').css('align-items', 'center');
 
-  // Mostrar o formulário de recuperação de senha e esconder o de login
   $('#forgot-password-btn').click(function() {
-    $('#login-form').hide();
-    $('#forgot-password-form').show();
+      $('#login-form').hide();
+      $('#forgot-password-form').show();
   });
 
-  // Voltar ao formulário de login
   $('#back-to-login-btn').click(function() {
-    $('#forgot-password-form').hide();
-    $('#login-form').show();
+      $('#forgot-password-form').hide();
+      $('#login-form').show();
   });
 
   // Adicionar lógica de menu apenas se estiver na página admin.php
   if (window.location.pathname.includes('admin.php')) {
-      function toggleMenu() {
+      // Função para alternar o menu
+      function toggleAdminMenu() {
           const menu = document.getElementById('menu');
           menu.classList.toggle('show');
-          
+
           // Lógica para mostrar/esconder opções
           const adminOption = document.querySelector('.dropdown-content .dropdown-item:nth-child(1)');
           const logoutOption = document.querySelector('.dropdown-content .dropdown-item:nth-child(2)');
@@ -45,7 +44,7 @@ $(document).ready(function() {
           }
       }
 
-      // Associe a função toggleMenu ao ícone de menu
-      $('.menu-icon').click(toggleMenu);
+      // Associe a nova função toggleAdminMenu ao ícone de menu
+      $('.menu-icon').click(toggleAdminMenu);
   }
 });
