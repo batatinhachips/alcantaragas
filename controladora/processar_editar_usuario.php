@@ -4,38 +4,42 @@ include '../controladora/conexao.php';
 include '../modelo/usuario.php';
 include '../repositorio/usuarios_repositorio.php';
 
+
 $usuariosRepositorio = new usuarioRepositorio($conn);
 $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
 
 // Verificar se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter os dados do formulário
-    $id_usuario = $_POST["id_usuario"];
+    $id_usuario = $_POST["id_usuario"]; // Corrigido para o nome correto
     $nome = $_POST["nome"];
     $email = $_POST["email"];
     $senha = $_POST["senha"];
-    
-    // $papel = $_POST["papel"];
+    $cpf = isset($_POST["cpf"]);
+    $telefone = isset($_POST["telefone"]);
+    $cep = $_POST["cep"];
+    $logradouro = $_POST["logradouro"];
+    $complemento = $_POST["complemento"];
+    $numero = $_POST["numero"];
+    $bairro = $_POST["bairro"];
+    $cidade = $_POST["cidade"];
 
 
-
+     // Gerar o hash da senha
+    $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
 
     // Atualizar as informações do produto no banco de dados
-    $sql = "UPDATE usuario SET 
-                nome='$nome',
-                email='$email',
-                senha= '$senha'
+    $stmt = $conn->prepare("UPDATE usuario SET nome=?, email=?, senha=?, cpf=?, telefone=?, cep=?, numero=? WHERE id_usuario=?");
+    $stmt->bind_param("sssiiiii", $nome, $email, $senha, $cpf, $telefone, $cep, $numero, $id_usuario);
 
-                -- papel='$papel'
-
-
-            WHERE id=$id_usuario";
-
-    if ($conn->query($sql) === TRUE) {
-        header("Location: ../visao/admin.php");
+    if ($stmt->execute()) {
+        header("Location: ../visao/usuario_tabela.php");
+        exit; // Adiciona um exit após o redirecionamento
     } else {
-        echo "Erro ao editar admin: " . $conn->error;
+        echo "Erro ao editar usuario: " . $stmt->error; // Use o método de erro do statement
     }
+
+    $stmt->close(); // Não esqueça de fechar a declaração
 }
 
 // Não feche a conexão aqui, pois ela será utilizada em outros scripts
