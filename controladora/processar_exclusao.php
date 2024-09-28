@@ -2,7 +2,7 @@
 include '../controladora/conexao.php';
 include '../modelo/produtos.php';
 include '../repositorio/produtos_repositorio.php';
-include '../modelo/usuario.php';
+include_once '../modelo/usuario.php';
 include '../repositorio/usuarios_repositorio.php';
 include '../visao/admin_tabela.php';
 include '../visao/usuarios_tabela.php';
