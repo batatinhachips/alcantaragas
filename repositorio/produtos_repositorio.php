@@ -10,10 +10,10 @@ class produtoRepositorio{
 
     public function cadastrar(produto $produto){
 
-        $nome->getNome();
-        $descricao->getDescricao();
-        $imagem->getImagem();
-        $preco->getPreco();
+        $nome = $produto->getNome();
+        $descricao = $produto->getDescricao();
+        $imagem = $produto->getImagem();
+        $preco = $produto->getPreco();
 
         $sql = "INSERT INTO produtos (nome, descricao, imagem, preco) VALUES (?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
