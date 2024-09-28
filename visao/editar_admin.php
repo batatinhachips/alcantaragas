@@ -6,11 +6,8 @@ session_start();
 
 <head>
   <title>EDITAR ADMIN</title>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- LINKS -->
   <link rel="icon" href="../recursos/imagens/icon.png" type="image/png">
   <link href="../recursos/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
@@ -21,8 +18,6 @@ session_start();
   <script src="../recursos/js/jquery-3.5.1.slim.min.js"></script>
   <script src="../recursos/js/popper.min.js"></script>
   <script src="../recursos/js/script.js"></script>
-
-  <!-- FIM DOS LINKS -->
 </head>
 
 <body>
@@ -42,10 +37,9 @@ $usuariosRepositorio = new usuarioRepositorio($conn);
 
 // Verificar se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id_usuario = $_POST["id_usuario"];
+    $id_usuario = filter_input(INPUT_POST, 'id_usuario', FILTER_VALIDATE_INT);
 
-    // Verifica se o ID do usuário é fornecido
-    if (!empty($id_usuario)) {
+    if ($id_usuario) {
         $sql = "SELECT * FROM usuario WHERE id_usuario = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $id_usuario);
@@ -61,13 +55,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="hidden" name="id_usuario" value="<?= $usuario["id_usuario"] ?>">
 
                 <label for="nome" class="titulo-campo">Nome:</label>
-                <input type="text" name="nome" value="<?= $usuario["nome"] ?>" class="custom-input" required><br>
+                <input type="text" name="nome" value="<?= htmlspecialchars($usuario["nome"]) ?>" class="custom-input" required><br>
 
                 <label for="email" class="titulo-campo">Email:</label>
-                <input type="email" name="email" value="<?= $usuario["email"] ?>" class="custom-input" required><br>
+                <input type="email" name="email" value="<?= htmlspecialchars($usuario["email"]) ?>" class="custom-input" required><br>
 
                 <label for="senha" class="titulo-campo">Senha:</label>
-                <input type="password" name="senha" class="custom-input" placeholder="Nova Senha" required><br>
+                <input type="password" name="senha" class="custom-input" placeholder="Nova Senha (deixe vazio para manter a atual)"><br>
 
                 <button type="submit" class="btn btn-primary btn-lg btn-block botao-salvar-edicoes">Salvar edições</button>
             </form>
