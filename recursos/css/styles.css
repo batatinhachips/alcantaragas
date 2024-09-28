@@ -117,92 +117,90 @@ body {
   display: flex;
 }
 
+/* Estilo geral para a seção de serviços */
+.services {
+  padding: 20px;
+}
+
+/* Container dos cards */
 .rowCard {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Centraliza os cards */
-  gap: 1rem; /* Espaçamento entre os cards */
+  justify-content: space-between; /* Espaçamento uniforme entre os cards */
+}
+
+/* Estilo para cada coluna (card) */
+.col {
+  flex: 1 1 calc(20% - 20px); /* 20% da largura menos margem */
+  margin: 10px; /* Margem entre os cards */
+  box-sizing: border-box; /* Para incluir padding e border no cálculo da largura */
+}
+
+/* Estilo do card */
+.custom-card {
+  background-color: #fff; /* Cor de fundo do card */
+  border: 1px solid #ddd; /* Borda do card */
+  border-radius: 8px; /* Bordas arredondadas */
+  overflow: hidden; /* Para esconder o conteúdo que sai da borda */
+  transition: transform 0.2s; /* Efeito de transição para hover */
+}
+
+.custom-card:hover {
+  transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+}
+
+/* Estilo da imagem do produto */
+.custom-card img {
+  width: 100%; /* A imagem ocupa toda a largura do card */
+  height: auto; /* Altura automática para manter proporções */
+}
+
+/* Estilo do corpo do card */
+.custom-card-body {
+  padding: 15px; /* Padding interno do card */
+}
+
+/* Estilo do título do card */
+.custom-card-title {
+  font-size: 1.2em; /* Tamanho da fonte do título */
+  margin: 0; /* Remove margem padrão */
+}
+
+/* Estilo do texto do card */
+.custom-card-text {
+  font-size: 0.9em; /* Tamanho da fonte do texto */
+  color: #666; /* Cor do texto */
+}
+
+/* Estilo para o preço */
+h4 {
+  color: #2c3e50; /* Cor do preço */
+  margin: 10px 0 0; /* Margem superior e inferior */
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .col {
+    flex: 1 1 calc(25% - 20px); /* 4 cards por linha em telas médias */
+  }
+}
+
+@media (max-width: 992px) {
+  .col {
+    flex: 1 1 calc(33.33% - 20px); /* 3 cards por linha em telas menores */
+  }
 }
 
 @media (max-width: 768px) {
   .col {
-    flex: 0 1 calc(33.33% - 1rem); /* 3 cards por linha em telas médias */
-    max-width: calc(33.33% - 1rem);
+    flex: 1 1 calc(50% - 20px); /* 2 cards por linha em telas pequenas */
   }
 }
 
 @media (max-width: 576px) {
   .col {
-    flex: 0 1 calc(50% - 1rem); /* 2 cards por linha em telas pequenas */
-    max-width: calc(50% - 1rem);
+    flex: 1 1 100%; /* 1 card por linha em telas muito pequenas */
   }
-}
-
-.card.custom-card {
-  margin: 1rem; /* Margem para os cards */
-}
-
-
-.produtos-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.produtos-container {
-  margin-bottom: 2rem;
-}
-
-.catalogo {
-  margin-bottom: 40rem;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.col {
-  flex: 0 1 100%;
-  box-sizing: border-box;
-}
-
-.card.custom-card {
-  border: 1px solid #ddd;
-  border-radius: 0.8rem;
-  overflow: hidden;
-  background-color: #fff;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.card.custom-card img {
-  width: 100%;
-}
-
-.custom-card-body {
-  padding: 1.5rem;
-  flex: 1;
-}
-
-.custom-card-title {
-  font-size: 1.8rem;
-  margin: 1rem 0;
-}
-
-.custom-card-text {
-  font-size: 1.4rem;
-  color: #666;
 }
 
 .btn.btn-primary {
