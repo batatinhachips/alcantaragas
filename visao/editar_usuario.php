@@ -87,10 +87,26 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
 
                     <label for="cep" class="titulo-campo">Cep:</label>
                     <input type="text" name="cep" value="<?= $usuario["cep"] ?>" class="custom-input"><br>
-
-                    <label for="numero" class="titulo-campo">Numero:</label>
-                    <input type="text" name="numero" value="<?= $usuario["numero"] ?>" class="custom-input"><br>
-
+                    
+    
+                    <label for="logradouro" class="titulo-campo">Rua</label>
+                    <input type="text" class="form-control" id="logradouro"  name="logradouro" required>
+                  
+      
+                    <label for="complemento" class="titulo-campo">Complemento</label>
+                    <input type="text" class="form-control" id="complemento"  name="complemento">
+      
+      
+                    <label for="numero" cclass="titulo-campo">Número</label>
+                    <input type="text" class="form-control" id="numero"  name="numero" required>
+            
+                    <label for="bairro" class="titulo-campo">Bairro</label>
+                    <input type="text" class="form-control" id="bairro"  name="bairro" required>
+        
+      
+                    <label for="cidade" class="titulo-campo">Cidade</label>
+                    <input type="text" class="form-control" id="cidade"  name="cidade" required>
+      
                     <button type="submit" class="btn btn-primary btn-lg btn-block botao-salvar-edicoes">Salvar edições</button>
                   </form>
                   <br>
