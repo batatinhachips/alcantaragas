@@ -29,8 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
 
     // Atualizar as informações do produto no banco de dados
-    $stmt = $conn->prepare("UPDATE usuario SET nome=?, email=?, senha=?, cpf=?, telefone=?, cep=?, numero=? WHERE id_usuario=?");
-    $stmt->bind_param("sssiiiii", $nome, $email, $senha, $cpf, $telefone, $cep, $numero, $id_usuario);
+    $stmt = $conn->prepare("UPDATE usuario SET nome=?, email=?, senha=?, cpf=?, telefone=?, cep=?, logradouro=?, complemento=?, numero=?, bairro=?, cidade=? WHERE id_usuario=?");
+    $stmt->bind_param("sssiiiii", $nome, $email, $senha, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade, $id_usuario);
 
     if ($stmt->execute()) {
         header("Location: ../visao/usuario_tabela.php");
