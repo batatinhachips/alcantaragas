@@ -90,14 +90,13 @@ $produtos = $produtosRepositorio->buscarTodos();
 
       <div class="row">
         <?php foreach ($produtos as $produto) : ?>
-          <div class="col-md-4 mb-4">
-            <div class="card custom-card">
-                <img src="../recursos/imagens/<?= $produto["imagem"] ?>" alt="">
-              <div class="custom-card-body">
-                <h5 class="custom-card-title"><?= $produto->getNome() ?></h5>
-                <p class="custom-card-text"><?= $produto->getDescricao() ?></p>
-                <h4>R$<?= $produto->getPreco() ?></h4>
-                <?var_dump($produtos)?>;
+    <div class="col-md-4 mb-4">
+        <div class="card custom-card">
+            <img src="../recursos/imagens/<?= htmlspecialchars($produto->getImagem()) ?>" alt="">
+            <div class="custom-card-body">
+                <h5 class="custom-card-title"><?= htmlspecialchars($produto->getNome()) ?></h5>
+                <p class="custom-card-text"><?= htmlspecialchars($produto->getDescricao()) ?></p>
+                <h4>R$ <?= number_format($produto->getPreco(), 2, ',', '.') ?></h4> <!-- Formatação de moeda -->
                 <form action="../visao/editar_produtos.php" method="POST" style="margin-bottom: 10px;">
                   <input type="hidden" name="id" value="<?= $produto->getId(); ?>">
                   <input type="submit" class="botao-editar" value="Editar" style="background-color: green; color: white; border: none; border-radius: 15px; padding: 6px 11px; font-weight: 500; font-family: Poppins, sans-serif;">
