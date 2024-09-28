@@ -68,6 +68,9 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
         echo "<div class='user-name'>" . $_SESSION["nome_usuario"] . "</div>";
       }
       ?>
+      <li class="dropdown-content">
+          <a class="dropdown-item" href="admin.php" style="margin-left: auto;">Voltar</a>
+        </li>
       <div class="dropdown-content">
         <?php if (isset($_SESSION["nome_usuario"])) { ?>
           <a class="dropdown-item" href="../controladora/logout.php">Sair</a>
