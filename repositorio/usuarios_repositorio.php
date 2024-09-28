@@ -50,7 +50,7 @@ class usuarioRepositorio{
 
     }
 
-    public function buscarTodosUsuarios()
+    /* public function buscarTodosUsuarios()
     {
         $sql = "SELECT * FROM usuario ORDER BY nome asc";
         $result = $this->conn->query($sql);
@@ -76,6 +76,24 @@ class usuarioRepositorio{
                 );
                 $usuarios[] = $usuario;
             }
+        }
+
+        return $usuarios;
+    } */
+    
+    public function buscarTodosUsuarios() {
+        $sql = "SELECT * FROM usuarios WHERE papel = 'admin'";
+        $result = $this->conn->query($sql);
+        $usuarios = [];
+
+        while ($row = $result->fetch_assoc()) {
+            $usuario = new Usuariosss();
+            $usuario->setIdUsuario($row['id']);
+            $usuario->setNome($row['nome']);
+            $usuario->setEmail($row['email']);
+            $usuario->setSenha($row['senha']);
+            $usuario->setPapel($row['papel']); // Supondo que você tenha um método para isso
+            $usuarios[] = $usuario;
         }
 
         return $usuarios;
