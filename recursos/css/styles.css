@@ -138,6 +138,37 @@ body {
   display: flex;
 }
 
+.rowCard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centraliza os cards */
+  gap: 1rem; /* Espaçamento entre os cards */
+}
+
+.col {
+  flex: 0 1 calc(25% - 1rem); /* 4 cards por linha em telas grandes */
+  max-width: calc(25% - 1rem); /* Garante que a largura não exceda 25% */
+}
+
+@media (max-width: 768px) {
+  .col {
+    flex: 0 1 calc(33.33% - 1rem); /* 3 cards por linha em telas médias */
+    max-width: calc(33.33% - 1rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .col {
+    flex: 0 1 calc(50% - 1rem); /* 2 cards por linha em telas pequenas */
+    max-width: calc(50% - 1rem);
+  }
+}
+
+.card.custom-card {
+  margin: 1rem; /* Margem para os cards */
+}
+
+
 .produtos-row {
   display: flex;
   flex-wrap: wrap;
