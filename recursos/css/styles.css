@@ -1,3 +1,44 @@
+/*admin*/
+.navbar-toggler {
+  border: none;
+  padding: 0;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  content: "";
+  background: no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.navbar-nav {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.navbar-nav .nav-item {
+  margin-bottom: 10px;
+}
+
+.navbar-nav .nav-item:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .navbar-nav .nav-item {
+    margin-bottom: 0;
+  }
+}
+
 /* Navbar */
 .navbar-custom {
   background-color: #145c50;
