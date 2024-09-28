@@ -22,8 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
 
     } elseif (isset($_POST['tipo']) && $_POST['tipo'] === 'usuario') {
         // Verificar se o ID para excluir foi enviado
-        if (isset($_POST['idParaExcluir']) && !empty($_POST['idParaExcluir'])) {
-            $idParaExcluir = $_POST['idParaExcluir'];
+
     
             // Excluir o usuário
             $usuariosRepositorio->excluirUsuariosPorId($idParaExcluir);
@@ -47,6 +46,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     
         exit();
     }
-}
 
 ?>
