@@ -19,9 +19,15 @@ body {
 }
 
 @media (max-width: 576px) {
-  .navbar-nav {
-      align-items: center;    /* Centraliza os botões */
-  }
+    .navbar-nav {
+        flex-wrap: wrap;        /* Permite que os itens quebrem para a próxima linha */
+        justify-content: center; /* Centraliza os botões */
+    }
+    
+    .navbar-nav .nav-item {
+        margin-bottom: 1rem;    /* Adiciona uma margem entre as linhas */
+        flex: 0 1 48%;          /* Cada botão ocupa aproximadamente 48% da largura */
+    }
 }
 
 .container-fluid {
