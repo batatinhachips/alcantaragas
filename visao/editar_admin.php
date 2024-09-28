@@ -31,7 +31,7 @@ include '../modelo/usuario.php';
 include '../repositorio/usuarios_repositorio.php';
 
 $usuariosRepositorio = new usuarioRepositorio($conn);
-$usuarios = $usuariosRepositorio->buscarTodosUsuarios();
+$usuarios = $usuariosRepositorio->buscarTodosAdmins();
 ?>
 
 <body>
