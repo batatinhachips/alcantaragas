@@ -90,103 +90,103 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
                     <label for="telefone" class="titulo-campo">Telefone:</label>
                     <input type="text" name="telefone" value="<?= $usuario["telefone"] ?>" class="custom-input"><br>
                     
-                    <div class="col-md-6">
-            <div class="form-group">
-              <label for="cep" class="required">CEP</label>
-              <input type="text" class="form-control" id="cep" placeholder="ex: 08584584" name="cep" required>
-            </div>
-            <div class="form-group">
-              <label for="logradouro" class="required">Rua</label>
-              <input type="text" class="form-control" id="logradouro" placeholder="ex: Estr. Pedro da Cunha Albuquerque Lopes" name="logradouro" required>
-            </div>
-            <div class="form-group">
-              <label for="complemento">Complemento</label>
-              <input type="text" class="form-control" id="complemento" placeholder="ex: Fundos" name="complemento">
-            </div>
-            <div class="form-group">
-              <label for="numero" class="required">Número</label>
-              <input type="text" class="form-control" id="numero" placeholder="ex: 1873" name="numero" required>
-            </div>
-            <div class="form-group">
-              <label for="bairro" class="required">Bairro</label>
-              <input type="text" class="form-control" id="bairro" placeholder="ex: Jardim Silvestre" name="bairro" required>
-            </div>
 
-            <div class="form-group">
-              <label for="cidade" class="required">Cidade</label>
-              <input type="text" class="form-control" id="cidade" placeholder="ex: Itaquaquecetuba" name="cidade" required>
+                    <div class="form-group">
+                      <label for="cep" class="required">CEP</label>
+                      <input type="text" class="form-control" id="cep"  name="cep" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="logradouro" class="required">Rua</label>
+                      <input type="text" class="form-control" id="logradouro"  name="logradouro" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="complemento">Complemento</label>
+                      <input type="text" class="form-control" id="complemento"  name="complemento">
+                    </div>
+                    <div class="form-group">
+                      <label for="numero" class="required">Número</label>
+                      <input type="text" class="form-control" id="numero"  name="numero" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="bairro" class="required">Bairro</label>
+                      <input type="text" class="form-control" id="bairro"  name="bairro" required>
+                    </div>
+        
+                    <div class="form-group">
+                      <label for="cidade" class="required">Cidade</label>
+                      <input type="text" class="form-control" id="cidade"  name="cidade" required>
+        
+                  </div>
+                </div>
+                <!-- Campo oculto para definir o papel como 'usuario' -->
+                <input type="hidden" name="papel" value="usuario">
+                <button type="submit" class="btn btn-custom-primary btn-block">Cadastrar</button>
+                <a href="formLogin.php" class="btn btn-custom-primary btn-block">Login</a>
+              </form>
             </div>
-          </div>
-        </div>
-        <!-- Campo oculto para definir o papel como 'usuario' -->
-        <input type="hidden" name="papel" value="usuario">
-        <button type="submit" class="btn btn-custom-primary btn-block">Cadastrar</button>
-        <a href="formLogin.php" class="btn btn-custom-primary btn-block">Login</a>
-      </form>
-    </div>
-
-    <script type="text/javascript">
-      $(function() {
-        // Desativa a exibição de tooltip por hover
-        $('[data-bs-toggle="tooltip"]').tooltip('dispose');
-      });
-
-      // Função para mostrar o tooltip
-      function mostrarTooltip(element, message) {
-        element.attr('data-bs-title', message);
-        element.tooltip('show');
-      }
-
-      // Função para limpar os tooltips
-      function limparTooltips() {
-        $('[data-bs-toggle="tooltip"]').tooltip('dispose');
-      }
-
-      // Validação de CEP
-      function limpa_formulário_cep() {
-        $("#logradouro").val("");
-        $("#bairro").val("");
-        $("#cidade").val("");
-        $("#uf").val("");
-      };
-
-      $("#cep").blur(function() {
-        var cep = $(this).val().replace(/\D/g, '');
-        if (cep != "") {
-          var validacep = /^[0-9]{8}$/;
-          if (validacep.test(cep)) {
-            $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
-              if (!("erro" in dados)) {
-                $("#logradouro").val(dados.logradouro);
-                $("#bairro").val(dados.bairro);
-                $("#cidade").val(dados.localidade);
-                $("#uf").val(dados.uf);
-              } else {
-                limpa_formulário_cep();
-                mostrarTooltip($('#cep'), 'CEP não encontrado.');
+        
+            <script type="text/javascript">
+              $(function() {
+                // Desativa a exibição de tooltip por hover
+                $('[data-bs-toggle="tooltip"]').tooltip('dispose');
+              });
+        
+              // Função para mostrar o tooltip
+              function mostrarTooltip(element, message) {
+                element.attr('data-bs-title', message);
+                element.tooltip('show');
               }
-            });
-          } else {
-            limpa_formulário_cep();
-            mostrarTooltip($('#cep'), 'Formato de CEP inválido.');
-          }
-        } else {
-          limpa_formulário_cep();
-        }
-      });
-  </script>
-            <?php
-
-              } else {
-                echo "Usuario não encontrado";
+        
+              // Função para limpar os tooltips
+              function limparTooltips() {
+                $('[data-bs-toggle="tooltip"]').tooltip('dispose');
               }
-            }
-            $conn->close(); ?>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        
+              // Validação de CEP
+              function limpa_formulário_cep() {
+                $("#logradouro").val("");
+                $("#bairro").val("");
+                $("#cidade").val("");
+                $("#uf").val("");
+              };
+        
+              $("#cep").blur(function() {
+                var cep = $(this).val().replace(/\D/g, '');
+                if (cep != "") {
+                  var validacep = /^[0-9]{8}$/;
+                  if (validacep.test(cep)) {
+                    $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
+                      if (!("erro" in dados)) {
+                        $("#logradouro").val(dados.logradouro);
+                        $("#bairro").val(dados.bairro);
+                        $("#cidade").val(dados.localidade);
+                        $("#uf").val(dados.uf);
+                      } else {
+                        limpa_formulário_cep();
+                        mostrarTooltip($('#cep'), 'CEP não encontrado.');
+                      }
+                    });
+                  } else {
+                    limpa_formulário_cep();
+                    mostrarTooltip($('#cep'), 'Formato de CEP inválido.');
+                  }
+                } else {
+                  limpa_formulário_cep();
+                }
+              });
+          </script>
+                    <?php
+        
+                      } else {
+                        echo "Usuario não encontrado";
+                      }
+                    }
+                    $conn->close(); ?>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
 
 </body>
 
