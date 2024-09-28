@@ -19,7 +19,7 @@ session_start();
   <script src="../recursos/js/bootstrap.bundle.min.js"></script>
   <script src="../recursos/js/jquery-3.5.1.slim.min.js"></script>
   <script src="../recursos/js/popper.min.js"></script>
-  <script src="../recursos/js/script.js"></script>
+  <script src="../recursos/js/admin.js"></script>
 </head>
 
 <?php
@@ -63,28 +63,6 @@ $produtos = $produtosRepositorio->buscarTodos();
     </div>
 </nav>
 
-
-
-        <nav id="menu" class="menu">
-            <?php
-            if (isset($_SESSION["nome_usuario"])) {
-                echo "<div class='user-name'>" . $_SESSION["nome_usuario"] . "</div>";
-            }
-            ?>
-            <div class="dropdown-content">
-                <?php if (isset($_SESSION["papel"]) && $_SESSION["papel"] == "admin") { ?>
-                    <a class="dropdown-item" href="visao/admin.php">Admin</a>
-                <?php } ?>
-                <?php if (isset($_SESSION["nome_usuario"])) { ?>
-                    <a class="dropdown-item" href="../controladora/logout.php">Sair</a>
-                <?php } else { ?>
-                    <a class="dropdown-item" href="visao/formLogin.php">Login</a>
-                    <a class="dropdown-item" href="visao/cadastrar_cliente.php">Cadastre-se</a>
-                <?php } ?>
-            </div>
-        </nav>
-    </div>
-</nav>
 
 
 
