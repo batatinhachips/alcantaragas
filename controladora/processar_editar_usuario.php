@@ -15,8 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST["nome"];
     $email = $_POST["email"];
     $senha = $_POST["senha"];
-    $cpf = isset($_POST["cpf"]);
-    $telefone = isset($_POST["telefone"]);
+    $cpf = $_POST["cpf"];
+    $telefone = $_POST["telefone"];
     $cep = $_POST["cep"];
     $logradouro = $_POST["logradouro"];
     $complemento = $_POST["complemento"];
