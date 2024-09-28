@@ -90,6 +90,7 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
                     <label for="telefone" class="titulo-campo">Telefone:</label>
                     <input type="text" name="telefone" value="<?= $usuario["telefone"] ?>" class="custom-input"><br>
 
+                    <div class="col-md-6">
                     <label for="cep" class="titulo-campo">Cep:</label>
                     <input type="text" name="cep" value="<?= $usuario["cep"] ?>" class="custom-input"><br>
     
@@ -107,7 +108,7 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
         
                     <label for="cidade" class="titulo-campo">Cidade</label>
                     <input type="text" class="custom-input" id="cidade"  name="cidade" required>
-      
+                    </div>
                     <button type="submit" class="btn btn-primary btn-lg btn-block botao-salvar-edicoes">Salvar edições</button>
                   </form>
                   <br>
