@@ -32,7 +32,6 @@ include '../repositorio/produtos_repositorio.php';
 
 $produtosRepositorio = new produtoRepositorio($conn);
 $produtos = $produtosRepositorio->buscarTodos();
-$senhaHash = password_hash($senha, PASSWORD_BCRYPT);
 ?>
 
 <body>
