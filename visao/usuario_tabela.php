@@ -134,10 +134,11 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
                       <input type="submit" class="btn btn-success" value="Editar">
                     </form>
                     <form action="../controladora/processar_exclusao.php" method="POST" style="display:inline;">
-                      <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
-                      <input type="hidden" name="tipo" value="usuario">
-                      <input type="submit" class="btn btn-danger" value="Excluir">
-                    </form>
+                    <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
+                    <input type="hidden" name="tipo" value="usuario">
+                    <input type="hidden" name="pagina_origem" value="usuario_tabela"> <!-- Identificação da página -->
+                    <input type="submit" class="btn btn-danger" value="Excluir">
+                  </form>
                   </td>
                 </tr>
               <?php endforeach; ?>
