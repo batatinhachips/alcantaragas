@@ -14,7 +14,7 @@ class Produto {
         $nome,
         $descricao,
         $preco,
-        $imagem = "logo.png"
+        $imagem
 
     )
     {
