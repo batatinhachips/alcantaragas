@@ -3,7 +3,8 @@ include '../controladora/conexao.php';
 include '../modelo/produtos.php';
 include '../repositorio/produtos_repositorio.php';
 include '../modelo/usuario.php'; // Inclua o modelo de usuários
-include '../repositorio/usuarios_repositorio.php'; // Inclua o repositório de usuários
+include '../repositorio/usuarios_repositorio.php';
+include '../modelo/login.php'// Inclua o repositório de usuários
 
 $produtosRepositorio = new produtoRepositorio($conn);
 $usuariosRepositorio = new usuarioRepositorio($conn);
