@@ -4,8 +4,8 @@ include '../modelo/produtos.php';
 include '../repositorio/produtos_repositorio.php';
 include_once '../modelo/usuario.php';
 include '../repositorio/usuarios_repositorio.php';
-include '../visao/admin_tabela.php';
-include '../visao/usuarios_tabela.php';
+include_once '../visao/admin_tabela.php';
+include_once '../visao/usuarios_tabela.php';
 
 $produtosRepositorio = new produtoRepositorio($conn);
 $usuariosRepositorio = new usuarioRepositorio($conn);
