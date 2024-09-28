@@ -90,31 +90,42 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
                     <label for="telefone" class="titulo-campo">Telefone:</label>
                     <input type="text" name="telefone" value="<?= $usuario["telefone"] ?>" class="custom-input"><br>
                     
-                    <label for="cep" class="titulo-campo">Cep:</label>
-                    <input type="text" name="cep" value="<?= $usuario["cep"] ?>" class="custom-input"><br>
-    
-                    <label for="logradouro" class="titulo-campo">Rua</label>
-                    <input type="text" class="custom-input" id="logradouro"  name="logradouro" required>
-                  
-                    <label for="complemento" class="titulo-campo">Complemento</label>
-                    <input type="text" class="custom-input" id="complemento"  name="complemento">
-      
-                    <label for="numero" class="titulo-campo">Número</label>
-                    <input type="text" class="custom-input" id="numero"  name="numero" required>
-            
-                    <label for="bairro" class="titulo-campo">Bairro</label>
-                    <input type="text" class="custom-input" id="bairro"  name="bairro" required>
-        
-                    <label for="cidade" class="titulo-campo">Cidade</label>
-                    <input type="text" class="custom-input" id="cidade"  name="cidade" required>
+                    <div class="col-md-6">
+            <div class="form-group">
+              <label for="cep" class="required">CEP</label>
+              <input type="text" class="form-control" id="cep" placeholder="ex: 08584584" name="cep" required>
+            </div>
+            <div class="form-group">
+              <label for="logradouro" class="required">Rua</label>
+              <input type="text" class="form-control" id="logradouro" placeholder="ex: Estr. Pedro da Cunha Albuquerque Lopes" name="logradouro" required>
+            </div>
+            <div class="form-group">
+              <label for="complemento">Complemento</label>
+              <input type="text" class="form-control" id="complemento" placeholder="ex: Fundos" name="complemento">
+            </div>
+            <div class="form-group">
+              <label for="numero" class="required">Número</label>
+              <input type="text" class="form-control" id="numero" placeholder="ex: 1873" name="numero" required>
+            </div>
+            <div class="form-group">
+              <label for="bairro" class="required">Bairro</label>
+              <input type="text" class="form-control" id="bairro" placeholder="ex: Jardim Silvestre" name="bairro" required>
+            </div>
 
-                    <button type="submit" class="btn btn-primary btn-lg btn-block botao-salvar-edicoes">Salvar edições</button>
-                  </form>
-                  <br>
-                  <br>
-                  <br>
-                </div>
-              <script type="text/javascript">
+            <div class="form-group">
+              <label for="cidade" class="required">Cidade</label>
+              <input type="text" class="form-control" id="cidade" placeholder="ex: Itaquaquecetuba" name="cidade" required>
+            </div>
+          </div>
+        </div>
+        <!-- Campo oculto para definir o papel como 'usuario' -->
+        <input type="hidden" name="papel" value="usuario">
+        <button type="submit" class="btn btn-custom-primary btn-block">Cadastrar</button>
+        <a href="formLogin.php" class="btn btn-custom-primary btn-block">Login</a>
+      </form>
+    </div>
+
+    <script type="text/javascript">
       $(function() {
         // Desativa a exibição de tooltip por hover
         $('[data-bs-toggle="tooltip"]').tooltip('dispose');
