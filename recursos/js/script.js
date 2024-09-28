@@ -1,50 +1,56 @@
-$(document).ready(function() {
-  // Código existente para todas as páginas
-  $('.login-title').css('display', 'flex').css('flex-direction', 'column').css('align-items', 'center');
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("show");
+}
 
-  $('#forgot-password-btn').click(function() {
-      $('#login-form').hide();
-      $('#forgot-password-form').show();
+$(document).ready(function () {
+  // Centralizar o título
+  $(".login-title")
+    .css("display", "flex")
+    .css("flex-direction", "column")
+    .css("align-items", "center");
+
+  // Mostrar o formulário de recuperação de senha e esconder o de login
+  $("#forgot-password-btn").click(function () {
+    $("#login-form").hide();
+    $("#forgot-password-form").show();
   });
 
-  $('#back-to-login-btn').click(function() {
-      $('#forgot-password-form').hide();
-      $('#login-form').show();
+  // Voltar ao formulário de login
+  $("#back-to-login-btn").click(function () {
+    $("#forgot-password-form").hide();
+    $("#login-form").show();
   });
-
-  // Adicionar lógica de menu apenas se estiver na página admin.php
-  if (window.location.pathname.includes('admin.php')) {
-      // Função para alternar o menu
-      function toggleAdminMenu() {
-          const menu = document.getElementById('menu');
-          menu.classList.toggle('show');
-
-          // Lógica para mostrar/esconder opções
-          const adminOption = document.querySelector('.dropdown-content .dropdown-item:nth-child(1)');
-          const logoutOption = document.querySelector('.dropdown-content .dropdown-item:nth-child(2)');
-          const newAdminOption = document.querySelector('.dropdown-content .dropdown-item:nth-child(3)');
-          const newProductOption = document.querySelector('.dropdown-content .dropdown-item:nth-child(4)');
-          const clientsTableOption = document.querySelector('.dropdown-content .dropdown-item:nth-child(5)');
-
-          if (menu.classList.contains('show')) {
-              // Exibir os botões desejados
-              newAdminOption.style.display = 'block';
-              newProductOption.style.display = 'block';
-              clientsTableOption.style.display = 'block';
-              // Ocultar opções "Admin" e "Sair"
-              adminOption.style.display = 'none';
-              logoutOption.style.display = 'none';
-          } else {
-              // Voltar ao padrão
-              newAdminOption.style.display = 'none';
-              newProductOption.style.display = 'none';
-              clientsTableOption.style.display = 'none';
-              adminOption.style.display = 'block';
-              logoutOption.style.display = 'block';
-          }
-      }
-
-      // Associe a nova função toggleAdminMenu ao ícone de menu
-      $('.menu-icon').click(toggleAdminMenu);
-  }
 });
+
+// Verifica se a página atual é admin.php
+if (window.location.pathname.includes("admin.php")) {
+  function toggleMenu() {
+    const menu = document.getElementById("menu");
+    const isVisible = menu.classList.contains("show");
+
+    // Alternar visibilidade do menu
+    menu.classList.toggle("show");
+
+    // Se o menu estiver visível, esconder opções admin e sair
+    if (isVisible) {
+      document.querySelector(
+        ".dropdown-content .dropdown-item:nth-child(1)"
+      ).style.display = "none"; // Ocultar "Admin"
+      document.querySelector(
+        ".dropdown-content .dropdown-item:nth-child(2)"
+      ).style.display = "none"; // Ocultar "Sair"
+    } else {
+      // Mostrar os botões novos no menu
+      document.querySelector(
+        ".dropdown-content .dropdown-item:nth-child(1)"
+      ).style.display = "block"; // Mostrar "Novo Admin"
+      document.querySelector(
+        ".dropdown-content .dropdown-item:nth-child(2)"
+      ).style.display = "block"; // Mostrar "Novo Produto"
+      document.querySelector(
+        ".dropdown-content .dropdown-item:nth-child(3)"
+      ).style.display = "block"; // Mostrar "Tabela Clientes"
+    }
+  }
+}
