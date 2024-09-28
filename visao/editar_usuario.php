@@ -90,33 +90,22 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
                     <label for="telefone" class="titulo-campo">Telefone:</label>
                     <input type="text" name="telefone" value="<?= $usuario["telefone"] ?>" class="custom-input"><br>
                     
-
-                    <div class="form-group">
-                      <label for="cep" class="required">CEP</label>
+                      <label for="cep" class="required titulo-campo">CEP</label>
                       <input type="text" class="form-control" id="cep"  name="cep" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="logradouro" class="required">Rua</label>
-                      <input type="text" class="form-control" id="logradouro"  name="logradouro" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="complemento">Complemento</label>
+
+                      <label for="logradouro" class="required titulo-campo">Rua</label>
+
+                      <label for="complemento titulo-campo">Complemento</label>
                       <input type="text" class="form-control" id="complemento"  name="complemento">
-                    </div>
-                    <div class="form-group">
-                      <label for="numero" class="required">Número</label>
+     
+                      <label for="numero" class="required titulo-campo">Número</label>
                       <input type="text" class="form-control" id="numero"  name="numero" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="bairro" class="required">Bairro</label>
+
+                      <label for="bairro" class="required titulo-campo">Bairro</label>
                       <input type="text" class="form-control" id="bairro"  name="bairro" required>
-                    </div>
-        
-                    <div class="form-group">
-                      <label for="cidade" class="required">Cidade</label>
+
+                      <label for="cidade" class="required titulo-campo">Cidade</label>
                       <input type="text" class="form-control" id="cidade"  name="cidade" required>
-        
-                  </div>
                 </div>
                 <!-- Campo oculto para definir o papel como 'usuario' -->
                 <input type="hidden" name="papel" value="usuario">
