@@ -75,8 +75,9 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
                     <label for="email" class="titulo-campo">Email:</label>
                     <input type="text" name="email" value="<?= $usuario["email"] ?>" class="custom-input"><br>
 
-                    <label for="senha" class="titulo-campo">Senha:</label>
-                    <input type="text" name="senha" value="<?= $usuario["senha"] ?>" class="custom-input"><br>
+                    <label for="senha" class="titulo-campo">Nova Senha:</label>
+                <input type="password" class="form-control" id="senha" placeholder="Digite uma nova senha" name="senha" required>
+          <div class="invalid-feedback">A senha deve ter no mínimo 6 caracteres, incluindo letras e números.</div><br></div>
 
                     <label for="senha" class="titulo-campo">CPF:</label>
                     <input type="text" name="cpf" value="<?= $usuario["cpf"] ?>" class="custom-input"><br>
