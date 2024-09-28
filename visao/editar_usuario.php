@@ -113,8 +113,6 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
                   <br>
                   <br>
                 </div>
-            <?php
-              
               <script type="text/javascript">
       $(function() {
         // Desativa a exibição de tooltip por hover
@@ -165,6 +163,8 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
         }
       });
   </script>
+            <?php
+
               } else {
                 echo "Usuario não encontrado";
               }
