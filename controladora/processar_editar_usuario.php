@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Atualizar as informações do produto no banco de dados
     $stmt = $conn->prepare("UPDATE usuario SET nome=?, email=?, senha=?, cpf=?, telefone=?, cep=?, logradouro=?, complemento=?, numero=?, bairro=?, cidade=? WHERE id_usuario=?");
-    $stmt->bind_param("sssiiiii", $nome, $email, $senha, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade, $id_usuario);
+    $stmt->bind_param("sssiiississi", $nome, $email, $senha, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade, $id_usuario);
 
     if ($stmt->execute()) {
         header("Location: ../visao/usuario_tabela.php");
