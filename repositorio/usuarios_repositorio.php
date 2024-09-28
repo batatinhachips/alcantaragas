@@ -50,9 +50,9 @@ class usuarioRepositorio{
 
     }
 
-    /* public function buscarTodosUsuarios()
+    public function buscarTodosAdmins()
     {
-        $sql = "SELECT * FROM usuario ORDER BY nome asc";
+        $sql = "SELECT * FROM usuarios WHERE papel = 'admin'";
         $result = $this->conn->query($sql);
 
         $usuarios = array();
@@ -79,9 +79,9 @@ class usuarioRepositorio{
         }
 
         return $usuarios;
-    } */
+    }
     
-    public function buscarTodosUsuarios() {
+   /*  public function buscarTodosUsuarios() {
         $sql = "SELECT * FROM usuarios WHERE papel = 'admin'";
         $result = $this->conn->query($sql);
         $usuarios = [];
@@ -97,7 +97,7 @@ class usuarioRepositorio{
         }
 
         return $usuarios;
-    }
+    } */
 
     public function listarUsuarioPorId($id_usuario)
     {
