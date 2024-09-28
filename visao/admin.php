@@ -39,7 +39,7 @@ $produtos = $produtosRepositorio->buscarTodos();
         <a class="navbar-brand" href="/">
             <img src="../recursos/imagens/logo.png" alt="Logo da Empresa" style="height: 40px;">
         </a>
-        
+
         <div class="menu-icon" onclick="toggleMenu()">
             <i class="bi bi-list"></i>
         </div>
@@ -62,6 +62,7 @@ $produtos = $produtosRepositorio->buscarTodos();
         </div>
     </div>
 </nav>
+
 
 
         <nav id="menu" class="menu">
