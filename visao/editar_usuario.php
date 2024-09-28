@@ -5,7 +5,7 @@ session_start();
 ?>
 
 <head>
-  <title>EDITAR PRODUTOS</title>
+  <title>EDITAR USUARIO</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,12 +27,11 @@ session_start();
 </head>
 <?php
 include '../controladora/conexao.php';
-include '../modelo/produtos.php';
-include '../repositorio/produtos_repositorio.php';
+include '../modelo/usuario.php';
+include '../repositorio/usuarios_repositorio.php';
 
-$produtosRepositorio = new produtoRepositorio($conn);
-$produtos = $produtosRepositorio->buscarTodos();
-
+$usuariosRepositorio = new usuarioRepositorio($conn);
+$usuarios = $usuariosRepositorio->buscarTodosUsuarios();
 ?>
 
 <body>
@@ -40,7 +39,7 @@ $produtos = $produtosRepositorio->buscarTodos();
       <a href="/">
         <img src="../recursos/imagens/logo_nav.png" alt="Logo" class="logo">
       </a>
-      <h1>EDITAR PRODUTO</h1>
+      <h1>EDITAR USUARIO</h1>
     </div>
 
     <!-- LINKS DE NAVEGACAO E BOTOES -->
@@ -57,31 +56,39 @@ $produtos = $produtosRepositorio->buscarTodos();
       <div class="row">
       <div class="container container-form-login mt-5" id="login-form">
           <div class="icon-box">
-            <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
-              $produto_id = $_POST["id"];
-              $sql = "SELECT * FROM produtos WHERE id = $produto_id";
-              $result = $conn->query($sql);
+          <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $id_usuario = $_POST["id"];
+            $sql = "SELECT * FROM usuario WHERE id_usuario = $id_usuario";
+            $result = $conn->query($sql);
 
-              if ($result->num_rows > 0) {
-                $produto = $result->fetch_assoc();
-            ?>
+            if ($result->num_rows > 0) {
+            $usuario = $result->fetch_assoc();
+          ?>
 
                   <!-- Formulário de edição -->
-                  <form action="../controladora/processar_editar_produtos.php" method="POST" enctype="multipart/form-data" class="formulario-edicao">
-                    <input type="hidden" name="id" value="<?= $produto["id"] ?>">
+                  <form action="../controladora/processar_editar_usuario.php" method="POST" enctype="multipart/form-data" class="formulario-edicao">
+                    <input type="hidden" name="id" value="<?= $usuario["id"] ?>">
 
                     <label for="nome" class="titulo-campo">Nome:</label>
-                    <input type="text" name="nome" value="<?= $produto["nome"] ?>" class="custom-input"><br>
+                    <input type="text" name="nome" value="<?= $usuario["nome"] ?>" class="custom-input"><br>
 
-                    <label for="descricao" class="titulo-campo">Descrição:</label>
-                    <input type="text" name="descricao" value="<?= $produto["descricao"] ?>" class="custom-input"><br>
+                    <label for="email" class="titulo-campo">Email:</label>
+                    <input type="text" name="email" value="<?= $usuario["email"] ?>" class="custom-input"><br>
 
-                    <label for="preco" class="titulo-campo">Preço:</label>
-                    <input type="text" name="preco" value="<?= $produto["preco"] ?>" class="custom-input"><br>
+                    <label for="senha" class="titulo-campo">Senha:</label>
+                    <input type="text" name="senha" value="<?= $usuario["senha"] ?>" class="custom-input"><br>
 
-                    <label for="imagem" class="titulo-campo">Imagem:</label>
-                    <input type="file" name="imagem" accept="image/*" class="custom-input">
-                    <span class="titulo-campo">Imagem atual: <?= $produto["imagem"] ?></span><br>
+                    <label for="senha" class="titulo-campo">CPF:</label>
+                    <input type="text" name="cpf" value="<?= $usuario["cpf"] ?>" class="custom-input"><br>
+
+                    <label for="senha" class="titulo-campo">Telefone:</label>
+                    <input type="text" name="telefone" value="<?= $usuario["telefone"] ?>" class="custom-input"><br>
+
+                    <label for="senha" class="titulo-campo">Cep:</label>
+                    <input type="text" name="cep" value="<?= $usuario["cep"] ?>" class="custom-input"><br>
+
+                    <label for="senha" class="titulo-campo">Numero:</label>
+                    <input type="text" name="numero" value="<?= $usuario["numero"] ?>" class="custom-input"><br>
 
                     <button type="submit" class="btn btn-primary btn-lg btn-block botao-salvar-edicoes">Salvar edições</button>
                   </form>
@@ -91,7 +98,7 @@ $produtos = $produtosRepositorio->buscarTodos();
                 </div>
             <?php
               } else {
-                echo "Produto não encontrado";
+                echo "Usuario não encontrado";
               }
             }
             $conn->close(); ?>
