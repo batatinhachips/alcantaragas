@@ -90,7 +90,7 @@ $produtos = $produtosRepositorio->buscarTodos();
         <?php foreach ($produtos as $produto) : ?>
           <div class="col">
             <div class="card custom-card">
-              <img src="recursos/imagens/<?= $produto->getImagem() ?>" alt="<?= $produto->getNome() ?>">
+              <img src="../recursos/imagens/<?= $produto->getImagem() ?>" alt="">
               <div class="custom-card-body">
                 <h5 class="custom-card-title"><?= $produto->getNome() ?></h5>
                 <p class="custom-card-text"><?= $produto->getDescricao() ?></p>
