@@ -19,21 +19,31 @@ body {
 }
 
 @media (max-width: 576px) {
-    .navbar-nav {
-        flex-wrap: wrap;        /* Permite que os itens quebrem para a próxima linha */
-        justify-content: center; /* Centraliza os botões */
-    }
-    
-    .navbar-nav .nav-item {
-        margin-bottom: 1rem;    /* Adiciona uma margem entre as linhas */
-        flex: 0 1 48%;          /* Cada botão ocupa aproximadamente 48% da largura */
-    }
+  .navbar-nav {
+      flex-wrap: wrap; /* Permite que os botões quebrem para a próxima linha */
+      justify-content: center;
+      order: 2; /* Coloca os botões abaixo da logo e do ícone */
+  }
+
+  .navbar-brand {
+      order: 1; /* Coloca a logo no topo */
+  }
+  
+  .menu-icon {
+      order: 1; /* Coloca o ícone do menu ao lado da logo */
+  }
+
+  .navbar-nav .nav-item {
+      margin-bottom: 1rem;
+      flex: 0 1 48%; /* Faz com que dois botões caibam em uma linha */
+  }
 }
 
 .container-fluid {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 #menu {
@@ -398,7 +408,7 @@ h2,
   font-size: 2.4rem;
   color: white;
   cursor: pointer;
-  z-index: 1;
+  z-index: 3000;
 }
 
 .menu-icon i {
