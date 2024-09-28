@@ -19,7 +19,7 @@ session_start();
   <script src="../recursos/js/bootstrap.bundle.min.js"></script>
   <script src="../recursos/js/jquery-3.5.1.slim.min.js"></script>
   <script src="../recursos/js/popper.min.js"></script>
-  <script src="../recursos/js/admin.js"></script>
+  <script src="../recursos/js/script.js"></script>
 </head>
 
 <?php
