@@ -52,7 +52,7 @@ class usuarioRepositorio{
 
     public function buscarTodosUsuarios()
     {
-        $sql = "SELECT * FROM usuario ORDER BY nome asc";
+        $sql = "SELECT * FROM usuarios WHERE papel = 'admin'";
         $result = $this->conn->query($sql);
 
         $usuarios = array();
