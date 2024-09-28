@@ -42,13 +42,8 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
     <div class="container-fluid">
       <!-- NAVBAR -->
       <a class="navbar-brand" href="/">
-        <img src="../recursos/imagens/logo_nav.png" alt="Logo da Empresa" style="height: 40px;">
+        <img src="../recursos/imagens/logo.png" alt="Logo da Empresa" style="height: 40px;">
       </a>
-      <!-- BOTAO PARA EXIBIR O MENU EM TELAS MENORES -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- Links de navegação e botões -->
       <!-- Botões de Logar e Cadastrar -->
       <div class="botao-admin">
         <a class="btn btn-light ms-2" href="../visao/cadastrar_admin.php">Novo Admin</a>
