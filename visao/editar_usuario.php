@@ -148,6 +148,7 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
           limpa_formulário_cep();
         }
       });
+  </script>
               } else {
                 echo "Usuario não encontrado";
               }
