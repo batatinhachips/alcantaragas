@@ -825,7 +825,7 @@ progress {
   margin-right:calc(-.5 * var(--bs-gutter-x));
   margin-left:calc(-.5 * var(--bs-gutter-x))
 }
-.row-card >* {
+.rowCard >* {
   flex-shrink:0;
   width:100%;
   max-width:25%;
