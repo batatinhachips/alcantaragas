@@ -32,7 +32,7 @@ include '../repositorio/usuarios_repositorio.php';
 include "../controladora/autenticacao.php";
 
 $usuariosRepositorio = new usuarioRepositorio($conn);
-$usuarios = $usuariosRepositorio->buscarTodosAdmins();
+$usuarios = $usuariosRepositorio->buscarTodosUsuarios();
 
 ?>
 
