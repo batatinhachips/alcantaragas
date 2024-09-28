@@ -19,25 +19,46 @@ body {
 }
 
 @media (max-width: 576px) {
-  .navbar-nav {
-      flex-wrap: wrap; /* Permite que os botões quebrem para a próxima linha */
-      justify-content: center;
-      order: 2; /* Coloca os botões abaixo da logo e do ícone */
+  .navbar {
+      display: flex;
+      align-items: center; /* Alinha verticalmente a logo e o ícone do menu */
+      justify-content: space-between; /* Espaça logo e menu */
   }
 
   .navbar-brand {
-      order: 1; /* Coloca a logo no topo */
+      order: 1; /* Logo no topo */
   }
-  
+
   .menu-icon {
-      order: 1; /* Coloca o ícone do menu ao lado da logo */
+      order: 2; /* Ícone do menu ao lado da logo */
+      z-index: 10; /* Mantém o ícone acima do menu */
+      position: relative; /* Permite o uso de z-index */
+  }
+
+  .navbar-nav {
+      flex-wrap: wrap; /* Permite que os botões quebrem para a próxima linha */
+      justify-content: center;
+      order: 3; /* Coloca os botões abaixo da logo e do ícone */
+      position: absolute; /* Para que o menu não cubra o ícone do hambúrguer */
+      background-color: #fff; /* Fundo para o menu */
+      width: 100%; /* Faz o menu ocupar toda a largura */
+      z-index: 1; /* Mantém o menu abaixo do ícone do hambúrguer */
+      top: 100%; /* Posiciona o menu abaixo da navbar */
+      left: 0;
+      display: none; /* Oculta o menu por padrão */
+  }
+
+  .navbar-collapse.show {
+      display: flex; /* Mostra o menu quando ativo */
+      flex-direction: column; /* Coloca os botões em coluna */
   }
 
   .navbar-nav .nav-item {
       margin-bottom: 1rem;
-      flex: 0 1 30%; /* Faz com que dois botões caibam em uma linha */
+      flex: 0 1 30%; /* Faz com que os botões caibam em uma linha */
   }
 }
+
 
 .container-fluid {
   display: flex;
