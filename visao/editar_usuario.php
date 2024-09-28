@@ -94,7 +94,7 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
                       <input type="text" class="form-control" id="cep"  name="cep" required><br>
 
                       <label for="logradouro" class="required titulo-campo">Rua</label>
-                      <label for="logradouro" class="required titulo-campo">Rua</label>
+                      <input type="text" class="form-control" id="logradouro"  name="logradouro" required><br>
 
                       <label for="complemento titulo-campo">Complemento</label>
                       <input type="text" class="form-control" id="complemento"  name="complemento"><br>
