@@ -51,7 +51,7 @@ $produtos = $produtosRepositorio->buscarTodos();
         ?>
         <div class="dropdown-content">
           <?php if (isset($_SESSION["papel"]) && $_SESSION["papel"] == "admin") { ?>
-            <a class="dropdown-item" href="/admin">Admin</a>
+            <a class="dropdown-item" href="../visao/admin">Admin</a>
           <?php } ?>
           <?php if (isset($_SESSION["nome_usuario"])) { ?>
             <a class="dropdown-item" href="../controladora/logout.php">Sair</a>
