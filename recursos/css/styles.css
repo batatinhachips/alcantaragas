@@ -94,22 +94,19 @@ body {
 }
 
 .whatsapp {
-  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  border-radius: 3rem;
-  height: 3rem;
-  width: 13rem;
-  font-size: 1rem;
-  z-index: 999;
+  border-radius: 2.0rem; /* Ajuste em rem */
+  width: 11rem; /* Ajuste em rem */
+  height: 5rem; /* Ajuste em rem */
+  font-size: 1rem; /* Ajuste em rem */
 }
 
 .whatsapp-link {
-  text-decoration: none;
-  color: inherit;
-  z-index: 999;
+  text-decoration: none; /* Remove o sublinhado */
+  color: inherit; /* Herda a cor do botão, que deve ser branca ou outra cor desejada */
 }
 
 .icon-spacing {
