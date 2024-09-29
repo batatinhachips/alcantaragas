@@ -171,7 +171,7 @@ body {
 .custom-card-text {
   font-size: 1rem;
   color: #666;
-  text-align: justify;
+  text-align: left;
 }
 .navbar-navButton {
   display: flex; /* Equivalente a d-flex */
