@@ -204,9 +204,9 @@ body {
 }
 .nav-item {
   /*! max-width: 50%; */
-  width: auto;
+
   white-space: nowrap;
-  flex-wrap: wrap;
+
   display: flex;
   /*! margin-left: px; */
 }
@@ -225,17 +225,13 @@ body {
 }
 .nav-item {
   /*! max-width: 50%; */
-  width: auto;
+
   white-space: nowrap;
-  flex-wrap: wrap;
+
   display: flex;
   /*! margin-left: px; */
 }
-.btn.btn-light.ms-2 {
-  max-width: 100%;
-  font-size: 6px;
-  /*! overflow: hidden; */
-}
+
 
 
 .btn.btn-primary {
