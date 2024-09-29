@@ -490,7 +490,7 @@ h2,
   text-decoration: underline;
 }
 
-.table {
+.table-responsive {
   width: 100%; /* Garante que a tabela ocupe 100% da largura disponível */
   overflow-x: auto; /* Permite rolagem horizontal em telas pequenas */
 }
