@@ -203,12 +203,8 @@ body {
   padding: 2px;
 }
 .nav-item {
-  /*! max-width: 50%; */
-
   white-space: nowrap;
-
   display: flex;
-  /*! margin-left: px; */
 }
 .btn.btn-light.ms-2 {
   max-width: 100%;
@@ -217,20 +213,7 @@ body {
 }
 }
 
- .navbar-navButton {
-  display: flex; /* Equivalente a d-flex */
-  align-items: center; /* Alinha verticalmente ao centro */
-  justify-content: center; /* Alinha horizontalmente ao centro */
-  margin-left: auto; /* Equivalente a ms-auto */
-}
-.nav-item {
-  /*! max-width: 50%; */
-
-  white-space: nowrap;
-
-  display: flex;
-  /*! margin-left: px; */
-}
+ 
 
 
 
