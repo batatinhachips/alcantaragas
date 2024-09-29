@@ -75,7 +75,8 @@
 #robbu-whatsapp-button>img {
     display: block;
     width: 34px;
-    height: 34px
+    height: 34px;
+    z-index: 9999;
 }
 
 #robbu-whatsapp-button:hover {
