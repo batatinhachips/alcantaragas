@@ -56,8 +56,8 @@ $produtos = $produtosRepositorio->buscarTodos();
           <?php if (isset($_SESSION["nome_usuario"])) { ?>
             <a class="dropdown-item" href="../controladora/logout.php">Sair</a>
           <?php } else { ?>
-            <a class="dropdown-item" href="/formLogin.php">Login</a>
-            <a class="dropdown-item" href="/cadastrar_cliente.php">Cadastre-se</a>
+            <a class="dropdown-item" href="../visao/formLogin.php">Login</a>
+            <a class="dropdown-item" href="../visao/cadastrar_cliente.php">Cadastre-se</a>
           <?php } ?>
         </div>
       </nav>
