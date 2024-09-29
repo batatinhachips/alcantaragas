@@ -171,6 +171,7 @@ body {
 .whatsapp-link {
   text-decoration: none;
   color: inherit;
+  z-index: 999;
 }
 
 .icon-spacing {
