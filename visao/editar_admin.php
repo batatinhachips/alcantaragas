@@ -13,7 +13,7 @@ session_start();
   <link rel="icon" href="../recursos/imagens/icon.png" type="image/png">
   <link href="../recursos/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="../recursos/css/styles.css">
+  <link rel="stylesheet" href="../recursos/css/produtos.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src="../recursos/js/bootstrap.bundle.min.js"></script>
