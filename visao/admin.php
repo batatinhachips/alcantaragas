@@ -62,8 +62,6 @@ $produtos = $produtosRepositorio->buscarTodos();
         </div>
       </nav>
     </div>
-  </div>
-   <div class="container-fluid">
       <div id="navbarNav" class="navbar-nav">
         <ul class="navbar-navButton">
           <li class="nav-item">
