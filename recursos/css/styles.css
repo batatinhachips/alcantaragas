@@ -94,6 +94,7 @@ body {
 }
 
 .whatsapp {
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,11 +103,13 @@ body {
   height: 3rem;
   width: 13rem;
   font-size: 1rem;
+  z-index: 999;
 }
 
 .whatsapp-link {
   text-decoration: none;
   color: inherit;
+  z-index: 999;
 }
 
 .icon-spacing {
