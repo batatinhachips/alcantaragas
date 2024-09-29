@@ -18,12 +18,56 @@ body {
   margin-right: 7rem;
 }
 
+
+  /* Dispositivos móveis (smartphones) */
 @media (max-width: 576px) {
+  /* Estilos para telas menores que 576px */
   .navbar-nav {
       flex-wrap: wrap; /* Permite que os botões quebrem para a próxima linha */
       justify-content: center;
       order: 2; /* Coloca os botões abaixo da logo e do ícone */
   }
+
+  .nav-item {
+  width: auto;
+  white-space: nowrap;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+  .navbar-navButton {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-left: 0px;
+  padding: 2px;
+}
+
+  .btn.btn-light.ms-2 {
+  max-width: 100%;
+  font-size: 6px;
+}
+  
+}
+
+/* Dispositivos pequenos (tablets em modo retrato) */
+@media (min-width: 577px) and (max-width: 768px) {
+  /* Estilos para telas entre 577px e 768px */
+}
+
+/* Dispositivos médios (tablets em modo paisagem) */
+@media (min-width: 769px) and (max-width: 992px) {
+  /* Estilos para telas entre 769px e 992px */
+}
+
+/* Dispositivos grandes (desktops pequenos) */
+@media (min-width: 993px) and (max-width: 1200px) {
+  /* Estilos para telas entre 993px e 1200px */
+}
+
+/* Dispositivos extra grandes (desktops grandes) */
+@media (min-width: 1201px) {
+  /* Estilos para telas maiores que 1200px */
+}
 
   .navbar-brand {
       order: 1; /* Coloca a logo no topo */
