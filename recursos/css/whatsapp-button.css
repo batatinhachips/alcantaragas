@@ -43,6 +43,7 @@
 
 #robbu-whatsapp-button.left {
     left: 25px
+    z-index: 9999;
 }
 
 #robbu-whatsapp-button.left>.rwb-tooltip {
