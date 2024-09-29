@@ -10,7 +10,7 @@
     transition:.4s;
     align-items:center;
     justify-content:center;
-    z-index: 999;
+    z-index: 7000;
 }
     #robbu-whatsapp-button>.rwb-tooltip{
         position:absolute;
