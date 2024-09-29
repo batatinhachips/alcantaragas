@@ -468,3 +468,26 @@ h2,
 .dropdown-content li a:hover {
   text-decoration: underline;
 }
+
+.table {
+  width: 100%; /* Garante que a tabela ocupe 100% da largura disponível */
+  overflow-x: auto; /* Permite rolagem horizontal em telas pequenas */
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    font-size: 1.8rem; /* Ajuste o tamanho do ícone do menu */
+  }
+
+  .navbar {
+    flex-direction: column; /* Coloca os elementos em coluna em telas menores */
+  }
+
+  .botao-admin {
+    margin-top: 0.5rem; /* Adiciona margem entre os botões em telas pequenas */
+  }
+
+  .custom-title {
+    font-size: 1.5rem; /* Ajusta o tamanho do título para telas menores */
+  }
+}
