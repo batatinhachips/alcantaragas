@@ -197,9 +197,8 @@ body {
   .col {
     flex: 1 1 100%; /* 1 card por linha em telas muito pequenas */
   }
-}
-
-.navbar-navButton {
+  
+  .navbar-navButton {
   display: flex;
   /*! flex-wrap: nowrap; */
   /*! max-width: 50%; */
@@ -214,15 +213,14 @@ body {
   display: flex;
   /*! margin-left: px; */
 }
-.navbar-navButton {
-}
-.navbar-navButton {
-}
 .btn.btn-light.ms-2 {
   max-width: 100%;
   font-size: 6px;
   /*! overflow: hidden; */
 }
+}
+
+
 
 .btn.btn-primary {
   background-color: #007bff;
