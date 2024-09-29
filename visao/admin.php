@@ -62,7 +62,7 @@ $produtos = $produtosRepositorio->buscarTodos();
         </div>
       </nav>
       <div id="navbarNav" class="navbar-nav">
-        <ul class="navbar-nav ms-auto d-flex align-items-center justify-content-center">
+        <ul class="navbar-navButton">
           <li class="nav-item">
             <a class="btn btn-light ms-2" href="../visao/cadastrar_admin.php">Novo Admin</a>
           </li>
