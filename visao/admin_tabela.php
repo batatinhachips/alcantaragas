@@ -64,8 +64,8 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
       }
       ?>
       <li class="dropdown-content">
-          <a class="dropdown-item" href="admin.php" style="margin-left: auto;">Voltar</a>
-        </li>
+        <a class="dropdown-item" href="admin.php" style="margin-left: auto;">Voltar</a>
+      </li>
       <div class="dropdown-content">
         <?php if (isset($_SESSION["nome_usuario"])) { ?>
           <a class="dropdown-item" href="../controladora/logout.php">Sair</a>
@@ -74,13 +74,9 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
         <?php } ?>
       </div>
     </nav>
-  </div>
+    </div>
   </nav>
 
-
-
-
-  <!-- SESSAO DO CATALOGO -->
   <section id="services" class="services">
     <div class="container" data-aos="fade-up">
       <div class="section-title">
@@ -90,38 +86,41 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
       </div>
 
 
-      <table class="table table-striped">
-            <thead>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Email</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($usuarios as $usuario) : ?>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Email</th>
-                <th scope="col">Ações</th>
+                <th scope="row"><?= $usuario->getIdUsuario() ?></th>
+                <td><?= $usuario->getNome() ?></td>
+                <td><?= $usuario->getEmail() ?></td>
+                <td>
+                  <form action="../visao/editar_admin.php" method="POST" style="display:inline;">
+                    <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
+                    <input type="submit" class="btn btn-success" value="Editar">
+                  </form>
+                  <form action="../controladora/processar_exclusao.php" method="POST" style="display:inline;">
+                    <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
+                    <input type="hidden" name="tipo" value="usuario">
+                    <input type="hidden" name="pagina_origem" value="admin_tabela">
+                    <input type="submit" class="btn btn-danger" value="Excluir">
+                  </form>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              <?php foreach ($usuarios as $usuario) : ?>
-                <tr>
-                  <th scope="row"><?= $usuario->getIdUsuario() ?></th>
-                  <td><?= $usuario->getNome() ?></td>
-                  <td><?= $usuario->getEmail() ?></td>
-                  <td>
-                    <form action="../visao/editar_admin.php" method="POST" style="display:inline;">
-                      <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
-                      <input type="submit" class="btn btn-success" value="Editar">
-                    </form>
-                    <form action="../controladora/processar_exclusao.php" method="POST" style="display:inline;">
-                      <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
-                      <input type="hidden" name="tipo" value="usuario">
-                      <input type="hidden" name="pagina_origem" value="admin_tabela"> <!-- Identificação da página -->
-                      <input type="submit" class="btn btn-danger" value="Excluir">
-                    </form>
-                  </td>
-                </tr>
-              <?php endforeach; ?>
-            </tbody>
-      </table>
-    
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
+
+
     </div>
   </section>
 
