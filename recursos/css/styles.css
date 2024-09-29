@@ -37,8 +37,6 @@ body {
 
   .navbar-navButton {
   display: flex;
-  flex-wrap: nowrap;
-  margin-left: 0px;
   padding: 2px;
 }
 
