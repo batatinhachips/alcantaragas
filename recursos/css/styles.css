@@ -121,6 +121,7 @@ body {
   height: 3rem;
   width: 13rem;
   font-size: 1rem;
+  z-index: 999;
 }
 
 .whatsapp-link {
@@ -138,50 +139,58 @@ body {
   display: flex;
 }
 
-/* Estilo geral para a seção de serviços */
-.services {
-  padding: 20px;
-}
-
-/* Container dos cards */
-.rowCard {
+.produtos-row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Espaçamento uniforme entre os cards */
+  justify-content: center;
 }
 
-/* Estilo para cada coluna (card) */
+.produtos-container {
+  margin-bottom: 2rem;
+}
+
+.catalogo {
+  margin-bottom: 40rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
 .col {
-  flex: 1 1 calc(20% - 20px); /* 20% da largura menos margem */
-  margin: 10px; /* Margem entre os cards */
-  box-sizing: border-box; /* Para incluir padding e border no cálculo da largura */
+  flex: 0 1 100%;
+  box-sizing: border-box;
 }
 
-/* Estilo do card */
-.custom-card {
-  background-color: #fff; /* Cor de fundo do card */
-  border: 1px solid #ddd; /* Borda do card */
-  border-radius: 8px; /* Bordas arredondadas */
-  overflow: hidden; /* Para esconder o conteúdo que sai da borda */
-  transition: transform 0.2s; /* Efeito de transição para hover */
+.card.custom-card {
+  border: 1px solid #ddd;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  background-color: #fff;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.custom-card:hover {
-  transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+.card.custom-card img {
+  width: 100%;
 }
 
-/* Estilo da imagem do produto */
-.custom-card img {
-  width: 100%; /* A imagem ocupa toda a largura do card */
-  height: auto; /* Altura automática para manter proporções */
-}
-
-/* Estilo do corpo do card */
 .custom-card-body {
-  padding: 15px; /* Padding interno do card */
+  padding: 1.5rem;
+  flex: 1;
 }
 
-/* Estilo do título do card */
 .custom-card-title {
   font-size: 1.8rem;
   margin: 1rem 0;
@@ -190,32 +199,6 @@ body {
 .custom-card-text {
   font-size: 1.4rem;
   color: #666;
-  text-align: justify;
-}
-
-/* Responsividade */
-@media (max-width: 1200px) {
-  .col {
-    flex: 1 1 100%; /* 4 cards por linha em telas médias */
-  }
-}
-
-@media (max-width: 992px) {
-  .col {
-    flex: 1 1 100%; /* 3 cards por linha em telas menores */
-  }
-}
-
-@media (max-width: 768px) {
-  .col {
-    flex: 1 1 100%; /* 2 cards por linha em telas pequenas */
-  }
-}
-
-@media (max-width: 576px) {
-  .col {
-    flex: 1 1 100%; /* 1 card por linha em telas muito pequenas */
-  }
 }
 
 .btn.btn-primary {
