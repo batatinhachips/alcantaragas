@@ -59,7 +59,7 @@
 
 #robbu-whatsapp-button:not(.left) {
     right: 25px;
-    z-index: 999
+    z-index: 9999;
 }
 
 #robbu-whatsapp-button:not(.left)>.rwb-tooltip {
