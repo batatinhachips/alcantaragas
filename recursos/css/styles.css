@@ -35,7 +35,7 @@ body {
 
   .navbar-nav .nav-item {
       margin-bottom: 1rem;
-      flex: 0 1 100%; /* Faz com que dois botões caibam em uma linha */
+      flex: 0 1 30%; /* Faz com que dois botões caibam em uma linha */
   }
 }
 
