@@ -199,11 +199,10 @@ body {
   }
   
   .navbar-navButton {
-  display: flex;
-  /*! flex-wrap: nowrap; */
-  /*! max-width: 50%; */
-  /*! margin-left: 0px; */
-  padding: 2px;
+  display: flex; /* Equivalente a d-flex */
+  align-items: center; /* Alinha verticalmente ao centro */
+  justify-content: center; /* Alinha horizontalmente ao centro */
+  margin-left: auto; /* Equivalente a ms-auto */
 }
 .nav-item {
   /*! max-width: 50%; */
