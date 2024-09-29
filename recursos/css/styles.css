@@ -173,6 +173,21 @@ body {
   color: #666;
   text-align: justify;
 }
+.navbar-navButton {
+  display: flex; /* Equivalente a d-flex */
+  align-items: center; /* Alinha verticalmente ao centro */
+  justify-content: center; /* Alinha horizontalmente ao centro */
+  margin-left: auto; /* Equivalente a ms-auto */
+}
+.nav-item {
+  /*! max-width: 50%; */
+
+  white-space: nowrap;
+
+  display: flex;
+  /*! margin-left: px; */
+}
+
 
 /* Responsividade */
 @media (max-width: 1200px) {
