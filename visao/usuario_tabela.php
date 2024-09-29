@@ -44,7 +44,7 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
       <a class="navbar-brand" href="/">
         <img src="../recursos/imagens/logo.png" alt="Logo da Empresa" style="height: 40px;">
       </a>
-      
+
       <!-- Botões de Logar e Cadastrar -->
       <div class="botao-admin">
         <a class="btn btn-light ms-2" href="../visao/cadastrar_admin.php">Novo Admin</a>
@@ -64,9 +64,9 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
         echo "<div class='user-name'>" . $_SESSION["nome_usuario"] . "</div>";
       }
       ?>
-        <li class="dropdown-content">
-          <a class="dropdown-item" href="admin.php" style="margin-left: auto;">Voltar</a>
-        </li>
+      <li class="dropdown-content">
+        <a class="dropdown-item" href="admin.php" style="margin-left: auto;">Voltar</a>
+      </li>
       <div class="dropdown-content">
         <?php if (isset($_SESSION["nome_usuario"])) { ?>
           <a class="dropdown-item" href="../controladora/logout.php">Sair</a>
@@ -87,7 +87,6 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
   </div>
   </nav>
 
-  <!-- SESSAO DO CATALOGO -->
   <section id="services" class="services">
     <div class="container" data-aos="fade-up">
       <div class="section-title">
@@ -96,55 +95,58 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
         <br>
       </div>
 
-      <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Email</th>
-                <th scope="col">CPF</th>
-                <th scope="col">Telefone</th>
-                <th scope="col">Cep</th>
-                <th scope="col">Logradouro</th>
-                <th scope="col">Complemento</th>
-                <th scope="col">Numero</th>
-                <th scope="col">Bairro</th>
-                <th scope="col">Cidade</th>
-                <th scope="col">Ações</th>
-              </tr>
-            </thead>
-            <tbody>
+      <div class="table-responsive"> <!-- Adicione esta div -->
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Email</th>
+              <th scope="col">CPF</th>
+              <th scope="col">Telefone</th>
+              <th scope="col">Cep</th>
+              <th scope="col">Logradouro</th>
+              <th scope="col">Complemento</th>
+              <th scope="col">Numero</th>
+              <th scope="col">Bairro</th>
+              <th scope="col">Cidade</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
             <?php foreach ($usuarios as $usuario) : ?>
-                <tr>
-                  <th scope="row"><?= $usuario->getIdUsuario() ?></th>
-                  <td><?= $usuario->getNome() ?></td>
-                  <td><?= $usuario->getEmail() ?></td>
-                  <td><?= $usuario->getCpf() ?></td>
-                  <td><?= $usuario->getTelefone() ?></td>
-                  <td><?= $usuario->getCep() ?></td>
-                  <td><?= $usuario->getLogradouro() ?></td>
-                  <td><?= $usuario->getComplemento() ?></td>
-                  <td><?= $usuario->getNumero() ?></td>
-                  <td><?= $usuario->getBairro() ?></td>
-                  <td><?= $usuario->getCidade() ?></td>
-                  <td>
-                    <form action="../visao/editar_usuario.php" method="POST" style="display:inline;">
-                      <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
-                      <input type="submit" class="btn btn-success" value="Editar">
-                    </form>
-                    <form action="../controladora/processar_exclusao.php" method="POST" style="display:inline;">
+              <tr>
+                <th scope="row"><?= $usuario->getIdUsuario() ?></th>
+                <td><?= $usuario->getNome() ?></td>
+                <td><?= $usuario->getEmail() ?></td>
+                <td><?= $usuario->getCpf() ?></td>
+                <td><?= $usuario->getTelefone() ?></td>
+                <td><?= $usuario->getCep() ?></td>
+                <td><?= $usuario->getLogradouro() ?></td>
+                <td><?= $usuario->getComplemento() ?></td>
+                <td><?= $usuario->getNumero() ?></td>
+                <td><?= $usuario->getBairro() ?></td>
+                <td><?= $usuario->getCidade() ?></td>
+                <td>
+                  <form action="../visao/editar_usuario.php" method="POST" style="display:inline;">
+                    <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
+                    <input type="submit" class="btn btn-success" value="Editar">
+                  </form>
+                  <form action="../controladora/processar_exclusao.php" method="POST" style="display:inline;">
                     <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
                     <input type="hidden" name="tipo" value="usuario">
-                    <input type="hidden" name="pagina_origem" value="usuario_tabela"> <!-- Identificação da página -->
+                    <input type="hidden" name="pagina_origem" value="usuario_tabela">
                     <input type="submit" class="btn btn-danger" value="Excluir">
                   </form>
-                  </td>
-                </tr>
-              <?php endforeach; ?>
-            </tbody>
-      </table>
-</div>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </section>
+
 
 </body>
 
