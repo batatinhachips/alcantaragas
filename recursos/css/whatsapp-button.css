@@ -42,22 +42,24 @@
 }
 
 #robbu-whatsapp-button.left {
-    left: 25px
-    z-index: 9999;
+    left: 25px;
+    z-index: 999
 }
 
 #robbu-whatsapp-button.left>.rwb-tooltip {
     left: 0;
-    transform: translateX(-10%)
+    transform: translateX(-10%);
+    z-index: 999
 }
 
 #robbu-whatsapp-button.left>.rwb-tooltip:after {
-    left: 23px
+    left: 23px;
+    z-index: 999
 }
 
 #robbu-whatsapp-button:not(.left) {
     right: 25px;
-    z-index: 999;
+    z-index: 999
 }
 
 #robbu-whatsapp-button:not(.left)>.rwb-tooltip {
@@ -66,7 +68,8 @@
 }
 
 #robbu-whatsapp-button:not(.left)>.rwb-tooltip:after {
-    right: 23px
+    right: 23px;
+    z-index: 999
 }
 
 #robbu-whatsapp-button>img {
