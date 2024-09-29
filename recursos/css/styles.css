@@ -199,10 +199,8 @@ body {
   }
   
   .navbar-navButton {
-  display: flex; /* Equivalente a d-flex */
-  align-items: center; /* Alinha verticalmente ao centro */
-  justify-content: center; /* Alinha horizontalmente ao centro */
-  margin-left: auto; /* Equivalente a ms-auto */
+  display: flex;
+  padding: 2px;
 }
 .nav-item {
   /*! max-width: 50%; */
@@ -220,8 +218,10 @@ body {
 }
 
  .navbar-navButton {
-  display: flex;
-  padding: 2px;
+  display: flex; /* Equivalente a d-flex */
+  align-items: center; /* Alinha verticalmente ao centro */
+  justify-content: center; /* Alinha horizontalmente ao centro */
+  margin-left: auto; /* Equivalente a ms-auto */
 }
 .nav-item {
   /*! max-width: 50%; */
