@@ -51,10 +51,10 @@ $produtos = $produtosRepositorio->buscarTodos();
         ?>
         <div class="dropdown-content">
           <?php if (isset($_SESSION["papel"]) && $_SESSION["papel"] == "admin") { ?>
-            <a class="dropdown-item" href="visao/admin.php">Admin</a>
+            <a class="dropdown-item" href="/admin">Admin</a>
           <?php } ?>
           <?php if (isset($_SESSION["nome_usuario"])) { ?>
-            <a class="dropdown-item" href="controladora/logout.php">Sair</a>
+            <a class="dropdown-item" href="../controladora/logout.php">Sair</a>
           <?php } else { ?>
             <a class="dropdown-item" href="visao/formLogin.php">Login</a>
             <a class="dropdown-item" href="visao/cadastrar_cliente.php">Cadastre-se</a>
