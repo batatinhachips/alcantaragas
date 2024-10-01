@@ -75,13 +75,13 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
                     <input type="hidden" name="id_usuario" value="<?= $usuario["id_usuario"] ?>">
 
                     <label for="nome" class="titulo-campo">Nome:</label>
-                    <input type="text" name="nome" value="<?= $usuario["nome"] ?>" class="custom-input"><br>
+                    <input type="text" name="nome" placeholder="Digite seu nome" value="<?= $usuario["nome"] ?>" class="custom-input"><br>
 
                     <label for="email" class="titulo-campo">Email:</label>
-                    <input type="text" name="email" value="<?= $usuario["email"] ?>" class="custom-input"><br>
+                    <input type="text" name="email" placeholder="Digite seu email" value="<?= $usuario["email"] ?>" class="custom-input"><br>
 
                     <label for="senha" class="titulo-campo">Nova Senha:</label>
-                <input type="password" class="form-control custom-input" id="senha" placeholder="Digite uma nova senha" name="senha" required>
+                <input type="password" class="form-control custom-input" id="senha" placeholder="Digite uma senha" name="senha" required>
           <div class="invalid-feedback">A senha deve ter no mínimo 6 caracteres, incluindo letras e números.</div><br>
 
                     <label for="cpf" class="titulo-campo">CPF:</label>
@@ -91,7 +91,7 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
                     <input type="text" placeholder="Digite o telefone" name="telefone" value="<?= $usuario["telefone"] ?>" class="custom-input"><br>
                     
                       <label for="cep" class="required titulo-campo">CEP</label>
-                      <input type="text" class="form-control" id="cep"  placeholder="Digite uma nova senha" name="cep" required><br>
+                      <input type="text" class="form-control" id="cep"  placeholder="Digite seu cep" name="cep" required><br>
 
                       <label for="logradouro" class="required titulo-campo">Rua</label>
                       <input type="text" class="form-control" id="logradouro" placeholder="Digite a rua" name="logradouro" required><br>
