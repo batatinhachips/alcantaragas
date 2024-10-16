@@ -35,5 +35,17 @@ VALUES ('Fernando', 'alcantara@gmail.com', '$2y$10$kuTQRlHGgNLGzVzDRhmz7uZMSFCsB
 UPDATE usuario SET papel = 'admin' WHERE email = 'alcantara@gmail.com';
 -- Selecionar todos os usuários e seus papéis
 
+create table vendas (
+    id int auto_increment primary key,
+    data_venda datetime not null,
+    cliente_id int not null,
+    produto varchar(100) not null,
+    quantidade decimal(10, 2) not null,
+    preco_unitario decimal(10, 2) not null,
+    total decimal(10, 2) GENERATED ALWAYS AS (quantidade * preco_unitario) STORED,
+    forma_pagamento ENUM('Dinheiro', 'Cartão de Crédito', 'Cartão de Débito', 'PIX') not null,
+    observacoes TEXT,
+    foreign key (cliente_id) REFERENCES usuario(id_usuario)
+);
 
 
