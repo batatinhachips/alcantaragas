@@ -73,4 +73,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Erro ao cadastrar a venda.";
     }
 }
+    ob_end_flush();
 ?>
