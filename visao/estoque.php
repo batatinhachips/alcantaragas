@@ -1,15 +1,4 @@
-<?php
-include '../controladora/conexao.php';
-include '../modelo/produtos.php';
-include '../repositorio/produtos_repositorio.php';
-include '../repositorio/estoque_repositorio.php';
 
-$produtosRepositorio = new produtoRepositorio($conn);
-$produtos = $produtosRepositorio->buscarTodos(); // Busca todos os produtos
-
-$estoqueRepositorio = new EstoqueRepositorio($conn);
-$estoqueItens = $estoqueRepositorio->listarTodos(); // Lista os itens no estoque
-?>
 
 
 <!DOCTYPE html>
@@ -26,7 +15,18 @@ $estoqueItens = $estoqueRepositorio->listarTodos(); // Lista os itens no estoque
 </head>
 
 <body>
+<?php
+include '../controladora/conexao.php';
+include '../modelo/produtos.php';
+include '../repositorio/produtos_repositorio.php';
+include '../repositorio/estoque_repositorio.php';
 
+$produtosRepositorio = new produtoRepositorio($conn);
+$produtos = $produtosRepositorio->buscarTodos(); // Busca todos os produtos
+
+$estoqueRepositorio = new EstoqueRepositorio($conn);
+$estoqueItens = $estoqueRepositorio->listarTodos(); // Lista os itens no estoque
+?>
 <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
     <div class="container-fluid">
       <!-- NAVBAR -->
