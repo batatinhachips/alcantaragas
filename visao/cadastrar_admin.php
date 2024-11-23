@@ -14,28 +14,27 @@
   <link rel="stylesheet" href="../recursos/css/login.css">
   <link href="../recursos/imagens/icon.png" rel="icon">
   <title>CADASTRAR NOVO ADMIN</title>
-  
-  <!-- NAVBAR -->
-<nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto d-flex align-items-center">
-        <li class="nav-item">
-          <a class="btn btn-dark" href="admin.php" style="margin-left: auto;">Voltar</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
 </head>
 
 <body class="login_bg">
   <main>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto d-flex justify-content-end align-items-center w-100">
+            <li class="nav-item">
+              <a class="btn btn-dark" href="admin.php" style="background-color: #222529; border-radius: 2rem; margin-top: 1rem;" >Voltar</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <div class="login-title text-center">
       <a href="/">
         <img src="../recursos/imagens/logo_nav.png" alt="Logo" class="logo">
       </a>
-      <h1>CADASTRO DE ADMINISTRADOR</h1>
+      <h1 class="titulo-admin">CADASTRO DE ADMINISTRADOR</h1>
     </div>
     <div class="container container-form-login mt-5" id="login-form">
       <form id="admin-form" method="post" action="../controladora/processar_cadastro_usuario.php">
@@ -59,20 +58,19 @@
           <input type="password" class="form-control" id="confirmarsenha" placeholder="Confirme a senha do admin" name="confirmarsenha" required>
           <div class="invalid-feedback">As senhas não coincidem.</div>
         </div>
-        <!-- Campo oculto para definir o papel como 'admin' -->
-        <input type="hidden" name="papel" value="admin">
+        <input type="hidden" name="idNivelUsuario" value="2">
         <button type="submit" class="btn btn-custom-primary btn-block">Cadastrar</button>
       </form>
     </div>
   </main>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
     document.getElementById('admin-form').addEventListener('submit', function(event) {
       event.preventDefault();
-      
+
       var nome = document.getElementById('nome');
       var email = document.getElementById('email');
       var senha = document.getElementById('senha');
@@ -116,4 +114,5 @@
     });
   </script>
 </body>
+
 </html>

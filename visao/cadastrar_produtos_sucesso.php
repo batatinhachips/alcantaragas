@@ -18,9 +18,10 @@ session_start();
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src="../recursos/js/bootstrap.bundle.min.js"></script>
-  <script src="../recursos/js/jquery-3.5.1.slim.min.js"></script>
+  <script src="../recursos/js/jquery-3.5.1.min.js"></script>
   <script src="../recursos/js/popper.min.js"></script>
   <script src="../recursos/js/script.js"></script>
+
 
 
   <!-- FIM DOS LINKS -->

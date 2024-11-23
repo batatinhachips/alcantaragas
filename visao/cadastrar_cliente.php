@@ -105,8 +105,8 @@
             </div>
           </div>
         </div>
-        <!-- Campo oculto para definir o papel como 'usuario' -->
-        <input type="hidden" name="papel" value="usuario">
+        <!-- Campo oculto para definir o papel como 'cliente' -->
+        <input type="hidden" name="idNivelUsuario" value="1">
         <button type="submit" class="btn btn-custom-primary btn-block">Cadastrar</button>
         <a href="formLogin.php" class="btn btn-custom-primary btn-block">Login</a>
       </form>
@@ -138,30 +138,37 @@
       };
 
       $("#cep").blur(function() {
-        var cep = $(this).val().replace(/\D/g, '');
-        if (cep != "") {
-          var validacep = /^[0-9]{8}$/;
-          if (validacep.test(cep)) {
-            $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
-              if (!("erro" in dados)) {
-                $("#logradouro").val(dados.logradouro);
-                $("#bairro").val(dados.bairro);
-                $("#cidade").val(dados.localidade);
-                $("#uf").val(dados.uf);
-              } else {
-                limpa_formulário_cep();
-                mostrarTooltip($('#cep'), 'CEP não encontrado.');
-              }
-            });
-          } else {
-            limpa_formulário_cep();
-            mostrarTooltip($('#cep'), 'Formato de CEP inválido.');
-          }
+  var cep = $(this).val();  // Mantém exatamente o valor digitado no campo
+  
+  if (cep != "") {
+    // Testa se o CEP tem 8 dígitos numéricos
+    var validacep = /^[0-9]{8}$/;
+    
+    if (validacep.test(cep)) {
+      // Realiza a consulta no ViaCEP para preencher os campos de endereço
+      $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
+        if (!("erro" in dados)) {
+          // Preenche os campos de endereço com base nos dados retornados
+          $("#logradouro").val(dados.logradouro);
+          $("#bairro").val(dados.bairro);
+          $("#cidade").val(dados.localidade);
+          $("#uf").val(dados.uf);
         } else {
+          // Se o CEP não for encontrado, limpa os campos de endereço
           limpa_formulário_cep();
+          mostrarTooltip($('#cep'), 'CEP não encontrado.');
         }
       });
-
+    } else {
+      // Se o formato do CEP for inválido, limpa os campos de endereço
+      limpa_formulário_cep();
+      mostrarTooltip($('#cep'), 'Formato de CEP inválido.');
+    }
+  } else {
+    // Se o campo de CEP estiver vazio, limpa os campos de endereço
+    limpa_formulário_cep();
+  }
+});
       // Validações de email, senha e nome
       $("#frmCadUser").submit(function(event) {
         event.preventDefault();

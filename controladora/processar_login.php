@@ -13,8 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_start();
         $_SESSION["usuario"] = $usuario["email"];
         $_SESSION["nome_usuario"] = $usuario["nome"];
-        $_SESSION["papel"] = $usuario["papel"];
-        header("Location: /");
+        $_SESSION["idNivelUsuario"] = $usuario["idNivelUsuario"];
+        header("Location: ../index.php");
         exit;
     } else {
         header("Location: ../visao/formLogin.php?erro=1");

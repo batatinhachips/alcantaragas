@@ -1,11 +1,11 @@
 <?php
 class Usuariosss {
     /* private $conn; //Sua conexão com o banco de dados */
-    private $id_usuario;
+    private $idUsuario;
     private $nome;
     private $email;
     private $senha;
-    private $papel;
+    private $idNivelUsuario;
     private $cpf;
     private $telefone;
     private $cep;
@@ -16,11 +16,11 @@ class Usuariosss {
     private $cidade;
     
     public function __construct(
-        $id_usuario,
+        $idUsuario,
         $nome,
         $email,
         $senha,
-        $papel,
+        $idNivelUsuario,
         $cpf,
         $telefone,
         $cep,
@@ -30,11 +30,11 @@ class Usuariosss {
         $bairro,
         $cidade
     ) {
-        $this->id_usuario = $id_usuario;
+        $this->idUsuario = $idUsuario;
         $this->nome = $nome;
         $this->email = $email;
         $this->senha = $senha;
-        $this->papel = $papel;
+        $this->idNivelUsuario = $idNivelUsuario;
         $this->cpf = $cpf;
         $this->telefone = $telefone;
         $this->cep = $cep;
@@ -47,7 +47,7 @@ class Usuariosss {
 
     public function getIdUsuario()
     {
-        return $this->id_usuario;
+        return $this->idUsuario;
     }
 
     /**
@@ -55,9 +55,9 @@ class Usuariosss {
      *
      * @return  self
      */ 
-    public function setIdUsuario($id_usuario)
+    public function setIdUsuario($idUsuario)
     {
-        $this->id_usuario = $id_usuario;
+        $this->idUsuario = $idUsuario;
 
         return $this;
     }
@@ -117,9 +117,9 @@ class Usuariosss {
         return $this;
     }
 
-    public function getPapel()
+    public function getIdNivelUsuario()
     {
-        return $this->papel;
+        return $this->idNivelUsuario;
     }
 
     /**
@@ -127,9 +127,9 @@ class Usuariosss {
      *
      * @return  self
      */ 
-    public function setPapel($papel)
+    public function setIdNivelUsuario($idNivelUsuario)
     {
-        $this->papel = $papel;
+        $this->idNivelUsuario = $idNivelUsuario;
 
         return $this;
     }

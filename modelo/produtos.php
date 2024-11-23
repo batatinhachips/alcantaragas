@@ -1,35 +1,35 @@
 <?php
 class Produto {
     /* private $conn; //Sua conexão com o banco de dados */
-    private  $id;
+    private  $idProduto;
     private  $nome;
     private  $descricao;
-    private  $preco;
+    private  $precoProduto;
     private  $imagem;
     
 
 
         public function __construct(
-        $id,
+        $idProduto,
         $nome,
         $descricao,
-        $preco,
+        $precoProduto,
         $imagem
 
     )
     {
-        $this->id = $id;
+        $this->idProduto = $idProduto;
         $this->nome = $nome;
         $this->descricao = $descricao;
-        $this->preco = $preco;
+        $this->precoProduto = $precoProduto;
         $this->imagem = $imagem;
         
     }    
 
 
-    public function getId()
+    public function getIdProduto()
     {
-        return $this->id;
+        return $this->idProduto;
     }
 
     /**
@@ -37,9 +37,9 @@ class Produto {
      *
      * @return  self
      */ 
-    public function setId($id)
+    public function setIdProduto($idProduto)
     {
-        $this->id = $id;
+        $this->idProduto = $idProduto;
 
         return $this;
     }
@@ -82,9 +82,9 @@ class Produto {
     }
 
 
-    public function getPreco()
+    public function getPrecoProduto()
     {
-        return $this->preco;
+        return $this->precoProduto;
     }
 
     /**
@@ -92,9 +92,9 @@ class Produto {
      *
      * @return  self
      */ 
-    public function setPreco($preco)
+    public function setPrecoProduto($precoProduto)
     {
-        $this->preco = $preco;
+        $this->precoProduto = $precoProduto;
 
         return $this;
     }

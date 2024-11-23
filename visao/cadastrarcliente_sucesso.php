@@ -40,11 +40,9 @@
 </body>
 
     </main>
-
-    <!-- jQuery and Bootstrap JS -->
+    
     <script src="../recursos/js/jquery-3.5.1.min.js"></script>
     <script src="../recursos/js/bootstrap.min.js"></script>
-
 
     <script>
       $(document).ready(function() {

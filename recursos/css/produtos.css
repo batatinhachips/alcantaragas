@@ -7,7 +7,7 @@ html, body {
 }
 
 body {
-  background-image: url('../imagens/bg.jpg');
+  background: radial-gradient(circle at center, #1D826E, #145E4A, #0D3B2E);
   background-size: cover;
   background-position: center;
   color: white;
@@ -34,11 +34,6 @@ body {
 
 .btn-voltar {
   margin-top: 1rem; /* Aumentar margem superior */
-}
-
-/* Estilo para o botão "Voltar" */
-.btn-dark {
-  margin: 1rem; /* Margem para garantir que o botão tenha espaço */
 }
 
 .login-title h1 {
@@ -224,10 +219,6 @@ input[type="submit"]:hover {
   .login-title .logo {
     width: 100%;
     max-width: 40rem; /* Mantido o mesmo tamanho da primeira parte */
-  }
-
-  .btn-dark {
-    width: 100%; /* Botão "Voltar" ocupa toda a largura */
   }
 
   .custom-container {

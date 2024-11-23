@@ -4,34 +4,48 @@ include '../controladora/conexao.php';
 include '../modelo/usuario.php';
 include '../repositorio/usuarios_repositorio.php';
 
-
 $usuariosRepositorio = new usuarioRepositorio($conn);
 $usuarios = $usuariosRepositorio->buscarTodosAdmins();
 
 // Verificar se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter os dados do formulário
-    $id_usuario = $_POST["id_usuario"]; // Corrigido para o nome correto
-    $nome = $_POST["nome"];
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
+    $idUsuario = $_POST["idUsuario"]; // Corrigido para o nome correto
+    $nome = $_POST["nome"] ?? null;
+    $email = $_POST["email"] ?? null;
+    $senha = $_POST["senha"] ?? null;
 
-     // Gerar o hash da senha
-    $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
+    // Consultar os dados atuais do usuário para manter os valores que não foram modificados
+    $stmt = $conn->prepare("SELECT nome, email, senha FROM usuario WHERE idUsuario = ?");
+    $stmt->bind_param("i", $idUsuario);
+    $stmt->execute();
+    $stmt->store_result();
+    $stmt->bind_result($nomeAtual, $emailAtual, $senhaAtual);
+    $stmt->fetch();
+    $stmt->close();
 
-    // Atualizar as informações do produto no banco de dados
-    $stmt = $conn->prepare("UPDATE usuario SET nome=?, email=?, senha=? WHERE id_usuario=?");
-    $stmt->bind_param("sssi", $nome, $email, $senha, $id_usuario);
+    // Se os campos forem fornecidos, use o novo valor. Caso contrário, mantenha o valor atual.
+    $nome = $nome ?? $nomeAtual;  // Se não foi fornecido nome, mantém o atual
+    $email = $email ?? $emailAtual;  // Se não foi fornecido email, mantém o atual
 
-    if ($stmt->execute()) {
-        header("Location: ../visao/admin_tabela.php");
-        exit; // Adiciona um exit após o redirecionamento
+    // Se a senha foi fornecida, aplique o hash, caso contrário, mantenha a senha atual
+    if (!empty($senha)) {
+        $senha = password_hash($senha, PASSWORD_DEFAULT);
     } else {
-        echo "Erro ao editar admin: " . $stmt->error; // Use o método de erro do statement
+        $senha = $senhaAtual;
     }
 
-    $stmt->close(); // Não esqueça de fechar a declaração
-}
+    // Atualizar os dados no banco de dados
+    $stmt = $conn->prepare("UPDATE usuario SET nome=?, email=?, senha=? WHERE idUsuario=?");
+    $stmt->bind_param("sssi", $nome, $email, $senha, $idUsuario);
 
-// Não feche a conexão aqui, pois ela será utilizada em outros scripts
+    if ($stmt->execute()) {
+        header("Location: ../visao/admin_tabela.php"); // Redireciona após o sucesso
+        exit;
+    } else {
+        echo "Erro ao editar admin: " . $stmt->error; // Exibe erro caso a atualização falhe
+    }
+
+    $stmt->close(); // Não se esqueça de fechar a declaração
+}
 ?>

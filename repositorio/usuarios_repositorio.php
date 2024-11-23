@@ -1,19 +1,19 @@
 <?php
-class usuarioRepositorio{
-    private $conn; //Sua conexão com o banco de dados
+class UsuarioRepositorio {
+    private $conn; // Conexão com o banco de dados
 
-
-    public function __construct($conn)
-    {
+    // Construtor para injetar a conexão com o banco de dados
+    public function __construct($conn) {
         $this->conn = $conn;
     }
 
-    public function cadastrar(Usuariosss $usuario){
-
+    // Método para cadastrar um novo usuário
+    public function cadastrar(Usuariosss $usuario) {
+        // Recuperando dados do objeto Usuario
         $nome = $usuario->getNome();
         $email = $usuario->getEmail();
         $senha = $usuario->getSenha();
-        $papel = $usuario->getPapel();
+        $idNivelUsuario = $usuario->getIdNivelUsuario();  // Deve ser 1 ou 2
         $cpf = $usuario->getCpf();
         $telefone = $usuario->getTelefone();
         $cep = $usuario->getCep();
@@ -23,155 +23,179 @@ class usuarioRepositorio{
         $bairro = $usuario->getBairro();
         $cidade = $usuario->getCidade();
 
-        $sql = "INSERT INTO usuario (nome, email, senha, papel, cpf, telefone, cep, logradouro, complemento, numero, bairro, cidade) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("ssssiiississ",
-            $nome,
-            $email,
-            $senha,
-            $papel,
-            $cpf,
-            $telefone,
-            $cep,
-            $logradouro,
-            $complemento,
-            $numero,
-            $bairro,
-            $cidade
-    );
-       // Executa a consulta preparada e verifica o sucesso
-       $success = $stmt->execute();
+        // Query para inserir o usuário
+        $sql = "INSERT INTO usuario 
+                (nome, email, senha, idNivelUsuario, cpf, telefone, cep, logradouro, complemento, numero, bairro, cidade) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-       // Fecha a declaração
-       $stmt->close();
-
-       // Retorna um indicador de sucesso
-       return $success;
-
-    }
-
-    public function buscarTodosAdmins()
-    {
-        $sql = "SELECT * FROM usuario WHERE papel = 'admin'";
-        $result = $this->conn->query($sql);
-
-        $usuarios = array();
-
-        if ($result && $result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $usuario = new Usuariosss(
-                    $row['id_usuario'],
-                    $row['nome'],
-                    $row['email'],
-                    $row['senha'],
-                    $row['papel'],
-                    $row['cpf'],
-                    $row['telefone'],
-                    $row['cep'],
-                    $row['logradouro'],
-                    $row['complemento'],
-                    $row['numero'],
-                    $row['bairro'],
-                    $row['cidade']
-                );
-                $usuarios[] = $usuario;
-            }
-        }
-
-        return $usuarios;
-    }
-
-    public function buscarTodosUsuarios()
-    {
-        $sql = "SELECT * FROM usuario WHERE papel = 'usuario'";
-        $result = $this->conn->query($sql);
-
-        $usuarios = array();
-
-        if ($result && $result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $usuario = new Usuariosss(
-                    $row['id_usuario'],
-                    $row['nome'],
-                    $row['email'],
-                    $row['senha'],
-                    $row['papel'],
-                    $row['cpf'],
-                    $row['telefone'],
-                    $row['cep'],
-                    $row['logradouro'],
-                    $row['complemento'],
-                    $row['numero'],
-                    $row['bairro'],
-                    $row['cidade']
-                );
-                $usuarios[] = $usuario;
-            }
-        }
-
-        return $usuarios;
-    }
-
-    public function listarUsuarioPorId($id_usuario)
-    {
-        $sql = "SELECT * FROM usuario WHERE id_usuario = '?'";
-
-        // Prepara a declaração SQL
-        $stmt = $this->conn->prepare($sql);
-
-        // Vincula o parâmetro
-        $stmt->bind_param('i', $id_usuario);
-
-        // Executa a consulta preparada
-        $stmt->execute();
-
-        // Obtém os resultados
-        $result = $stmt->get_result();
-
-        $usuarios = null;
-
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $usuario = new Usuario(
-                $row['id_usuario'],
-                $row['nome'],
-                $row['email'],
-                $row['senha'],
-                $row['papel'],
-                $row['cpf'],
-                $row['telefone'],
-                $row['cep'],
-                $row['logradouro'],
-                $row['complemento'],
-                $row['numero'],
-                $row['bairro'],
-                $row['cidade']
+        // Prepara a consulta
+        if ($stmt = $this->conn->prepare($sql)) {
+            // Vinculando os parâmetros com tipos corretos
+            $stmt->bind_param(
+                "sssissssssss", // Define os tipos: s = string, i = inteiro
+                $nome, 
+                $email, 
+                $senha, 
+                $idNivelUsuario, 
+                $cpf, 
+                $telefone, 
+                $cep, 
+                $logradouro, 
+                $complemento, 
+                $numero, 
+                $bairro, 
+                $cidade
             );
-        }
 
-        // Fecha a declaração
-        $stmt->close();
+            // Executa a consulta e verifica se foi bem-sucedida
+            $success = $stmt->execute();
+
+            // Verificando se a execução foi bem-sucedida
+            if ($success) {
+                // Fecha a declaração e retorna sucesso
+                $stmt->close();
+                return true; // Cadastro realizado com sucesso
+            } else {
+                // Se não for bem-sucedido, exibe o erro
+                echo "Erro ao executar a consulta: " . $stmt->error;
+                $stmt->close();
+                return false; // Falha na execução
+            }
+        } else {
+            // Se houve erro ao preparar a consulta
+            throw new Exception("Erro ao preparar a consulta: " . $this->conn->error);
+        }
+    }
+
+    // Método para buscar todos os administradores
+    public function buscarTodosAdmins() {
+        $sql = "SELECT * FROM usuario WHERE idNivelUsuario = 2";
+        $result = $this->conn->query($sql);
+
+        $usuarios = array();
+
+        // Verifica se existem resultados
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $usuario = new Usuariosss(
+                    $row['idUsuario'],
+                    $row['nome'],
+                    $row['email'],
+                    $row['senha'],
+                    $row['idNivelUsuario'],
+                    $row['cpf'],
+                    $row['telefone'],
+                    $row['cep'],
+                    $row['logradouro'],
+                    $row['complemento'],
+                    $row['numero'],
+                    $row['bairro'],
+                    $row['cidade']
+                );
+                $usuarios[] = $usuario;
+            }
+        }
 
         return $usuarios;
     }
 
-    public function excluirUsuariosPorId($id_usuario)
-    {
-        $sql = "DELETE FROM usuario WHERE  
-             id_usuario = ?";
+    // Método para buscar todos os clientes
+    public function buscarTodosClientes() {
+        $sql = "SELECT * FROM usuario WHERE idNivelUsuario = 1";
+        $result = $this->conn->query($sql);
 
-        // Prepara a declaração SQL
-        $stmt = $this->conn->prepare($sql);
+        $usuarios = array();
 
-        // Vincula o parâmetro
-        $stmt->bind_param('i', $id_usuario);
+        // Verifica se existem resultados
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $usuario = new Usuariosss(
+                    $row['idUsuario'],
+                    $row['nome'],
+                    $row['email'],
+                    $row['senha'],
+                    $row['idNivelUsuario'],
+                    $row['cpf'],
+                    $row['telefone'],
+                    $row['cep'],
+                    $row['logradouro'],
+                    $row['complemento'],
+                    $row['numero'],
+                    $row['bairro'],
+                    $row['cidade']
+                );
+                $usuarios[] = $usuario;
+            }
+        }
 
-        // Executa a consulta preparada
-        $success = $stmt->execute();
+        return $usuarios;
+    }
 
-        // Fecha a declaração
-        $stmt->close();
+    // Método para listar um usuário por ID
+    public function listarUsuarioPorId($idUsuario) {
+        $sql = "SELECT * FROM usuario WHERE idUsuario = ?";
 
-        return $success;
+        if ($stmt = $this->conn->prepare($sql)) {
+            // Vincula o parâmetro
+            $stmt->bind_param('i', $idUsuario);
+
+            // Executa a consulta preparada
+            $stmt->execute();
+
+            // Obtém os resultados
+            $result = $stmt->get_result();
+
+            $usuario = null;
+
+            // Verifica se o usuário foi encontrado
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $usuario = new Usuariosss(
+                    $row['idUsuario'],
+                    $row['nome'],
+                    $row['email'],
+                    $row['senha'],
+                    $row['idNivelUsuario'],
+                    $row['cpf'],
+                    $row['telefone'],
+                    $row['cep'],
+                    $row['logradouro'],
+                    $row['complemento'],
+                    $row['numero'],
+                    $row['bairro'],
+                    $row['cidade']
+                );
+            }
+
+            // Fecha a declaração
+            $stmt->close();
+
+            return $usuario;
+        } else {
+            // Lançando exceção caso haja erro na preparação
+            throw new Exception("Erro ao preparar a consulta: " . $this->conn->error);
+        }
+    }
+
+    // Método para excluir um usuário por ID
+    public function excluirUsuariosPorId($idUsuario) {
+        $sql = "DELETE FROM usuario WHERE idUsuario = ?";
+
+        if ($stmt = $this->conn->prepare($sql)) {
+            // Vincula o parâmetro
+            $stmt->bind_param('i', $idUsuario);
+
+            // Executa a consulta preparada
+            $success = $stmt->execute();
+
+            // Fecha a declaração
+            $stmt->close();
+
+            return $success;
+        } else {
+            // Lançando exceção caso haja erro na preparação
+            throw new Exception("Erro ao preparar a consulta de exclusão: " . $this->conn->error);
+        }
     }
 }
+?>

@@ -3,21 +3,23 @@
 
 <head>
   <title>Alcântara Gás</title>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- LINKS -->
-  <link rel="icon" href="recursos/imagens/icon.png" type="image/png">
-  <link href="recursos/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="recursos/css/styles.css">
+  <link rel="icon" href="recursos/imagens/icon.png" type="image/png">
+  <link rel="stylesheet" href="recursos/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-button.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <script src="recursos/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
   <script src="recursos/js/jquery-3.5.1.slim.min.js"></script>
   <script src="recursos/js/popper.min.js"></script>
+  <script src="recursos/js/bootstrap.bundle.min.js"></script>
   <script src="recursos/js/script.js"></script>
   <!-- FIM DOS LINKS -->
 </head>
@@ -34,11 +36,6 @@ $produtos = $produtosRepositorio->buscarTodos();
 ?>
 
 <body>
-  <!-- Botão do WhatsApp -->
-  <a id="robbu-whatsapp-button" target="_white" href="https://api.whatsapp.com/send?phone=5511958780556&text=Ol%C3%A1,%20eu%20gostaria%20de%20fazer%20um%20pedido!%0AProduto(s):%0AQuantidade:%0AMeu%20endere%C3%A7o:%0AMeu%20nome:%0ARetirar%20ou%20entrega:">
-    <div class="rwb-tooltip" style="background-color: #fff;">Faça o seu pedido agora!</div>
-    <img src="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-icon.svg">
-  </a>
 
   <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
     <div class="container-fluid">
@@ -49,25 +46,23 @@ $produtos = $produtosRepositorio->buscarTodos();
         <i class="bi bi-list"></i>
       </div>
       <nav id="menu" class="menu">
-        <?php
-        if (isset($_SESSION["nome_usuario"])) {
-          echo "<div class='user-name'>" . $_SESSION["nome_usuario"] . "</div>";
-        }
-        ?>
+        <?php if (isset($_SESSION["nome_usuario"])): ?>
+          <div class='user-name'><?= $_SESSION["nome_usuario"] ?></div>
+        <?php endif; ?>
         <div class="dropdown-content">
-          <?php if (isset($_SESSION["papel"]) && $_SESSION["papel"] == "admin") { ?>
+          <?php if (isset($_SESSION["idNivelUsuario"]) && $_SESSION["idNivelUsuario"] === 2): ?>
             <a class="dropdown-item" href="visao/admin.php">Admin</a>
-          <?php } ?>
-          <?php if (isset($_SESSION["nome_usuario"])) { ?>
+          <?php endif; ?>
+          <?php if (isset($_SESSION["nome_usuario"])): ?>
             <a class="dropdown-item" href="controladora/logout.php">Sair</a>
-          <?php } else { ?>
+          <?php else: ?>
             <a class="dropdown-item" href="visao/formLogin.php">Login</a>
             <a class="dropdown-item" href="visao/cadastrar_cliente.php">Cadastre-se</a>
-          <?php } ?>
+          <?php endif; ?>
         </div>
       </nav>
     </div>
-    <!-- Links de navegação e botões -->
+    <!-- Links de navegação -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto d-flex align-items-center">
         <li class="nav-item">
@@ -84,15 +79,6 @@ $produtos = $produtosRepositorio->buscarTodos();
         </li>
       </ul>
     </div>
-    </div>
-  </nav>
-
-  <!-- LINKS DE NAVEGACAO E BOTOES -->
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ms-auto d-flex align-items-center">
-    </ul>
-  </div>
-  </div>
   </nav>
 
   <!-- Carrossel -->
@@ -115,20 +101,20 @@ $produtos = $produtosRepositorio->buscarTodos();
     </div>
   </div>
 
-  <!-- SESSAO DO CATALOGO -->
-  <div class="custom-title">Os nossos produtos</div>
+  <!-- SESSÃO DO CATÁLOGO -->
+  <h2 class="custom-title"><span>Os nossos</span>
+  <strong>PRODUTOS</strong></h2>
   <section id="services" class="services">
     <div class="container" data-aos="fade-up">
       <div class="rowCard">
-        <?php foreach ($produtos as $produto) : ?>
+        <?php foreach ($produtos as $produto): ?>
           <div class="col">
             <div class="card custom-card">
               <img src="recursos/imagens/<?= $produto->getImagem() ?>" alt="<?= $produto->getNome() ?>">
               <div class="custom-card-body">
                 <h5 class="custom-card-title"><?= $produto->getNome() ?></h5>
                 <p class="custom-card-text"><?= $produto->getDescricao() ?></p>
-                <h4>R$ <?= number_format($produto->getPreco(), 2, ',', '.') ?></h4>
-                <!-- <a href="https://wa.me/5511958780556?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20um%20G%C3%A1s%20Liquig%C3%A1s%20P13!" class="btn btn-primary">Faça um pedido!</a> -->
+                <h4>R$ <?= number_format($produto->getPrecoProduto(), 2, ',', '.') ?></h4>
               </div>
             </div>
           </div>
@@ -142,10 +128,9 @@ $produtos = $produtosRepositorio->buscarTodos();
           <button class="btn btn-success text-white whatsapp">
             <i class="fab fa-whatsapp icon-spacing"></i> Faça um pedido!
           </button>
+        </a>
       </div>
-      </a>
     </div>
-
   </section>
 
   <!-- SESSÃO DA EMPRESA -->
@@ -154,7 +139,7 @@ $produtos = $produtosRepositorio->buscarTodos();
     <div class="container company-container mt-5">
       <div class="row company-row gx-4 justify-content-center">
         <!-- Coluna de Informações da Empresa e Contatos -->
-        <div class="col-lg-10">
+        <div class="col-lg-12">
           <div class="company-info-wrapper">
             <div class="company-info-box">
               <h2>Sobre a empresa</h2>
@@ -167,9 +152,14 @@ $produtos = $produtosRepositorio->buscarTodos();
                 <div class="info-text">
                   <h5>Fundada em 1994</h5>
                   <p>
-                    Na Alcântara Gás, nossa missão é fornecer soluções práticas e confiáveis para suas necessidades diárias de água e gás. Com uma forte presença nas regiões de Itaquaquecetuba e Arujá, somos a escolha preferida para quem busca qualidade e eficiência.<br>
-                    Nosso compromisso é entregar não apenas produtos, mas também a tranquilidade e segurança que você e sua família merecem. Oferecemos botijões de gás e galões de água com o mais alto padrão de qualidade e com um serviço de entrega ágil e confiável.<br>
-                    Escolha a Alcântara Gás para uma experiência sem preocupações e descubra por que somos líderes no fornecimento de água e gás na sua região. Entre em contato conosco e faça parte da nossa família de clientes satisfeitos!
+                    Na Alcântara Gás, nossa missão é fornecer soluções práticas e confiáveis para suas necessidades diárias
+                    de água e gás. Com uma forte presença nas regiões de Itaquaquecetuba e Arujá, somos a escolha preferida
+                    para quem busca qualidade e eficiência.<br>
+                    Nosso compromisso é entregar não apenas produtos, mas também a tranquilidade e segurança que você e sua
+                    família merecem. Oferecemos botijões de gás e galões de água com o mais alto padrão de qualidade e com um
+                    serviço de entrega ágil e confiável.<br>
+                    Escolha a Alcântara Gás para uma experiência sem preocupações e descubra por que somos líderes no fornecimento
+                    de água e gás na sua região. Entre em contato conosco e faça parte da nossa família de clientes satisfeitos!
                   </p>
                 </div>
               </div>
@@ -192,6 +182,7 @@ $produtos = $produtosRepositorio->buscarTodos();
       </div>
     </div>
   </section>
+
   <!-- Mapa -->
   <div class="mapa-container mt-5">
     <div class="mapa">
@@ -199,14 +190,13 @@ $produtos = $produtosRepositorio->buscarTodos();
     </div>
   </div>
 
-  <!-- FIM DA SESSAO DA EMPRESA -->
+  <!-- FIM DA SESSÃO DA EMPRESA -->
 
   <!-- ======= RODAPÉ ======= -->
   <footer id="footer">
     <div class="footer-top">
       <div class="container">
         <div class="row">
-
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
               <h3>ALCÂNTARA GÁS<span>.</span></h3>
@@ -243,8 +233,6 @@ $produtos = $produtosRepositorio->buscarTodos();
               </div>
             </div>
           </div>
-
-
         </div>
       </div>
     </div>

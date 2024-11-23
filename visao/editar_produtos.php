@@ -18,9 +18,10 @@ session_start();
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src="../recursos/js/bootstrap.bundle.min.js"></script>
-  <script src="../recursos/js/jquery-3.5.1.slim.min.js"></script>
+  <script src="../recursos/js/jquery-3.5.1.min.js"></script>
   <script src="../recursos/js/popper.min.js"></script>
   <script src="../recursos/js/script.js"></script>
+
 
 
   <!-- FIM DOS LINKS -->
@@ -57,8 +58,8 @@ $produtos = $produtosRepositorio->buscarTodos();
       <div class="container container-form-login mt-5" id="login-form">
           <div class="icon-box">
             <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
-              $produto_id = $_POST["id"];
-              $sql = "SELECT * FROM produtos WHERE id = $produto_id";
+              $idProduto = $_POST["idProduto"];
+              $sql = "SELECT * FROM produtos WHERE idProduto = $idProduto";
               $result = $conn->query($sql);
 
               if ($result->num_rows > 0) {
@@ -67,7 +68,7 @@ $produtos = $produtosRepositorio->buscarTodos();
 
                   <!-- Formulário de edição -->
                   <form action="../controladora/processar_editar_produtos.php" method="POST" enctype="multipart/form-data" class="formulario-edicao">
-                    <input type="hidden" name="id" value="<?= $produto["id"] ?>">
+                    <input type="hidden" name="idProduto" value="<?= $produto["idProduto"] ?>">
 
                     <label for="nome" class="titulo-campo">Nome:</label>
                     <input type="text" name="nome" value="<?= $produto["nome"] ?>" class="custom-input"><br>
@@ -75,8 +76,8 @@ $produtos = $produtosRepositorio->buscarTodos();
                     <label for="descricao" class="titulo-campo">Descrição:</label>
                     <input type="text" name="descricao" value="<?= $produto["descricao"] ?>" class="custom-input"><br>
 
-                    <label for="preco" class="titulo-campo">Preço:</label>
-                    <input type="text" name="preco" value="<?= $produto["preco"] ?>" class="custom-input"><br>
+                    <label for="precoProduto" class="titulo-campo">Preço:</label>
+                    <input type="text" name="precoProduto" value="<?= $produto["precoProduto"] ?>" class="custom-input"><br>
 
                     <label for="imagem" class="titulo-campo">Imagem:</label>
                     <input type="file" name="imagem" accept="image/*" class="custom-input">

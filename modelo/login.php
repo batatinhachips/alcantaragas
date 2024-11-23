@@ -7,9 +7,9 @@ class Usuario {
     }
 
     // Método para cadastrar um usuário ou administrador
-    public function cadastrar($nome, $email, $senha, $papel, $cpf = null, $telefone = null, $cep = null, $logradouro = null, $complemento = null, $numero = null, $bairro = null, $cidade = null) {
+    public function cadastrar($nome, $email, $senha, $idNivelUsuario, $cpf = null, $telefone = null, $cep = null, $logradouro = null, $complemento = null, $numero = null, $bairro = null, $cidade = null) {
         try {
-            $sql = "INSERT INTO usuario (nome, email, senha, papel, cpf, telefone, cep, logradouro, complemento, numero, bairro, cidade) 
+            $sql = "INSERT INTO usuario (nome, email, senha, idNivelUsuario, cpf, telefone, cep, logradouro, complemento, numero, bairro, cidade) 
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $this->conn->prepare($sql);
 
@@ -33,11 +33,11 @@ class Usuario {
             // Bind dos parâmetros (MySQLi usa bind_param com tipos de dados)
             // Note que o 's' é usado para string e o 'i' para integer (se aplicável)
             $stmt->bind_param(
-                'ssssiiississ',
+                'sssiiiississ',
                 $nome,
                 $email,
                 $senhaHash,
-                $papel,
+                $idNivelUsuario,
                 $cpf,
                 $telefone,
                 $cep,

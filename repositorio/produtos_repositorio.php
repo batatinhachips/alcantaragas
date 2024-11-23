@@ -1,3 +1,5 @@
+
+
 <?php
 class produtoRepositorio{
     private $conn; //Sua conexão com o banco de dados
@@ -8,47 +10,43 @@ class produtoRepositorio{
         $this->conn = $conn;
     }
 
-    public function cadastrar(produto $produto){
-
+    public function cadastrar(Produto $produto)
+    {
         $nome = $produto->getNome();
         $descricao = $produto->getDescricao();
-        $preco = $produto->getPreco();
+        $precoProduto = $produto->getPrecoProduto();
         $imagem = $produto->getImagem();
-
-        $sql = "INSERT INTO produtos (nome, descricao, preco, imagem) VALUES (?,?,?,?)";
+    
+        $sql = "INSERT INTO produtos (nome, descricao, precoProduto, imagem) VALUES (?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("ssds",
-            $nome,
-            $descricao,
-            $preco,
-            $imagem
-            
-    );
-       // Executa a consulta preparada e verifica o sucesso
-       $success = $stmt->execute();
-
-       // Fecha a declaração
-       $stmt->close();
-
-       // Retorna um indicador de sucesso
-       return $success;
-
+        $stmt->bind_param("ssds", $nome, $descricao, $precoProduto, $imagem);
+    
+        // Executa a consulta preparada e verifica o sucesso
+        $success = $stmt->execute();
+    
+        // Pega o ID do produto inserido
+        $lastInsertId = $this->conn->insert_id;
+    
+        // Fecha a declaração
+        $stmt->close();
+    
+        // Retorna o ID do produto inserido (ou false caso falhe)
+        return $success ? $lastInsertId : false;
     }
-
     public function buscarTodos()
     {
-        $sql = "SELECT * FROM produtos ORDER BY preco asc";
+        $sql = "SELECT * FROM produtos ORDER BY precoProduto asc";
         $result = $this->conn->query($sql);
 
         $produtos = array();
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $produto = new produto(
-                    $row['id'],
+                $produto = new Produto(
+                    $row['idProduto'],
                     $row['nome'],
                     $row['descricao'],
-                    $row['preco'],
+                    $row['precoProduto'],
                     $row['imagem']
 
                 );
@@ -59,15 +57,15 @@ class produtoRepositorio{
         return $produtos;
     }
 
-    public function listarProdutoPorId($id)
+    public function listarProdutoPorId($idProduto)
     {
-        $sql = "SELECT * FROM produtos WHERE id = '?'";
+        $sql = "SELECT * FROM produtos WHERE idProduto = '?'";
 
         // Prepara a declaração SQL
         $stmt = $this->conn->prepare($sql);
 
         // Vincula o parâmetro
-        $stmt->bind_param('i', $id);
+        $stmt->bind_param('i', $idProduto);
 
         // Executa a consulta preparada
         $stmt->execute();
@@ -81,10 +79,10 @@ class produtoRepositorio{
             $row = $result->fetch_assoc();
 
             $produto = new Produto(
-                $row['id'],
+                $row['idProduto'],
                 $row['nome'],
                 $row['descricao'],
-                $row['preco'], 
+                $row['precoProduto'], 
                 $row['imagem']
                 
             );
@@ -96,16 +94,16 @@ class produtoRepositorio{
         return $produtos;
     }
 
-    public function excluirProdutosPorId($id)
+    public function excluirProdutosPorId($idProduto)
     {
         $sql = "DELETE FROM produtos WHERE  
-             id = ?";
+             idProduto = ?";
 
         // Prepara a declaração SQL
         $stmt = $this->conn->prepare($sql);
 
         // Vincula o parâmetro
-        $stmt->bind_param('i', $id);
+        $stmt->bind_param('i', $idProduto);
 
         // Executa a consulta preparada
         $success = $stmt->execute();

@@ -1,14 +1,15 @@
 <?php
 require '../repositorio/produtos_repositorio.php';
 require './conexao.php';
-require '../modelo/produtos.php';
+include '../modelo/produtos.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Capturando os dados do formulário
     $nome = $_POST["nome"];
     $descricao = $_POST["descricao"];
-    $preco = $_POST["preco"];
+    $precoProduto = $_POST["precoProduto"];
 
+    
     // Verificar se um arquivo de imagem foi enviado
     if ($_FILES["imagem"]["error"] == 0) {
         // Diretório onde você deseja armazenar as imagens
@@ -23,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Mover o arquivo para o diretório de destino
         if (move_uploaded_file($_FILES["imagem"]["tmp_name"], $caminho_completo)) {
             // Instanciando o objeto produto com os dados corretos
-            $produto = new produto(0, $nome, $descricao, $preco, $nome_arquivo);
+            $produto = new produto(0, $nome, $descricao, $precoProduto, $nome_arquivo);
 
             // Salvando no banco de dados
             $produtoRepositorio = new produtoRepositorio($conn);

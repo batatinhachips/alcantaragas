@@ -18,7 +18,7 @@ session_start();
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src="../recursos/js/bootstrap.bundle.min.js"></script>
-  <script src="../recursos/js/jquery-3.5.1.slim.min.js"></script>
+  <script src="../recursos/js/jquery-3.5.1.min.js"></script>
   <script src="../recursos/js/popper.min.js"></script>
   <script src="../recursos/js/script.js"></script>
 
@@ -36,7 +36,7 @@ include '../modelo/usuario.php';
 include '../repositorio/usuarios_repositorio.php';
 
 $usuariosRepositorio = new usuarioRepositorio($conn);
-$usuarios = $usuariosRepositorio->buscarTodosUsuarios();
+$usuarios = $usuariosRepositorio->buscarTodosClientes();
 ?>
 
 <body>
@@ -62,8 +62,8 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
       <div class="container container-form-login mt-5" id="login-form">
           <div class="icon-box">
           <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $id_usuario = $_POST["id"];
-            $sql = "SELECT * FROM usuario WHERE id_usuario = $id_usuario";
+            $idUsuario = $_POST["id"];
+            $sql = "SELECT * FROM usuario WHERE idUsuario = $idUsuario";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -72,7 +72,7 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
 
                   <!-- Formulário de edição -->
                   <form action="../controladora/processar_editar_usuario.php" method="POST" enctype="multipart/form-data" class="formulario-edicao">
-                    <input type="hidden" name="id_usuario" value="<?= $usuario["id_usuario"] ?>">
+                    <input type="hidden" name="idUsuario" value="<?= $usuario["idUsuario"] ?>">
 
                     <label for="nome" class="titulo-campo">Nome:</label>
                     <input type="text" name="nome" placeholder="Digite seu nome" value="<?= $usuario["nome"] ?>" class="custom-input"><br>
@@ -81,7 +81,7 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
                     <input type="text" name="email" placeholder="Digite seu email" value="<?= $usuario["email"] ?>" class="custom-input"><br>
 
                     <label for="senha" class="titulo-campo">Nova Senha:</label>
-                <input type="password" class="form-control custom-input" id="senha" placeholder="Digite uma senha" name="senha" required>
+                <input type="password" class="form-control custom-input" id="senha" placeholder="Digite uma senha" name="senha">
           <div class="invalid-feedback">A senha deve ter no mínimo 6 caracteres, incluindo letras e números.</div><br>
 
                     <label for="cpf" class="titulo-campo">CPF:</label>
@@ -91,22 +91,22 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
                     <input type="text" placeholder="Digite o telefone" name="telefone" value="<?= $usuario["telefone"] ?>" class="custom-input"><br>
                     
                       <label for="cep" class="required titulo-campo">CEP</label>
-                      <input type="text" class="form-control" id="cep"  placeholder="Digite seu cep" name="cep" required><br>
+                      <input type="text" class="form-control" id="cep"  placeholder="Digite seu cep" name="cep" ><br>
 
                       <label for="logradouro" class="required titulo-campo">Rua</label>
-                      <input type="text" class="form-control" id="logradouro" placeholder="Digite a rua" name="logradouro" required><br>
+                      <input type="text" class="form-control" id="logradouro" placeholder="Digite a rua" name="logradouro" ><br>
 
                       <label for="complemento" class="titulo-campo">Complemento</label>
                       <input type="text" class="form-control" id="complemento"  placeholder="Digite o complemento" name="complemento"><br>
      
                       <label for="numero" class="required titulo-campo">Número</label>
-                      <input type="text" class="form-control" id="numero" placeholder="Digite o número" name="numero" required><br>
+                      <input type="text" class="form-control" id="numero" placeholder="Digite o número" name="numero" ><br>
 
                       <label for="bairro" class="required titulo-campo">Bairro</label>
-                      <input type="text" class="form-control" id="bairro" placeholder="Digite o bairro" name="bairro" required><br>
+                      <input type="text" class="form-control" id="bairro" placeholder="Digite o bairro" name="bairro" ><br>
 
                       <label for="cidade" class="required titulo-campo">Cidade</label>
-                      <input type="text" class="form-control" id="cidade" placeholder="Digite a cidade" name="cidade" required><br>
+                      <input type="text" class="form-control" id="cidade" placeholder="Digite a cidade" name="cidade" ><br>
               <button type="submit" class="btn btn-primary btn-lg btn-block botao-salvar-edicoes">Salvar edições</button>
               </form><br><br>
             </div>

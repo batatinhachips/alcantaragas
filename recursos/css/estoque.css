@@ -1,0 +1,134 @@
+/* Reset básico */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background e centralização para a página de vendas */
+body {
+    background: radial-gradient(circle at center, #1D826E, #145E4A, #0D3B2E);
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+
+.vendas {
+    margin-bottom: 10rem;
+}
+
+.container {
+    max-width: 50rem;
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+}
+
+
+h2 {
+    text-align: center;
+    color: #1D826E;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+
+.custom-input {
+    width: 100%;
+    padding: 0.625rem;
+    border: 1px solid #ccc;
+    border-radius: 0.3125rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.titulo-campo {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+/* Botões */
+.btn-primary, .btn-dark {
+    width: 100%;
+    padding: 0.625rem;
+    border-radius: 0.3125rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #1D826E;
+    color: #fff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #d0a700;
+    color: #000;
+}
+
+.btn-dark {
+    background-color: #333;
+    color: #fff;
+}
+
+.botao-excluir {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 0.3125rem;
+    padding: 0.5rem 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Tabela de vendas */
+.table {
+    width: 100%;
+    margin-top: 2rem;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%;
+        padding: 1.5rem;
+    }
+    .table th, .table td {
+        font-size: 0.875rem; /* Reduz o tamanho da fonte em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+    .btn-primary, .btn-dark {
+        padding: 0.5rem;
+    }
+}

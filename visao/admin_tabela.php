@@ -11,14 +11,14 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- LINKS -->
+  <link rel="stylesheet" href="../recursos/css/styles.css">
   <link rel="icon" href="../recursos/imagens/icon.png" type="image/png">
   <link href="../recursos/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="../recursos/css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src="../recursos/js/bootstrap.bundle.min.js"></script>
-  <script src="../recursos/js/jquery-3.5.1.slim.min.js"></script>
+  <script src="../recursos/js/jquery-3.5.1.min.js"></script>
   <script src="../recursos/js/popper.min.js"></script>
   <script src="../recursos/js/script.js"></script>
 
@@ -36,7 +36,7 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
 
 ?>
 
-<body>
+<body class="usuario-admin">
 
   <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
     <div class="container-fluid">
@@ -52,7 +52,7 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
     </div>
 
     <!-- Ícone do Menu Hambúrguer -->
-    <div class="menu-icon" onclick="toggleMenu()">
+    <div class="menu-icon-tabelas" onclick="toggleMenu()">
       <i class="bi bi-list"></i>
     </div>
 
@@ -98,21 +98,18 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
           </thead>
           <tbody>
             <?php foreach ($usuarios as $usuario) : ?>
-              <tr>
+              <tr id="usuario-<?= $usuario->getIdUsuario() ?>">
                 <th scope="row"><?= $usuario->getIdUsuario() ?></th>
                 <td><?= $usuario->getNome() ?></td>
                 <td><?= $usuario->getEmail() ?></td>
                 <td>
                   <form action="../visao/editar_admin.php" method="POST" style="display:inline;">
                     <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
-                    <input type="submit" class="btn btn-success" value="Editar">
+                    <input type="submit" class="botao-editar-tabela" value="Editar">
                   </form>
-                  <form action="../controladora/processar_exclusao.php" method="POST" style="display:inline;">
-                    <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
-                    <input type="hidden" name="tipo" value="usuario">
-                    <input type="hidden" name="pagina_origem" value="admin_tabela">
-                    <input type="submit" class="btn btn-danger" value="Excluir">
-                  </form>
+                  <button class="botao-excluir-tabela" data-id="<?= $usuario->getIdUsuario(); ?>" data-tipo="usuario">
+                    Excluir
+                  </button>
                 </td>
               </tr>
             <?php endforeach; ?>
@@ -123,7 +120,32 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
 
     </div>
   </section>
+  <script>
+    $(document).on('click', '.botao-excluir', function() {
+      const idParaExcluir = $(this).data('id');
+      const tipo = $(this).data('tipo');
 
+      $.ajax({
+        url: '../controladora/processar_exclusao.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+          id: idParaExcluir,
+          tipo: tipo
+        },
+        success: function(response) {
+          if (response.status === 'sucesso') {
+            $(`#usuario-${idParaExcluir}`).remove();;
+          } else {
+            alert(response.message || 'Erro ao excluir.');
+          }
+        },
+        error: function() {
+          alert('Erro na solicitação. Tente novamente.');
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

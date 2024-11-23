@@ -18,10 +18,9 @@ session_start();
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src="../recursos/js/bootstrap.bundle.min.js"></script>
-  <script src="../recursos/js/jquery-3.5.1.slim.min.js"></script>
+  <script src="../recursos/js/jquery-3.5.1.min.js"></script>
   <script src="../recursos/js/popper.min.js"></script>
   <script src="../recursos/js/script.js"></script>
-
 
   <!-- FIM DOS LINKS -->
 </head>
@@ -32,13 +31,12 @@ include '../repositorio/usuarios_repositorio.php';
 include "../controladora/autenticacao.php";
 
 $usuariosRepositorio = new usuarioRepositorio($conn);
-$usuarios = $usuariosRepositorio->buscarTodosUsuarios();
+$usuarios = $usuariosRepositorio->buscarTodosClientes();
 
 ?>
 
-<body>
-
-  <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
+<body class="usuario-admin">
+  <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top usuario-admin">
     <div class="container-fluid">
       <!-- NAVBAR -->
       <a class="navbar-brand" href="/">
@@ -47,14 +45,14 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
 
       <!-- Botões de Logar e Cadastrar -->
       <div class="botao-admin">
-        <a class="btn btn-light ms-2" href="../visao/cadastrar_admin.php">Novo Admin</a>
+        <a class="btn btn-light ms-2" href="../visao/cadastrar_cliente.php">Novo Cliente</a>
         <a class="btn btn-light ms-2" href="../visao/cadastrar_produtos.php">Novo Produto</a>
       </div>
-    </div>
 
-    <!-- Ícone do Menu Hambúrguer -->
-    <div class="menu-icon" onclick="toggleMenu()">
-      <i class="bi bi-list"></i>
+      <!-- Ícone do Menu Hambúrguer -->
+      <div class="menu-icon-tabelas" onclick="toggleMenu()">
+        <i class="bi bi-list"></i>
+      </div>
     </div>
 
     <!-- Menu Dropdown -->
@@ -75,9 +73,7 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
         <?php } ?>
       </div>
     </nav>
-    </div>
   </nav>
-  </div>
 
   <!-- LINKS DE NAVEGACAO E BOTOES -->
   <div class="collapse navbar-collapse" id="navbarNav">
@@ -115,7 +111,7 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
           </thead>
           <tbody>
             <?php foreach ($usuarios as $usuario) : ?>
-              <tr>
+              <tr id="usuario-<?= $usuario->getIdUsuario() ?>">
                 <th scope="row"><?= $usuario->getIdUsuario() ?></th>
                 <td><?= $usuario->getNome() ?></td>
                 <td><?= $usuario->getEmail() ?></td>
@@ -130,14 +126,11 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
                 <td>
                   <form action="../visao/editar_usuario.php" method="POST" style="display:inline;">
                     <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
-                    <input type="submit" class="btn btn-success" value="Editar">
+                    <input type="submit" class="botao-editar" value="Editar">
                   </form>
-                  <form action="../controladora/processar_exclusao.php" method="POST" style="display:inline;">
-                    <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
-                    <input type="hidden" name="tipo" value="usuario">
-                    <input type="hidden" name="pagina_origem" value="usuario_tabela">
-                    <input type="submit" class="btn btn-danger" value="Excluir">
-                  </form>
+                  <button class="botao-excluir" data-id="<?= $usuario->getIdUsuario(); ?>" data-tipo="usuario">
+                    Excluir
+                  </button>
                 </td>
               </tr>
             <?php endforeach; ?>
@@ -146,7 +139,31 @@ $usuarios = $usuariosRepositorio->buscarTodosUsuarios();
       </div>
     </div>
   </section>
+  <script>
+  $(document).on('click', '.botao-excluir', function() {
+    const idParaExcluir = $(this).data('id');
+    const tipo = $(this).data('tipo');
 
+    $.ajax({
+        url: '../controladora/processar_exclusao.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            id: idParaExcluir,
+            tipo: tipo
+        },
+        success: function(response) {
+            if (response.status === 'sucesso') {
+              $(`#usuario-${idParaExcluir}`).remove();;
+            } else {
+                alert(response.message || 'Erro ao excluir.');
+            }
+        },
+        error: function() {
+            alert('Erro na solicitação. Tente novamente.');
+        }
+    });
+}); </script>
 
 </body>
 

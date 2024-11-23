@@ -6,12 +6,12 @@ include '../repositorio/usuarios_repositorio.php';
 
 
 $usuariosRepositorio = new usuarioRepositorio($conn);
-$usuarios = $usuariosRepositorio->buscarTodosUsuarios();
+$usuarios = $usuariosRepositorio->buscarTodosClientes();
 
 // Verificar se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter os dados do formulário
-    $id_usuario = $_POST["id_usuario"]; // Corrigido para o nome correto
+    $idUsuario = $_POST["idUsuario"]; // Corrigido para o nome correto
     $nome = $_POST["nome"];
     $email = $_POST["email"];
     $senha = $_POST["senha"];
@@ -29,8 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
 
     // Atualizar as informações do produto no banco de dados
-    $stmt = $conn->prepare("UPDATE usuario SET nome=?, email=?, senha=?, cpf=?, telefone=?, cep=?, logradouro=?, complemento=?, numero=?, bairro=?, cidade=? WHERE id_usuario=?");
-    $stmt->bind_param("sssiiississi", $nome, $email, $senha, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade, $id_usuario);
+    $stmt = $conn->prepare("UPDATE usuario SET nome=?, email=?, senha=?, cpf=?, telefone=?, cep=?, logradouro=?, complemento=?, numero=?, bairro=?, cidade=? WHERE idUsuario=?");
+    $stmt->bind_param("sssiiississi", $nome, $email, $senha, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade, $idUsuario);
 
     if ($stmt->execute()) {
         header("Location: ../visao/usuario_tabela.php");
@@ -41,6 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt->close(); // Não esqueça de fechar a declaração
 }
-
-// Não feche a conexão aqui, pois ela será utilizada em outros scripts
 ?>
+// Não feche a conexão aqui, pois ela será utilizada em outros scripts
+

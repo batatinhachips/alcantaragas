@@ -17,7 +17,7 @@ session_start();
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src="../recursos/js/bootstrap.bundle.min.js"></script>
-  <script src="../recursos/js/jquery-3.5.1.slim.min.js"></script>
+  <script src="../recursos/js/jquery-3.5.1.min.js"></script>
   <script src="../recursos/js/popper.min.js"></script>
   <script src="../recursos/js/script.js"></script>
 </head>
@@ -65,10 +65,10 @@ $produtos = $produtosRepositorio->buscarTodos();
       <div id="navbarNav" class="navbar-nav">
         <ul class="navbar-navButton">
           <li class="nav-item">
-            <a class="btn btn-light ms-2" href="../visao/cadastrar_admin.php">Novo Admin</a>
+            <a class="btn btn-light ms-2" href="cadastrar_admin.php">Novo Admin</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-light ms-2" href="../visao/cadastrar_produtos.php">Novo Produto</a>
+            <a class="btn btn-light ms-2" href="cadastrar_produtos.php">Novo Produto</a>
           </li>
           <li class="nav-item">
             <a class="btn btn-light ms-2" href="admin_tabela.php">Tabela Admins</a>
@@ -76,13 +76,16 @@ $produtos = $produtosRepositorio->buscarTodos();
           <li class="nav-item">
             <a class="btn btn-light ms-2" href="usuario_tabela.php">Tabela Clientes</a>
           </li>
+          <li class="nav-item">
+            <a class="btn btn-light ms-2" href="pedidos.php">Tabela de Vendas</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-light ms-2" href="estoque.php">Estoque</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
-
-
-
 
   <!-- SESSAO DO CATALOGO -->
   <section id="services" class="services">
@@ -90,22 +93,22 @@ $produtos = $produtosRepositorio->buscarTodos();
       <div class="rowCard">
         <?php foreach ($produtos as $produto) : ?>
           <div class="col">
-            <div class="card custom-card">
+            <div class="card custom-card" id="produto-<?= $produto->getIdProduto(); ?>">
               <img src="../recursos/imagens/<?= $produto->getImagem() ?>" alt="">
               <div class="custom-card-body">
                 <h5 class="custom-card-title"><?= $produto->getNome() ?></h5>
                 <p class="custom-card-text"><?= $produto->getDescricao() ?></p>
-                <h4>R$ <?= number_format($produto->getPreco(), 2, ',', '.') ?></h4>
-                <form action="../visao/editar_produtos.php" method="POST" style="margin-bottom: 10px;">
-                  <input type="hidden" name="id" value="<?= $produto->getId(); ?>">
-                  <input type="submit" class="botao-editar" value="Editar" style="background-color: green; color: white; border: none; border-radius: 15px; padding: 6px 11px; font-weight: 500; font-family: Poppins, sans-serif;">
+                <h4>R$ <?= number_format($produto->getPrecoProduto(), 2, ',', '.') ?></h4>
+                <div class="botao-container">
+                <form action="../visao/editar_produtos.php" method="POST">
+                  <input type="hidden" name="idProduto" value="<?= $produto->getIdProduto(); ?>">
+                  <input type="submit" class="botao-editar" value="Editar">
                 </form>
 
-                <form action="../controladora/processar_exclusao.php" method="POST" style="margin-top: 10px;">
-                  <input type="hidden" name="id" value="<?= $produto->getId(); ?>">
-                  <input type="hidden" name="tipo" value="produto">
-                  <input type="submit" class="botao-excluir" value="Excluir" style="background-color: red; color: white; border: none; border-radius: 15px; padding: 6px 8px; font-weight: 500; font-family: Poppins, sans-serif; transition: background-color 0.3s;">
-                </form>
+                <button class="botao-excluir" data-id="<?= $produto->getIdProduto(); ?>" data-tipo="produto">
+                  Excluir
+                </button>
+              </div>
               </div>
             </div>
           </div>
@@ -113,7 +116,33 @@ $produtos = $produtosRepositorio->buscarTodos();
       </div>
     </div>
   </section>
+  <script>
+  $(document).on('click', '.botao-excluir', function() {
+    const idParaExcluir = $(this).data('id');
+    const tipo = $(this).data('tipo');
 
+    $.ajax({
+        url: '../controladora/processar_exclusao.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            id: idParaExcluir,
+            tipo: tipo
+        },
+        success: function(response) {
+            if (response.status === 'sucesso') {
+              $(`#produto-${idParaExcluir}`).fadeOut(300, function() {
+                    $(this).remove();
+                });
+            } else {
+                alert(response.message || 'Erro ao excluir.');
+            }
+        },
+        error: function() {
+            alert('Erro na solicitação. Tente novamente.');
+        }
+    });
+}); </script>
 </body>
 
 </html>
