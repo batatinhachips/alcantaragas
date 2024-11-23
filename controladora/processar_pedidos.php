@@ -68,5 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($sucesso) {
         header("Location: ../visao/pedidos.php");
+        } else {
+        echo "Erro ao cadastrar a venda.";
+    }
 }
 ?>
