@@ -17,6 +17,9 @@
 
 <body>
     <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
     include '../controladora/conexao.php';
     include '../modelo/pedidos.php';
     include '../repositorio/pedidos_repositorio.php';
@@ -25,6 +28,8 @@
     include '../modelo/produtos.php';
     include '../modelo/usuario.php';
     include '../repositorio/usuarios_repositorio.php';
+
+
 
     $vendasRepositorio = new pedidosRepositorio($conn);
     $vendas = $vendasRepositorio->buscarTodasVendas();
