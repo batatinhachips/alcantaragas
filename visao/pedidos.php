@@ -54,10 +54,6 @@ error_reporting(E_ALL);
       </div>
     </div>
   </nav>
-    <?php
-ini_set('display_errors', 1);
-    error_reporting(E_ALL);
-    ?>
     <div class="container mt-7">
         <h2>CONTROLE DE VENDAS</h2>
 
