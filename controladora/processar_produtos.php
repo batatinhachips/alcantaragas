@@ -3,6 +3,10 @@ require '../repositorio/produtos_repositorio.php';
 require './conexao.php';
 include '../modelo/produtos.php';
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Capturando os dados do formulário
     $nome = $_POST["nome"];
