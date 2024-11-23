@@ -26,9 +26,6 @@
     include '../modelo/usuario.php';
     include '../repositorio/usuarios_repositorio.php';
 
-    ini_set('display_errors', 1);
-    error_reporting(E_ALL);
-
     $vendasRepositorio = new pedidosRepositorio($conn);
     $vendas = $vendasRepositorio->buscarTodasVendas();
     $totalVendas = $vendasRepositorio->somarTotais();
@@ -39,7 +36,6 @@
     $usuariosRepositorio = new usuarioRepositorio($conn);
     $usuarios = $usuariosRepositorio->buscarTodosClientes();
     ?>
-
     
 <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
     <div class="container-fluid">
@@ -53,7 +49,10 @@
       </div>
     </div>
   </nav>
-
+    <?php
+ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+    ?>
     <div class="container mt-7">
         <h2>CONTROLE DE VENDAS</h2>
 
