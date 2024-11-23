@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include '../controladora/conexao.php';
 include '../modelo/pedidos.php';
 include '../repositorio/pedidos_repositorio.php';
