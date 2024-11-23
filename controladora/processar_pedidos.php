@@ -1,5 +1,4 @@
 <?php
-ob_start();
 include '../controladora/conexao.php';
 include '../modelo/pedidos.php';
 include '../repositorio/pedidos_repositorio.php';
@@ -73,5 +72,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Erro ao cadastrar a venda.";
     }
 }
-    ob_end_flush();
 ?>
