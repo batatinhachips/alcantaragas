@@ -1,8 +1,6 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
-echo $undefined_variable; 
+display_errors = On
+error_reporting = E_ALL
 
 include '../controladora/conexao.php';
 include '../modelo/produtos.php';
