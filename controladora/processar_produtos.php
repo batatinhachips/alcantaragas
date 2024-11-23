@@ -1,4 +1,7 @@
 <?php
+// Inicia o buffer de saída
+ob_start();
+
 require '../repositorio/produtos_repositorio.php';
 require './conexao.php';
 include '../modelo/produtos.php';
@@ -13,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $descricao = $_POST["descricao"];
     $precoProduto = $_POST["precoProduto"];
 
-    
     // Verificar se um arquivo de imagem foi enviado
     if ($_FILES["imagem"]["error"] == 0) {
         // Diretório onde você deseja armazenar as imagens
@@ -36,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Redirecionando para a página de sucesso
             header("Location: ../visao/cadastrar_produtos_sucesso.php");
+            exit(); // Certifique-se de usar exit() para parar a execução após o header
         } else {
             echo "Erro ao fazer upload do arquivo.";
         }
@@ -43,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Por favor, selecione uma imagem.";
     }
 }
+
+// Finaliza o buffer de saída e envia a resposta
+ob_end_flush();
 ?>
-
-
