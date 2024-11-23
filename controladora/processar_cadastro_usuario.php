@@ -1,11 +1,12 @@
 <?php
+ob_start(); // Inicia o buffer de saída, permitindo a modificação dos headers
+
 require_once '../modelo/login.php';
 require_once 'conexao.php'; // Certifique-se de que o caminho está correto
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter dados do formulário
@@ -23,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $bairro = isset($_POST["bairro"]) ? trim($_POST["bairro"]) : null;
     $cidade = isset($_POST["cidade"]) ? trim($_POST["cidade"]) : null;
 
-    
     // Validação básica
     $erros = [];
     if (empty($nome) || empty($email) || empty($senha) || empty($confirmarsenha) || empty($idNivelUsuario)) {
@@ -34,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $erros[] = "As senhas não coincidem.";
     }
 
-
     if (!empty($erros)) {
         header("Location: ../visao/cadastro.php?erro=" . urlencode(implode(", ", $erros)));
         exit();
@@ -44,9 +43,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = new Usuario($conn);
 
     // Cadastrar usuário ou administrador
-       if ($usuario->cadastrar($nome, $email, $senha, $idNivelUsuario, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade)) {
+    if ($usuario->cadastrar($nome, $email, $senha, $idNivelUsuario, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade)) {
         // Redirecionar para a página de sucesso após o cadastro
-       if ($idNivelUsuario === "2") {
+        if ($idNivelUsuario === "2") {
             header("Location: ../visao/admin.php");
         } else {
             header("Location: ../visao/cadastrarcliente_sucesso.php");
@@ -57,4 +56,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
+ob_end_flush(); // Finaliza o buffer de saída, enviando o conteúdo armazenado
 ?>
