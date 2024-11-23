@@ -1,7 +1,4 @@
 <?php
-display_errors = On
-error_reporting = E_ALL
-
 include '../controladora/conexao.php';
 include '../modelo/produtos.php';
 include '../repositorio/produtos_repositorio.php';
