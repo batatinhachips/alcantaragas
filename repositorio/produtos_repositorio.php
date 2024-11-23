@@ -3,8 +3,7 @@
 <?php
 class produtoRepositorio{
     private $conn; //Sua conexão com o banco de dados
-
-
+    
     public function __construct($conn)
     {
         $this->conn = $conn;
