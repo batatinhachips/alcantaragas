@@ -1,9 +1,9 @@
 <?php
-include '/conexao.php';
+include '../controladora/conexao.php';
 include '../modelo/pedidos.php';
 include '../repositorio/pedidos_repositorio.php';
 include '../repositorio/estoque_repositorio.php'; // Inclua o repositório de estoque
-include "/autenticacao.php";  
+include "../controladora/autenticacao.php";  
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
