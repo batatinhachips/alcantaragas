@@ -31,7 +31,7 @@ error_reporting(E_ALL);
 
     $vendasRepositorio = new pedidosRepositorio($conn);
     $vendas = $vendasRepositorio->buscarTodasVendas();
-    $totalVendas = $vendasRepositorio->somarTotais();
+    
 
     $produtosRepositorio = new produtoRepositorio($conn);
     $produtos = $produtosRepositorio->buscarTodos();
