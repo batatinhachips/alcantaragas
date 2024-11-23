@@ -26,6 +26,9 @@
     include '../modelo/usuario.php';
     include '../repositorio/usuarios_repositorio.php';
 
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+
     $vendasRepositorio = new pedidosRepositorio($conn);
     $vendas = $vendasRepositorio->buscarTodasVendas();
     $totalVendas = $vendasRepositorio->somarTotais();
@@ -37,8 +40,6 @@
     $usuarios = $usuariosRepositorio->buscarTodosClientes();
     ?>
 
-    ini_set('display_errors', 1);
-    error_reporting(E_ALL);
     
 <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
     <div class="container-fluid">
