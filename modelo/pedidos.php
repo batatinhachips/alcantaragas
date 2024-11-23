@@ -31,7 +31,7 @@ class Pedidos {
         $total,
         $formaPagamento,
         $total_produtos,
-    ) 
+    
     {
         $this->idPedido = $idPedido;
         $this->idUsuario = $idUsuario;
