@@ -26,6 +26,10 @@
     include '../modelo/usuario.php';
     include '../repositorio/usuarios_repositorio.php';
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
     $vendasRepositorio = new pedidosRepositorio($conn);
     $vendas = $vendasRepositorio->buscarTodasVendas();
     $totalVendas = $vendasRepositorio->somarTotais();
