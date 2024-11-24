@@ -57,9 +57,23 @@ class Pedidos {
     private function preencherEndereco() {
         $cep = preg_replace('/[^0-9]/', '', $this->cep); // Remove caracteres não numéricos do CEP
         if (strlen($cep) == 8) { // Verifica se o CEP tem 8 caracteres
-            $url = "https://viacep.com.br/ws/{$cep}/json/";
-            $json = file_get_contents($url);
-            $data = json_decode($json, true);
+            $url = "https://viacep.com.br/ws/$cep/json/";
+        
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $url); // Define a URL para a requisição
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Retorna o resultado como string
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Ignora a verificação SSL (opcional)
+            
+            $response = curl_exec($ch);
+        
+            if (curl_errno($ch)) {
+                curl_close($ch);
+                return ['erro' => 'Erro ao conectar com o serviço: ' . curl_error($ch)];
+            }
+        
+            curl_close($ch);
+        
+            $data= json_decode($response, true);
 
             if (isset($data['logradouro'])) {
                 $this->rua = $data['logradouro'];
