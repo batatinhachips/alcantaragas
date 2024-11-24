@@ -70,5 +70,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($sucesso) {
         header("Location: ../visao/pedidos.php");
        exit();
-}
+}}
 ?>
