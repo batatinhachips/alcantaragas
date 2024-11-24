@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $preco = $_POST['preco'];
     $formaPagamento = $_POST['formaPagamento'];
     $numero = $_POST['numero'];
-    $total_produtos = $_POST['total_produtos'] ?? NULL;
+    $total_produtos = isset($_POST['total_produtos']) ? $_POST['total_produtos'] : NULL;
 
     $endereco = obterEndereco($cep);
 
