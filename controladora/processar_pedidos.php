@@ -1,4 +1,6 @@
 <?php
+ob_start();
+
 include '../controladora/conexao.php';
 include '../modelo/pedidos.php';
 include '../repositorio/pedidos_repositorio.php';
@@ -70,4 +72,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: ../visao/pedidos.php");
        exit();
 }
+        ob_end_flush();
 ?>
