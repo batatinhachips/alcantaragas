@@ -5,11 +5,6 @@ include '../repositorio/pedidos_repositorio.php';
 include '../repositorio/estoque_repositorio.php'; // Inclua o repositório de estoque
 include "../controladora/autenticacao.php";  
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-
 function obterEndereco($cep) {
     $url = "https://viacep.com.br/ws/$cep/json/";
     $dados = file_get_contents($url);
@@ -24,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $preco = $_POST['preco'];
     $formaPagamento = $_POST['formaPagamento'];
     $numero = $_POST['numero'];
-    $total_produtos = isset($_POST['total_produtos']) ? $_POST['total_produtos'] : NULL;
+    $total_produtos = $_POST['total_produtos'] ?? NULL;
 
     $endereco = obterEndereco($cep);
 
@@ -69,6 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($sucesso) {
         header("Location: ../visao/pedidos.php");
-       exit();
-}}
+    } else {
+        echo "Erro ao cadastrar a venda.";
+    }
+}
 ?>
