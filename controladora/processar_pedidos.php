@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include '../controladora/conexao.php';
 include '../modelo/pedidos.php';
 include '../repositorio/pedidos_repositorio.php';
@@ -7,8 +8,22 @@ include "../controladora/autenticacao.php";
 
 function obterEndereco($cep) {
     $url = "https://viacep.com.br/ws/$cep/json/";
-    $dados = file_get_contents($url);
-    return json_decode($dados, true);
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url); // Define a URL para a requisição
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Retorna o resultado como string
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Ignora a verificação SSL (opcional)
+    
+    $response = curl_exec($ch);
+
+    if (curl_errno($ch)) {
+        curl_close($ch);
+        return ['erro' => 'Erro ao conectar com o serviço: ' . curl_error($ch)];
+    }
+
+    curl_close($ch);
+
+    return json_decode($response, true);
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -68,4 +83,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Erro ao cadastrar a venda.";
     }
 }
+    ob_end_flush();
 ?>
