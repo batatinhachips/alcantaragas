@@ -2,23 +2,22 @@
 <html lang="pt-br">
 
 <head>
+  <title>NOVO CADASTRO</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <!-- LINKS -->
+  <link rel="stylesheet" href="../recursos/css/login.css">
+  <link href="../recursos/imagens/icon.png" rel="icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-button.css">
-  <link rel="stylesheet" href="../recursos/css/login.css">
-  <link href="../recursos/imagens/icon.png" rel="icon">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-  <title>NOVO CADASTRO</title>
-  <!-- NAVBAR -->
+</head>
+
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -30,15 +29,12 @@
     </div>
   </div>
 </nav>
-</head>
-
-</head>
 
 <body id="CadCliArea" class="cadCliente">
-  <!-- Botão do WhatsApp -->
+
   <a id="robbu-whatsapp-button" target="_white" href="https://api.whatsapp.com/send?phone=5511958780556&text=Ol%C3%A1,%20eu%20gostaria%20de%20fazer%20um%20pedido!%0AProduto(s):%0AQuantidade:%0AMeu%20endere%C3%A7o:%0AMeu%20nome:%0ARetirar%20ou%20entrega:">
-      <div class="rwb-tooltip"style="background-color: #fff;" >Faça o seu pedido agora!</div>
-      <img src="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-icon.svg">
+    <div class="rwb-tooltip" style="background-color: #fff;">Faça o seu pedido agora!</div>
+    <img src="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-icon.svg">
   </a>
   <main>
     <div class="login-title cadastro-page text-center">
@@ -105,7 +101,6 @@
             </div>
           </div>
         </div>
-        <!-- Campo oculto para definir o papel como 'cliente' -->
         <input type="hidden" name="idNivelUsuario" value="1">
         <button type="submit" class="btn btn-custom-primary btn-block">Cadastrar</button>
         <a href="formLogin.php" class="btn btn-custom-primary btn-block">Login</a>
@@ -138,37 +133,37 @@
       };
 
       $("#cep").blur(function() {
-  var cep = $(this).val();  // Mantém exatamente o valor digitado no campo
-  
-  if (cep != "") {
-    // Testa se o CEP tem 8 dígitos numéricos
-    var validacep = /^[0-9]{8}$/;
-    
-    if (validacep.test(cep)) {
-      // Realiza a consulta no ViaCEP para preencher os campos de endereço
-      $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
-        if (!("erro" in dados)) {
-          // Preenche os campos de endereço com base nos dados retornados
-          $("#logradouro").val(dados.logradouro);
-          $("#bairro").val(dados.bairro);
-          $("#cidade").val(dados.localidade);
-          $("#uf").val(dados.uf);
+        var cep = $(this).val();
+
+        if (cep != "") {
+          // Testa se o CEP tem 8 dígitos numéricos
+          var validacep = /^[0-9]{8}$/;
+
+          if (validacep.test(cep)) {
+            // Realiza a consulta no ViaCEP para preencher os campos de endereço
+            $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
+              if (!("erro" in dados)) {
+                // Preenche os campos de endereço com base nos dados retornados
+                $("#logradouro").val(dados.logradouro);
+                $("#bairro").val(dados.bairro);
+                $("#cidade").val(dados.localidade);
+                $("#uf").val(dados.uf);
+              } else {
+                // Se o CEP não for encontrado, limpa os campos de endereço
+                limpa_formulário_cep();
+                mostrarTooltip($('#cep'), 'CEP não encontrado.');
+              }
+            });
+          } else {
+            // Se o formato do CEP for inválido, limpa os campos de endereço
+            limpa_formulário_cep();
+            mostrarTooltip($('#cep'), 'Formato de CEP inválido.');
+          }
         } else {
-          // Se o CEP não for encontrado, limpa os campos de endereço
+          // Se o campo de CEP estiver vazio, limpa os campos de endereço
           limpa_formulário_cep();
-          mostrarTooltip($('#cep'), 'CEP não encontrado.');
         }
       });
-    } else {
-      // Se o formato do CEP for inválido, limpa os campos de endereço
-      limpa_formulário_cep();
-      mostrarTooltip($('#cep'), 'Formato de CEP inválido.');
-    }
-  } else {
-    // Se o campo de CEP estiver vazio, limpa os campos de endereço
-    limpa_formulário_cep();
-  }
-});
       // Validações de email, senha e nome
       $("#frmCadUser").submit(function(event) {
         event.preventDefault();
@@ -215,6 +210,10 @@
       });
     </script>
   </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 </body>
 
 </html>

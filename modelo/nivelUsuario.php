@@ -1,28 +1,33 @@
 <?php
 
-class NivelUsuario {
+class NivelUsuario
+{
     private $idNivelUsuario;
     private $nivel;
 
-    public function __construct($idNivelUsuario, $nivel) {
+    public function __construct($idNivelUsuario, $nivel)
+    {
         $this->idNivelUsuario = $idNivelUsuario;
         $this->nivel = $nivel;
     }
 
-    // Getters e Setters
-    public function getIdNivelUsuario() {
+    public function getIdNivelUsuario()
+    {
         return $this->idNivelUsuario;
     }
 
-    public function setIdNivelUsuario($idNivelUsuario) {
+    public function setIdNivelUsuario($idNivelUsuario)
+    {
         $this->idNivelUsuario = $idNivelUsuario;
     }
 
-    public function getNivel() {
+    public function getNivel()
+    {
         return $this->nivel;
     }
 
-    public function setNivel($nivel) {
+    public function setNivel($nivel)
+    {
         $this->nivel = $nivel;
     }
 }

@@ -14,18 +14,19 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    
+
 
   <link rel="stylesheet" href="../recursos/css/login.css">
   <link href="../recursos/imagens/icon.png" rel="icon">
 
   <title>LOGIN</title>
 </head>
+
 <body class="login_bg">
   <!-- Botão do WhatsApp -->
   <a id="robbu-whatsapp-button" target="_white" href="https://api.whatsapp.com/send?phone=5511958780556&text=Ol%C3%A1,%20eu%20gostaria%20de%20fazer%20um%20pedido!%0AProduto(s):%0AQuantidade:%0AMeu%20endere%C3%A7o:%0AMeu%20nome:%0ARetirar%20ou%20entrega:">
-      <div class="rwb-tooltip"style="background-color: #fff;" >Faça o seu pedido agora!</div>
-      <img src="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-icon.svg">
+    <div class="rwb-tooltip" style="background-color: #fff;">Faça o seu pedido agora!</div>
+    <img src="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-icon.svg">
   </a>
   <main>
     <div class="login-title text-center">

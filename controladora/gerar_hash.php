@@ -1,5 +1,4 @@
 <?php
-// Gerar o hash da senha
 $senha = 'manoel';
 $hash_senha = password_hash($senha, PASSWORD_BCRYPT);
 
@@ -13,4 +12,3 @@ if (password_verify($senha_admin, $hash_senha)) {
 } else {
     echo 'Senha incorreta!';
 }
-?>

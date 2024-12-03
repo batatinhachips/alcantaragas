@@ -1,9 +1,11 @@
 /* CSS Geral */
-html, body {
+html,
+body {
   height: 100%;
-  margin: 0; 
+  margin: 0;
   font-family: 'Poppins', sans-serif;
-  font-size: 16px; /* Base 1rem = 16px */
+  font-size: 16px;
+  /* Base 1rem = 16px */
 }
 
 body {
@@ -20,20 +22,20 @@ body {
 }
 
 .login-title {
-  margin-top: 6.25rem; /* Espaço superior */
-  margin-bottom: 1rem; /* Espaço inferior */
+  margin-top: 6.25rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
 .login-title .logo {
   width: 100%;
-  max-width: 40rem; /* Mantido como no primeiro código */
-  height: auto; /* Mantém a proporção */
+  max-width: 40rem;
+  height: auto;
   margin-bottom: 4rem;
 }
 
 .btn-voltar {
-  margin-top: 1rem; /* Aumentar margem superior */
+  margin-top: 1rem;
 }
 
 .login-title h1 {
@@ -44,11 +46,11 @@ body {
 .btn-custom-primary {
   background-color: #28a745;
   color: #ffffff;
-  border-radius: 1.25rem; /* 20px */
-  width: 11.25rem; /* 180px */
+  border-radius: 1.25rem;
+  width: 11.25rem;
   display: inline-block;
   margin: 0 auto;
-  padding: 0.625rem 1.25rem; /* 10px 20px */
+  padding: 0.625rem 1.25rem;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -75,47 +77,47 @@ body {
 }
 
 .custom-container {
-  max-width: 31.25rem; /* 500px */
+  max-width: 31.25rem;
   width: 100%;
   margin: 0 auto;
-  padding: 1.25rem; /* 2rem */
+  padding: 1.25rem;
   background-color: #fff;
-  border-radius: 0.5rem; /* 8px */
-  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1); /* 10px */
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 3.125rem; /* 5vh */
+  margin-bottom: 3.125rem;
   box-sizing: border-box;
 }
 
 body::after {
   content: "";
   display: block;
-  height: 0.0625rem; /* 1px */
+  height: 0.0625rem;
 }
 
 .custom-input {
   display: block;
   width: 100%;
-  margin-bottom: 0.625rem; /* 1rem */
-  padding: 0.75rem; /* 12px */
-  border-radius: 0.3125rem; /* 5px */
-  border: 0.0625rem solid #ccc; /* 1px */
+  margin-bottom: 0.625rem;
+  padding: 0.75rem;
+  border-radius: 0.3125rem;
+  border: 0.0625rem solid #ccc;
   box-sizing: border-box;
 }
 
 .custom-input::placeholder {
-  font-size: 0.875rem; /* Tamanho menor do texto */
-  color: #aaa; /* Cor mais clara */
+  font-size: 0.875rem;
+  color: #aaa;
 }
 
 .botao-cadastrar {
   background-color: #1D826E;
   color: #fff;
   border: none;
-  border-radius: 0.3125rem; /* 5px */
-  padding: 0.75rem; /* 12px */
+  border-radius: 0.3125rem;
+  padding: 0.75rem;
   width: 100%;
   font-weight: 500;
   cursor: pointer;
@@ -130,21 +132,21 @@ body::after {
 /* Adaptações para Navbar */
 .navbar-custom {
   background-color: transparent;
-  padding: 0.625rem; /* Aumentado para melhorar a visualização no mobile */
+  padding: 0.625rem;
 }
 
 .navbar-nav {
-  margin-left: auto; /* Garante que o conteúdo da navbar seja alinhado à direita */
+  margin-left: auto;
 }
 
 .navbar-brand img {
-  height: 2.5rem; /* 40px */
+  height: 2.5rem;
 }
 
 /* Ajustes gerais */
 .titulo-campo {
   display: block;
-  margin-bottom: 0.3125rem; /* 0.5rem */
+  margin-bottom: 0.3125rem;
   font-weight: bold;
   color: #333333;
 }
@@ -152,15 +154,15 @@ body::after {
 input[type="file"] {
   display: block;
   width: 100%;
-  margin-top: 0.625rem; /* 1rem */
+  margin-top: 0.625rem;
 }
 
 input[type="submit"] {
   background-color: #1D826E;
   color: #fff;
   border: none;
-  border-radius: 0.3125rem; /* 5px */
-  padding: 0.75rem; /* 12px */
+  border-radius: 0.3125rem;
+  padding: 0.75rem;
   width: 100%;
   font-weight: 500;
   cursor: pointer;
@@ -174,21 +176,21 @@ input[type="submit"]:hover {
 
 /* Estiliza o formulário para ter uma largura maior e centralizar */
 .formulario-edicao {
-  max-width: 37.5rem; /* 600px */
+  max-width: 37.5rem;
   margin: 0 auto;
-  padding: 1.25rem; /* 20px */
-  border: 0.0625rem solid #ddd; /* 1px */
-  border-radius: 0.5rem; /* 8px */
+  padding: 1.25rem;
+  border: 0.0625rem solid #ddd;
+  border-radius: 0.5rem;
   background-color: #f9f9f9;
 }
 
 /* Estiliza os campos do formulário */
 .formulario-edicao .custom-input {
   width: 100%;
-  padding: 0.625rem; /* 10px */
-  margin-bottom: 0.9375rem; /* 15px */
-  border-radius: 0.25rem; /* 4px */
-  border: 0.0625rem solid #ccc; /* 1px */
+  padding: 0.625rem;
+  margin-bottom: 0.9375rem;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid #ccc;
 }
 
 /* Estilo para o botão de salvar edições */
@@ -199,10 +201,10 @@ input[type="submit"]:hover {
   width: 100%;
   text-align: center;
   font-size: 1rem;
-  padding: 0.5rem 1rem; /* 8px 16px */
-  border-radius: 0.125rem; /* 2px */
+  padding: 0.5rem 1rem;
+  border-radius: 0.125rem;
   box-sizing: border-box;
-  margin-top: 0.625rem; /* 1rem */
+  margin-top: 0.625rem;
 }
 
 .botao-salvar-edicoes:hover {
@@ -213,33 +215,33 @@ input[type="submit"]:hover {
 /* Media Queries */
 @media (max-width: 768px) {
   .login-title {
-    margin-top: 4rem; /* Reduzido para telas menores */
+    margin-top: 4rem;
   }
 
   .login-title .logo {
     width: 100%;
-    max-width: 40rem; /* Mantido o mesmo tamanho da primeira parte */
+    max-width: 40rem;
   }
 
   .custom-container {
-    padding: 1rem; /* Menos padding em telas menores */
+    padding: 1rem;
   }
 
   .btn-custom-primary {
-    width: 100%; /* Botões ocupam toda a largura em dispositivos móveis */
+    width: 100%;
   }
 }
 
 @media (max-width: 576px) {
   .login-title {
-    margin-top: 3rem; /* Reduzido ainda mais */
+    margin-top: 3rem;
   }
 
   .login-title h1 {
-    font-size: 1.5rem; /* Ajustado para melhor visualização */
+    font-size: 1.5rem;
   }
 
   .custom-input {
-    font-size: 0.875rem; /* Tamanho da fonte menor */
+    font-size: 0.875rem;
   }
 }

@@ -1,5 +1,5 @@
 <?php
-// Incluir o arquivo de conexão com o banco de dados
+
 include '../controladora/conexao.php';
 include '../modelo/usuario.php';
 include '../repositorio/usuarios_repositorio.php';
@@ -11,7 +11,7 @@ $usuarios = $usuariosRepositorio->buscarTodosClientes();
 // Verificar se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter os dados do formulário
-    $idUsuario = $_POST["idUsuario"]; // Corrigido para o nome correto
+    $idUsuario = $_POST["idUsuario"];
     $nome = $_POST["nome"];
     $email = $_POST["email"];
     $senha = $_POST["senha"];
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cidade = $_POST["cidade"];
 
 
-     // Gerar o hash da senha
+    // Gerar o hash da senha
     $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
 
     // Atualizar as informações do produto no banco de dados
@@ -34,13 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         header("Location: ../visao/usuario_tabela.php");
-        exit; // Adiciona um exit após o redirecionamento
+        exit;
     } else {
-        echo "Erro ao editar usuario: " . $stmt->error; // Use o método de erro do statement
+        echo "Erro ao editar usuario: " . $stmt->error;
     }
-
-    $stmt->close(); // Não esqueça de fechar a declaração
+    $stmt->close();
 }
-?>
-// Não feche a conexão aqui, pois ela será utilizada em outros scripts
-

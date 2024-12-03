@@ -2,7 +2,7 @@
 ob_start(); // Inicia o buffer de saída, permitindo a modificação dos headers
 
 require_once '../modelo/login.php';
-require_once 'conexao.php'; // Certifique-se de que o caminho está correto
+require_once 'conexao.php';
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Cadastrar usuário ou administrador
     if ($usuario->cadastrar($nome, $email, $senha, $idNivelUsuario, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade)) {
-        // Redirecionar para a página de sucesso após o cadastro
+
         if ($idNivelUsuario === "2") {
             header("Location: ../visao/admin.php");
         } else {
@@ -57,4 +57,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 ob_end_flush(); // Finaliza o buffer de saída, enviando o conteúdo armazenado
-?>

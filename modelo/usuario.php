@@ -1,6 +1,7 @@
 <?php
-class Usuariosss {
-    /* private $conn; //Sua conexão com o banco de dados */
+class Usuariosss
+{
+
     private $idUsuario;
     private $nome;
     private $email;
@@ -14,7 +15,7 @@ class Usuariosss {
     private $numero;
     private $bairro;
     private $cidade;
-    
+
     public function __construct(
         $idUsuario,
         $nome,
@@ -50,18 +51,14 @@ class Usuariosss {
         return $this->idUsuario;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */ 
+
     public function setIdUsuario($idUsuario)
     {
         $this->idUsuario = $idUsuario;
 
         return $this;
     }
-    
+
 
 
     public function getNome()
@@ -69,11 +66,7 @@ class Usuariosss {
         return $this->nome;
     }
 
-    /**
-     * Set the value of nome
-     *
-     * @return  self
-     */ 
+
     public function setNome($nome)
     {
         $this->nome = $nome;
@@ -87,11 +80,7 @@ class Usuariosss {
         return $this->email;
     }
 
-    /**
-     * Set the value of descricao
-     *
-     * @return  self
-     */ 
+
     public function setEmail($email)
     {
         $this->email = $email;
@@ -105,11 +94,7 @@ class Usuariosss {
         return $this->senha;
     }
 
-    /**
-     * Set the value of preco
-     *
-     * @return  self
-     */ 
+
     public function setSenha($senha)
     {
         $this->senha = $senha;
@@ -122,11 +107,7 @@ class Usuariosss {
         return $this->idNivelUsuario;
     }
 
-    /**
-     * Set the value of preco
-     *
-     * @return  self
-     */ 
+
     public function setIdNivelUsuario($idNivelUsuario)
     {
         $this->idNivelUsuario = $idNivelUsuario;
@@ -139,11 +120,7 @@ class Usuariosss {
         return $this->cpf;
     }
 
-    /**
-     * Set the value of cpf
-     *
-     * @return  self
-     */ 
+
     public function setCpf($cpf)
     {
         $this->cpf = $cpf;
@@ -156,11 +133,7 @@ class Usuariosss {
         return $this->telefone;
     }
 
-    /**
-     * Set the value of telefone
-     *
-     * @return  self
-     */ 
+
     public function setTelefone($telefone)
     {
         $this->telefone = $telefone;
@@ -173,11 +146,7 @@ class Usuariosss {
         return $this->cep;
     }
 
-    /**
-     * Set the value of cep
-     *
-     * @return  self
-     */ 
+
     public function setCep($cep)
     {
         $this->cep = $cep;
@@ -190,11 +159,7 @@ class Usuariosss {
         return $this->logradouro;
     }
 
-    /**
-     * Set the value of logradouro
-     *
-     * @return  self
-     */ 
+
     public function setLogradouro($logradouro)
     {
         $this->logradouro = $logradouro;
@@ -207,11 +172,6 @@ class Usuariosss {
         return $this->complemento;
     }
 
-    /**
-     * Set the value of complemento
-     *
-     * @return  self
-     */ 
     public function setComplemento($complemento)
     {
         $this->complemento = $complemento;
@@ -224,11 +184,7 @@ class Usuariosss {
         return $this->numero;
     }
 
-    /**
-     * Set the value of numero
-     *
-     * @return  self
-     */ 
+
     public function setNumero($numero)
     {
         $this->numero = $numero;
@@ -241,11 +197,7 @@ class Usuariosss {
         return $this->bairro;
     }
 
-    /**
-     * Set the value of bairro
-     *
-     * @return  self
-     */ 
+
     public function setBairro($bairro)
     {
         $this->bairro = $bairro;
@@ -258,18 +210,11 @@ class Usuariosss {
         return $this->cidade;
     }
 
-    /**
-     * Set the value of cidade
-     *
-     * @return  self
-     */ 
+
     public function setCidade($cidade)
     {
         $this->cidade = $cidade;
 
         return $this;
     }
-
 }
-
-?>

@@ -5,20 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../recursos/css/bootstrap.min.css" rel="stylesheet">
-    <title>Controle de Vendas - Alcântara Gás</title>
+    <title>Controle de Vendas</title>
     <link rel="stylesheet" href="../recursos/css/pedidos.css">
     <link href="../recursos/imagens/icon.png" rel="icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../recursos/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 </head>
 
 <body>
     <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
 
     include '../controladora/conexao.php';
     include '../modelo/pedidos.php';
@@ -39,19 +39,23 @@ error_reporting(E_ALL);
     $usuariosRepositorio = new usuarioRepositorio($conn);
     $usuarios = $usuariosRepositorio->buscarTodosClientes();
     ?>
-    
-<nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
-    <div class="container-fluid">
-      <!-- NAVBAR -->
-      <a class="navbar-brand" href="/">
-        <img src="../recursos/imagens/logo.png" alt="Logo da Empresa" style="height: 40px;">
-      </a>
-      <!-- Botões de Logar e Cadastrar -->
-      <div class="botao-admin">
-        <a class="btn btn-dark" href="admin.php" style="background-color: #222529; border-radius: 2rem; margin-top: 1rem;">Voltar</a>
-      </div>
+
+    <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto d-flex align-items-center">
+                    <li class="nav-item">
+                        <a class="btn btn-dark" href="admin.php" style="background-color: #222529; border-radius: 1.5rem; margin-top: 1rem;">Voltar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="login-title text-center">
+        <a href="/">
+            <img src="../recursos/imagens/logo_nav.png" alt="Logo" class="logo">
+        </a>
     </div>
-  </nav>
     <div class="container mt-7">
         <h2>CONTROLE DE VENDAS</h2>
 
@@ -122,7 +126,7 @@ error_reporting(E_ALL);
             <tbody>
                 <?php foreach ($vendas as $venda) : ?>
                     <tr id="vendas-<?= $venda->getIdPedido() ?>">
-                        <td ><?= $venda->getIdPedido() ?></td>
+                        <td><?= $venda->getIdPedido() ?></td>
                         <td>
                             <?php
                             $produtoNome = '';
@@ -139,14 +143,14 @@ error_reporting(E_ALL);
                         <td><?= $venda->getPreco() ?></td>
                         <td><?= $venda->getTotal() ?></td>
 
-                            <?php
-                            $totalProdutoVendido = 0;
-                            foreach ($vendas as $vendaTotal) {
-                                if ($vendaTotal->getProduto() == $venda->getProduto()) {
-                                    $totalProdutoVendido += $vendaTotal->getQuantidade();
-                                }
+                        <?php
+                        $totalProdutoVendido = 0;
+                        foreach ($vendas as $vendaTotal) {
+                            if ($vendaTotal->getProduto() == $venda->getProduto()) {
+                                $totalProdutoVendido += $vendaTotal->getQuantidade();
                             }
-                            ?>
+                        }
+                        ?>
 
                         <td><?= $venda->getFormaPagamento() ?></td>
                         <td>
@@ -171,8 +175,11 @@ error_reporting(E_ALL);
                 <?php endforeach; ?>
             </tbody>
         </table>
-
+                
         <p id="lucro-total">Lucro de: R$ <?= number_format($totalVendas, 2, ',', '.'); ?></p>
+        <div class="mt-4">
+                <button id="baixarPDF" class="btn btn-danger">Baixar PDF de Vendas</button>
+        </div>
     </div>
 
     <script>
@@ -186,8 +193,7 @@ error_reporting(E_ALL);
 
             // Quando o usuário selecionar um produto
             $("#produto").on("change", function() {
-                var idProduto = $(this).val(); // ID do produto selecionado
-
+                var idProduto = $(this).val(); 
                 // Verifica se existe o produto no objeto totalProdutosVendidos
                 if (totalProdutoVendido[idProduto] !== undefined) {
                     // Atualiza o campo total_produtos com a quantidade total de produtos vendidos
@@ -197,7 +203,7 @@ error_reporting(E_ALL);
                     $("#total_produtos").val(0);
                 }
 
-                var preco = $(this).find('option:selected').data('preco'); // Preço via data-preco
+                var preco = $(this).find('option:selected').data('preco'); 
 
                 // Atualiza o campo de preço
                 if (preco !== undefined && preco !== "") {
@@ -207,10 +213,9 @@ error_reporting(E_ALL);
                 }
             });
 
-            // Inicializa o Select2 para o campo de nome do cliente
             $('#nomeCliente').select2({
                 placeholder: 'Digite o nome do cliente...',
-                allowClear: true // Permite limpar a seleção
+                allowClear: true 
             });
 
             // Quando o usuário selecionar um cliente
@@ -301,7 +306,7 @@ error_reporting(E_ALL);
                 },
                 success: function(response) {
                     if (response.status === 'sucesso') {
-                        // Remover a linha da tabela
+            
                         $(`#vendas-${idParaExcluir}`).remove();
 
                         // Atualizar o lucro total na tela
@@ -319,37 +324,66 @@ error_reporting(E_ALL);
             });
         });
 
+        $(document).ready(function() {
+            $('#formPedido').on('submit', function(event) {
+                event.preventDefault(); 
+
+                const produtoId = $('#produto').val();
+                const quantidade = $('#quantidade').val();
+                const form = this; 
+
+                $.ajax({
+                    url: '../controladora/validar_estoque.php',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {
+                        produtoId: produtoId,
+                        quantidade: quantidade
+                    },
+                    success: function(data) {
+                        if (data.sucesso) {
+                            // Envia o formulário se o estoque for suficiente
+                            form.submit();
+                        } else {
+                            alert('Estoque insuficiente para o produto selecionado.');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Erro na validação do estoque:", error);
+                        alert('Ocorreu um erro ao validar o estoque. Tente novamente.');
+                    }
+                });
+            });
+        });
+
+        
         $(document).ready(function () {
-    $('#formPedido').on('submit', function (event) {
-        event.preventDefault(); // Previne o envio inicial do formulário
-
-        const produtoId = $('#produto').val();
-        const quantidade = $('#quantidade').val();
-        const form = this; // Armazena a referência do formulário para envio posterior
-
+    $('#baixarPDF').on('click', function () {
         $.ajax({
-            url: '../controladora/validar_estoque.php',
-            type: 'GET',
-            dataType: 'json',
-            data: {
-                produtoId: produtoId,
-                quantidade: quantidade
+            url: '../controladora/gerar_pdf_vendas.php', // Caminho para o script PHP
+            method: 'POST',
+            xhrFields: {
+                responseType: 'blob' // Necessário para receber o arquivo como um blob
             },
             success: function (data) {
-                if (data.sucesso) {
-                    // Envia o formulário se o estoque for suficiente
-                    form.submit();
-                } else {
-                    alert('Estoque insuficiente para o produto selecionado.');
-                }
+                // Cria um link temporário para download
+                const blob = new Blob([data], { type: 'application/pdf' });
+                const link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = 'relatorio_vendas.pdf';
+                link.click();
+
+                // Limpa o objeto para liberar memória
+                window.URL.revokeObjectURL(link.href);
             },
             error: function (xhr, status, error) {
-                console.error("Erro na validação do estoque:", error);
-                alert('Ocorreu um erro ao validar o estoque. Tente novamente.');
+                console.error('Erro ao gerar o PDF:', error);
+                alert('Não foi possível gerar o PDF. Tente novamente.');
             }
         });
     });
 });
+
     </script>
 
 </body>

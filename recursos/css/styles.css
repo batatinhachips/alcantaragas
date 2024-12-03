@@ -73,11 +73,12 @@ body {
   margin: 0 5px;
 }
 
-.navbar-navButton .nav-item a, .botao-admin a{
-  padding: 0.5rem 2rem; /* Padding padrão */
-  font-size: 14px; /* Tamanho da fonte padrão */
-  border-radius: 2rem; /* Bordas arredondadas */
-  transition: background-color 0.3s; /* Transição suave */
+.navbar-navButton .nav-item a,
+.botao-admin a {
+  padding: 0.5rem 2rem;
+  font-size: 14px;
+  border-radius: 2rem;
+  transition: background-color 0.3s;
 }
 
 
@@ -527,7 +528,6 @@ h2,
 
 .dropdown-item:last-child {
   margin-bottom: 0;
-  /* Remove o espaço do último item */
 }
 
 .dropdown-content {
@@ -592,15 +592,15 @@ h2,
   .custom-title {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center;
     text-align: center;
-    margin: 7rem 0 2rem 0; /* Remove a margem lateral */
+    margin: 7rem 0 2rem 0;
   }
 
   .custom-title::after {
     left: 50%;
-    transform: translateX(-50%); /* Centraliza a linha abaixo do título */
-    width: 60%; /* Ajusta a largura para centralizar com o texto */
+    transform: translateX(-50%);
+    width: 60%;
   }
 
   .carousel-image {

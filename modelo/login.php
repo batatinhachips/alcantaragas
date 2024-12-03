@@ -1,13 +1,16 @@
 <?php
-class Usuario {
+class Usuario
+{
     private $conn;
 
-    function __construct($conn) {
+    function __construct($conn)
+    {
         $this->conn = $conn;
     }
 
     // Método para cadastrar um usuário ou administrador
-    public function cadastrar($nome, $email, $senha, $idNivelUsuario, $cpf = null, $telefone = null, $cep = null, $logradouro = null, $complemento = null, $numero = null, $bairro = null, $cidade = null) {
+    public function cadastrar($nome, $email, $senha, $idNivelUsuario, $cpf = null, $telefone = null, $cep = null, $logradouro = null, $complemento = null, $numero = null, $bairro = null, $cidade = null)
+    {
         try {
             $sql = "INSERT INTO usuario (nome, email, senha, idNivelUsuario, cpf, telefone, cep, logradouro, complemento, numero, bairro, cidade) 
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -31,7 +34,6 @@ class Usuario {
             $cidade = !empty($cidade) ? $cidade : null;
 
             // Bind dos parâmetros (MySQLi usa bind_param com tipos de dados)
-            // Note que o 's' é usado para string e o 'i' para integer (se aplicável)
             $stmt->bind_param(
                 'sssiiisssiss',
                 $nome,
@@ -54,10 +56,8 @@ class Usuario {
 
             return true;
         } catch (Exception $e) {
-            // Registrar o erro e retornar a mensagem
             error_log($e->getMessage());
             return "Erro ao cadastrar usuário: " . $e->getMessage();
         }
     }
 }
-?>

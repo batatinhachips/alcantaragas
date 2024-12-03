@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
 
     if (isset($_POST['tipo'])) {
         switch ($_POST['tipo']) {
-            
+
             case 'vendas':
                 $vendasRepositorio->excluirVendasPorId($idParaExcluir);
                 $novoLucro = $vendasRepositorio->somarTotais();
@@ -56,8 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
                     'status' => 'sucesso',
                     'message' => 'Produto de Estoque excluído com sucesso',
                     'id' => $idParaExcluir,
-                    ];
-                    break;     
+                ];
+                break;
 
             default:
                 $response = [
@@ -71,4 +71,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
 
 echo json_encode($response);
 exit();
-?>

@@ -1,6 +1,8 @@
 function toggleMenu() {
-  const menu = document.getElementById('menu');
-  menu.classList.toggle('show'); /* Alterna a classe 'show' para mostrar/ocultar o menu */
+  const menu = document.getElementById("menu");
+  menu.classList.toggle(
+    "show"
+  ); /* Alterna a classe 'show' para mostrar/ocultar o menu */
 }
 
 $(document).ready(function () {

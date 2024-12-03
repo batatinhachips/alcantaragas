@@ -3,25 +3,18 @@
 
 <head>
   <title>Alcântara Gás</title>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- LINKS -->
   <link rel="stylesheet" href="recursos/css/styles.css">
   <link rel="icon" href="recursos/imagens/icon.png" type="image/png">
   <link rel="stylesheet" href="recursos/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-button.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
-  <script src="recursos/js/jquery-3.5.1.slim.min.js"></script>
-  <script src="recursos/js/popper.min.js"></script>
-  <script src="recursos/js/bootstrap.bundle.min.js"></script>
-  <script src="recursos/js/script.js"></script>
-  <!-- FIM DOS LINKS -->
+
 </head>
 
 <?php
@@ -36,7 +29,7 @@ $produtos = $produtosRepositorio->buscarTodos();
 ?>
 
 <body>
-
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
@@ -62,7 +55,6 @@ $produtos = $produtosRepositorio->buscarTodos();
         </div>
       </nav>
     </div>
-    <!-- Links de navegação -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto d-flex align-items-center">
         <li class="nav-item">
@@ -103,7 +95,8 @@ $produtos = $produtosRepositorio->buscarTodos();
 
   <!-- SESSÃO DO CATÁLOGO -->
   <h2 class="custom-title"><span>Os nossos</span>
-  <strong>PRODUTOS</strong></h2>
+    <strong>PRODUTOS</strong>
+  </h2>
   <section id="services" class="services">
     <div class="container" data-aos="fade-up">
       <div class="rowCard">
@@ -244,6 +237,13 @@ $produtos = $produtosRepositorio->buscarTodos();
       </div>
     </div>
   </footer><!-- FINAL DO RODAPÉ -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+  <script src="recursos/js/jquery-3.5.1.slim.min.js"></script>
+  <script src="recursos/js/popper.min.js"></script>
+  <script src="recursos/js/bootstrap.bundle.min.js"></script>
+  <script src="recursos/js/script.js"></script>
 
 </body>
 

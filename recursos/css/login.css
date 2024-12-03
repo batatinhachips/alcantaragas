@@ -22,10 +22,8 @@ body.cadCliente {
     align-items: center;
     font-family: 'Poppins', sans-serif;
     justify-content: flex-start;
-    /* Alterado para flex-start */
     min-height: 100vh;
     overflow-y: auto;
-    /* Permite rolagem vertical */
 }
 
 .container-form {

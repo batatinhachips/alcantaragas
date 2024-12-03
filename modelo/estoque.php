@@ -1,57 +1,66 @@
 <?php
-class Estoque {
+class Estoque
+{
     private $idEstoque;
     private $idProduto;
     private $nomeProduto;
     private $quantidade;
     private $qtdVendida;
 
-    // Construtor para inicializar os valores
-    public function __construct($idProduto = null, $quantidade = 0, $qtdVendida = null) {
+    public function __construct($idProduto = null, $quantidade = 0, $qtdVendida = null)
+    {
         $this->idProduto = $idProduto;
         $this->quantidade = $quantidade;
         $this->qtdVendida = $qtdVendida;
     }
 
-    // Getters e Setters
-    public function getIdEstoque() {
+    public function getIdEstoque()
+    {
         return $this->idEstoque;
     }
 
-    public function setIdEstoque($idEstoque) {
+    public function setIdEstoque($idEstoque)
+    {
         $this->idEstoque = $idEstoque;
     }
 
-    public function getIdProduto() {
+    public function getIdProduto()
+    {
         return $this->idProduto;
     }
 
-    public function setIdProduto($idProduto) {
+    public function setIdProduto($idProduto)
+    {
         $this->idProduto = $idProduto;
     }
 
-    public function getNomeProduto() {
+    public function getNomeProduto()
+    {
         return $this->nomeProduto;
     }
 
-    public function setNomeProduto($nomeProduto) {
+    public function setNomeProduto($nomeProduto)
+    {
         $this->nomeProduto = $nomeProduto;
     }
 
-    public function getQuantidade() {
+    public function getQuantidade()
+    {
         return $this->quantidade;
     }
 
-    public function setQuantidade($quantidade) {
+    public function setQuantidade($quantidade)
+    {
         $this->quantidade = $quantidade;
     }
 
-    public function getQtdVendida() {
+    public function getQtdVendida()
+    {
         return $this->qtdVendida;
     }
 
-    public function setQtdVendida($qtdVendida) {
+    public function setQtdVendida($qtdVendida)
+    {
         $this->qtdVendida = $qtdVendida;
     }
 }
-?>

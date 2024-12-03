@@ -27,18 +27,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Caminho completo do arquivo no servidor
         $caminho_completo = $diretorio_destino . $nome_arquivo;
 
-        // Mover o arquivo para o diretório de destino
+        // Move o arquivo para o diretório de destino
         if (move_uploaded_file($_FILES["imagem"]["tmp_name"], $caminho_completo)) {
-            // Instanciando o objeto produto com os dados corretos
+            // Instancia o objeto produto com os dados corretos
             $produto = new produto(0, $nome, $descricao, $precoProduto, $nome_arquivo);
 
-            // Salvando no banco de dados
+            // Salva no banco de dados
             $produtoRepositorio = new produtoRepositorio($conn);
             $produtoRepositorio->cadastrar($produto);
 
-            // Redirecionando para a página de sucesso
             header("Location: ../visao/cadastrar_produtos_sucesso.php");
-            exit(); // Certifique-se de usar exit() para parar a execução após o header
+            exit();
         } else {
             echo "Erro ao fazer upload do arquivo.";
         }
@@ -49,4 +48,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Finaliza o buffer de saída e envia a resposta
 ob_end_flush();
-?>

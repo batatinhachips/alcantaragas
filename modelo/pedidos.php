@@ -1,6 +1,7 @@
 
 <?php
-class Pedidos {
+class Pedidos
+{
     private $idPedido;
     private $idUsuario;
     private $idProduto;
@@ -20,10 +21,10 @@ class Pedidos {
         $idPedido,
         $idUsuario,
         $idProduto,
-        $cep, 
-        $rua, 
-        $numero, 
-        $bairro, 
+        $cep,
+        $rua,
+        $numero,
+        $bairro,
         $cidade,
         $produto,
         $quantidade,
@@ -31,7 +32,7 @@ class Pedidos {
         $total,
         $formaPagamento,
         $total_produtos
-    ){
+    ) {
         $this->idPedido = $idPedido;
         $this->idUsuario = $idUsuario;
         $this->idProduto = $idProduto;
@@ -46,34 +47,35 @@ class Pedidos {
         $this->total = $total;
         $this->formaPagamento = $formaPagamento;
         $this->total_produtos = $total_produtos;
-        
-        // Preenche o endereço com base no CEP, caso o CEP esteja presente
+
+        // Preenche o endereço com base no CEP
         if ($this->cep) {
             $this->preencherEndereco();
         }
     }
 
     // Método para preencher o endereço a partir do CEP
-    private function preencherEndereco() {
+    private function preencherEndereco()
+    {
         $cep = preg_replace('/[^0-9]/', '', $this->cep); // Remove caracteres não numéricos do CEP
         if (strlen($cep) == 8) { // Verifica se o CEP tem 8 caracteres
             $url = "https://viacep.com.br/ws/$cep/json/";
-        
+
             $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url); // Define a URL para a requisição
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Retorna o resultado como string
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Ignora a verificação SSL (opcional)
-            
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
             $response = curl_exec($ch);
-        
+
             if (curl_errno($ch)) {
                 curl_close($ch);
                 return ['erro' => 'Erro ao conectar com o serviço: ' . curl_error($ch)];
             }
-        
+
             curl_close($ch);
-        
-            $data= json_decode($response, true);
+
+            $data = json_decode($response, true);
 
             if (isset($data['logradouro'])) {
                 $this->rua = $data['logradouro'];
@@ -92,113 +94,141 @@ class Pedidos {
         }
     }
 
-    public function getIdPedido() {
+    public function getIdPedido()
+    {
         return $this->idPedido;
     }
-    public function setIdPedido($idPedido) {
+    public function setIdPedido($idPedido)
+    {
         $this->idPedido = $idPedido;
     }
 
-    public function getIdUsuario() {
+    public function getIdUsuario()
+    {
         return $this->idUsuario;
     }
-    public function setIdUsuario($idUsuario) {
+    public function setIdUsuario($idUsuario)
+    {
         $this->idUsuario = $idUsuario;
     }
 
-    public function getIdProduto() {
+    public function getIdProduto()
+    {
         return $this->idProduto;
     }
-    public function setIdProduto($idProduto) {
+    public function setIdProduto($idProduto)
+    {
         $this->idProduto = $idProduto;
     }
 
-    public function getCep() {
+    public function getCep()
+    {
         return $this->cep;
     }
 
-    public function setCep($cep) {
+    public function setCep($cep)
+    {
         $this->cep = $cep;
-        $this->preencherEndereco(); // Repreenche o endereço sempre que o CEP for alterado
+        $this->preencherEndereco();
     }
 
-    public function getRua() {
+    public function getRua()
+    {
         return $this->rua;
     }
 
-    public function setRua($rua) {
+    public function setRua($rua)
+    {
         $this->rua = $rua;
     }
 
-    public function getNumero() {
+    public function getNumero()
+    {
         return $this->numero;
     }
 
-    public function setNumero($numero) {
+    public function setNumero($numero)
+    {
         $this->numero = $numero;
     }
 
-    public function getBairro() {
+    public function getBairro()
+    {
         return $this->bairro;
     }
 
-    public function setBairro($bairro) {
+    public function setBairro($bairro)
+    {
         $this->bairro = $bairro;
     }
 
-    public function getCidade() {
+    public function getCidade()
+    {
         return $this->cidade;
     }
 
-    public function setCidade($cidade) {
+    public function setCidade($cidade)
+    {
         $this->cidade = $cidade;
     }
 
-    public function getProduto() {
+    public function getProduto()
+    {
         return $this->produto;
     }
 
-    public function setProduto($produto) {
+    public function setProduto($produto)
+    {
         $this->produto = $produto;
     }
 
-    public function getQuantidade() {
+    public function getQuantidade()
+    {
         return $this->quantidade;
     }
 
-    public function setQuantidade($quantidade) {
+    public function setQuantidade($quantidade)
+    {
         $this->quantidade = $quantidade;
     }
 
-    public function getPreco() {
+    public function getPreco()
+    {
         return $this->preco;
     }
 
-    public function setPreco($preco) {
+    public function setPreco($preco)
+    {
         $this->preco = $preco;
     }
 
-    public function getTotal() {
+    public function getTotal()
+    {
         return $this->total;
     }
 
-    public function setTotal($total) {
+    public function setTotal($total)
+    {
         $this->total = $total;
     }
 
-    public function getFormaPagamento() {
+    public function getFormaPagamento()
+    {
         return $this->formaPagamento;
     }
 
-    public function setFormaPagamento($formaPagamento) {
+    public function setFormaPagamento($formaPagamento)
+    {
         $this->formaPagamento = $formaPagamento;
     }
 
-    public function getTotalProdutos() {
+    public function getTotalProdutos()
+    {
         return $this->total_produtos;
     }
 
-    public function setTotalProdutos($total_produtos) {
+    public function setTotalProdutos($total_produtos)
+    {
         $this->total_produtos = $total_produtos;
     }
 }

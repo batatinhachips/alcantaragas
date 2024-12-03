@@ -1,19 +1,22 @@
 <?php
-class UsuarioRepositorio {
-    private $conn; // Conexão com o banco de dados
+class UsuarioRepositorio
+{
+    private $conn;
 
     // Construtor para injetar a conexão com o banco de dados
-    public function __construct($conn) {
+    public function __construct($conn)
+    {
         $this->conn = $conn;
     }
 
     // Método para cadastrar um novo usuário
-    public function cadastrar(Usuariosss $usuario) {
+    public function cadastrar(Usuariosss $usuario)
+    {
         // Recuperando dados do objeto Usuario
         $nome = $usuario->getNome();
         $email = $usuario->getEmail();
         $senha = $usuario->getSenha();
-        $idNivelUsuario = $usuario->getIdNivelUsuario();  // Deve ser 1 ou 2
+        $idNivelUsuario = $usuario->getIdNivelUsuario();
         $cpf = $usuario->getCpf();
         $telefone = $usuario->getTelefone();
         $cep = $usuario->getCep();
@@ -32,18 +35,18 @@ class UsuarioRepositorio {
         if ($stmt = $this->conn->prepare($sql)) {
             // Vinculando os parâmetros com tipos corretos
             $stmt->bind_param(
-                "sssissssssss", // Define os tipos: s = string, i = inteiro
-                $nome, 
-                $email, 
-                $senha, 
-                $idNivelUsuario, 
-                $cpf, 
-                $telefone, 
-                $cep, 
-                $logradouro, 
-                $complemento, 
-                $numero, 
-                $bairro, 
+                "sssissssssss",
+                $nome,
+                $email,
+                $senha,
+                $idNivelUsuario,
+                $cpf,
+                $telefone,
+                $cep,
+                $logradouro,
+                $complemento,
+                $numero,
+                $bairro,
                 $cidade
             );
 
@@ -52,23 +55,21 @@ class UsuarioRepositorio {
 
             // Verificando se a execução foi bem-sucedida
             if ($success) {
-                // Fecha a declaração e retorna sucesso
                 $stmt->close();
-                return true; // Cadastro realizado com sucesso
+                return true;
             } else {
-                // Se não for bem-sucedido, exibe o erro
                 echo "Erro ao executar a consulta: " . $stmt->error;
                 $stmt->close();
-                return false; // Falha na execução
+                return false;
             }
         } else {
-            // Se houve erro ao preparar a consulta
             throw new Exception("Erro ao preparar a consulta: " . $this->conn->error);
         }
     }
 
     // Método para buscar todos os administradores
-    public function buscarTodosAdmins() {
+    public function buscarTodosAdmins()
+    {
         $sql = "SELECT * FROM usuario WHERE idNivelUsuario = 2";
         $result = $this->conn->query($sql);
 
@@ -100,7 +101,8 @@ class UsuarioRepositorio {
     }
 
     // Método para buscar todos os clientes
-    public function buscarTodosClientes() {
+    public function buscarTodosClientes()
+    {
         $sql = "SELECT * FROM usuario WHERE idNivelUsuario = 1";
         $result = $this->conn->query($sql);
 
@@ -132,7 +134,8 @@ class UsuarioRepositorio {
     }
 
     // Método para listar um usuário por ID
-    public function listarUsuarioPorId($idUsuario) {
+    public function listarUsuarioPorId($idUsuario)
+    {
         $sql = "SELECT * FROM usuario WHERE idUsuario = ?";
 
         if ($stmt = $this->conn->prepare($sql)) {
@@ -167,18 +170,17 @@ class UsuarioRepositorio {
                 );
             }
 
-            // Fecha a declaração
             $stmt->close();
 
             return $usuario;
         } else {
-            // Lançando exceção caso haja erro na preparação
             throw new Exception("Erro ao preparar a consulta: " . $this->conn->error);
         }
     }
 
     // Método para excluir um usuário por ID
-    public function excluirUsuariosPorId($idUsuario) {
+    public function excluirUsuariosPorId($idUsuario)
+    {
         $sql = "DELETE FROM usuario WHERE idUsuario = ?";
 
         if ($stmt = $this->conn->prepare($sql)) {
@@ -188,14 +190,11 @@ class UsuarioRepositorio {
             // Executa a consulta preparada
             $success = $stmt->execute();
 
-            // Fecha a declaração
             $stmt->close();
 
             return $success;
         } else {
-            // Lançando exceção caso haja erro na preparação
             throw new Exception("Erro ao preparar a consulta de exclusão: " . $this->conn->error);
         }
     }
 }
-?>

@@ -2,18 +2,18 @@
 <html lang="pt-br">
 
 <head>
+  <title>Cadastrar Novo Admin</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <!-- LINKS -->
+  <link rel="stylesheet" href="../recursos/css/login.css">
+  <link href="../recursos/imagens/icon.png" rel="icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../recursos/css/login.css">
-  <link href="../recursos/imagens/icon.png" rel="icon">
-  <title>CADASTRAR NOVO ADMIN</title>
+
 </head>
 
 <body class="login_bg">
@@ -24,12 +24,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto d-flex justify-content-end align-items-center w-100">
             <li class="nav-item">
-              <a class="btn btn-dark" href="admin.php" style="background-color: #222529; border-radius: 2rem; margin-top: 1rem;" >Voltar</a>
+              <a class="btn btn-dark" href="admin.php" style="background-color: #222529; border-radius: 2rem; margin-top: 1rem;">Voltar</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
     <div class="login-title text-center">
       <a href="/">
         <img src="../recursos/imagens/logo_nav.png" alt="Logo" class="logo">
@@ -77,7 +78,6 @@
       var confirmarSenha = document.getElementById('confirmarsenha');
       var valid = true;
 
-      // Clear previous validation
       document.querySelectorAll('.form-control').forEach(function(input) {
         input.classList.remove('is-invalid');
       });
@@ -85,7 +85,7 @@
         feedback.style.display = 'none';
       });
 
-      // Validate Nome
+      // Validar Nome
       var nomeValue = nome.value.trim();
       if (nomeValue && !/^[a-zA-Z\s]+$/.test(nomeValue)) {
         nome.classList.add('is-invalid');
@@ -93,7 +93,7 @@
         valid = false;
       }
 
-      // Validate Senha
+      // Validar Senha
       var senhaValue = senha.value.trim();
       if (senhaValue && (senhaValue.length < 6 || !/[a-zA-Z]/.test(senhaValue) || !/\d/.test(senhaValue))) {
         senha.classList.add('is-invalid');
@@ -101,7 +101,7 @@
         valid = false;
       }
 
-      // Validate Confirmar Senha
+      // Validar Confirmar Senha
       if (senhaValue && confirmarSenha.value.trim() !== senhaValue) {
         confirmarSenha.classList.add('is-invalid');
         confirmarSenha.nextElementSibling.style.display = 'block';

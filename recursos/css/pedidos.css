@@ -1,5 +1,6 @@
 /* Reset básico */
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,6 +18,14 @@ body {
     justify-content: flex-start;
     min-height: 100vh;
     overflow-y: auto;
+}
+
+.login-title .logo {
+    margin-top: 5rem;
+    width: 100%;
+    max-width: 50rem;
+    height: auto;
+    margin-bottom: 2rem;
 }
 
 .vendas {
@@ -39,7 +48,8 @@ body {
     overflow-x: auto;
 }
 
-.table th, .table td {
+.table th,
+.table td {
     text-align: left;
     padding: 8px;
     border: 1px solid #ddd;

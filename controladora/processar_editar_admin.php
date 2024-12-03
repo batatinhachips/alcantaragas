@@ -1,5 +1,5 @@
 <?php
-// Incluir o arquivo de conexão com o banco de dados
+
 include '../controladora/conexao.php';
 include '../modelo/usuario.php';
 include '../repositorio/usuarios_repositorio.php';
@@ -10,7 +10,7 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
 // Verificar se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter os dados do formulário
-    $idUsuario = $_POST["idUsuario"]; // Corrigido para o nome correto
+    $idUsuario = $_POST["idUsuario"];
     $nome = $_POST["nome"] ?? null;
     $email = $_POST["email"] ?? null;
     $senha = $_POST["senha"] ?? null;
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->fetch();
     $stmt->close();
 
-    // Se os campos forem fornecidos, use o novo valor. Caso contrário, mantenha o valor atual.
+    // Se os campos forem fornecidos, uss o novo valor. Caso contrário, mantem o valor atual.
     $nome = $nome ?? $nomeAtual;  // Se não foi fornecido nome, mantém o atual
     $email = $email ?? $emailAtual;  // Se não foi fornecido email, mantém o atual
 
@@ -40,12 +40,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssi", $nome, $email, $senha, $idUsuario);
 
     if ($stmt->execute()) {
-        header("Location: ../visao/admin_tabela.php"); // Redireciona após o sucesso
+        header("Location: ../visao/admin_tabela.php");
         exit;
     } else {
-        echo "Erro ao editar admin: " . $stmt->error; // Exibe erro caso a atualização falhe
+        echo "Erro ao editar admin: " . $stmt->error;
     }
 
-    $stmt->close(); // Não se esqueça de fechar a declaração
+    $stmt->close();
 }
-?>

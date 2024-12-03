@@ -5,24 +5,18 @@ session_start();
 ?>
 
 <head>
-  <title>ADMINISTRAÇÃO</title>
+  <title>Administração</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- LINKS -->
+  <link rel="stylesheet" href="../recursos/css/styles.css">
   <link rel="icon" href="../recursos/imagens/icon.png" type="image/png">
   <link href="../recursos/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="../recursos/css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <script src="../recursos/js/bootstrap.bundle.min.js"></script>
-  <script src="../recursos/js/jquery-3.5.1.min.js"></script>
-  <script src="../recursos/js/popper.min.js"></script>
-  <script src="../recursos/js/script.js"></script>
 
-  <!-- FIM DOS LINKS -->
 </head>
 <?php
 include '../controladora/conexao.php';
@@ -43,7 +37,6 @@ $usuarios = $usuariosRepositorio->buscarTodosClientes();
         <img src="../recursos/imagens/logo.png" alt="Logo da Empresa" style="height: 40px;">
       </a>
 
-      <!-- Botões de Logar e Cadastrar -->
       <div class="botao-admin">
         <a class="btn btn-light ms-2" href="../visao/cadastrar_cliente.php">Novo Cliente</a>
         <a class="btn btn-light ms-2" href="../visao/cadastrar_produtos.php">Novo Produto</a>
@@ -75,7 +68,6 @@ $usuarios = $usuariosRepositorio->buscarTodosClientes();
     </nav>
   </nav>
 
-  <!-- LINKS DE NAVEGACAO E BOTOES -->
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ms-auto d-flex align-items-center">
     </ul>
@@ -91,7 +83,7 @@ $usuarios = $usuariosRepositorio->buscarTodosClientes();
         <br>
       </div>
 
-      <div class="table-responsive"> <!-- Adicione esta div -->
+      <div class="table-responsive">
         <table class="table table-striped">
           <thead>
             <tr>
@@ -100,7 +92,7 @@ $usuarios = $usuariosRepositorio->buscarTodosClientes();
               <th scope="col">Email</th>
               <th scope="col">CPF</th>
               <th scope="col">Telefone</th>
-              <th scope="col">Cep</th>
+              <th scope="col">CEP</th>
               <th scope="col">Logradouro</th>
               <th scope="col">Complemento</th>
               <th scope="col">Numero</th>
@@ -140,30 +132,36 @@ $usuarios = $usuariosRepositorio->buscarTodosClientes();
     </div>
   </section>
   <script>
-  $(document).on('click', '.botao-excluir', function() {
-    const idParaExcluir = $(this).data('id');
-    const tipo = $(this).data('tipo');
+    $(document).on('click', '.botao-excluir', function() {
+      const idParaExcluir = $(this).data('id');
+      const tipo = $(this).data('tipo');
 
-    $.ajax({
+      $.ajax({
         url: '../controladora/processar_exclusao.php',
         type: 'POST',
         dataType: 'json',
         data: {
-            id: idParaExcluir,
-            tipo: tipo
+          id: idParaExcluir,
+          tipo: tipo
         },
         success: function(response) {
-            if (response.status === 'sucesso') {
-              $(`#usuario-${idParaExcluir}`).remove();;
-            } else {
-                alert(response.message || 'Erro ao excluir.');
-            }
+          if (response.status === 'sucesso') {
+            $(`#usuario-${idParaExcluir}`).remove();;
+          } else {
+            alert(response.message || 'Erro ao excluir.');
+          }
         },
         error: function() {
-            alert('Erro na solicitação. Tente novamente.');
+          alert('Erro na solicitação. Tente novamente.');
         }
+      });
     });
-}); </script>
+  </script>
+
+  <script src="../recursos/js/bootstrap.bundle.min.js"></script>
+  <script src="../recursos/js/jquery-3.5.1.min.js"></script>
+  <script src="../recursos/js/popper.min.js"></script>
+  <script src="../recursos/js/script.js"></script>
 
 </body>
 

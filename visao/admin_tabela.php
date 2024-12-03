@@ -5,26 +5,20 @@ session_start();
 ?>
 
 <head>
-  <title>ADMINISTRAÇÃO</title>
+  <title>Administração</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- LINKS -->
   <link rel="stylesheet" href="../recursos/css/styles.css">
   <link rel="icon" href="../recursos/imagens/icon.png" type="image/png">
   <link href="../recursos/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <script src="../recursos/js/bootstrap.bundle.min.js"></script>
-  <script src="../recursos/js/jquery-3.5.1.min.js"></script>
-  <script src="../recursos/js/popper.min.js"></script>
-  <script src="../recursos/js/script.js"></script>
 
-
-  <!-- FIM DOS LINKS -->
 </head>
+
 <?php
 include '../controladora/conexao.php';
 include '../modelo/usuario.php';
@@ -33,29 +27,24 @@ include "../controladora/autenticacao.php";
 
 $usuariosRepositorio = new usuarioRepositorio($conn);
 $usuarios = $usuariosRepositorio->buscarTodosAdmins();
-
 ?>
 
 <body class="usuario-admin">
-
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
     <div class="container-fluid">
-      <!-- NAVBAR -->
       <a class="navbar-brand" href="/">
         <img src="../recursos/imagens/logo.png" alt="Logo da Empresa" style="height: 40px;">
       </a>
-      <!-- Botões de Logar e Cadastrar -->
       <div class="botao-admin">
         <a class="btn btn-light ms-2" href="../visao/cadastrar_admin.php">Novo Admin</a>
         <a class="btn btn-light ms-2" href="../visao/cadastrar_produtos.php">Novo Produto</a>
       </div>
     </div>
-
     <!-- Ícone do Menu Hambúrguer -->
     <div class="menu-icon-tabelas" onclick="toggleMenu()">
       <i class="bi bi-list"></i>
     </div>
-
     <!-- Menu Dropdown -->
     <nav id="menu" class="menu">
       <?php
@@ -84,8 +73,6 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
         <br>
         <br>
       </div>
-
-
       <div class="table-responsive">
         <table class="table table-striped">
           <thead>
@@ -116,10 +103,9 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
           </tbody>
         </table>
       </div>
-
-
     </div>
   </section>
+
   <script>
     $(document).on('click', '.botao-excluir', function() {
       const idParaExcluir = $(this).data('id');
@@ -146,6 +132,12 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
       });
     });
   </script>
+
+  <script src="../recursos/js/bootstrap.bundle.min.js"></script>
+  <script src="../recursos/js/jquery-3.5.1.min.js"></script>
+  <script src="../recursos/js/popper.min.js"></script>
+  <script src="../recursos/js/script.js"></script>
+
 </body>
 
 </html>

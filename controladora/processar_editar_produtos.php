@@ -1,10 +1,10 @@
 <?php
-// Incluir o arquivo de conexão com o banco de dados
+
 include '../controladora/conexao.php';
 include '../modelo/produtos.php';
 include '../repositorio/produtos_repositorio.php';
 
-// Criar uma instância do repositório de produtos
+// Instância do repositório de produtos
 $produtosRepositorio = new produtoRepositorio($conn);
 $produtos = $produtosRepositorio->buscarTodos();
 
@@ -18,21 +18,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Verificar se um novo arquivo foi enviado
     if ($_FILES["imagem"]["error"] == 0) {
-        // Diretório onde você deseja armazenar as imagens (ajuste conforme necessário)
+
         $diretorio_destino = "../recursos/imagens/";
 
-        // Nome do arquivo da imagem
         $nome_arquivo = basename($_FILES["imagem"]["name"]);
 
-        // Caminho completo do arquivo no servidor
         $caminho_completo = $diretorio_destino . $nome_arquivo;
 
-        // Validar se o arquivo é uma imagem (apenas para maior segurança)
+        // Valida se o arquivo é uma imagem (apenas para maior segurança)
         $check = getimagesize($_FILES["imagem"]["tmp_name"]);
-        if($check !== false) {
-            // Mover o arquivo para o diretório de destino
+        if ($check !== false) {
+            // Move o arquivo para o diretório de destino
             if (move_uploaded_file($_FILES["imagem"]["tmp_name"], $caminho_completo)) {
-                // Atualizar o nome do arquivo no banco de dados
+                // Atualiza o nome do arquivo no banco de dados
                 $sql_update_imagem = "UPDATE produtos SET imagem=? WHERE idProduto=?";
                 $stmt = $conn->prepare($sql_update_imagem);
                 $stmt->bind_param("si", $nome_arquivo, $produto_id);
@@ -64,17 +62,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Executar a consulta
         if ($stmt->execute()) {
-            // Redirecionar após o sucesso
             header("Location: ../visao/admin.php");
-            exit; // A execução do script é parada após o redirecionamento
+            exit;
         } else {
             echo "Erro ao editar produto: " . $stmt->error;
         }
 
-        // Fechar a declaração
         $stmt->close();
     } else {
         echo "Erro na preparação da consulta: " . $conn->error;
     }
 }
-?>
