@@ -98,7 +98,7 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
                     <input type="hidden" name="id" value="<?= $usuario->getIdUsuario(); ?>">
                     <input type="submit" class="botao-editar-tabela" value="Editar">
                   </form>
-                  <button class="botao-excluir" data-id="<?= $usuario->getIdUsuario(); ?>" data-tipo="usuario">
+                  <button class="botao-excluir-tabela" data-id="<?= $usuario->getIdUsuario(); ?>" data-tipo="usuario">
                     Excluir
                   </button>
                 </td>
@@ -111,7 +111,7 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
   </section>
 
   <script>
-    $(document).on('click', '.botao-excluir', function() {
+    $(document).on('click', '.botao-excluir-tabela', function() {
       const idParaExcluir = $(this).data('id');
       const tipo = $(this).data('tipo');
 
