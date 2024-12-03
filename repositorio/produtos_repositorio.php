@@ -1,5 +1,5 @@
 <?php
-class ProdutoRepositorio
+class produtoRepositorio
 {
     private $conn;
 
