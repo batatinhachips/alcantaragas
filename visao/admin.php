@@ -105,7 +105,7 @@ $produtos = $produtosRepositorio->buscarTodos();
                   <input type="submit" class="botao-editar" value="Editar">
                 </form>
 
-                <button class="botao-excluir" data-id="<?= $produto->getIdProduto(); ?>" data-tipo="produto">
+                <button class="botao-excluir-tabela" data-id="<?= $produto->getIdProduto(); ?>" data-tipo="produto">
                   Excluir
                 </button>
               </div>
@@ -117,7 +117,7 @@ $produtos = $produtosRepositorio->buscarTodos();
     </div>
   </section>
   <script>
-  $(document).on('click', '.botao-excluir', function() {
+  $(document).on('click', '.botao-excluir-tabela', function() {
     const idParaExcluir = $(this).data('id');
     const tipo = $(this).data('tipo');
 
