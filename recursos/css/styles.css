@@ -257,6 +257,7 @@ body {
 .botao-editar,
 .botao-excluir {
   width: 100%;
+  max-width: 100vw;
   border: none;
   border-radius: 15px;
   padding: 10px;
