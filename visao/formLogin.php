@@ -14,7 +14,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
+  <script src="../recursos/js/jquery-3.5.1.min.js"></script>
+  <script src="../recursos/js/bootstrap.min.js"></script>
 
   <link rel="stylesheet" href="../recursos/css/login.css">
   <link href="../recursos/imagens/icon.png" rel="icon">
@@ -53,52 +54,11 @@
         Login incorreto. Verifique seu e-mail e senha e tente novamente.
       </div>
 
-      <!-- <div class="text-end mt-1 mb-1">
-    <button id="forgot-password-btn" class="btn btn-link text-primary text-decoration-none">Esqueci a senha</button>
-  </div> -->
-
       <form method="post" action="cadastrar_cliente.php" class="mt-2">
         <button type="submit" class="btn btn-custom-secondary btn-block">Novo Cadastro</button>
       </form>
     </div>
 
-    <!-- Esqueci a senha (Inicialmente escondido) 
-    <div class="container container-form mt-5" id="forgot-password-form" style="display: none;">
-      <div class="card">
-        <div class="card-body">
-          <h2 class="card-title text-center">Recuperar Senha</h2>
-          <form id="recover-password-form" method="post" action="../controladora/processar_recuperacao_senha.php">
-            <div class="mb-3">
-              <label for="cpf" class="form-label">Digite seu CPF:</label>
-              <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Insira seu CPF" required>
-            </div>
-            <div class="d-grid">
-              <button type="submit" class="btn btn-primary">Recuperar Senha</button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <button id="back-to-login-btn" class="btn btn-primary mt-3">Voltar ao Login</button>
-      <div id="alert-container" class="mt-3"></div>
-    </div>
-
-    <script>
-      $(document).ready(function() {
-        // Mostrar o formulário de recuperação de senha e esconder o de login
-        $('#forgot-password-btn').click(function() {
-          $('#login-form').hide();
-          $('#forgot-password-form').show();
-        });
-
-        // Voltar ao formulário de login
-        $('#back-to-login-btn').click(function() {
-          $('#forgot-password-form').hide();
-          $('#login-form').show();
-        });
-      });
-    </script> -->
-    <script src="../recursos/js/jquery-3.5.1.min.js"></script>
-    <script src="../recursos/js/bootstrap.min.js"></script>
 </body>
 
 </html>
