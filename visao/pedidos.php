@@ -105,14 +105,14 @@ if (!isset($_SESSION['usuario']) || $_SESSION['idNivelUsuario'] != 2) {
             <input type="hidden" id="cidade" name="cidade" class="custom-input">
 
             <label for="produto" class="titulo-campo">Produto:</label>
-<select id="produto" name="produto" class="custom-input" required>
-    <option value="" disabled selected>Selecione um Produto</option> <!-- Adicionando a opção inicial -->
-    <?php foreach ($produtos as $produto) : ?>
-        <option value="<?= $produto->getIdProduto(); ?>" data-preco="<?= $produto->getPrecoProduto(); ?>">
-            <?= $produto->getNome(); ?>
-        </option>
-    <?php endforeach; ?>
-</select>
+            <select id="produto" name="produto" class="custom-input" required>
+                <option value="" disabled selected>Selecione um Produto</option> <!-- Adicionando a opção inicial -->
+                <?php foreach ($produtos as $produto) : ?>
+                    <option value="<?= $produto->getIdProduto(); ?>" data-preco="<?= $produto->getPrecoProduto(); ?>">
+                        <?= $produto->getNome(); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
 
             <label for="quantidade" class="titulo-campo">Quantidade:</label>
             <input type="number" id="quantidade" name="quantidade" class="custom-input" required>
@@ -210,16 +210,15 @@ if (!isset($_SESSION['usuario']) || $_SESSION['idNivelUsuario'] != 2) {
 
             // Quando o usuário selecionar um produto
             $("#produto").on("change", function() {
-    // Obtém o preço do produto selecionado
-    var preco = $(this).find('option:selected').data('preco');
-    
-    // Se houver um preço associado ao produto, preenche o campo de preço
-    if (preco !== undefined && preco !== "") {
-        $("#preco").val(preco); // Atualiza o campo de preço
-    } else {
-        $("#preco").val(""); // Deixa o campo de preço vazio
-    }
-});
+            // Obtém o preço do produto selecionado
+            var preco = $(this).find('option:selected').data('preco');
+            
+            if (preco !== undefined && preco !== "") {
+                $("#preco").val(preco); 
+            } else {
+                $("#preco").val(""); 
+            }
+        });
 
             $('#nomeCliente').select2({
                 placeholder: 'Digite o nome do cliente...',
