@@ -186,9 +186,6 @@ if (!isset($_SESSION['usuario']) || $_SESSION['idNivelUsuario'] != 2) {
         </table>
                 
         <p id="lucro-total">Lucro de: R$ <?= number_format($totalVendas, 2, ',', '.'); ?></p>
-        <div class="mt-4">
-                <button id="baixarPDF" class="btn btn-danger">Baixar PDF de Vendas</button>
-        </div>
     </div>
 
     <script>
