@@ -209,16 +209,15 @@ if (!isset($_SESSION['usuario']) || $_SESSION['idNivelUsuario'] != 2) {
 
             // Quando o usuário selecionar um produto
             $("#produto").on("change", function() {
-    var idProduto = $(this).val();
-    var preco = $(this).find('option:selected').data('preco');
-    console.log("Produto Selecionado: " + idProduto + " - Preço: " + preco); // Debug
-
-    if (preco !== undefined && preco !== "") {
-        $("#preco").val(preco);
-    } else {
-        $("#preco").val("");
-    }
-});
+                var idProduto = $(this).val();
+                var preco = $(this).find('option:selected').data('preco');
+            
+                if (preco !== undefined && preco !== "") {
+                    $("#preco").val(preco);
+                } else {
+                    $("#preco").val("");
+                }
+            });
 
             $('#nomeCliente').select2({
                 placeholder: 'Digite o nome do cliente...',
