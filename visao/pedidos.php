@@ -220,16 +220,6 @@ if (!isset($_SESSION['usuario']) || $_SESSION['idNivelUsuario'] != 2) {
     }
 });
 
-                var preco = $(this).find('option:selected').data('preco'); 
-
-                // Atualiza o campo de preço
-                if (preco !== undefined && preco !== "") {
-                    $("#preco").val(preco);
-                } else {
-                    $("#preco").val("");
-                }
-            });
-
             $('#nomeCliente').select2({
                 placeholder: 'Digite o nome do cliente...',
                 allowClear: true 
