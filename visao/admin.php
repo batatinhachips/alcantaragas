@@ -4,7 +4,7 @@
 session_start(); 
 
 // Verifica se o usuário está autenticado
-if (!isset($_SESSION['id']) || $_SESSION['nivel'] != 2) {
+if (!isset($_SESSION['usuario']) || $_SESSION['idNivelUsuario'] != 2) {
     // Se não estiver logado ou se não for admin, redireciona para a página de login ou uma página de erro
     header("Location: login.php"); // ou qualquer outra página desejada
     exit();
