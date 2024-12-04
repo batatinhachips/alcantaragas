@@ -105,13 +105,14 @@ if (!isset($_SESSION['usuario']) || $_SESSION['idNivelUsuario'] != 2) {
             <input type="hidden" id="cidade" name="cidade" class="custom-input">
 
             <label for="produto" class="titulo-campo">Produto:</label>
-            <select id="produto" name="produto" class="custom-input" required>
-                <?php foreach ($produtos as $produto) : ?>
-                    <option value="<?= $produto->getIdProduto(); ?>" data-preco="<?= $produto->getPrecoProduto(); ?>">
-                        <?= $produto->getNome(); ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
+<select id="produto" name="produto" class="custom-input" required>
+    <option value="" disabled selected>Selecione um Produto</option> <!-- Adicionando a opção inicial -->
+    <?php foreach ($produtos as $produto) : ?>
+        <option value="<?= $produto->getIdProduto(); ?>" data-preco="<?= $produto->getPrecoProduto(); ?>">
+            <?= $produto->getNome(); ?>
+        </option>
+    <?php endforeach; ?>
+</select>
 
             <label for="quantidade" class="titulo-campo">Quantidade:</label>
             <input type="number" id="quantidade" name="quantidade" class="custom-input" required>
