@@ -49,7 +49,6 @@ $usuarios = $usuariosRepositorio->buscarTodosAdmins();
       </a>
       <div class="botao-admin">
         <a class="btn btn-light ms-2" href="../visao/cadastrar_admin.php">Novo Admin</a>
-        <a class="btn btn-light ms-2" href="../visao/cadastrar_produtos.php">Novo Produto</a>
       </div>
     </div>
     <!-- Ícone do Menu Hambúrguer -->
