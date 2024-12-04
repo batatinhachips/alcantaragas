@@ -209,15 +209,16 @@ if (!isset($_SESSION['usuario']) || $_SESSION['idNivelUsuario'] != 2) {
 
             // Quando o usuário selecionar um produto
             $("#produto").on("change", function() {
-                var idProduto = $(this).val(); 
-                // Verifica se existe o produto no objeto totalProdutosVendidos
-                if (totalProdutoVendido[idProduto] !== undefined) {
-                    // Atualiza o campo total_produtos com a quantidade total de produtos vendidos
-                    $("#total_produtos").val(totalProdutoVendido[idProduto]);
-                } else {
-                    // Caso não exista vendas desse produto, preenche com 0
-                    $("#total_produtos").val(0);
-                }
+    var idProduto = $(this).val();
+    var preco = $(this).find('option:selected').data('preco');
+    console.log("Produto Selecionado: " + idProduto + " - Preço: " + preco); // Debug
+
+    if (preco !== undefined && preco !== "") {
+        $("#preco").val(preco);
+    } else {
+        $("#preco").val("");
+    }
+});
 
                 var preco = $(this).find('option:selected').data('preco'); 
 
