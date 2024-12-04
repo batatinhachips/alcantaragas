@@ -117,7 +117,7 @@ if (!isset($_SESSION['usuario']) || $_SESSION['idNivelUsuario'] != 2) {
             <input type="number" id="quantidade" name="quantidade" class="custom-input" required>
 
             <label for="preco" class="titulo-campo">Preço do Produto:</label>
-            <input id="preco" name="preco" class="custom-input" value="<?= $produto->getPrecoProduto(); ?>" required readonly>
+            <input id="preco" name="preco" class="custom-input" value="" required readonly>
 
             <label for="formaPagamento" class="titulo-campo">Forma de Pagamento:</label>
             <select id="formaPagamento" name="formaPagamento" class="custom-input" required>
@@ -209,15 +209,16 @@ if (!isset($_SESSION['usuario']) || $_SESSION['idNivelUsuario'] != 2) {
 
             // Quando o usuário selecionar um produto
             $("#produto").on("change", function() {
-                var idProduto = $(this).val();
-                var preco = $(this).find('option:selected').data('preco');
-            
-                if (preco !== undefined && preco !== "") {
-                    $("#preco").val(preco);
-                } else {
-                    $("#preco").val("");
-                }
-            });
+    // Obtém o preço do produto selecionado
+    var preco = $(this).find('option:selected').data('preco');
+    
+    // Se houver um preço associado ao produto, preenche o campo de preço
+    if (preco !== undefined && preco !== "") {
+        $("#preco").val(preco); // Atualiza o campo de preço
+    } else {
+        $("#preco").val(""); // Deixa o campo de preço vazio
+    }
+});
 
             $('#nomeCliente').select2({
                 placeholder: 'Digite o nome do cliente...',
@@ -362,33 +363,6 @@ if (!isset($_SESSION['usuario']) || $_SESSION['idNivelUsuario'] != 2) {
             });
         });
 
-        
-        $(document).ready(function () {
-    $('#baixarPDF').on('click', function () {
-        $.ajax({
-            url: '../controladora/gerar_pdf_vendas.php', // Caminho para o script PHP
-            method: 'POST',
-            xhrFields: {
-                responseType: 'blob' // Necessário para receber o arquivo como um blob
-            },
-            success: function (data) {
-                // Cria um link temporário para download
-                const blob = new Blob([data], { type: 'application/pdf' });
-                const link = document.createElement('a');
-                link.href = window.URL.createObjectURL(blob);
-                link.download = 'relatorio_vendas.pdf';
-                link.click();
-
-                // Limpa o objeto para liberar memória
-                window.URL.revokeObjectURL(link.href);
-            },
-            error: function (xhr, status, error) {
-                console.error('Erro ao gerar o PDF:', error);
-                alert('Não foi possível gerar o PDF. Tente novamente.');
-            }
-        });
-    });
-});
 
     </script>
 
