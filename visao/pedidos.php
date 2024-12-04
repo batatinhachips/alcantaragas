@@ -47,6 +47,16 @@ if (!isset($_SESSION['usuario']) || $_SESSION['idNivelUsuario'] != 2) {
 
     $usuariosRepositorio = new usuarioRepositorio($conn);
     $usuarios = $usuariosRepositorio->buscarTodosClientes();
+
+    $registrosPorPagina = 5;
+    $paginaAtual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+    $inicio = ($paginaAtual - 1) * $registrosPorPagina;
+    
+    // Buscando apenas os registros para a página atual
+    $vendasPaginadas = array_slice($vendas, $inicio, $registrosPorPagina);
+    
+    // Total de páginas
+    $totalPaginas = ceil(count($vendas) / $registrosPorPagina);
     ?>
 
     <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top">
