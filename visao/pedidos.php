@@ -186,7 +186,7 @@ if (!isset($_SESSION['usuario']) || $_SESSION['idNivelUsuario'] != 2) {
             </tbody>
         </table>
                 
-        <p id="lucro-total">Lucro de: R$ <?= number_format($totalVendas, 2, ',', '.'); ?></p>
+        <p id="lucro-total">Total de vendas: R$ <?= number_format($totalVendas, 2, ',', '.'); ?></p>
     </div>
 
     <script>
