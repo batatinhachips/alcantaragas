@@ -8,7 +8,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Verifica se o método da requisição é POST 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter dados do formulário
     $nome = trim($_POST["nome"]);
@@ -43,43 +42,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Instanciar a classe Usuario com a conexão
     $usuario = new Usuario($conn);
 
-    // Preparar o comando SQL para inserção do novo usuário no banco de dados
-    // Evita SQL Injection com Prepared Statements
+    // Cadastrar usuário ou administrador
+    if ($usuario->cadastrar($nome, $email, $senha, $idNivelUsuario, $cpf, $telefone, $cep, $logradouro, $complemento, $numero, $bairro, $cidade)) {
 
-    // Hash da senha para segurança
-    $senhaHash = password_hash($senha, PASSWORD_BCRYPT);
-
-    $stmt = $conn->prepare(
-        "INSERT INTO usuarios (nome, email, senha, idNivelUsuario, cpf, telefone, cep, logradouro, complemento, numero, bairro, cidade)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-    );
-    
-    // Verifica se o prepared statement foi criado corretamente
-    if ($stmt === false) {
-        echo "Erro na preparação da consulta: " . $conn->error;
-        exit();
-    }
-
-    // Bind dos parâmetros, substituindo os placeholders "?" pelos valores recebidos no formulário
-    $stmt->bind_param(
-        "ssssssssssss", 
-        $nome, 
-        $email, 
-        $senhaHash, 
-        $idNivelUsuario, 
-        $cpf, 
-        $telefone, 
-        $cep, 
-        $logradouro, 
-        $complemento, 
-        $numero, 
-        $bairro, 
-        $cidade
-    );
-
-    // Executar a consulta preparada
-    if ($stmt->execute()) {
-        // Se o cadastro for bem-sucedido, redireciona o usuário conforme o nível de acesso
         if ($idNivelUsuario === "2") {
             header("Location: ../visao/admin.php");
         } else {
@@ -87,11 +52,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         exit();
     } else {
-        echo "Erro ao cadastrar usuário: " . $stmt->error;
+        echo "Erro ao cadastrar usuário: " . $resultado;
     }
-
-    // Fechar o prepared statement
-    $stmt->close();
 }
 
 ob_end_flush(); // Finaliza o buffer de saída, enviando o conteúdo armazenado
