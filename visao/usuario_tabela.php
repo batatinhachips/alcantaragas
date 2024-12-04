@@ -50,7 +50,6 @@ $usuarios = $usuariosRepositorio->buscarTodosClientes();
 
       <div class="botao-admin">
         <a class="btn btn-light ms-2" href="../visao/cadastrar_cliente.php">Novo Cliente</a>
-        <a class="btn btn-light ms-2" href="../visao/cadastrar_produtos.php">Novo Produto</a>
       </div>
 
       <!-- Ícone do Menu Hambúrguer -->
