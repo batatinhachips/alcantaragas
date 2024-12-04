@@ -1,5 +1,15 @@
 <!doctype html>
 <html lang="pt-br">
+  <?php
+session_start(); 
+
+// Verifica se o usuário está autenticado
+if (!isset($_SESSION['usuario']) || $_SESSION['idNivelUsuario'] != 2) {
+    // Se não estiver logado ou se não for admin, redireciona para a página de login ou uma página de erro
+    header("Location: formLogin.php"); // ou qualquer outra página desejada
+    exit();
+}
+?>
 <head>
   <title>SUCESSO NO CADASTRO!</title>
 
