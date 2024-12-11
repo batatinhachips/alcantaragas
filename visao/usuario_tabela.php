@@ -45,7 +45,7 @@ $usuarios = $usuariosRepositorio->buscarTodosClientes();
     <div class="container-fluid">
       <!-- NAVBAR -->
       <a class="navbar-brand" href="/">
-        <img src="../recursos/imagens/logo.png" alt="Logo da Empresa" style="height: 40px;">
+        <img src="../recursos/imagens/logo_nav.png" alt="Logo da Empresa" style="height: 40px;">
       </a>
 
       <div class="botao-admin">
